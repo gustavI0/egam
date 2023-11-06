@@ -1,0 +1,3 @@
+administer artist:
+  title: 'Administer artists'
+  restrict access: true

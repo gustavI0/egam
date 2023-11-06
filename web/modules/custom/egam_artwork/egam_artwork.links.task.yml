@@ -1,0 +1,22 @@
+entity.artwork.settings:
+  title: 'Settings'
+  route_name: entity.artwork.settings
+  base_route: entity.artwork.settings
+entity.artwork.view:
+  title: 'View'
+  route_name: entity.artwork.canonical
+  base_route: entity.artwork.canonical
+entity.artwork.edit_form:
+  title: 'Edit'
+  route_name: entity.artwork.edit_form
+  base_route: entity.artwork.canonical
+entity.artwork.delete_form:
+  title: 'Delete'
+  route_name: entity.artwork.delete_form
+  base_route: entity.artwork.canonical
+  weight: 10
+entity.artwork.collection:
+  title: 'Artworks'
+  route_name: entity.artwork.collection
+  base_route: system.admin_content
+  weight: 10

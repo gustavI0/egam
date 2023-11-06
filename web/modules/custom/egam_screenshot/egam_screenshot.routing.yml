@@ -1,0 +1,7 @@
+entity.screenshot.settings:
+  path: 'admin/structure/screenshot'
+  defaults:
+    _form: '\Drupal\egam_screenshot\Form\ScreenshotSettingsForm'
+    _title: 'Screenshot'
+  requirements:
+    _permission: 'administer screenshot'

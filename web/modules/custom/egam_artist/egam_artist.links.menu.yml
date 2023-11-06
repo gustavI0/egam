@@ -1,0 +1,11 @@
+entity.artist.settings:
+  title: 'Artist'
+  description: 'Configure an Artist entity type.'
+  route_name:  entity.artist.settings
+  parent: system.admin_structure
+
+entity.artist.collection:
+  title: 'Artists'
+  description: 'List of artists'
+  route_name: entity.artist.collection
+  parent: system.admin_content

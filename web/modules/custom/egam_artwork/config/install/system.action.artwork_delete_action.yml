@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork_delete_action
+label: 'Delete artworks'
+type: artwork
+plugin: entity:delete_action:artwork
+configuration: {  }

@@ -1,0 +1,10 @@
+entity.artist.edit_form:
+  route_name: entity.artist.edit_form
+  group: artist
+  title: 'Edit'
+
+entity.artist.delete_form:
+  route_name: entity.artist.delete_form
+  group: artist
+  title: 'Delete'
+  weight: 10

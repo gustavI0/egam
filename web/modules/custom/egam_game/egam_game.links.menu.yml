@@ -1,0 +1,11 @@
+entity.game.settings:
+  title: 'Game'
+  description: 'Configure a Game entity type.'
+  route_name:  entity.game.settings
+  parent: system.admin_structure
+
+entity.game.collection:
+  title: 'Games'
+  description: 'List of games.'
+  route_name: entity.game.collection
+  parent: system.admin_content

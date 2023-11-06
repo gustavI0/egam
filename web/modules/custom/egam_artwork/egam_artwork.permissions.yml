@@ -1,0 +1,3 @@
+administer artwork:
+  title: 'Administer artworks'
+  restrict access: true

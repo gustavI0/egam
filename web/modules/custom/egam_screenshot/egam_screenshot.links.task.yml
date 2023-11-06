@@ -1,0 +1,22 @@
+entity.screenshot.settings:
+  title: 'Settings'
+  route_name: entity.screenshot.settings
+  base_route: entity.screenshot.settings
+entity.screenshot.view:
+  title: 'View'
+  route_name: entity.screenshot.canonical
+  base_route: entity.screenshot.canonical
+entity.screenshot.edit_form:
+  title: 'Edit'
+  route_name: entity.screenshot.edit_form
+  base_route: entity.screenshot.canonical
+entity.screenshot.delete_form:
+  title: 'Delete'
+  route_name: entity.screenshot.delete_form
+  base_route: entity.screenshot.canonical
+  weight: 10
+entity.screenshot.collection:
+  title: 'Screenshots'
+  route_name: entity.screenshot.collection
+  base_route: system.admin_content
+  weight: 10

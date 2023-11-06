@@ -1,0 +1,22 @@
+entity.artist.settings:
+  title: 'Settings'
+  route_name: entity.artist.settings
+  base_route: entity.artist.settings
+entity.artist.view:
+  title: 'View'
+  route_name: entity.artist.canonical
+  base_route: entity.artist.canonical
+entity.artist.edit_form:
+  title: 'Edit'
+  route_name: entity.artist.edit_form
+  base_route: entity.artist.canonical
+entity.artist.delete_form:
+  title: 'Delete'
+  route_name: entity.artist.delete_form
+  base_route: entity.artist.canonical
+  weight: 10
+entity.artist.collection:
+  title: 'Artists'
+  route_name: entity.artist.collection
+  base_route: system.admin_content
+  weight: 10

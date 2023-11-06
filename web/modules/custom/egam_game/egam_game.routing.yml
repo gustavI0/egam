@@ -1,0 +1,7 @@
+entity.game.settings:
+  path: 'admin/structure/game'
+  defaults:
+    _form: '\Drupal\egam_game\Form\GameSettingsForm'
+    _title: 'Game'
+  requirements:
+    _permission: 'administer game'

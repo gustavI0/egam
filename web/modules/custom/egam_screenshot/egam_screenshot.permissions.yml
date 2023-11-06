@@ -1,0 +1,3 @@
+administer screenshot:
+  title: 'Administer screenshots'
+  restrict access: true

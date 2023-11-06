@@ -1,0 +1,10 @@
+entity.game.edit_form:
+  route_name: entity.game.edit_form
+  group: game
+  title: 'Edit'
+
+entity.game.delete_form:
+  route_name: entity.game.delete_form
+  group: game
+  title: 'Delete'
+  weight: 10

@@ -1,0 +1,11 @@
+entity.screenshot.settings:
+  title: 'Screenshot'
+  description: 'Configure a Screenshot entity type.'
+  route_name:  entity.screenshot.settings
+  parent: system.admin_structure
+
+entity.screenshot.collection:
+  title: 'Screenshots'
+  description: 'List of screenshots.'
+  route_name: entity.screenshot.collection
+  parent: system.admin_content

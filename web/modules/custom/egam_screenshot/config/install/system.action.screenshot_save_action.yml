@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+id: screenshot_save_action
+label: 'Save screenshots'
+type: screenshot
+plugin: entity:save_action:screenshot
+configuration: {  }

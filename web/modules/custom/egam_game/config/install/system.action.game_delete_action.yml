@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game_delete_action
+label: 'Delete games'
+type: game
+plugin: entity:delete_action:game
+configuration: {  }

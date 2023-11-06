@@ -1,0 +1,5 @@
+name: 'EGAM Artist'
+type: module
+description: 'Provides an artist entity'
+package: Custom
+core_version_requirement: ^10

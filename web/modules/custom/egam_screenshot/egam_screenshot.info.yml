@@ -1,0 +1,5 @@
+name: 'EGAM Screenshot'
+type: module
+description: 'Provides a screenshot entity'
+package: Custom
+core_version_requirement: ^10

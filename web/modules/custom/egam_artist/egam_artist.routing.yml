@@ -1,0 +1,12 @@
+entity.artist.settings:
+  path: 'admin/structure/artist'
+  defaults:
+    _form: '\Drupal\egam_artist\Form\ArtistSettingsForm'
+    _title: 'Artist'
+  requirements:
+    _permission: 'administer artist'
+
+entity.artist.collection:
+  path: '/artistes'
+  requirements:
+    _permission: 'administer artist'

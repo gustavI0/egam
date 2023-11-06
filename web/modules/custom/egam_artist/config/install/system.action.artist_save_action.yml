@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist_save_action
+label: 'Save artists'
+type: artist
+plugin: entity:save_action:artist
+configuration: {  }

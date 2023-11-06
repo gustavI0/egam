@@ -1,0 +1,123 @@
+version: "3.7"
+
+############### DC-LOCAL version : 1.0.5
+
+
+services:
+  db:
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${DB_HOST}"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+    volumes:
+      - ./.docker/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here. And remove it after restore !
+      - db_data:/var/lib/mysql
+      - ./.docker/db_conf:/etc/mysql/conf.d
+
+  php:
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_php"
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S ${PROJECT_NAME}_mailhog:1025
+      #      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S opensmtpd:25
+
+      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_MODE: debug
+      PHP_XDEBUG_START_WITH_REQUEST: "yes"
+      #PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+      PHP_IDE_CONFIG: serverName=default
+      PHP_XDEBUG_IDEKEY: "PHPSTORM"
+      #PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux
+      #PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ Mac/Win
+      PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
+      PHP_XDEBUG_DISCOVER_CLIENT_HOST: "TRUE"
+      #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+      #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+      PHP_XDEBUG_REMOTE_LOG: /tmp/php-xdebug.log
+      PHP_XDEBUG_LOG: '/dev/null'
+      #      # PHPUnit Drupal testing configurations
+      #      SIMPLETEST_BASE_URL: "http://nginx"
+      #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
+      #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+    volumes:
+      - ./:/var/www/html:cached
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.composer/auth.json:/home/wodby/.composer/auth.json
+  ## For XHProf and Xdebug profiler traces
+  #    - files:/mnt/files
+
+  crond:
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_crond"
+    environment:
+      CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
+    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
+    volumes:
+      - ./:/var/www/html:cached
+
+  nginx:
+    image: wodby/nginx:$NGINX_TAG
+    container_name: "${PROJECT_NAME}_nginx"
+    networks:
+      - web
+      - default
+    depends_on:
+      - php
+    environment:
+      NGINX_STATIC_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: php
+      NGINX_SERVER_ROOT: /var/www/html/web
+      NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
+    #  NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
+    volumes:
+      - ./:/var/www/html:cached
+    labels:
+      - "traefik.http.routers.${PROJECT_NAME}_nginx.entrypoints=web"
+      - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=HostRegexp(`${PROJECT_BASE_URL}`, `{[a-z0-9]+}-${PROJECT_BASE_URL}`)"
+      - "traefik.http.middlewares.${PROJECT_NAME}-nginx-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${PROJECT_NAME}_nginx.middlewares=${PROJECT_NAME}-nginx-https-redirect"
+      - "traefik.http.routers.${PROJECT_NAME}_nginx-secure.entrypoints=websecure"
+      - "traefik.http.routers.${PROJECT_NAME}_nginx-secure.rule=HostRegexp(`${PROJECT_BASE_URL}`, `{[a-z0-9]+}-${PROJECT_BASE_URL}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_nginx-secure.tls=true"
+      - "traefik.docker.network=web"
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: "${PROJECT_NAME}_mailhog"
+    networks:
+      - web
+      - default
+
+  #  redis:
+  #    container_name: "${PROJECT_NAME}_redis"
+  #    image: wodby/redis:$REDIS_TAG
+
+  #solr:
+  #  image: wodby/solr:$SOLR_TAG
+  #  container_name: "${PROJECT_NAME}_solr"
+  #  environment:
+  #    SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
+  #    SOLR_HEAP: 1024m
+  #  networks:
+  #    - default
+  #  volumes:
+  #    - solr:/opt/solr/server/solr
+  #  labels:
+  #    - "traefik.http.services.${PROJECT_NAME}_solr.loadbalancer.server.port=8983"
+  #    - "traefik.http.routers.${PROJECT_NAME}_solr.rule=Host(`solr.${PROJECT_BASE_URL}`)"
+
+volumes:
+  ## FOR DB DATA PERSISTENCE
+  db_data:
+
+## For Xdebug profiler
+#  files:
+networks:
+  web:
+    external: true

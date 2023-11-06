@@ -1,0 +1,10 @@
+entity.screenshot.edit_form:
+  route_name: entity.screenshot.edit_form
+  group: screenshot
+  title: 'Edit'
+
+entity.screenshot.delete_form:
+  route_name: entity.screenshot.delete_form
+  group: screenshot
+  title: 'Delete'
+  weight: 10

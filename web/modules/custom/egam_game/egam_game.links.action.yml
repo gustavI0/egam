@@ -1,0 +1,5 @@
+game.add_form:
+  title: 'Add game'
+  route_name: entity.game.add_form
+  appears_on:
+    - entity.game.collection

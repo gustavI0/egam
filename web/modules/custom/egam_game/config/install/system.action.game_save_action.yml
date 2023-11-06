@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game_save_action
+label: 'Save games'
+type: game
+plugin: entity:save_action:game
+configuration: {  }

@@ -1,0 +1,5 @@
+name: 'EGAM Artwork'
+type: module
+description: 'Provides an artwork entity'
+package: Custom
+core_version_requirement: ^10

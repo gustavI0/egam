@@ -1,0 +1,5 @@
+screenshot.add_form:
+  title: 'Add screenshot'
+  route_name: entity.screenshot.add_form
+  appears_on:
+    - entity.screenshot.collection

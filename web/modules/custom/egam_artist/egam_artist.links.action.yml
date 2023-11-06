@@ -1,0 +1,5 @@
+artist.add_form:
+  title: 'Add artist'
+  route_name: entity.artist.add_form
+  appears_on:
+    - entity.artist.collection

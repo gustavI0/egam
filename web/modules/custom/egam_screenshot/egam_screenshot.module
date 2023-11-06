@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for EGAM Screenshot module.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function egam_screenshot_theme(): array {
+  return [
+    'screenshot' => ['render element' => 'elements'],
+  ];
+}
+
+/**
+ * Prepares variables for screenshot templates.
+ *
+ * Default template: screenshot.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the screenshot information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_screenshot(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function egam_screenshot_user_cancel($edit, UserInterface $account, $method): void {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish screenshots.
+      $storage = \Drupal::entityTypeManager()->getStorage('screenshot');
+      $screenshot_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($screenshot_ids) as $screenshot) {
+        $screenshot->set('status', FALSE)->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize screenshots.
+      $storage = \Drupal::entityTypeManager()->getStorage('screenshot');
+      $screenshot_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($screenshot_ids) as $screenshot) {
+        $screenshot->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function egam_screenshot_user_predelete(UserInterface $account): void {
+  // Delete screenshots that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('screenshot');
+  $screenshot_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($screenshot_ids)
+  );
+  // Delete old revisions.
+  $screenshot_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  foreach (array_keys($screenshot_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

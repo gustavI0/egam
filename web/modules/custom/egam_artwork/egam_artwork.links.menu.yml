@@ -1,0 +1,11 @@
+entity.artwork.settings:
+  title: 'Artwork'
+  description: 'Configure an Artwork entity type.'
+  route_name:  entity.artwork.settings
+  parent: system.admin_structure
+
+entity.artwork.collection:
+  title: 'Artworks'
+  description: 'List of artworks.'
+  route_name: entity.artwork.collection
+  parent: system.admin_content

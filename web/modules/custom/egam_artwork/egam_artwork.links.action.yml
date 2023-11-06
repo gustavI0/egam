@@ -1,0 +1,5 @@
+artwork.add_form:
+  title: 'Add artwork'
+  route_name: entity.artwork.add_form
+  appears_on:
+    - entity.artwork.collection

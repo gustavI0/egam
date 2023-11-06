@@ -1,0 +1,7 @@
+entity.artwork.settings:
+  path: 'admin/structure/artwork'
+  defaults:
+    _form: '\Drupal\egam_artwork\Form\ArtworkSettingsForm'
+    _title: 'Artwork'
+  requirements:
+    _permission: 'administer artwork'
