@@ -1,0 +1,13 @@
+uuid: 8836ce09-3b9a-43f3-b575-0795a714e588
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+_core:
+  default_config_hash: YyXd6o6F0GhaOLbi_8abj1wmRylBRaVu7O9jtLGzhY0
+id: game_save_action
+label: 'Save games'
+type: game
+plugin: 'entity:save_action:game'
+configuration: {  }

@@ -1,0 +1,13 @@
+uuid: 435cbd72-b2af-4f15-838d-5b7505b599f8
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+_core:
+  default_config_hash: dIsFwM2a25b8PSYlfgKyvKBf_TPBJ9F10bNhaKRHRs8
+id: screenshot_delete_action
+label: 'Delete screenshots'
+type: screenshot
+plugin: 'entity:delete_action:screenshot'
+configuration: {  }

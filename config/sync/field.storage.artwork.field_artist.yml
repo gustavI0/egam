@@ -1,0 +1,20 @@
+uuid: c08b4133-741b-4829-89cc-e64f317f99cf
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - egam_artwork
+id: artwork.field_artist
+field_name: field_artist
+entity_type: artwork
+type: entity_reference
+settings:
+  target_type: artist
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

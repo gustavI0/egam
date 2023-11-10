@@ -1,0 +1,60 @@
+uuid: 5a5bac1f-9f36-43c0-8b40-42f8727642d7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.artwork.teaser
+    - field.field.artwork.artwork.field_artist
+    - field.field.artwork.artwork.field_cover
+    - image.style.medium
+  module:
+    - egam_artwork
+    - media
+id: artwork.artwork.teaser
+targetEntityType: artwork
+bundle: artwork
+mode: teaser
+content:
+  artist:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_artist:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

@@ -1,0 +1,10 @@
+uuid: 74e9fc63-0e38-4020-bc6b-a2be4e028c1b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.token
+label: Token
+targetEntityType: artist
+cache: true

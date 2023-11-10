@@ -1,4 +1,4 @@
-uuid: 36227046-e22c-42e4-b293-878a2f32ca00
+uuid: 0ae1a5e0-bbf6-4dd9-bebf-7dd7eac0f9e0
 langcode: fr
 status: true
 dependencies:
@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.thumbnail
     - node.type.article
   module:
     - comment
@@ -49,7 +48,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: ''
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags

@@ -1,0 +1,27 @@
+uuid: 39891c4d-1559-4d20-96bc-56d5c29e045a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_game
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_game
+field_name: field_game
+entity_type: screenshot
+bundle: screenshot
+label: Jeu
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:game'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+field_type: entity_reference

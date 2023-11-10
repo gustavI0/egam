@@ -1,6 +1,6 @@
-uuid: 5917a18a-5ed2-4530-842d-b58e09c83782
+uuid: 248abb38-db03-4850-8000-abce8d4b9b54
 langcode: fr
-status: true
+status: false
 dependencies:
   module:
     - system

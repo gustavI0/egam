@@ -1,0 +1,21 @@
+uuid: 37bc9a7c-c08e-40bb-b3ce-b200f76b64e3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.webp
+    - image.style.webp_mobile
+id: wide
+label: Large
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 800px) 1000px, 50vw'
+      sizes_image_styles:
+        - webp
+        - webp_mobile
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: webp

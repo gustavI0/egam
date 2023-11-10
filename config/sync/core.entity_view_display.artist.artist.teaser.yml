@@ -1,0 +1,37 @@
+uuid: 80a06fd2-4f5f-4af7-89ec-4186078bf47f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.artist.teaser
+    - field.field.artist.artist.field_cover
+  module:
+    - egam_artist
+id: artist.artist.teaser
+targetEntityType: artist
+bundle: artist
+mode: teaser
+content:
+  field_cover:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  search_api_excerpt: true
+  status: true
+  uid: true

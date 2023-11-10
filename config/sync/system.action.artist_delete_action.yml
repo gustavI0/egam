@@ -1,0 +1,13 @@
+uuid: 3e98327f-667e-4892-8cf7-80e4cacc8dfe
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+_core:
+  default_config_hash: PMVcKlIFnRXEM61D9LHuPXsxOKZtmtFAtj_L_I4LU9c
+id: artist_delete_action
+label: 'Delete artists'
+type: artist
+plugin: 'entity:delete_action:artist'
+configuration: {  }

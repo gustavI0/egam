@@ -1,7 +1,7 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: fr
-uuid: f4e98dbf-0c61-43ed-91f2-65cac7fb0320
+uuid: e3291d55-8636-4749-b707-fcaf14cf1884
 name: 'Every Game a Museum'
 mail: every_game@gustetto.net
 slogan: ''
@@ -12,3 +12,4 @@ page:
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: fr
+mail_notification: ''

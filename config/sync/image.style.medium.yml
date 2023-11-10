@@ -1,16 +1,14 @@
-uuid: 1810c94c-8b01-4914-a177-9ee0f3a782f4
+uuid: a3ee00bc-90b2-43b7-b93f-dec9574436cb
 langcode: fr
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: Y9NmnZHQq20ASSyTNA6JnwtWrJJiSajOehGDtmUFdM0
 name: medium
 label: 'Moyen (220x220)'
 effects:
-  bddf0d06-42f9-4c75-a700-a33cafa25ea0:
-    uuid: bddf0d06-42f9-4c75-a700-a33cafa25ea0
+  23180e74-02fa-4ae1-9823-6007f1504dad:
+    uuid: 23180e74-02fa-4ae1-9823-6007f1504dad
     id: image_scale
-    weight: 0
+    weight: 1
     data:
       width: 220
       height: 220

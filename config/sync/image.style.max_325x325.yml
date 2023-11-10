@@ -1,0 +1,15 @@
+uuid: 49c9732a-e656-46d2-9fe5-a2ad5b4629a5
+langcode: fr
+status: true
+dependencies: {  }
+name: max_325x325
+label: 'Max 325x325'
+effects:
+  10530d87-d3e6-48ae-b677-eaf1427aebbd:
+    uuid: 10530d87-d3e6-48ae-b677-eaf1427aebbd
+    id: image_scale
+    weight: 1
+    data:
+      width: 325
+      height: 325
+      upscale: false

@@ -1,0 +1,10 @@
+uuid: 97c96691-218d-4b35-b248-5721e2e4699b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game.token
+label: Token
+targetEntityType: game
+cache: true

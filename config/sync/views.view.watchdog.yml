@@ -1,4 +1,4 @@
-uuid: 2f90e460-4186-4227-b875-7a5e91de2740
+uuid: ef7864f4-6d25-47fe-bfc7-fccce320418c
 langcode: fr
 status: true
 dependencies:
@@ -437,7 +437,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 50
@@ -446,6 +446,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page: false
             items_per_page_label: 'Éléments par page'
@@ -454,6 +456,7 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset: false
             offset_label: Décalage
+          quantity: 9
       exposed_form:
         type: basic
         options:

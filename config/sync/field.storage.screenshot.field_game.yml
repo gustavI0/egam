@@ -1,0 +1,20 @@
+uuid: f00893de-d761-4fa7-9222-5e86686ebf66
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - egam_screenshot
+id: screenshot.field_game
+field_name: field_game
+entity_type: screenshot
+type: entity_reference
+settings:
+  target_type: game
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

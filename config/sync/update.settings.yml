@@ -10,5 +10,5 @@ fetch:
   timeout: 30
 notification:
   emails:
-    - every_game@gustetto.net
+    - admin@example.com
   threshold: all

@@ -1,0 +1,27 @@
+uuid: 79032003-1304-4d7f-b58c-b5b3b205e51c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_artwork
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_artwork
+field_name: field_artwork
+entity_type: screenshot
+bundle: screenshot
+label: Oeuvre
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:artwork'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+field_type: entity_reference

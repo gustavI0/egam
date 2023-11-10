@@ -1,0 +1,13 @@
+uuid: bd394e14-5725-44fa-ba81-50cd4838b986
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+_core:
+  default_config_hash: 2yv4TpB433oH757g24p-8gD_TeG476OBcG9J5LPEMN8
+id: artwork_save_action
+label: 'Save artworks'
+type: artwork
+plugin: 'entity:save_action:artwork'
+configuration: {  }

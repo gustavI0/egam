@@ -1,0 +1,13 @@
+uuid: 40adabde-2819-4899-b541-607e1854afd4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+_core:
+  default_config_hash: kLaI4KWaLAPoh8LsGwsYIQAocyDzBAI3Je81uqUOoZQ
+id: artist_save_action
+label: 'Save artists'
+type: artist
+plugin: 'entity:save_action:artist'
+configuration: {  }

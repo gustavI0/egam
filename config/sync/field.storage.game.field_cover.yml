@@ -1,0 +1,20 @@
+uuid: f829c4d6-6fac-4145-99cf-97d2ce59f935
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - media
+id: game.field_cover
+field_name: field_cover
+entity_type: game
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+uuid: e0ef75f6-3031-4e32-932f-6f6ba4edd265
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist_page
+label: 'Page artiste'
+type: 'canonical_entities:artist'
+pattern: '/artist/[artist:label]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

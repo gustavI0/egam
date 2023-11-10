@@ -1,0 +1,30 @@
+uuid: b4583407-840f-419f-b3ca-96a78bda0ba4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_cover
+    - media.type.image
+  module:
+    - egam_artist
+id: artist.artist.field_cover
+field_name: field_cover
+entity_type: artist
+bundle: artist
+label: Visuel
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

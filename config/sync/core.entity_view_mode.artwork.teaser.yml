@@ -1,0 +1,10 @@
+uuid: 630a4ab5-cf0e-4c0c-98b0-82038fbf8cfe
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.teaser
+label: Accroche
+targetEntityType: artwork
+cache: true

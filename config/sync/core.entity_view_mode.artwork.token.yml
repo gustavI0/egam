@@ -1,0 +1,10 @@
+uuid: 476a3178-5514-45a5-88c4-19e19ff69f1d
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.token
+label: Token
+targetEntityType: artwork
+cache: true

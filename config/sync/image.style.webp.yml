@@ -1,0 +1,21 @@
+uuid: 7af5e7a8-6426-41cb-80e9-b70e9530be40
+langcode: fr
+status: true
+dependencies: {  }
+name: webp
+label: Webp
+effects:
+  8503b25c-2fda-44ad-bfbb-d236ed5cd70d:
+    uuid: 8503b25c-2fda-44ad-bfbb-d236ed5cd70d
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  0e3a8cdc-c6b3-436e-a1a3-75efb76190d0:
+    uuid: 0e3a8cdc-c6b3-436e-a1a3-75efb76190d0
+    id: image_scale
+    weight: 2
+    data:
+      width: 1920
+      height: null
+      upscale: false

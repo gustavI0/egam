@@ -1,0 +1,13 @@
+uuid: 8be83bf8-800e-47ac-a3a1-f36d31f8ba69
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+_core:
+  default_config_hash: dZvmkyCZl3jF0hnM0i5ZkzNR9SLBTxhagmKWVzSdT_w
+id: game_delete_action
+label: 'Delete games'
+type: game
+plugin: 'entity:delete_action:game'
+configuration: {  }

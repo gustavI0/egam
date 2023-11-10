@@ -1,13 +1,11 @@
-uuid: 5993da2f-8272-4507-b532-f362b38bcbc6
+uuid: ea679c79-f27a-4aea-a0c4-d5c6afebff13
 langcode: fr
 status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - user
 _core:
   default_config_hash: 00zr_RBdTjPjBGITD3h4c1ESQZimjdVCcHGt1trLqIY
@@ -15,18 +13,9 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content:
-  user_picture:
-    type: image
-    label: hidden
-    settings:
-      image_link: content
-      image_style: thumbnail
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
   langcode: true
   member_for: true
+  search_api_excerpt: true
+  user_picture: true

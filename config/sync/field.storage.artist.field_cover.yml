@@ -1,0 +1,20 @@
+uuid: 4cc49da5-d755-477b-9223-be122fa5f09a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - media
+id: artist.field_cover
+field_name: field_cover
+entity_type: artist
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

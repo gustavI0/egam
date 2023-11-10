@@ -1,0 +1,10 @@
+uuid: 378cdd03-07bd-415d-9730-bd9b3c76e9e2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.teaser
+label: Accroche
+targetEntityType: artist
+cache: true

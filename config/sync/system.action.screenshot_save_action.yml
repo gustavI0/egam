@@ -1,0 +1,13 @@
+uuid: d34d4a22-8f5d-444f-9387-5a0fe55310d4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+_core:
+  default_config_hash: RU5C-7hoN3-lQGvqjP1VM690C8UlZMPUqWciQEaehAA
+id: screenshot_save_action
+label: 'Save screenshots'
+type: screenshot
+plugin: 'entity:save_action:screenshot'
+configuration: {  }

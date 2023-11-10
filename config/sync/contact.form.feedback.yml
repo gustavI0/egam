@@ -1,4 +1,4 @@
-uuid: 056cee7c-6d08-45ee-a494-cba740ce7bfa
+uuid: 0f0adc76-77b7-4069-bd10-3247d0a06383
 langcode: fr
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Retours utilisateurs sur le site web'
 recipients:
-  - every_game@gustetto.net
+  - admin@example.com
 reply: ''
 weight: 0
 message: 'Votre message a été envoyé.'
