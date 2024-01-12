@@ -1,0 +1,20 @@
+uuid: 373b41f9-0344-4a62-bb4d-4a863eef2f18
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - egam
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: egam_primary_admin_actions
+theme: egam
+region: header
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: "Actions d'administration principales"
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,56 @@
+uuid: 97288c34-635b-492f-9c6e-f4612a0512df
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.screenshot.teaser
+    - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_cover
+    - field.field.screenshot.screenshot.field_game
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.teaser
+targetEntityType: screenshot
+bundle: screenshot
+mode: teaser
+content:
+  field_artwork:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cover:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_game:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

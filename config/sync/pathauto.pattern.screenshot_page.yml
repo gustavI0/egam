@@ -1,0 +1,14 @@
+uuid: e77285d6-2b73-4af2-9733-4d57a06a9682
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+id: screenshot_page
+label: 'Page capture'
+type: 'canonical_entities:screenshot'
+pattern: '/capture/[screenshot:id]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,22 @@
+uuid: 704efcc5-05ca-4b9f-8495-26197ba79d89
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - egam
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: egam_help
+theme: egam
+region: header
+weight: -2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Aide
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,22 @@
+entity.museum.settings:
+  title: 'Settings'
+  route_name: entity.museum.settings
+  base_route: entity.museum.settings
+entity.museum.view:
+  title: 'View'
+  route_name: entity.museum.canonical
+  base_route: entity.museum.canonical
+entity.museum.edit_form:
+  title: 'Edit'
+  route_name: entity.museum.edit_form
+  base_route: entity.museum.canonical
+entity.museum.delete_form:
+  title: 'Delete'
+  route_name: entity.museum.delete_form
+  base_route: entity.museum.canonical
+  weight: 10
+entity.museum.collection:
+  title: 'Musea'
+  route_name: entity.museum.collection
+  base_route: system.admin_content
+  weight: 10

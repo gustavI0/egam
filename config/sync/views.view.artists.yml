@@ -170,18 +170,20 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts: {  }
       arguments: {  }
       filters: {  }
       style:
-        type: default
+        type: grid_responsive
         options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
+          uses_fields: false
+          columns: 3
+          cell_min_width: 100
+          grid_gutter: 20
+          alignment: horizontal
       row:
         type: 'entity:artist'
         options:
@@ -234,6 +236,15 @@ display:
     display_options:
       display_extenders: {  }
       path: artistes
+      menu:
+        type: none
+        title: Artistes
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

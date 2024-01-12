@@ -1,0 +1,22 @@
+uuid: a79b1292-d117-4545-9758-9c6dcf53e608
+langcode: fr
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: editor_term_page
+label: 'Page terme éditeur'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/editeur/[term:name]'
+selection_criteria:
+  db352b10-407a-4493-b8d7-18c8ac55f3c5:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: db352b10-407a-4493-b8d7-18c8ac55f3c5
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      editor: editor
+selection_logic: and
+weight: -5
+relationships: {  }

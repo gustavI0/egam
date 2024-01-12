@@ -1,0 +1,8 @@
+uuid: 94b8e2b6-2a1f-47b3-91ed-6a2ad2211763
+langcode: fr
+status: true
+dependencies: {  }
+name: Éditeur
+vid: editor
+description: ''
+weight: 0

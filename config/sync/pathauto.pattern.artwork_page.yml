@@ -1,0 +1,14 @@
+uuid: ddf969a5-a84c-4ebc-b3db-d20212e11da9
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork_page
+label: 'Page oeuvre'
+type: 'canonical_entities:artwork'
+pattern: '/oeuvre/[artwork:label]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

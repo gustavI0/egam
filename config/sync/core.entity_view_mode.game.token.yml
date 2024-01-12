@@ -6,5 +6,6 @@ dependencies:
     - egam_game
 id: game.token
 label: Token
+description: ''
 targetEntityType: game
 cache: true

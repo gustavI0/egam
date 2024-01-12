@@ -10,7 +10,7 @@ _core:
 id: block_content
 label: 'Blocs de contenu'
 module: views
-description: 'Find and manage content blocks.'
+description: 'Trouver et gérer les blocs de contenu.'
 tag: default
 base_table: block_content_field_data
 base_field: id
@@ -314,7 +314,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There are no content blocks available.'
+          content: "Il n'y a pas de blocs de contenu disponibles."
           tokenize: false
         block_content_listing_empty:
           id: block_content_listing_empty

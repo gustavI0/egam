@@ -1,0 +1,5 @@
+museum.add_form:
+  title: 'Add museum'
+  route_name: entity.museum.add_form
+  appears_on:
+    - entity.museum.collection

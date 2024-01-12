@@ -1,0 +1,20 @@
+uuid: cec56ed3-8d34-4bc9-8106-731149d702d7
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - egam
+id: egam_messages_2
+theme: egam
+region: help
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

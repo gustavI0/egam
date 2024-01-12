@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum_save_action
+label: 'Save musea'
+type: museum
+plugin: entity:save_action:museum
+configuration: {  }

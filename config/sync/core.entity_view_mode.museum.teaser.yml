@@ -1,0 +1,11 @@
+uuid: 7c15388b-1298-46e6-9c9d-6599e932931d
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum.teaser
+label: Accroche
+description: ''
+targetEntityType: museum
+cache: true

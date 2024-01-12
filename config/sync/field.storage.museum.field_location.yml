@@ -1,0 +1,21 @@
+uuid: bf5419c2-0b85-457c-9291-74ec211eab72
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum.field_location
+field_name: field_location
+entity_type: museum
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

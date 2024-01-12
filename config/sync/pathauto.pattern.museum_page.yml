@@ -1,0 +1,14 @@
+uuid: 5e4850db-7f62-4262-b2c2-7181831efaab
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum_page
+label: 'Page musée'
+type: 'canonical_entities:museum'
+pattern: '/location/[museum:label]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

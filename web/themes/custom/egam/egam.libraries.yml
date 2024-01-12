@@ -1,0 +1,14 @@
+global-styling:
+  version: VERSION
+  js:
+    assets/dist/js/global.js: {}
+  css:
+    theme:
+      assets/dist/css/style.css: { }
+
+alpine-js:
+  js:
+    https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js: {
+      type: external,
+      minified: true
+    }

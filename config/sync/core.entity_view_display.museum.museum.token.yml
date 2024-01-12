@@ -1,0 +1,61 @@
+uuid: 631c6497-4e8c-411d-86e2-778827efcece
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.museum.token
+    - field.field.museum.museum.field_cover
+    - field.field.museum.museum.field_location
+    - field.field.museum.museum.field_website
+  module:
+    - egam_museum
+    - link
+id: museum.museum.token
+targetEntityType: museum
+bundle: museum
+mode: token
+content:
+  field_cover:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_location:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

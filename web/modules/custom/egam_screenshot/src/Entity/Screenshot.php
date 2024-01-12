@@ -134,7 +134,7 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
     $fields['description'] = BaseFieldDefinition::create('text_long')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
-      ->setLabel(t('Description'))
+      ->setLabel(t('Note'))
       ->setDisplayOptions('form', [
         'type' => 'text_textarea',
         'weight' => 10,

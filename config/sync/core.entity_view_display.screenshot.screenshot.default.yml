@@ -4,41 +4,22 @@ status: true
 dependencies:
   config:
     - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
   module:
     - egam_screenshot
     - text
-    - user
 id: screenshot.screenshot.default
 targetEntityType: screenshot
 bundle: screenshot
 mode: default
 content:
-  created:
-    type: timestamp
-    label: above
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-      tooltip:
-        date_format: long
-        custom_date_format: ''
-      time_diff:
-        enabled: false
-        future_format: '@interval hence'
-        past_format: '@interval ago'
-        granularity: 2
-        refresh: 60
-    third_party_settings: {  }
-    weight: 20
-    region: content
   description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 4
     region: content
   field_artwork:
     type: entity_reference_label
@@ -46,7 +27,16 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 21
+    weight: 3
+    region: content
+  field_cover:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_game:
     type: entity_reference_label
@@ -54,7 +44,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 22
+    weight: 2
     region: content
   label:
     type: string
@@ -62,25 +52,11 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -5
-    region: content
-  status:
-    type: boolean
-    label: above
-    settings:
-      format: enabled-disabled
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  uid:
-    type: author
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 15
+    weight: 1
     region: content
 hidden:
+  created: true
   langcode: true
   search_api_excerpt: true
+  status: true
+  uid: true

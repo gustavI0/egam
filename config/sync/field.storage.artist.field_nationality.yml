@@ -1,0 +1,21 @@
+uuid: 17f87caf-8394-400b-8214-5543ca782549
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.field_nationality
+field_name: field_nationality
+entity_type: artist
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

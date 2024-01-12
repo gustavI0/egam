@@ -1,0 +1,24 @@
+uuid: a03320ef-7992-428a-bf1b-4cff78eb4854
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_cover_caption
+    - filter.format.basic_html
+  module:
+    - egam_artist
+    - text
+id: artist.artist.field_cover_caption
+field_name: field_cover_caption
+entity_type: artist
+bundle: artist
+label: 'Cartel portrait'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text

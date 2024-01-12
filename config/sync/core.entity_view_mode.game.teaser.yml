@@ -1,0 +1,11 @@
+uuid: 67f6ad99-abbf-40b2-89ae-8ae500211d1a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game.teaser
+label: Accroche
+description: ''
+targetEntityType: game
+cache: true

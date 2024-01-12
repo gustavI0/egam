@@ -1,0 +1,11 @@
+uuid: 67404b89-e534-44f2-abac-78b009198369
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+id: screenshot.teaser
+label: Accroche
+description: ''
+targetEntityType: screenshot
+cache: true

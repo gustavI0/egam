@@ -1,0 +1,20 @@
+uuid: e0c1e846-e3f4-468d-bcf7-2bbf3721e623
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - taxonomy
+id: game.field_editor
+field_name: field_editor
+entity_type: game
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

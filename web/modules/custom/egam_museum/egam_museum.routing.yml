@@ -1,0 +1,7 @@
+entity.museum.settings:
+  path: 'admin/structure/museum'
+  defaults:
+    _form: '\Drupal\egam_museum\Form\MuseumSettingsForm'
+    _title: 'Museum'
+  requirements:
+    _permission: 'administer museum'

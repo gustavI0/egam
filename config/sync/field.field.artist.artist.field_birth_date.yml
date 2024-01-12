@@ -1,0 +1,21 @@
+uuid: 899712cc-00f5-46fe-afdd-20a905407ae8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_birth_date
+  module:
+    - datetime
+    - egam_artist
+id: artist.artist.field_birth_date
+field_name: field_birth_date
+entity_type: artist
+bundle: artist
+label: 'Date de naissance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

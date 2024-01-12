@@ -6,7 +6,7 @@ entity.artist.settings:
   requirements:
     _permission: 'administer artist'
 
-entity.artist.collection:
-  path: '/artistes'
-  requirements:
-    _permission: 'administer artist'
+#entity.artist.collection:
+#  path: '/artistes'
+#  requirements:
+#    _permission: 'administer artist'

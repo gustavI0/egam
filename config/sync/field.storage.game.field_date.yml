@@ -1,0 +1,20 @@
+uuid: 10e3078d-f79f-4a33-a2ac-a58497d73169
+langcode: fr
+status: true
+dependencies:
+  module:
+    - datetime
+    - egam_game
+id: game.field_date
+field_name: field_date
+entity_type: game
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

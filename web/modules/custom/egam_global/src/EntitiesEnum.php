@@ -1,0 +1,1 @@
+<?php&#10&#10namespace src;&#10&#10enum EntitiesEnum {&#10&#10}&#10

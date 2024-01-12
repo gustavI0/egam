@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum_delete_action
+label: 'Delete musea'
+type: museum
+plugin: entity:delete_action:museum
+configuration: {  }

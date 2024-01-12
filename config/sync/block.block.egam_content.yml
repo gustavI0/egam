@@ -1,0 +1,22 @@
+uuid: d0b3c8a8-8e81-462c-930d-2171f02a7136
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - egam
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: egam_content
+theme: egam
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenu de la page principale'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -5,6 +5,7 @@ enabled_entity_types:
   - artist
   - artwork
   - game
+  - museum
   - screenshot
   - user
 punctuation:

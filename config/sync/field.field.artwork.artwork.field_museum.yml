@@ -1,0 +1,27 @@
+uuid: caef3d85-542b-4aa4-8296-ea9ec2156f47
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_museum
+  module:
+    - egam_artwork
+id: artwork.artwork.field_museum
+field_name: field_museum
+entity_type: artwork
+bundle: artwork
+label: Musée
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:museum'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+field_type: entity_reference

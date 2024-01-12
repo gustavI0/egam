@@ -5,24 +5,18 @@ dependencies:
   config:
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
+    - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_museum
   module:
+    - datetime
     - egam_artwork
     - media_library
     - path
-    - text
 id: artwork.artwork.default
 targetEntityType: artwork
 bundle: artwork
 mode: default
 content:
-  description:
-    type: text_textarea
-    weight: 3
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_artist:
     type: entity_reference_autocomplete
     weight: 2
@@ -35,10 +29,26 @@ content:
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
-    weight: 31
+    weight: 1
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_date:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_museum:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   label:
     type: string_textfield
@@ -50,18 +60,19 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 4
+    weight: 5
     region: content
     settings:
       display_label: false
     third_party_settings: {  }
 hidden:
   created: true
+  description: true
   langcode: true
   uid: true

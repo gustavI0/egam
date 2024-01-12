@@ -1,0 +1,14 @@
+uuid: c7e36726-c6b9-40e4-9003-80368b57fa78
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game_page
+label: 'Page jeu'
+type: 'canonical_entities:game'
+pattern: '/jeu/[game:label]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

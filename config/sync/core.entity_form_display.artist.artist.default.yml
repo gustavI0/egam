@@ -3,8 +3,13 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.artist.artist.field_birth_date
     - field.field.artist.artist.field_cover
+    - field.field.artist.artist.field_cover_caption
+    - field.field.artist.artist.field_death_date
+    - field.field.artist.artist.field_nationality
   module:
+    - datetime
     - egam_artist
     - media_library
     - path
@@ -14,19 +19,11 @@ targetEntityType: artist
 bundle: artist
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 5
+  field_birth_date:
+    type: datetime_default
+    weight: 3
     region: content
     settings: {  }
-    third_party_settings: {  }
-  description:
-    type: text_textarea
-    weight: 2
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
@@ -34,6 +31,28 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_cover_caption:
+    type: text_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_death_date:
+    type: datetime_default
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_nationality:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   label:
     type: string_textfield
@@ -45,25 +64,18 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 4
+    weight: 6
     region: content
     settings:
       display_label: false
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 3
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  description: true
+  uid: true

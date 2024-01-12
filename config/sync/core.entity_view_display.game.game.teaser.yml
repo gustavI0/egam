@@ -1,0 +1,48 @@
+uuid: da288549-3abb-4d84-a53e-7017de883fea
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.game.teaser
+    - field.field.game.game.field_cover
+    - field.field.game.game.field_date
+    - field.field.game.game.field_developer
+    - field.field.game.game.field_editor
+    - image.style.webp
+  module:
+    - egam_game
+    - media
+id: game.game.teaser
+targetEntityType: game
+bundle: game
+mode: teaser
+content:
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  field_date: true
+  field_developer: true
+  field_editor: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

@@ -1,0 +1,20 @@
+uuid: 8728eac1-b175-4215-ae6f-a6ce8f2f4fa3
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - text
+id: artist.field_cover_caption
+field_name: field_cover_caption
+entity_type: artist
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

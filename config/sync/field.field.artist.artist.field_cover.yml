@@ -11,9 +11,9 @@ id: artist.artist.field_cover
 field_name: field_cover
 entity_type: artist
 bundle: artist
-label: Visuel
+label: Portrait
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

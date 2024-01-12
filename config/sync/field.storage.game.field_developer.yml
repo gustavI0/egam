@@ -1,0 +1,20 @@
+uuid: f3145383-62e0-4dc3-978a-1775a87e3652
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - taxonomy
+id: game.field_developer
+field_name: field_developer
+entity_type: game
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

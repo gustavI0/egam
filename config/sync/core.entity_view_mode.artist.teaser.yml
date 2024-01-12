@@ -6,5 +6,6 @@ dependencies:
     - egam_artist
 id: artist.teaser
 label: Accroche
+description: ''
 targetEntityType: artist
 cache: true

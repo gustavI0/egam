@@ -1,0 +1,8 @@
+uuid: 5d8f78e1-6498-439f-a218-e1ee61593214
+langcode: fr
+status: true
+dependencies: {  }
+name: Développeur
+vid: developer
+description: ''
+weight: 0

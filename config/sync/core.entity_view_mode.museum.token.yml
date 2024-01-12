@@ -1,0 +1,11 @@
+uuid: 10053ceb-19b9-4d24-9d84-c4de1db37dbd
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum.token
+label: Token
+description: ''
+targetEntityType: museum
+cache: true

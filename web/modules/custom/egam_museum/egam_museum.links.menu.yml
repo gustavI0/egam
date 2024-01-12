@@ -1,0 +1,11 @@
+entity.museum.settings:
+  title: 'Museum'
+  description: 'Configure a museum entity type.'
+  route_name:  entity.museum.settings
+  parent: system.admin_structure
+
+entity.museum.collection:
+  title: 'Musea'
+  description: 'List of musea.'
+  route_name: entity.museum.collection
+  parent: system.admin_content

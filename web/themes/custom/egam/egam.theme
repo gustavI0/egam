@@ -1,0 +1,11 @@
+<?php
+
+function egam_theme_suggestions_game_alter(array &$suggestions, array $vars, $hook) {
+	$suggestions = [];
+	if ($vars['elements']['#game']) {
+		if (isset($vars['elements']['#view_mode'])) {
+			$suggestions[] = 'game__' . $vars['elements']['#view_mode'];
+		}
+	}
+	return $suggestions;
+}

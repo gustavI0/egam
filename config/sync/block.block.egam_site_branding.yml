@@ -1,0 +1,25 @@
+uuid: 955c4b5f-a6f2-463d-8439-4b538f16bf81
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - egam
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: egam_site_branding
+theme: egam
+region: header
+weight: -5
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Identité du site'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

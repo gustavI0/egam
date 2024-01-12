@@ -1,0 +1,22 @@
+uuid: fe9ebf17-3a6f-4b48-ada9-75beccceda9e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - egam
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: egam_messages
+theme: egam
+region: header
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Messages de statut'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 4f06acbb-4d05-42ed-9147-b2ae4b9d0e34
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_date
+  module:
+    - datetime
+    - egam_artwork
+id: artwork.artwork.field_date
+field_name: field_date
+entity_type: artwork
+bundle: artwork
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

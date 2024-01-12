@@ -1,0 +1,20 @@
+uuid: 52ff0d61-2a7a-4c0d-933d-bba0de11bd93
+langcode: fr
+status: true
+dependencies:
+  module:
+    - datetime
+    - egam_artist
+id: artist.field_death_date
+field_name: field_death_date
+entity_type: artist
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

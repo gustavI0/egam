@@ -4,7 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.artist.teaser
+    - field.field.artist.artist.field_birth_date
     - field.field.artist.artist.field_cover
+    - field.field.artist.artist.field_cover_caption
+    - field.field.artist.artist.field_death_date
+    - field.field.artist.artist.field_nationality
   module:
     - egam_artist
 id: artist.artist.teaser
@@ -32,6 +36,10 @@ content:
 hidden:
   created: true
   description: true
+  field_birth_date: true
+  field_cover_caption: true
+  field_death_date: true
+  field_nationality: true
   search_api_excerpt: true
   status: true
   uid: true

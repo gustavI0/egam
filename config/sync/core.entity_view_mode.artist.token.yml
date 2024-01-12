@@ -6,5 +6,6 @@ dependencies:
     - egam_artist
 id: artist.token
 label: Token
+description: ''
 targetEntityType: artist
 cache: true

@@ -1,0 +1,10 @@
+entity.museum.edit_form:
+  route_name: entity.museum.edit_form
+  group: museum
+  title: 'Edit'
+
+entity.museum.delete_form:
+  route_name: entity.museum.delete_form
+  group: museum
+  title: 'Delete'
+  weight: 10

@@ -1,0 +1,20 @@
+uuid: 729190f4-26e2-455d-bd83-5b3cac6ef7fc
+langcode: fr
+status: true
+dependencies:
+  module:
+    - datetime
+    - egam_artwork
+id: artwork.field_date
+field_name: field_date
+entity_type: artwork
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

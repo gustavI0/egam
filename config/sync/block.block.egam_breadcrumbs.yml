@@ -1,0 +1,22 @@
+uuid: 0dc9455e-f7db-415f-ad04-dc720f2b9397
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - egam
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: egam_breadcrumbs
+theme: egam
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: "Fils d'ariane"
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.artwork.teaser
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
+    - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_museum
     - image.style.medium
   module:
     - egam_artwork
@@ -28,7 +30,7 @@ content:
     type: entity_reference_label
     label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content
@@ -54,6 +56,8 @@ content:
 hidden:
   created: true
   description: true
+  field_date: true
+  field_museum: true
   langcode: true
   search_api_excerpt: true
   status: true

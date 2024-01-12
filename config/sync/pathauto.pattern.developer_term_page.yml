@@ -1,0 +1,22 @@
+uuid: e5adaa7b-c07f-45ce-84d1-66037b2b0510
+langcode: fr
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: developer_term_page
+label: 'Page terme développeur'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/developpeur/[term:name]'
+selection_criteria:
+  4ecbeec8-56fe-4553-bd90-f865d84010d0:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 4ecbeec8-56fe-4553-bd90-f865d84010d0
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      developer: developer
+selection_logic: and
+weight: -5
+relationships: {  }

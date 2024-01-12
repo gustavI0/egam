@@ -6,5 +6,6 @@ dependencies:
     - egam_screenshot
 id: screenshot.token
 label: Token
+description: ''
 targetEntityType: screenshot
 cache: true

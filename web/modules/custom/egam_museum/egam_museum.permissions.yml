@@ -1,0 +1,11 @@
+administer museum:
+  title: 'Administer musea'
+  restrict access: true
+view museum:
+  title: 'View museum'
+edit museum:
+  title: 'Edit museum'
+delete museum:
+  title: 'Delete museum'
+create museum:
+  title: 'Create museum'
