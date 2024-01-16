@@ -7,6 +7,11 @@ module.exports = {
     container: {
       center: true,
     },
+    fontFamily: {
+      'title': ['Primetime', 'ui-sans-serif'],
+      'display': ['ui-sans-serif'],
+      'body': ['"Open Sans"', 'ui-sans-serif'],
+    },
     extend: {},
   },
   plugins: [],

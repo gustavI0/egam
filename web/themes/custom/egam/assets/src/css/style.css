@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Primetime";
+  src: url("../../dist/fonts/Primetime.ttf");
+}
+
+@layer base {
+  body {
+    @apply bg-stone-200;
+  }
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  a {
+    @apply transition duration-500 ease-in-out hover:text-opacity-95;
+  }
+
+}

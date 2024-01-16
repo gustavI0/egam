@@ -4,3 +4,16 @@
  * @file
  * Primary module hooks for EGAM Global module.
  */
+function egam_global_theme($existing, $type, $theme, $path) {
+	return [
+		'home' => [
+			'variables'  => [
+				'title' => NULL,
+				'count_artworks' => NULL,
+				'count_artists' => NULL,
+				'count_musea' => NULL,
+				'count_games' => NULL,
+			],
+		],
+	];
+}

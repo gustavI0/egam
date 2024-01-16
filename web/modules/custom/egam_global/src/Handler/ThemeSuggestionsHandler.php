@@ -1,1 +1,7 @@
-<?php&#10&#10class ThemeSuggestionsHandler {&#10&#10}
+<?php
+
+namespace Drupal\egam_global\Handler;
+
+class ThemeSuggestionsHandler {
+
+}

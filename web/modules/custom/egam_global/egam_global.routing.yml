@@ -1,0 +1,7 @@
+egam_global.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\egam_global\Controller\HomeController::render'
+    _title: 'Every Game a Museum'
+  requirements:
+    _access: 'TRUE'
