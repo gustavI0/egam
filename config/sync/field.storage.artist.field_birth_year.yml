@@ -1,17 +1,18 @@
-uuid: b67ef5e7-8913-4ad5-b57c-a36325859694
+uuid: 7c7c4964-3d71-4fd0-9fe6-16e50b3323a1
 langcode: fr
 status: true
 dependencies:
   module:
-    - datetime
     - egam_artist
-id: artist.field_birth_date
-field_name: field_birth_date
+id: artist.field_birth_year
+field_name: field_birth_year
 entity_type: artist
-type: datetime
+type: string
 settings:
-  datetime_type: date
-module: datetime
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

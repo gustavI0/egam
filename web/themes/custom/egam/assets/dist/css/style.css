@@ -477,14 +477,14 @@ a:hover {
   --tw-text-opacity: 0.95;
 }
 
-.homeContent a {
+.home-content a {
   position: relative;
   display: inline-block;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.homeContent a::after {
+.home-content a::after {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -505,10 +505,19 @@ a:hover {
   content: var(--tw-content);
 }
 
-.homeContent a:hover::after {
+.home-content a:hover::after {
   content: var(--tw-content);
   --tw-scale-x: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cover-teaser img {
+  height: 12rem;
+  width: 12rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 *, ::before, ::after {

@@ -1,17 +1,18 @@
-uuid: 52ff0d61-2a7a-4c0d-933d-bba0de11bd93
+uuid: 32b3fe7e-69d1-430c-a880-1e11a2a7abf2
 langcode: fr
 status: true
 dependencies:
   module:
-    - datetime
     - egam_artist
-id: artist.field_death_date
-field_name: field_death_date
+id: artist.field_death_year
+field_name: field_death_year
 entity_type: artist
-type: datetime
+type: string
 settings:
-  datetime_type: date
-module: datetime
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

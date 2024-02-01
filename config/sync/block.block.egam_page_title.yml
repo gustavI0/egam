@@ -2,6 +2,8 @@ uuid: 0d1fe153-f4d9-4908-8be1-73e946b3bc34
 langcode: fr
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - egam
 _core:
@@ -9,7 +11,7 @@ _core:
 id: egam_page_title
 theme: egam
 region: content
-weight: -6
+weight: -4
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +19,8 @@ settings:
   label: 'Titre de page'
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

@@ -6,3 +6,7 @@ services:
   Drupal\egam_global\Handler\HomeCoverHandler:
     class: Drupal\egam_global\Handler\HomeCoverHandler
     arguments: [ '@config.factory', '@entity_type.manager' ]
+
+  Drupal\egam_global\Handler\RelatedContentHandler:
+    class: Drupal\egam_global\Handler\RelatedContentHandler
+    arguments: [ '@entity_type.manager' ]

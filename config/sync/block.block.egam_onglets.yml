@@ -1,0 +1,29 @@
+uuid: feb320d6-be24-4854-9482-648372345dd4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - egam
+id: egam_onglets
+theme: egam
+region: content
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator

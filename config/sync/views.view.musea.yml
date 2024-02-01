@@ -156,8 +156,8 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags: {  }
-  page_1:
-    id: page_1
+  grid:
+    id: grid
     display_title: Page
     display_plugin: page
     position: 1

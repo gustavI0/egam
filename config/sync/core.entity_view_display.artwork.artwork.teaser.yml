@@ -8,7 +8,7 @@ dependencies:
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
     - field.field.artwork.artwork.field_museum
-    - image.style.medium
+    - image.style.webp
   module:
     - egam_artwork
     - media
@@ -39,7 +39,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: medium
+      image_style: webp
       image_loading:
         attribute: lazy
     third_party_settings: {  }

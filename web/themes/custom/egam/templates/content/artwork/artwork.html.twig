@@ -44,5 +44,11 @@
               {% endif %}
           </div>
       </div>
+      {% if related_games is not empty %}
+      <div class="container">
+          <h2>{{ 'Cette oeuvre apparait dans les jeux suivants : '|t }}</h2>
+          {{ related_games }}
+      </div>
+      {% endif %}
   {% endif %}
 </article>

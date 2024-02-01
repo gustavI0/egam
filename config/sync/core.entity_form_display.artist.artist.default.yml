@@ -3,13 +3,12 @@ langcode: fr
 status: true
 dependencies:
   config:
-    - field.field.artist.artist.field_birth_date
+    - field.field.artist.artist.field_birth_year
     - field.field.artist.artist.field_cover
     - field.field.artist.artist.field_cover_caption
-    - field.field.artist.artist.field_death_date
+    - field.field.artist.artist.field_death_year
     - field.field.artist.artist.field_nationality
   module:
-    - datetime
     - egam_artist
     - media_library
     - path
@@ -19,11 +18,13 @@ targetEntityType: artist
 bundle: artist
 mode: default
 content:
-  field_birth_date:
-    type: datetime_default
-    weight: 3
+  field_birth_year:
+    type: string_textfield
+    weight: 26
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
@@ -40,11 +41,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_death_date:
-    type: datetime_default
-    weight: 4
+  field_death_year:
+    type: string_textfield
+    weight: 27
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_nationality:
     type: string_textfield

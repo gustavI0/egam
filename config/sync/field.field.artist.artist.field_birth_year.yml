@@ -1,21 +1,20 @@
-uuid: b8eae5e5-db56-4e66-978c-b25d61dcf1a3
+uuid: b52b01fe-f1ce-4bc0-a5a3-9112e385fb4d
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.artist.field_death_date
+    - field.storage.artist.field_birth_year
   module:
-    - datetime
     - egam_artist
-id: artist.artist.field_death_date
-field_name: field_death_date
+id: artist.artist.field_birth_year
+field_name: field_birth_year
 entity_type: artist
 bundle: artist
-label: 'Date de décès'
+label: 'Année de naissance'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: string
