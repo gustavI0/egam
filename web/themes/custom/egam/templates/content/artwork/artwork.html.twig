@@ -1,16 +1,16 @@
 {#
 /**
  * @file
- * Default theme implementation to present a game entity.
+ * Default theme implementation to present an artwork entity.
  *
- * This template is used when viewing a canonical game page,
+ * This template is used when viewing a canonical artwork page,
  *
  * Available variables:
  * - content: A list of content items. Use 'content' to print all content, or
  *   print a subset such as 'content.label'.
  * - attributes: HTML attributes for the container element.
  *
- * @see template_preprocess_game()
+ * @see template_preprocess_artwork()
  */
 #}
 <article{{ attributes }}>
@@ -19,35 +19,30 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
-      <div class="container flex content game">
+      <div class="container flex content artwork">
           <div class="cover basis-1/2 p-4">
               {{ content.field_cover }}
           </div>
           <div class="details basis-1/2 p-4">
+              {% if content.field_artist.0 %}
+                  <div class="item artist">
+                      <h2>{{ 'Artist'|t }}</h2>
+                      {{ content.field_artist }}
+                  </div>
+              {% endif %}
               {% if content.field_date.0 %}
                   <div class="item date">
                       <h2>{{ 'Date'|t }}</h2>
                       {{ content.field_date }}
                   </div>
               {% endif %}
-              {% if content.field_developer.0 %}
-                  <div class="item developer">
-                      <h2>{{ 'Développeur'|t }}</h2>
-                      {{ content.field_developer }}
-                  </div>
-              {% endif %}
-              {% if content.field_editor.0 %}
-                  <div class="item editor">
-                      <h2>{{ 'Éditeur'|t }}</h2>
-                      {{ content.field_editor }}
+              {% if content.field_museum.0 %}
+                  <div class="item museum">
+                      <h2>{{ 'Museum'|t }}</h2>
+                      {{ content.field_museum }}
                   </div>
               {% endif %}
           </div>
       </div>
-      {% if related_artworks is not empty %}
-      <div class="container">
-          {{ related_artworks }}
-      </div>
-      {% endif %}
   {% endif %}
 </article>

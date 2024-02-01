@@ -90,3 +90,12 @@ function egam_screenshot_user_predelete(UserInterface $account): void {
     $storage->deleteRevision($revision_id);
   }
 }
+
+function egam_screenshot_theme_suggestions_screenshot_alter(array &$suggestions, array $vars, $hook) {
+	$suggestions = [];
+	if ($vars['elements']['#screenshot']) {
+		if (isset($vars['elements']['#view_mode'])) {
+			$suggestions[] = 'screenshot__' . $vars['elements']['#view_mode'];
+		}
+	}
+}

@@ -1,19 +1,29 @@
 <?php
 
+use Drupal\egam_global\Controller\HomeController;
+use Drupal\egam_global\Entities;
+
 /**
  * @file
  * Primary module hooks for EGAM Global module.
  */
 function egam_global_theme($existing, $type, $theme, $path) {
 	return [
-		'home' => [
+		HomeController::TEMPLATE => [
 			'variables'  => [
+				'cover_src' => NULL,
 				'title' => NULL,
-				'count_artworks' => NULL,
-				'count_artists' => NULL,
-				'count_musea' => NULL,
-				'count_games' => NULL,
+				'home_menu' => NULL,
 			],
 		],
 	];
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function egam_global_theme_suggestions_alter(array &$suggestions, array &$variables, $hook) {
+	if (isset($variables['elements']['#view_mode'])) {
+		$suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
+	}
 }

@@ -447,19 +447,25 @@ video {
 body {
   --tw-bg-opacity: 1;
   background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+  font-family: Futura Book, ui-sans-serif;
 }
 
 h1 {
+  font-family: Primetime, ui-sans-serif;
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
 h2 {
+  font-family: Primetime, ui-sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
 a {
+  font-weight: 600;
+  --tw-text-opacity: 0.8;
+  text-decoration-line: none;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
@@ -469,6 +475,40 @@ a {
 
 a:hover {
   --tw-text-opacity: 0.95;
+}
+
+.homeContent a {
+  position: relative;
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.homeContent a::after {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: inline-block;
+  height: 3px;
+  width: 100%;
+  transform-origin: center;
+  --tw-scale-x: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+.homeContent a:hover::after {
+  content: var(--tw-content);
+  --tw-scale-x: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 *, ::before, ::after {
@@ -615,13 +655,13 @@ a:hover {
   visibility: hidden;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
 }
 
 .block {
@@ -638,6 +678,18 @@ a:hover {
 
 .contents {
   display: contents;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-10\/12 {
+  width: 83.333333%;
+}
+
+.w-9\/12 {
+  width: 75%;
 }
 
 .w-full {
@@ -660,10 +712,6 @@ a:hover {
   flex-basis: 50%;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .items-center {
   align-items: center;
 }
@@ -672,30 +720,60 @@ a:hover {
   justify-content: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
 
-.border-b-4 {
-  border-bottom-width: 4px;
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
-.border-yellow-400 {
+.border-2 {
+  border-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-red-700 {
   --tw-border-opacity: 1;
-  border-color: rgb(250 204 21 / var(--tw-border-opacity));
+  border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
-.bg-gray-800 {
+.border-stone-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(41 37 36 / var(--tw-border-opacity));
+}
+
+.bg-red-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-stone-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 162 158 / var(--tw-bg-opacity));
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .p-2 {
   padding: 0.5rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
+.p-4 {
+  padding: 1rem;
 }
 
 .pt-6 {
@@ -711,13 +789,18 @@ a:hover {
   line-height: 2rem;
 }
 
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-9xl {
+  font-size: 8rem;
   line-height: 1;
 }
 
@@ -759,6 +842,12 @@ a:hover {
   text-decoration-line: none;
 }
 
+.backdrop-brightness-50 {
+  --tw-backdrop-brightness: brightness(.5);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -781,8 +870,28 @@ a:hover {
   src: url("../../dist/fonts/Primetime.ttf");
 }
 
+@font-face {
+  font-family: "Futura Book";
+
+  src: url("../../dist/fonts/Futura_Book.ttf");
+}
+
+@font-face {
+  font-family: "Futura Light";
+
+  src: url("../../dist/fonts/Futura_Light.ttf");
+}
+
 .hover\:text-opacity-95:hover {
   --tw-text-opacity: 0.95;
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
+.hover\:underline-offset-4:hover {
+  text-underline-offset: 4px;
 }
 
 @media (min-width: 640px) {
@@ -826,10 +935,6 @@ a:hover {
   .lg\:py-14 {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
-  }
-
-  .lg\:pl-8 {
-    padding-left: 2rem;
   }
 
   .lg\:pt-0 {

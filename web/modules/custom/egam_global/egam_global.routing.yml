@@ -5,3 +5,11 @@ egam_global.home:
     _title: 'Every Game a Museum'
   requirements:
     _access: 'TRUE'
+
+egam_global.settings:
+  path: /admin/config/egam
+  defaults:
+    _form: '\Drupal\egam_global\Form\GlobalSettingsForm'
+    _title: 'EGAM custom settings'
+  requirements:
+    _permission: 'administer site configuration'

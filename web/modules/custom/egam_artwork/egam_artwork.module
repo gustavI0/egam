@@ -90,3 +90,23 @@ function egam_artwork_user_predelete(UserInterface $account): void {
     $storage->deleteRevision($revision_id);
   }
 }
+
+//function egam_artwork_theme_suggestions_artwork_alter(array &$suggestions, array $vars, $hook) {
+//	$suggestions = [];
+//	if ($vars['elements']['#artwork']) {
+//		if (isset($vars['elements']['#view_mode'])) {
+//			$suggestions[] = 'artwork__' . $vars['elements']['#view_mode'];
+//		}
+//	}
+//}
+
+/**
+ * Implements hook_preprocess().
+ */
+function egam_artwork_preprocess_artwork(&$variables, $hook) {
+	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
+	$artwork = $variables['elements']['#artwork'];
+//	$relatedGames = \Drupal::entityQuery('screenshot')->accessCheck(FALSE)->condition('field_artwork', $artwork->id())->execute();
+//	$variables['related_games'] = \Drupal::entityTypeManager()->getViewBuilder('game')->viewMultiple($relatedGames);
+
+}

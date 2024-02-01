@@ -9,8 +9,8 @@ module.exports = {
     },
     fontFamily: {
       'title': ['Primetime', 'ui-sans-serif'],
-      'display': ['ui-sans-serif'],
-      'body': ['"Open Sans"', 'ui-sans-serif'],
+      'display': ['Futura Book', 'ui-sans-serif'],
+      'body': ['Futura Book', 'ui-sans-serif'],
     },
     extend: {},
   },

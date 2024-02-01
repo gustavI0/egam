@@ -1,16 +1,16 @@
 {#
 /**
  * @file
- * Default theme implementation to present a screenshot entity.
+ * Default theme implementation to present a museum entity.
  *
- * This template is used when viewing a canonical screenshot page,
+ * This template is used when viewing a canonical museum page,
  *
  * Available variables:
  * - content: A list of content items. Use 'content' to print all content, or
  *   print a subset such as 'content.label'.
  * - attributes: HTML attributes for the container element.
  *
- * @see template_preprocess_screenshot()
+ * @see template_preprocess_museum()
  */
 #}
 <article{{ attributes }}>
@@ -19,6 +19,13 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
-    {{- content -}}
+      <div class="container flex content museum">
+          <div class="cover p-4">
+              {{ content.field_cover }}
+          </div>
+          <div class="label p-4">
+              {{ content.label }}
+          </div>
+      </div>
   {% endif %}
 </article>

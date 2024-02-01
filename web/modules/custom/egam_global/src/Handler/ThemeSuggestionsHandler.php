@@ -1,7 +1,1 @@
-<?php
-
-namespace Drupal\egam_global\Handler;
-
-class ThemeSuggestionsHandler {
-
-}
+<?php&#10&#10namespace Drupal\egam_global\Handler;&#10&#10class ThemeSuggestionsHandler {&#10&#10&#10&#10}

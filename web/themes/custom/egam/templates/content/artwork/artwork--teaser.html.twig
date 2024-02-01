@@ -19,6 +19,13 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
-    {{- content -}}
+      <div class="container content artwork">
+          <div class="cover p-2">
+              {{ content.field_cover }}
+          </div>
+          <div class="label p-2">
+              {{ content.label }}
+          </div>
+      </div>
   {% endif %}
 </article>

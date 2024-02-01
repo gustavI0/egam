@@ -17,8 +17,8 @@ use Drupal\user\EntityOwnerTrait;
  *   id = "museum",
  *   label = @Translation("Museum"),
  *   label_collection = @Translation("Musea"),
- *   label_singular = @Translation("Museum"),
- *   label_plural = @Translation("Musea"),
+ *   label_singular = @Translation("museum"),
+ *   label_plural = @Translation("musea"),
  *   label_count = @PluralTranslation(
  *     singular = "@count musea",
  *     plural = "@count musea",

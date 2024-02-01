@@ -7,18 +7,32 @@
   src: url("../../dist/fonts/Primetime.ttf");
 }
 
+@font-face {
+  font-family: "Futura Book";
+  src: url("../../dist/fonts/Futura_Book.ttf");
+}
+
+@font-face {
+  font-family: "Futura Light";
+  src: url("../../dist/fonts/Futura_Light.ttf");
+}
+
 @layer base {
   body {
-    @apply bg-stone-200;
+    @apply bg-stone-200 font-body;
   }
   h1 {
-    @apply text-2xl;
+    @apply text-2xl font-title;
   }
   h2 {
-    @apply text-xl;
+    @apply text-xl font-title;
   }
   a {
-    @apply transition duration-500 ease-in-out hover:text-opacity-95;
+    @apply text-opacity-80 font-semibold no-underline transition duration-500 ease-in-out hover:text-opacity-95;
+  }
+
+  .homeContent a {
+    @apply relative w-fit inline-block after:inline-block after:content-[''] after:absolute after:h-[3px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center after:bottom-0 after:left-0;
   }
 
 }

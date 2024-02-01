@@ -1,0 +1,8 @@
+services:
+  Drupal\egam_global\Handler\HomeController:
+    class: Drupal\egam_global\Controller\HomeController
+    arguments: [ '@Drupal\egam_global\Handler\HomeCoverHandler' ]
+
+  Drupal\egam_global\Handler\HomeCoverHandler:
+    class: Drupal\egam_global\Handler\HomeCoverHandler
+    arguments: [ '@config.factory', '@entity_type.manager' ]

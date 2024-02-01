@@ -90,3 +90,12 @@ function egam_artist_user_predelete(UserInterface $account): void {
     $storage->deleteRevision($revision_id);
   }
 }
+
+function egam_artist_theme_suggestions_artist_alter(array &$suggestions, array $vars, $hook) {
+	$suggestions = [];
+	if ($vars['elements']['#artist']) {
+		if (isset($vars['elements']['#view_mode'])) {
+			$suggestions[] = 'artist__' . $vars['elements']['#view_mode'];
+		}
+	}
+}

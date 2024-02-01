@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a museum entity.
+ *
+ * This template is used when viewing a canonical museum page,
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.label'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_museum()
+ */
+#}
+<article{{ attributes }}>
+  {% if view_mode != 'full' %}
+    {{ title_prefix }}
+    {{ title_suffix }}
+  {% endif %}
+  {% if content %}
+      <div class="container flex content museum">
+          <div class="cover basis-1/2 p-4">
+              {{ content.field_cover }}
+          </div>
+          <div class="details basis-1/2 p-4">
+              {% if content.field_location.0 %}
+                  <div class="item location">
+                      <h2>{{ 'Location'|t }}</h2>
+                      {{ content.field_location }}
+                  </div>
+              {% endif %}
+              {% if content.field_website.0 %}
+                  <div class="item website">
+                      <h2>{{ 'Website'|t }}</h2>
+                      {{ content.field_website }}
+                  </div>
+              {% endif %}
+              {% if content.field_notes.0 %}
+                  <div class="item notes">
+                      <h2>{{ 'Notes'|t }}</h2>
+                      {{ content.field_notes }}
+                  </div>
+              {% endif %}
+          </div>
+      </div>
+  {% endif %}
+</article>
