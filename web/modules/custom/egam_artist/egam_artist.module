@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\egam_global\Entities;
+use Drupal\egam_global\Handler\RelatedContentHandler;
 use Drupal\user\UserInterface;
 
 /**
@@ -91,11 +93,12 @@ function egam_artist_user_predelete(UserInterface $account): void {
   }
 }
 
-function egam_artist_theme_suggestions_artist_alter(array &$suggestions, array $vars, $hook) {
-	$suggestions = [];
-	if ($vars['elements']['#artist']) {
-		if (isset($vars['elements']['#view_mode'])) {
-			$suggestions[] = 'artist__' . $vars['elements']['#view_mode'];
-		}
-	}
+/**
+ * Implements hook_preprocess().
+ */
+function egam_artist_preprocess_artist(&$variables, $hook) {
+	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
+	$artist = $variables['elements']['#artist'];
+	$relatedContentHandler = RelatedContentHandler::me();
+	$variables['related_artworks'] = $relatedContentHandler->viewRelatedContent($artist, Entities::Artwork);
 }

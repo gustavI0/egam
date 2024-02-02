@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\egam_global\Entities;
+use Drupal\egam_global\Handler\RelatedContentHandler;
 use Drupal\user\UserInterface;
 
 /**
@@ -91,11 +93,12 @@ function egam_museum_user_predelete(UserInterface $account): void {
   }
 }
 
-function egam_museum_theme_suggestions_museum_alter(array &$suggestions, array $vars, $hook) {
-	$suggestions = [];
-	if ($vars['elements']['#museum']) {
-		if (isset($vars['elements']['#view_mode'])) {
-			$suggestions[] = 'museum__' . $vars['elements']['#view_mode'];
-		}
-	}
+/**
+ * Implements hook_preprocess().
+ */
+function egam_museum_preprocess_museum(&$variables, $hook) {
+	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
+	$museum = $variables['elements']['#museum'];
+	$relatedContentHandler = RelatedContentHandler::me();
+	$variables['related_artworks'] = $relatedContentHandler->viewRelatedContent($museum, Entities::Artwork);
 }

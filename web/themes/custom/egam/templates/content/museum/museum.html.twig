@@ -44,5 +44,13 @@
               {% endif %}
           </div>
       </div>
+      {% if related_artworks is not empty %}
+      <div class="related-content">
+          <div class="artworks">
+              <h2>{{ 'Oeuvres présentes dans ce musée'|t }}</h2>
+              {{ related_artworks }}
+          </div>
+      </div>
+      {% endif %}
   {% endif %}
 </article>
