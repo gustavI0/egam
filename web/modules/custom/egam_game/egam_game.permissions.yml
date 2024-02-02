@@ -1,3 +1,11 @@
 administer game:
   title: 'Administer games'
   restrict access: true
+view game:
+  title: 'View game'
+edit game:
+  title: 'Edit game'
+delete game:
+  title: 'Delete game'
+create game:
+  title: 'Create game'

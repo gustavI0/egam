@@ -1,3 +1,11 @@
 administer artist:
   title: 'Administer artists'
   restrict access: true
+view artist:
+  title: 'View artist'
+edit artist:
+  title: 'Edit artist'
+delete artist:
+  title: 'Delete artist'
+create artist:
+  title: 'Create artist'

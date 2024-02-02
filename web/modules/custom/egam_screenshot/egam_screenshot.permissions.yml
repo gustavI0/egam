@@ -1,3 +1,11 @@
 administer screenshot:
   title: 'Administer screenshots'
   restrict access: true
+view screenshot:
+  title: 'View screenshot'
+edit screenshot:
+  title: 'Edit screenshot'
+delete screenshot:
+  title: 'Delete screenshot'
+create screenshot:
+  title: 'Create screenshot'

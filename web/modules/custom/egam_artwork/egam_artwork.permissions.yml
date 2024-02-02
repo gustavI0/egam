@@ -1,3 +1,11 @@
 administer artwork:
   title: 'Administer artworks'
   restrict access: true
+view artwork:
+  title: 'View artwork'
+edit artwork:
+  title: 'Edit artwork'
+delete artwork:
+  title: 'Delete artwork'
+create artwork:
+  title: 'Create artwork'
