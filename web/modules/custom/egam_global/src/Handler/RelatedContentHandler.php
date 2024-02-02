@@ -26,9 +26,9 @@ class RelatedContentHandler {
 		return \Drupal::service(static::class);
 	}
 
-	public function viewRelatedContent(EntityInterface $entity, Entities $relatedEntity): array {
+	public function viewRelatedContent(EntityInterface $entity, Entities $relatedEntity): ?array {
 		$relatedContent = $this->getRelatedContent($entity, $relatedEntity);
-		return $this->entityTypeManager->getViewBuilder($this->getEntityBundle($relatedContent))->viewMultiple($relatedContent, self::VIEW_MODE);
+		return $relatedContent ? $this->entityTypeManager->getViewBuilder($this->getEntityBundle($relatedContent))->viewMultiple($relatedContent, self::VIEW_MODE) : NULL;
 	}
 
 	protected function getRelatedContent(EntityInterface $entity, Entities $relatedEntity): ?array {
