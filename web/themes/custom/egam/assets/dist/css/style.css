@@ -480,6 +480,7 @@ a:hover {
 .home-content .title {
   word-spacing: 100vw;
   line-height: 1;
+  font-size: 14rem;
 }
 
 .home-content a {
@@ -815,10 +816,6 @@ a:hover {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
-}
-
-.text-\[14rem\] {
-  font-size: 14rem;
 }
 
 .font-bold {
