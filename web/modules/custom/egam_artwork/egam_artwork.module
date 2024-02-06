@@ -100,5 +100,5 @@ function egam_artwork_preprocess_artwork(&$variables, $hook) {
 	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
 	$artwork = $variables['elements']['#artwork'];
 	$relatedContentHandler = RelatedContentHandler::me();
-  $variables['related_games'] = $relatedContentHandler->viewRelatedContent($artwork, Entities::Game);
+  $variables['related_games'] = $relatedContentHandler->viewRelatedContent($artwork, Entities::Screenshot);
 }

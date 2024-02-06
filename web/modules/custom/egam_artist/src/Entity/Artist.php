@@ -26,6 +26,7 @@ use Drupal\user\EntityOwnerTrait;
  *   handlers = {
  *     "list_builder" = "Drupal\egam_artist\ArtistListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *   	 "access" = "Drupal\egam_artist\ArtistAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\egam_artist\Form\ArtistForm",
  *       "edit" = "Drupal\egam_artist\Form\ArtistForm",

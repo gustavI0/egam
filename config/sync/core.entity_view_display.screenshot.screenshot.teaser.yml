@@ -7,49 +7,39 @@ dependencies:
     - field.field.screenshot.screenshot.field_artwork
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
+    - image.style.webp
   module:
     - egam_screenshot
+    - media
 id: screenshot.screenshot.teaser
 targetEntityType: screenshot
 bundle: screenshot
 mode: teaser
 content:
-  field_artwork:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_cover:
-    type: entity_reference_entity_view
-    label: above
+    type: media_thumbnail
+    label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_game:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
     region: content
   label:
     type: string
     label: hidden
     settings:
-      link_to_entity: false
+      link_to_entity: true
     third_party_settings: {  }
     weight: 1
     region: content
 hidden:
   created: true
   description: true
+  field_artwork: true
+  field_game: true
   langcode: true
   search_api_excerpt: true
   status: true

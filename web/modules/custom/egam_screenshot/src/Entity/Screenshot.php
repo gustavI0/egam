@@ -26,6 +26,7 @@ use Drupal\user\EntityOwnerTrait;
  *   handlers = {
  *     "list_builder" = "Drupal\egam_screenshot\ScreenshotListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *   	 "access" = "Drupal\egam_screenshot\ScreenshotAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\egam_screenshot\Form\ScreenshotForm",
  *       "edit" = "Drupal\egam_screenshot\Form\ScreenshotForm",

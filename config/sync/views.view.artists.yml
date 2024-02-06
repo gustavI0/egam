@@ -180,7 +180,7 @@ display:
         type: grid_responsive
         options:
           uses_fields: false
-          columns: 3
+          columns: 4
           cell_min_width: 100
           grid_gutter: 20
           alignment: horizontal

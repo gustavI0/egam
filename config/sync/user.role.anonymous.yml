@@ -6,6 +6,11 @@ dependencies:
     - filter.format.restricted_html
   module:
     - contact
+    - egam_artist
+    - egam_artwork
+    - egam_game
+    - egam_museum
+    - egam_screenshot
     - filter
     - media
     - system
@@ -19,4 +24,9 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'use text format restricted_html'
+  - 'view artist'
+  - 'view artwork'
+  - 'view game'
   - 'view media'
+  - 'view museum'
+  - 'view screenshot'

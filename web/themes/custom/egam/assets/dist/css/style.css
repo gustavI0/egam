@@ -477,6 +477,11 @@ a:hover {
   --tw-text-opacity: 0.95;
 }
 
+.home-content .title {
+  word-spacing: 100vw;
+  line-height: 1;
+}
+
 .home-content a {
   position: relative;
   display: inline-block;
@@ -512,12 +517,16 @@ a:hover {
 }
 
 .cover-teaser img {
-  height: 12rem;
-  width: 12rem;
+  height: 15rem;
+  width: 15rem;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.related-content .content {
+  width: 15rem;
 }
 
 *, ::before, ::after {
@@ -693,12 +702,12 @@ a:hover {
   height: 100vh;
 }
 
-.w-10\/12 {
-  width: 83.333333%;
-}
-
 .w-9\/12 {
   width: 75%;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .w-full {
@@ -808,9 +817,8 @@ a:hover {
   line-height: 1;
 }
 
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
+.text-\[14rem\] {
+  font-size: 14rem;
 }
 
 .font-bold {

@@ -24,16 +24,10 @@
               {{ content.field_cover }}
           </div>
           <div class="details basis-1/2 p-4">
-              {% if content.field_location.0 %}
-                  <div class="item location">
-                      <h2>{{ 'Location'|t }}</h2>
-                      {{ content.field_location }}
-                  </div>
-              {% endif %}
-              {% if content.field_website.0 %}
-                  <div class="item website">
-                      <h2>{{ 'Website'|t }}</h2>
-                      {{ content.field_website }}
+              {% if content.field_game.0 %}
+                  <div class="item game">
+                      <h2>{{ 'game'|t }}</h2>
+                      {{ content.field_game }}
                   </div>
               {% endif %}
               {% if content.field_notes.0 %}
@@ -44,5 +38,11 @@
               {% endif %}
           </div>
       </div>
+      {% if content.field_artwork.0 %}
+          <div class="related-content artwork">
+              <h2>{{ 'Oeuvre(s) présente(s) dans cette image :'|t }}</h2>
+              {{ content.field_artwork }}
+          </div>
+      {% endif %}
   {% endif %}
 </article>

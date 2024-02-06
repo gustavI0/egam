@@ -1,16 +1,16 @@
 {#
 /**
  * @file
- * Default theme implementation to present an artist entity.
+ * Default theme implementation to present a museum entity.
  *
- * This template is used when viewing a canonical artist page,
+ * This template is used when viewing a canonical museum page,
  *
  * Available variables:
  * - content: A list of content items. Use 'content' to print all content, or
  *   print a subset such as 'content.label'.
  * - attributes: HTML attributes for the container element.
  *
- * @see template_preprocess_artist()
+ * @see template_preprocess_museum()
  */
 #}
 <article{{ attributes }}>
@@ -19,8 +19,8 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
-      <div class="content artist">
-          <div class="cover-teaser p-2">
+      <div class="screenshot w-96">
+          <div class="p-2">
               {{ content.field_cover }}
           </div>
           <div class="label p-2">

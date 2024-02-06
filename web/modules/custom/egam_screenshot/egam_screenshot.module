@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\egam_global\Entities;
+use Drupal\egam_global\Handler\RelatedContentHandler;
 use Drupal\user\UserInterface;
 
 /**
@@ -91,11 +93,12 @@ function egam_screenshot_user_predelete(UserInterface $account): void {
   }
 }
 
-function egam_screenshot_theme_suggestions_screenshot_alter(array &$suggestions, array $vars, $hook) {
-	$suggestions = [];
-	if ($vars['elements']['#screenshot']) {
-		if (isset($vars['elements']['#view_mode'])) {
-			$suggestions[] = 'screenshot__' . $vars['elements']['#view_mode'];
-		}
-	}
-}
+///**
+// * Implements hook_preprocess().
+// */
+//function egam_artist_preprocess_screenshot(&$variables, $hook) {
+//	/* @var \Drupal\egam_screenshot\ScreenshotInterface $screenshot */
+//	$screenshot = $variables['elements']['#screenshot'];
+//	$relatedContentHandler = RelatedContentHandler::me();
+//	$variables['related_screenshot'] = $relatedContentHandler->viewRelatedContent($screenshot, Entities::Artwork);
+//}

@@ -2,8 +2,12 @@
 
 namespace Drupal\egam_global;
 
-use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\egam_artist\Entity\Artist;
+use Drupal\egam_artwork\Entity\Artwork;
+use Drupal\egam_game\Entity\Game;
+use Drupal\egam_museum\Entity\Museum;
+use Drupal\egam_screenshot\Entity\Screenshot;
 
 enum Entities: string {
 	case Artwork = 'artwork';
@@ -27,6 +31,16 @@ enum Entities: string {
 			Entities::Game => 'games',
 			Entities::Museum => 'musea',
 			Entities::Screenshot => 'screenshots'
+		};
+	}
+
+	public function loadMultiple(array $ids): array {
+		return match ($this) {
+			Entities::Game => Game::loadMultiple($ids),
+			Entities::Artist => Artist::loadMultiple($ids),
+			Entities::Artwork => Artwork::loadMultiple($ids),
+			Entities::Museum => Museum::loadMultiple($ids),
+			Entities::Screenshot => Screenshot::loadMultiple($ids),
 		};
 	}
 

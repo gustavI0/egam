@@ -30,12 +30,12 @@ class HomeController extends ControllerBase {
 
 	protected function buildHomeMenuFr(): string {
 		/* @var \Drupal\egam_global\Entities[] $selectedEntities */
-		$selectedEntities = [Entities::Artwork, Entities::Artist, Entities::Museum, Entities::Game];
+		$selectedEntities = [Entities::Artist, Entities::Museum, Entities::Game];
 		$countAndPath = [];
 		foreach ($selectedEntities as $entity) {
 			$countAndPath[$entity->value] = $entity->count() . ' ' . $this->getEntityLink($entity);
 		}
-		return '<p>' . $countAndPath[Entities::Artwork->value] . '</p>
+		return '<p>' . Entities::Artwork->count()  . ' œuvres </p>
             <p>de ' . $countAndPath[Entities::Artist->value] . '</p>
             <p>conservées dans ' . $countAndPath[Entities::Museum->value] . '</p>
             <p>ont été référencées dans ' . $countAndPath[Entities::Game->value] . '</p>';

@@ -26,6 +26,7 @@ use Drupal\user\EntityOwnerTrait;
  *   handlers = {
  *     "list_builder" = "Drupal\egam_game\GameListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *   	 "access" = "Drupal\egam_game\GameAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\egam_game\Form\GameForm",
  *       "edit" = "Drupal\egam_game\Form\GameForm",

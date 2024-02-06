@@ -4,16 +4,10 @@ namespace Drupal\egam_global\Handler;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\egam_artist\Entity\Artist;
-use Drupal\egam_artist\Entity\ArtistInterface;
 use Drupal\egam_artwork\ArtworkInterface;
-use Drupal\egam_artwork\Entity\Artwork;
-use Drupal\egam_game\Entity\Game;
 use Drupal\egam_game\GameInterface;
 use Drupal\egam_global\Entities;
-use Drupal\egam_museum\Entity\Museum;
-use Drupal\egam_museum\MuseumInterface;
-use Drupal\egam_screenshot\Entity\Screenshot;
+use Drupal\egam_screenshot\ScreenshotInterface;
 
 class RelatedContentHandler {
 
@@ -33,16 +27,8 @@ class RelatedContentHandler {
 
 	protected function getRelatedContent(EntityInterface $entity, Entities $relatedEntity): ?array {
 		$relatedContentIds = $this->getRelatedContentIds($entity, $relatedEntity);
-
 		if (empty($relatedContentIds)) return NULL;
-
-		return match ($relatedEntity) {
-			Entities::Game => Game::loadMultiple($relatedContentIds),
-			Entities::Artist => Artist::loadMultiple($relatedContentIds),
-			Entities::Artwork => Artwork::loadMultiple($relatedContentIds),
-			Entities::Museum => Museum::loadMultiple($relatedContentIds),
-			Entities::Screenshot => Screenshot::loadMultiple($relatedContentIds),
-		};
+		return $relatedEntity->loadMultiple($relatedContentIds);
 	}
 
 	protected function getRelatedContentIds(EntityInterface $entity, Entities $relatedEntity): ?array {
@@ -61,13 +47,12 @@ class RelatedContentHandler {
 	}
 
 	protected function getRelatedContentIdsFromScreenshots(EntityInterface $entity, Entities $relatedEntity): ?array {
-
 		$relatedScreenshots = $this->getRelatedContent($entity, Entities::Screenshot);
 		if (empty($relatedScreenshots)) {
 			return NULL;
 		}
 		$relatedContentIds = [];
-		/* @var Screenshot $screenshot */
+		/* @var ScreenshotInterface $screenshot */
 		foreach ($relatedScreenshots as $screenshot) {
 			$relatedContentIds[] = $screenshot->get('field_' . $relatedEntity->value)->target_id;
 		}
