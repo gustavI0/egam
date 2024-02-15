@@ -1,0 +1,24 @@
+uuid: f29cd936-4c89-4ae8-ba65-7f3fb910c098
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_sorting_year
+  module:
+    - egam_artwork
+id: artwork.artwork.field_sorting_year
+field_name: field_sorting_year
+entity_type: artwork
+bundle: artwork
+label: 'Année pour le tri'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

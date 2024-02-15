@@ -1,0 +1,19 @@
+uuid: 42c453e5-6c47-45ed-b5da-a0b758508d95
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+    - link
+id: artwork.field_more_info
+field_name: field_more_info
+entity_type: artwork
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

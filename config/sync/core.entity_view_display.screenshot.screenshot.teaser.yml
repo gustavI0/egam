@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.screenshot.teaser
     - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_country
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - image.style.webp
@@ -16,6 +17,14 @@ targetEntityType: screenshot
 bundle: screenshot
 mode: teaser
 content:
+  field_artwork:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_cover:
     type: media_thumbnail
     label: hidden
@@ -26,6 +35,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_game:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   label:
     type: string
@@ -38,8 +55,7 @@ content:
 hidden:
   created: true
   description: true
-  field_artwork: true
-  field_game: true
+  field_country: true
   langcode: true
   search_api_excerpt: true
   status: true

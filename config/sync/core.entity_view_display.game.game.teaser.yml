@@ -8,6 +8,9 @@ dependencies:
     - field.field.game.game.field_date
     - field.field.game.game.field_developer
     - field.field.game.game.field_editor
+    - field.field.game.game.field_genre
+    - field.field.game.game.field_more_info
+    - field.field.game.game.field_sorting_name
     - image.style.webp
   module:
     - egam_game
@@ -42,6 +45,9 @@ hidden:
   field_date: true
   field_developer: true
   field_editor: true
+  field_genre: true
+  field_more_info: true
+  field_sorting_name: true
   langcode: true
   search_api_excerpt: true
   status: true

@@ -26,4 +26,7 @@ function egam_global_theme_suggestions_alter(array &$suggestions, array &$variab
 	if (isset($variables['elements']['#view_mode'])) {
 		$suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
 	}
+	if ($hook == 'field') {
+		$suggestions[] = $hook . '__' . $variables['element']['#bundle'] . '_' . $variables['element']['#field_name'] . '_'. $variables['element']['#view_mode'];
+	}
 }

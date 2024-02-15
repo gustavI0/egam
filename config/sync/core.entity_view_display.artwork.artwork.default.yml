@@ -6,9 +6,13 @@ dependencies:
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_more_info
     - field.field.artwork.artwork.field_museum
+    - field.field.artwork.artwork.field_sorting_name
+    - field.field.artwork.artwork.field_sorting_year
   module:
     - egam_artwork
+    - link
 id: artwork.artwork.default
 targetEntityType: artwork
 bundle: artwork
@@ -46,6 +50,18 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 4
+    region: content
+  field_more_info:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
     weight: 5
     region: content
   field_museum:
@@ -54,7 +70,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
+    region: content
+  field_sorting_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
     region: content
   label:
     type: string
@@ -67,6 +91,7 @@ content:
 hidden:
   created: true
   description: true
+  field_sorting_year: true
   langcode: true
   search_api_excerpt: true
   status: true

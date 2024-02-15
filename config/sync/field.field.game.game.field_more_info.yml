@@ -1,0 +1,23 @@
+uuid: 822cd670-def2-4f5e-9042-8b1d23ed8c44
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.game.field_more_info
+  module:
+    - egam_game
+    - link
+id: game.game.field_more_info
+field_name: field_more_info
+entity_type: game
+bundle: game
+label: "Plus d'infos"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

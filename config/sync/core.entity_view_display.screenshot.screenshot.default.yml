@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_country
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
   module:
@@ -29,6 +30,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   field_cover:
     type: entity_reference_entity_view

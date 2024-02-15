@@ -6,9 +6,13 @@ dependencies:
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_more_info
     - field.field.artwork.artwork.field_museum
+    - field.field.artwork.artwork.field_sorting_name
+    - field.field.artwork.artwork.field_sorting_year
   module:
     - egam_artwork
+    - link
     - media_library
     - path
 id: artwork.artwork.default
@@ -18,7 +22,7 @@ mode: default
 content:
   field_artist:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -28,27 +32,50 @@ content:
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
-    weight: 1
+    weight: 2
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_date:
     type: string_textfield
-    weight: 3
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_more_info:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_museum:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sorting_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sorting_year:
+    type: number
+    weight: 5
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   label:
@@ -61,13 +88,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 8
     region: content
     settings:
       display_label: false

@@ -60,7 +60,10 @@ class RelatedContentHandler {
 	}
 
 	protected function getDefaultRelatedContentIds(EntityInterface $entity, Entities $relatedEntity): int|array {
-		return \Drupal::entityQuery($relatedEntity->value)->accessCheck(FALSE)->condition('field_' . $entity->bundle(), $entity->id())->execute();
+		return \Drupal::entityQuery($relatedEntity->value)
+			->accessCheck(FALSE)
+			->condition('field_' . $entity->bundle(), $entity->id())
+			->execute();
 	}
 
 }

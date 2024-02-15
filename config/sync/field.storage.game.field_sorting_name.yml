@@ -1,0 +1,21 @@
+uuid: b2348085-d6f5-4603-a24f-0b28f838a5d5
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game.field_sorting_name
+field_name: field_sorting_name
+entity_type: game
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

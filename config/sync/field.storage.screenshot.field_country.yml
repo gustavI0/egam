@@ -1,0 +1,20 @@
+uuid: 1589e0aa-786a-4b3b-ace4-fda4e8dfc24c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+    - taxonomy
+id: screenshot.field_country
+field_name: field_country
+entity_type: screenshot
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

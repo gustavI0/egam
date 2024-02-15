@@ -1,0 +1,19 @@
+uuid: 56430fde-8dfa-4544-a2a6-4428b5af02e0
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - link
+id: game.field_more_info
+field_name: field_more_info
+entity_type: game
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

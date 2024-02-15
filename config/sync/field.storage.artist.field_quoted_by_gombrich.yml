@@ -1,0 +1,18 @@
+uuid: 871b9a6b-6c25-4dcc-b80f-ae2f71eace16
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.field_quoted_by_gombrich
+field_name: field_quoted_by_gombrich
+entity_type: artist
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

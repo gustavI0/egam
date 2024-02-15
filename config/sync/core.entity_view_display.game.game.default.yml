@@ -7,9 +7,13 @@ dependencies:
     - field.field.game.game.field_date
     - field.field.game.game.field_developer
     - field.field.game.game.field_editor
+    - field.field.game.game.field_genre
+    - field.field.game.game.field_more_info
+    - field.field.game.game.field_sorting_name
   module:
     - datetime
     - egam_game
+    - link
 id: game.game.default
 targetEntityType: game
 bundle: game
@@ -49,6 +53,18 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_more_info:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
   label:
     type: string
     label: hidden
@@ -60,6 +76,8 @@ content:
 hidden:
   created: true
   description: true
+  field_genre: true
+  field_sorting_name: true
   langcode: true
   search_api_excerpt: true
   status: true

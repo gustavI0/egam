@@ -8,7 +8,8 @@ module.exports = {
       center: true,
     },
     fontFamily: {
-      'title': ['Primetime', 'ui-sans-serif'],
+      'site_name': ['Primetime', 'ui-sans-serif'],
+      'title': ['Bebas Regular', 'ui-sans-serif'],
       'display': ['Futura Book', 'ui-sans-serif'],
       'body': ['Futura Book', 'ui-sans-serif'],
     },

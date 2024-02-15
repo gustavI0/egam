@@ -1,0 +1,20 @@
+uuid: cda7dc86-6ae5-45f0-b399-10dd8c19e867
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_sorting_name
+  module:
+    - egam_artwork
+id: artwork.artwork.field_sorting_name
+field_name: field_sorting_name
+entity_type: artwork
+bundle: artwork
+label: 'Nom pour le tri'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

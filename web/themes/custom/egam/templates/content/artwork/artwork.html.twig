@@ -19,11 +19,11 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
-      <div class="container flex content artwork">
-          <div class="cover basis-1/2 p-4">
+      <div class="container flex content artwork mb-5">
+          <div class="cover basis-1/2">
               {{ content.field_cover }}
           </div>
-          <div class="details basis-1/2 p-4">
+          <div class="details basis-1/2 pl-4">
               {% if content.field_artist.0 %}
                   <div class="item artist">
                       <h2>{{ 'Artist'|t }}</h2>
@@ -47,7 +47,9 @@
       {% if related_games is not empty %}
       <div class="container">
           <h2>{{ 'Cette oeuvre apparait dans les jeux suivants : '|t }}</h2>
-          {{ related_games }}
+          <div class="related-games grid grid-cols-3 gap-4">
+              {{ related_games }}
+          </div>
       </div>
       {% endif %}
   {% endif %}

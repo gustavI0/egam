@@ -1,0 +1,30 @@
+uuid: c8d55ac1-f72d-435f-bb54-ff582985aac8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_country
+    - taxonomy.vocabulary.country
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_country
+field_name: field_country
+entity_type: screenshot
+bundle: screenshot
+label: 'Pays de la scène'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

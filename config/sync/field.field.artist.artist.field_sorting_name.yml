@@ -1,0 +1,20 @@
+uuid: 056cc889-52e7-41a8-b4f4-50564b0069c9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_sorting_name
+  module:
+    - egam_artist
+id: artist.artist.field_sorting_name
+field_name: field_sorting_name
+entity_type: artist
+bundle: artist
+label: 'Nom pour le tri'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

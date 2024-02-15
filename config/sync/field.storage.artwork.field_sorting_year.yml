@@ -1,0 +1,20 @@
+uuid: 87173a51-535a-4a2a-a5ad-9d0dc0b15ecf
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.field_sorting_year
+field_name: field_sorting_year
+entity_type: artwork
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

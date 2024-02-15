@@ -1,0 +1,20 @@
+uuid: 9e0301aa-0fd0-4434-8ae9-f5ece28cc056
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+    - taxonomy
+id: game.field_genre
+field_name: field_genre
+entity_type: game
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

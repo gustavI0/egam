@@ -1,0 +1,21 @@
+uuid: db42a6d4-4b07-4a90-8f17-7487253e4310
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.field_sorting_name
+field_name: field_sorting_name
+entity_type: artwork
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
