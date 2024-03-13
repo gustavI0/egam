@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import './base/custom-base.css';
+@import 'tailwindcss/components';
+@import './components/custom-components.css';
+@import 'tailwindcss/utilities';
+@import './homepage/homepage.css';
 
 @font-face {
   font-family: "Primetime";
@@ -22,33 +25,7 @@
   src: url("../../dist/fonts/BebasNeue_Regular.ttf");
 }
 
-@layer base {
-  body {
-    @apply bg-stone-200 font-body;
-  }
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl font-title;
-  }
-  a {
-    @apply text-opacity-80 font-semibold no-underline transition duration-500 ease-in-out hover:text-opacity-95;
-  }
-
-}
-
 @layer components {
-  .home-content .title {
-    word-spacing: 100vw;
-    line-height: 1;
-    font-size: 14rem;
-  }
-
-  .home-content a {
-    @apply relative w-fit inline-block after:inline-block after:content-[''] after:absolute after:h-[3px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center after:bottom-0 after:left-0;
-  }
-
   .cover-teaser img {
     @apply w-60 h-60 object-cover object-center;
   }
@@ -57,36 +34,7 @@
     @apply w-60;
   }
 
-  .img-frame {
-    --b: 2px;   /* thickness of the border */
-    --c: black;   /* color of the border */
-    --w: 80px;  /* width of border */
-
-    border: var(--b) solid #0000; /* space for the border */
-    --_g: #0000 90deg,var(--c) 0;
-    --_p: var(--w) var(--w) border-box no-repeat;
-    background:
-      conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
-      conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
-      conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
-      conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
-  }
-
-  .img-frame img {
-    padding: 1rem;
-    max-height: 37.5rem;
-    object-fit: contain;
-  }
-
   .label {
     @apply text-lg
-  }
-
-  #block-egam-onglets > ul {
-    @apply flex
-  }
-
-  #block-egam-onglets li {
-    @apply mr-2
   }
 }

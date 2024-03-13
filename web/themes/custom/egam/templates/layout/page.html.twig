@@ -44,37 +44,25 @@
  */
 #}
 <div class="layout-container">
-
-    {% if not is_front %}
+    {% if is_front %}
+        {{ page.primary_menu }}
+    {% else %}
         <header role="banner" class="w-9/12 border-b-2 mx-auto">
-            <div class="lg:flex lg:flex-wrap lg:py-14 items-center justify-between max-w-screen-lg xl:max-w-screen-xl">
+            <div class="banner">
             {{ page.header }}
             {{ page.primary_menu }}
             </div>
         </header>
         {{ page.help }}
-        {{ page.breadcrumb }}
-        {{ page.highlighted }}
+{#        {{ page.breadcrumb }}#}
+{#        {{ page.highlighted }}#}
     {% endif %}
 
     <main role="main" class="{{ is_front ? '' : 'w-9/12' }} mx-auto">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
         <div class="layout-content mx-auto">
             {{ page.content }}
-        </div>{# /.layout-content #}
-
-        {% if page.sidebar_first %}
-            <aside class="layout-sidebar-first" role="complementary">
-                {{ page.sidebar_first }}
-            </aside>
-        {% endif %}
-
-        {% if page.sidebar_second %}
-            <aside class="layout-sidebar-second" role="complementary">
-                {{ page.sidebar_second }}
-            </aside>
-        {% endif %}
+        </div>
     </main>
 
     {% if page.footer %}

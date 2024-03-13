@@ -1,1 +1,31 @@
-{#&#10/**&#10 * @file&#10 * Default theme implementation to present a game entity.&#10 *&#10 * This template is used when viewing a canonical game page,&#10 *&#10 * Available variables:&#10 * - content: A list of content items. Use 'content' to print all content, or&#10 *   print a subset such as 'content.label'.&#10 * - attributes: HTML attributes for the container element.&#10 *&#10 * @see template_preprocess_game()&#10 */&#10#}&#10<article{{ attributes }}>&#10    {% if view_mode != 'full' %}&#10        {{ title_prefix }}&#10        {{ title_suffix }}&#10    {% endif %}&#10    {% if content %}&#10    <div class="content game">&#10        <div class="cover-teaser p-2">&#10            {{ content.field_cover }}&#10        </div>&#10        <div class="label p-2">&#10            {{ content.label }}&#10        </div>&#10    </div>&#10    {% endif %}&#10</article>&#10
+{#
+/**
+ * @file
+ * Default theme implementation to present a game entity.
+ *
+ * This template is used when viewing a canonical game page,
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.label'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_game()
+ */
+#}
+<article{{ attributes }}>
+    {% if view_mode != 'full' %}
+        {{ title_prefix }}
+        {{ title_suffix }}
+    {% endif %}
+    {% if content %}
+    <div class="content game">
+        <div class="cover-teaser">
+            {{ content.field_cover }}
+        </div>
+        <div class="label">
+            {{ content.label }}
+        </div>
+    </div>
+    {% endif %}
+</article>

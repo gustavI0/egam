@@ -1,0 +1,7 @@
+#block-egam-onglets > ul {
+  @apply flex
+}
+
+#block-egam-onglets li {
+  @apply mr-2
+}

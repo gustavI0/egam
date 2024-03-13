@@ -7,8 +7,23 @@ module.exports = {
     container: {
       center: true,
     },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    colors: {
+      'dark': 'rgb(3 7 18)',
+      'light': 'rgb(250 250 249)',
+    },
+    backgroundColor: ({ theme }) => ({
+      dark: theme('colors.dark'),
+      light: theme('colors.light'),
+      body: 'rgb(231 229 228)'
+    }),
     fontFamily: {
-      'site_name': ['Primetime', 'ui-sans-serif'],
+      'branding': ['Primetime', 'ui-sans-serif'],
       'title': ['Bebas Regular', 'ui-sans-serif'],
       'display': ['Futura Book', 'ui-sans-serif'],
       'body': ['Futura Book', 'ui-sans-serif'],
