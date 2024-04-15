@@ -3,13 +3,17 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.artwork.artwork.field_alternative_title
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_dimensions
+    - field.field.artwork.artwork.field_medium
     - field.field.artwork.artwork.field_more_info
     - field.field.artwork.artwork.field_museum
     - field.field.artwork.artwork.field_sorting_name
     - field.field.artwork.artwork.field_sorting_year
+    - field.field.artwork.artwork.field_subject
   module:
     - egam_artwork
     - link
@@ -26,6 +30,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_alternative_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_artist:
     type: entity_reference_label
@@ -51,6 +63,22 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_dimensions:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_medium:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_more_info:
     type: link
@@ -79,6 +107,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
     region: content
   label:
     type: string

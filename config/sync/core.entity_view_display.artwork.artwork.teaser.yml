@@ -4,13 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.artwork.teaser
+    - field.field.artwork.artwork.field_alternative_title
     - field.field.artwork.artwork.field_artist
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_dimensions
+    - field.field.artwork.artwork.field_medium
     - field.field.artwork.artwork.field_more_info
     - field.field.artwork.artwork.field_museum
     - field.field.artwork.artwork.field_sorting_name
     - field.field.artwork.artwork.field_sorting_year
+    - field.field.artwork.artwork.field_subject
     - image.style.webp
   module:
     - egam_artwork
@@ -59,11 +63,15 @@ content:
 hidden:
   created: true
   description: true
+  field_alternative_title: true
   field_date: true
+  field_dimensions: true
+  field_medium: true
   field_more_info: true
   field_museum: true
   field_sorting_name: true
   field_sorting_year: true
+  field_subject: true
   langcode: true
   search_api_excerpt: true
   status: true

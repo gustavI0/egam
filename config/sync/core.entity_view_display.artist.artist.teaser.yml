@@ -8,22 +8,28 @@ dependencies:
     - field.field.artist.artist.field_cover
     - field.field.artist.artist.field_cover_caption
     - field.field.artist.artist.field_death_year
+    - field.field.artist.artist.field_full_name
+    - field.field.artist.artist.field_gender
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
+    - image.style.webp
   module:
     - egam_artist
+    - media
 id: artist.artist.teaser
 targetEntityType: artist
 bundle: artist
 mode: teaser
 content:
   field_cover:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
@@ -41,6 +47,8 @@ hidden:
   field_birth_year: true
   field_cover_caption: true
   field_death_year: true
+  field_full_name: true
+  field_gender: true
   field_nationality: true
   field_quoted_by_gombrich: true
   field_sorting_name: true

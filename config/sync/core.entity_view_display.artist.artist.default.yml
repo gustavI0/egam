@@ -7,11 +7,14 @@ dependencies:
     - field.field.artist.artist.field_cover
     - field.field.artist.artist.field_cover_caption
     - field.field.artist.artist.field_death_year
+    - field.field.artist.artist.field_full_name
+    - field.field.artist.artist.field_gender
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
   module:
     - egam_artist
+    - options
     - text
 id: artist.artist.default
 targetEntityType: artist
@@ -50,6 +53,21 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_full_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_gender:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
   field_nationality:
     type: string
     label: hidden
@@ -57,6 +75,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_quoted_by_gombrich:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   label:
     type: string
@@ -69,7 +97,6 @@ content:
 hidden:
   created: true
   description: true
-  field_quoted_by_gombrich: true
   field_sorting_name: true
   search_api_excerpt: true
   status: true

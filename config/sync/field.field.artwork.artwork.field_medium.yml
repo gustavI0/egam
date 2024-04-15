@@ -1,0 +1,20 @@
+uuid: 1078712c-f481-4a35-8aed-07102de46d17
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_medium
+  module:
+    - egam_artwork
+id: artwork.artwork.field_medium
+field_name: field_medium
+entity_type: artwork
+bundle: artwork
+label: Technique
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

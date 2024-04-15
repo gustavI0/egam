@@ -1,0 +1,20 @@
+uuid: a484bb4a-9c0c-4e39-aea4-413c811d216e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_alternative_title
+  module:
+    - egam_artwork
+id: artwork.artwork.field_alternative_title
+field_name: field_alternative_title
+entity_type: artwork
+bundle: artwork
+label: 'Titre alternatif'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

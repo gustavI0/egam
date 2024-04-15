@@ -1,17 +1,17 @@
-uuid: aa7c8bb4-630c-44d2-9a9c-8a61d0168189
+uuid: 3a613152-a19d-4b7d-a953-e264b74efd1f
 langcode: fr
 status: true
 dependencies:
   config:
     - field.storage.screenshot.field_cover
-    - media.type.image
+    - media.type.image_screenshot
   module:
     - egam_screenshot
 id: screenshot.screenshot.field_cover
 field_name: field_cover
 entity_type: screenshot
 bundle: screenshot
-label: Visuel
+label: Visuels
 description: ''
 required: false
 translatable: false
@@ -21,7 +21,7 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image: image
+      image_screenshot: image_screenshot
     sort:
       field: _none
       direction: ASC

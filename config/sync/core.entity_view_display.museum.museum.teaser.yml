@@ -7,19 +7,23 @@ dependencies:
     - field.field.museum.museum.field_cover
     - field.field.museum.museum.field_location
     - field.field.museum.museum.field_website
+    - image.style.webp
   module:
     - egam_museum
+    - media
 id: museum.museum.teaser
 targetEntityType: museum
 bundle: museum
 mode: teaser
 content:
   field_cover:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content

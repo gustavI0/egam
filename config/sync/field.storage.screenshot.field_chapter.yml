@@ -1,19 +1,20 @@
-uuid: a5409dc0-ccef-403c-9a79-b1c4cbdb8c4f
+uuid: e1238321-7e99-4be2-86e6-c5f09c5e2be0
 langcode: fr
 status: true
 dependencies:
   module:
     - egam_screenshot
-    - media
-id: screenshot.field_cover
-field_name: field_cover
+id: screenshot.field_chapter
+field_name: field_chapter
 entity_type: screenshot
-type: entity_reference
+type: string
 settings:
-  target_type: media
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

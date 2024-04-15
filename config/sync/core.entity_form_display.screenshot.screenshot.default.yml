@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_chapter
     - field.field.screenshot.screenshot.field_country
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
+    - field.field.screenshot.screenshot.field_is_cropped
+    - field.field.screenshot.screenshot.field_is_inverted
+    - field.field.screenshot.screenshot.field_is_patchwork
   module:
     - egam_screenshot
     - media_library
@@ -35,6 +39,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_chapter:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_country:
     type: entity_reference_autocomplete
     weight: 4
@@ -47,7 +59,7 @@ content:
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
-    weight: 1
+    weight: 30
     region: content
     settings:
       media_types: {  }
@@ -61,6 +73,27 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_is_cropped:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_is_inverted:
+    type: boolean_checkbox
+    weight: 27
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_is_patchwork:
+    type: boolean_checkbox
+    weight: 29
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   label:
     type: string_textfield

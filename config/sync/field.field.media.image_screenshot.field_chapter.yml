@@ -1,0 +1,19 @@
+uuid: f30939a8-3181-44fe-b8a8-aa77d3e86a52
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_chapter
+    - media.type.image_screenshot
+id: media.image_screenshot.field_chapter
+field_name: field_chapter
+entity_type: media
+bundle: image_screenshot
+label: 'Chapitre / mission / carte'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

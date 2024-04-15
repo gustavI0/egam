@@ -1,0 +1,22 @@
+uuid: 4b5aaafa-2dc8-44f9-9a92-7178302f1fde
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_is_cropped
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_is_cropped
+field_name: field_is_cropped
+entity_type: screenshot
+bundle: screenshot
+label: 'Oeuvre recadrée'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

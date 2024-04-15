@@ -1,13 +1,13 @@
-uuid: e0c1e846-e3f4-468d-bcf7-2bbf3721e623
+uuid: 67a02c94-1d55-416d-a4a7-2d51be960e95
 langcode: fr
 status: true
 dependencies:
   module:
-    - egam_game
+    - egam_artwork
     - taxonomy
-id: game.field_editor
-field_name: field_editor
-entity_type: game
+id: artwork.field_subject
+field_name: field_subject
+entity_type: artwork
 type: entity_reference
 settings:
   target_type: taxonomy_term

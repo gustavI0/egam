@@ -1,0 +1,22 @@
+uuid: 2cfe809e-3e43-4eb9-80f6-e745a655f56e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_is_patchwork
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_is_patchwork
+field_name: field_is_patchwork
+entity_type: screenshot
+bundle: screenshot
+label: Patchwork
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

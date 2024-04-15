@@ -23,6 +23,7 @@
 /.idea/
 
 # Ignore .env files as they are personal
+/.env
 /.env.local
 #/salt.txt
 
@@ -31,6 +32,9 @@
 
 # Ignore node modules
 /web/themes/custom/egam/node_modules/
+
+# Ignore apache access config
+.htpasswd
 
 *.sql
 *.gz

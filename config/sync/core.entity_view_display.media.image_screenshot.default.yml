@@ -1,0 +1,42 @@
+uuid: a3162345-50fb-444c-bf1f-073983695773
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.media.image_screenshot.field_chapter
+    - field.field.media.image_screenshot.field_media_image
+    - image.style.large
+    - media.type.image_screenshot
+  module:
+    - image
+id: media.image_screenshot.default
+targetEntityType: media
+bundle: image_screenshot
+mode: default
+content:
+  field_chapter:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

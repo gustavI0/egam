@@ -1,16 +1,18 @@
-uuid: c2ddd5ff-748d-4e14-a1d0-4dc8eb0e58b8
+uuid: 5186d51e-f5bd-4f79-bbc7-7dcd63eab9e8
 langcode: fr
 status: true
 dependencies:
   module:
     - egam_artist
-    - text
-id: artist.field_cover_caption
-field_name: field_cover_caption
+id: artist.field_full_name
+field_name: field_full_name
 entity_type: artist
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

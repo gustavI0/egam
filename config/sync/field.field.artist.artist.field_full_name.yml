@@ -1,0 +1,20 @@
+uuid: 26f6f98e-092b-46e5-a18b-4d1e84fbee11
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_full_name
+  module:
+    - egam_artist
+id: artist.artist.field_full_name
+field_name: field_full_name
+entity_type: artist
+bundle: artist
+label: 'Nom complet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

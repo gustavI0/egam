@@ -650,9 +650,13 @@ nav#block-egam-homepage {
   font-size: 14rem;
 }
 
+.views-view-responsive-grid__item {
+  width: 20rem;
+}
+
 .cover-teaser img {
-  height: 15rem;
-  width: 15rem;
+  height: 20rem;
+  width: 20rem;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -666,6 +670,10 @@ nav#block-egam-homepage {
 .label {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.views-view-responsive-grid {
+  grid-template-columns: repeat(3, auto);
 }
 
 #block-egam-onglets > ul {

@@ -1,0 +1,8 @@
+uuid: 304fc138-ced1-4ab9-81d9-7c1aa77c3520
+langcode: fr
+status: true
+dependencies: {  }
+id: homepage
+label: Homepage
+description: ''
+locked: false

@@ -1,0 +1,11 @@
+uuid: 4f1c3b27-5b84-46b6-b136-ef484c020f2b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - media.type.image_screenshot
+id: media.image_screenshot
+target_entity_type_id: media
+target_bundle: image_screenshot
+default_langcode: site_default
+language_alterable: false

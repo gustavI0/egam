@@ -1,0 +1,21 @@
+uuid: 848fd047-14e6-4df1-a739-d708fa3cfacb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_gender
+  module:
+    - egam_artist
+    - options
+id: artist.artist.field_gender
+field_name: field_gender
+entity_type: artist
+bundle: artist
+label: Genre
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

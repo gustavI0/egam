@@ -1,0 +1,30 @@
+uuid: ce172ec5-bdca-4314-89bb-d467c024c4a0
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - options
+id: artist.field_gender
+field_name: field_gender
+entity_type: artist
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: man
+      label: Homme
+    -
+      value: woman
+      label: Femme
+    -
+      value: unknown
+      label: Inconnu
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

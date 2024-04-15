@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.museum.teaser
   module:
     - egam_museum
+    - views_infinite_scroll
 id: musea
 label: Musées
 module: views
@@ -87,10 +88,10 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: infinite_scroll
         options:
           offset: 0
-          items_per_page: 10
+          items_per_page: 12
           total_pages: null
           id: 0
           tags:
@@ -104,6 +105,10 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset: false
             offset_label: Décalage
+          views_infinite_scroll:
+            button_text: 'Afficher plus'
+            automatically_load_content: true
+            initially_load_all_pages: false
       exposed_form:
         type: basic
         options:

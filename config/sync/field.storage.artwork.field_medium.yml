@@ -1,0 +1,21 @@
+uuid: 4803cb1a-3545-47f7-bbf7-6a80f8c52542
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.field_medium
+field_name: field_medium
+entity_type: artwork
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

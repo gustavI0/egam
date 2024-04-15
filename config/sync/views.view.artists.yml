@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.artist.teaser
   module:
     - egam_artist
+    - views_infinite_scroll
 id: artists
 label: Artistes
 module: views
@@ -139,9 +140,27 @@ display:
           hide_alter_empty: true
           destination: false
       pager:
-        type: none
+        type: infinite_scroll
         options:
           offset: 0
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Tout -'
+            offset: false
+            offset_label: Décalage
+          views_infinite_scroll:
+            button_text: "Voir plus d'artistes"
+            automatically_load_content: true
+            initially_load_all_pages: false
       exposed_form:
         type: basic
         options:
@@ -159,7 +178,35 @@ display:
         type: none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        field_sorting_name_value:
+          id: field_sorting_name_value
+          table: artist__field_sorting_name
+          field: field_sorting_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        label:
+          id: label
+          table: artist
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: artist
+          entity_field: label
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters: {  }
       style:
@@ -193,6 +240,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_1:
     id: block_1
@@ -236,4 +284,5 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }

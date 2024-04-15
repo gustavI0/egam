@@ -1,0 +1,29 @@
+uuid: 4e73a27d-a741-49ad-80f2-a40cae458829
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.homepage
+  module:
+    - system
+  theme:
+    - egam
+id: egam_homepage
+theme: egam
+region: primary_menu
+weight: -4
+provider: null
+plugin: 'system_menu_block:homepage'
+settings:
+  id: 'system_menu_block:homepage'
+  label: 'Homepage menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -1,0 +1,13 @@
+uuid: 06d05278-5d01-44e4-92ce-5adbb1c83b96
+langcode: fr
+status: true
+dependencies: {  }
+id: image_screenshot
+label: 'Image capture'
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

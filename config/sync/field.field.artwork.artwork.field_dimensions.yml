@@ -1,0 +1,20 @@
+uuid: 1222c7b0-7b11-4bbd-a0c0-20e35c5c16c9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_dimensions
+  module:
+    - egam_artwork
+id: artwork.artwork.field_dimensions
+field_name: field_dimensions
+entity_type: artwork
+bundle: artwork
+label: Dimensions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

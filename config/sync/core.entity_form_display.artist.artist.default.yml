@@ -7,6 +7,8 @@ dependencies:
     - field.field.artist.artist.field_cover
     - field.field.artist.artist.field_cover_caption
     - field.field.artist.artist.field_death_year
+    - field.field.artist.artist.field_full_name
+    - field.field.artist.artist.field_gender
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
@@ -22,7 +24,7 @@ mode: default
 content:
   field_birth_year:
     type: string_textfield
-    weight: 7
+    weight: 8
     region: content
     settings:
       size: 60
@@ -30,30 +32,44 @@ content:
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
-    weight: 2
+    weight: 3
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_cover_caption:
-    type: text_textfield
-    weight: 3
+    type: text_textarea
+    weight: 4
     region: content
     settings:
-      size: 60
+      rows: 2
       placeholder: ''
     third_party_settings: {  }
   field_death_year:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_full_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_gender:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_nationality:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -61,7 +77,7 @@ content:
     third_party_settings: {  }
   field_quoted_by_gombrich:
     type: boolean_checkbox
-    weight: 26
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -84,13 +100,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: false
