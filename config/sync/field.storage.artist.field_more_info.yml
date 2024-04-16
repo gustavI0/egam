@@ -1,0 +1,19 @@
+uuid: eb8565a7-234d-41da-8360-37f869c4e87a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - link
+id: artist.field_more_info
+field_name: field_more_info
+entity_type: artist
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

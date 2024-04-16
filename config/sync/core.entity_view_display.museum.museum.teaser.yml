@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.museum.teaser
     - field.field.museum.museum.field_cover
     - field.field.museum.museum.field_location
+    - field.field.museum.museum.field_more_info
     - field.field.museum.museum.field_website
     - image.style.webp
   module:
@@ -39,6 +40,7 @@ hidden:
   created: true
   description: true
   field_location: true
+  field_more_info: true
   field_website: true
   langcode: true
   search_api_excerpt: true

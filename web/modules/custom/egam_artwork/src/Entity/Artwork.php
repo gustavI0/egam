@@ -135,7 +135,7 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
     $fields['description'] = BaseFieldDefinition::create('text_long')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
-      ->setLabel(t('Description'))
+      ->setLabel(t('Notes'))
       ->setDisplayOptions('form', [
         'type' => 'text_textarea',
         'weight' => 10,

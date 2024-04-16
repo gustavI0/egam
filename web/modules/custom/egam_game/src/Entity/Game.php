@@ -135,7 +135,7 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
     $fields['description'] = BaseFieldDefinition::create('text_long')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
-      ->setLabel(t('Description'))
+      ->setLabel(t('Notes'))
       ->setDisplayOptions('form', [
         'type' => 'text_textarea',
         'weight' => 10,

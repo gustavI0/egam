@@ -10,6 +10,7 @@ dependencies:
     - field.field.artist.artist.field_death_year
     - field.field.artist.artist.field_full_name
     - field.field.artist.artist.field_gender
+    - field.field.artist.artist.field_more_info
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
@@ -49,6 +50,7 @@ hidden:
   field_death_year: true
   field_full_name: true
   field_gender: true
+  field_more_info: true
   field_nationality: true
   field_quoted_by_gombrich: true
   field_sorting_name: true

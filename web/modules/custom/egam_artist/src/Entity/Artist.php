@@ -129,7 +129,7 @@ final class Artist extends RevisionableContentEntityBase implements ArtistInterf
 
     $fields['description'] = BaseFieldDefinition::create('text_long')
       ->setRevisionable(TRUE)
-      ->setLabel(t('Description'))
+      ->setLabel(t('Notes'))
       ->setDisplayOptions('form', [
         'type' => 'text_textarea',
         'weight' => 10,

@@ -1,0 +1,19 @@
+uuid: 66beab50-18cc-4e06-a996-25e7544b2e36
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+    - link
+id: museum.field_more_info
+field_name: field_more_info
+entity_type: museum
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -54,6 +54,17 @@
                       {{ content.field_death_year }}
                   </div>
               {% endif %}
+              {% if content.description.0 %}
+                  <div class="item description">
+                      <h2>{{ 'Notes'|t }}</h2>
+                      {{ content.description }}
+                  </div>
+              {% endif %}
+              {% if content.field_more_info.0 %}
+                  <div class="item more_info">
+                      <a href="{{ content.field_more_info }}">{{ 'More info'|t }}</a>
+                  </div>
+              {% endif %}
           </div>
       </div>
       {% if related_artworks is not empty %}

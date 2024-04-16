@@ -30,10 +30,15 @@
                       {{ content.field_game }}
                   </div>
               {% endif %}
-              {% if content.field_notes.0 %}
-                  <div class="item notes">
+              {% if content.description.0 %}
+                  <div class="item description">
                       <h2>{{ 'Notes'|t }}</h2>
-                      {{ content.field_notes }}
+                      {{ content.description }}
+                  </div>
+              {% endif %}
+              {% if content.field_more_info.0 %}
+                  <div class="item more_info">
+                      <a href="{{ content.field_more_info }}">{{ 'More info'|t }}</a>
                   </div>
               {% endif %}
           </div>

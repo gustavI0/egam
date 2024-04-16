@@ -11,7 +11,7 @@ id: game.game.field_developer
 field_name: field_developer
 entity_type: game
 bundle: game
-label: Développeur
+label: Développeur(s)
 description: ''
 required: false
 translatable: false

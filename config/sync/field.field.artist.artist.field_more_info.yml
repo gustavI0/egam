@@ -1,0 +1,23 @@
+uuid: 47ad0235-60d7-4702-87bf-293cb9f5872a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_more_info
+  module:
+    - egam_artist
+    - link
+id: artist.artist.field_more_info
+field_name: field_more_info
+entity_type: artist
+bundle: artist
+label: "Plus d'infos"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

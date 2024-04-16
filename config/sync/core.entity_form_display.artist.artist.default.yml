@@ -9,11 +9,13 @@ dependencies:
     - field.field.artist.artist.field_death_year
     - field.field.artist.artist.field_full_name
     - field.field.artist.artist.field_gender
+    - field.field.artist.artist.field_more_info
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
   module:
     - egam_artist
+    - link
     - media_library
     - path
     - text
@@ -22,6 +24,14 @@ targetEntityType: artist
 bundle: artist
 mode: default
 content:
+  description:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_birth_year:
     type: string_textfield
     weight: 8
@@ -66,6 +76,14 @@ content:
     weight: 11
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_more_info:
+    type: link_default
+    weight: 13
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_nationality:
     type: string_textfield
@@ -113,5 +131,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  description: true
   uid: true

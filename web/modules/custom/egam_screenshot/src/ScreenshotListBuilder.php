@@ -34,8 +34,8 @@ final class ScreenshotListBuilder extends EntityListBuilder {
     /** @var \Drupal\egam_screenshot\ScreenshotInterface $entity */
     $row['id'] = $entity->id();
     $row['label'] = $entity->toLink();
-    $row['artwork'] = Artwork::load($entity->get('field_artwork')->target_id)->toLink();
-    $row['game'] = Game::load($entity->get('field_game')->target_id)->toLink();
+    $row['artwork'] = $entity->get('field_artwork')->target_id ? Artwork::load($entity->get('field_artwork')->target_id)->toLink() : NULL;
+    $row['game'] = $entity->get('field_game')->target_id ? Game::load($entity->get('field_game')->target_id)->toLink() : NULL;
     $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
     $username_options = [
       'label' => 'hidden',

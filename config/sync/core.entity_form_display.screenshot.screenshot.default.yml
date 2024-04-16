@@ -4,15 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.screenshot.screenshot.field_artwork
-    - field.field.screenshot.screenshot.field_chapter
     - field.field.screenshot.screenshot.field_country
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_is_cropped
     - field.field.screenshot.screenshot.field_is_inverted
     - field.field.screenshot.screenshot.field_is_patchwork
+    - field.field.screenshot.screenshot.field_more_info
   module:
     - egam_screenshot
+    - link
     - media_library
     - path
     - text
@@ -39,14 +40,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_chapter:
-    type: string_textfield
-    weight: 28
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_country:
     type: entity_reference_autocomplete
     weight: 4
@@ -59,7 +52,7 @@ content:
     third_party_settings: {  }
   field_cover:
     type: media_library_widget
-    weight: 30
+    weight: 1
     region: content
     settings:
       media_types: {  }
@@ -76,24 +69,32 @@ content:
     third_party_settings: {  }
   field_is_cropped:
     type: boolean_checkbox
-    weight: 26
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_is_inverted:
     type: boolean_checkbox
-    weight: 27
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_is_patchwork:
     type: boolean_checkbox
-    weight: 29
+    weight: 9
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_more_info:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   label:
     type: string_textfield
@@ -105,13 +106,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 10
     region: content
     settings:
       display_label: false

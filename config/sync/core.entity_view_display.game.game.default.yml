@@ -14,11 +14,19 @@ dependencies:
     - datetime
     - egam_game
     - link
+    - text
 id: game.game.default
 targetEntityType: game
 bundle: game
 mode: default
 content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
   field_cover:
     type: entity_reference_entity_view
     label: hidden
@@ -53,17 +61,25 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_more_info:
-    type: link
-    label: above
+  field_genre:
+    type: entity_reference_label
+    label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link: true
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_more_info:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 7
     region: content
   label:
     type: string
@@ -75,8 +91,6 @@ content:
     region: content
 hidden:
   created: true
-  description: true
-  field_genre: true
   field_sorting_name: true
   langcode: true
   search_api_excerpt: true
