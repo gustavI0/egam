@@ -1,12 +1,12 @@
-uuid: c0b3a61f-3a18-498f-8818-5819f46b4fd8
+uuid: 46cc1cdf-e145-4534-8484-895249d30378
 langcode: fr
 status: true
 dependencies:
   module:
-    - egam_screenshot
-id: screenshot.field_is_inverted
+    - media
+id: media.field_is_inverted
 field_name: field_is_inverted
-entity_type: screenshot
+entity_type: media
 type: boolean
 settings: {  }
 module: core

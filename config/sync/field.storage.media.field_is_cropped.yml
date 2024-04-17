@@ -1,12 +1,12 @@
-uuid: 8664e033-04d5-4ff9-bbce-2fe7d889b48c
+uuid: 08326c96-72ca-4a48-92d1-621003001be5
 langcode: fr
 status: true
 dependencies:
   module:
-    - egam_screenshot
-id: screenshot.field_is_cropped
+    - media
+id: media.field_is_cropped
 field_name: field_is_cropped
-entity_type: screenshot
+entity_type: media
 type: boolean
 settings: {  }
 module: core

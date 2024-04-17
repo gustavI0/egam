@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.museum.teaser
     - field.field.museum.museum.field_cover
+    - field.field.museum.museum.field_foundation_date
     - field.field.museum.museum.field_location
     - field.field.museum.museum.field_more_info
     - field.field.museum.museum.field_website
@@ -39,6 +40,7 @@ content:
 hidden:
   created: true
   description: true
+  field_foundation_date: true
   field_location: true
   field_more_info: true
   field_website: true

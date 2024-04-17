@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.media.image_screenshot.field_chapter
+    - field.field.media.image_screenshot.field_chapter_country
+    - field.field.media.image_screenshot.field_is_cropped
+    - field.field.media.image_screenshot.field_is_inverted
+    - field.field.media.image_screenshot.field_is_modified
+    - field.field.media.image_screenshot.field_is_patchwork
     - field.field.media.image_screenshot.field_media_image
     - image.style.large
     - media.type.image_screenshot
@@ -21,6 +26,54 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_chapter_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_is_cropped:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_is_inverted:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_is_modified:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_is_patchwork:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_media_image:
     type: image

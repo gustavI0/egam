@@ -1,15 +1,14 @@
-uuid: 02b040c8-cd0b-4d18-a792-63cdc8f551ce
+uuid: b2050564-4f89-436e-b10a-91d7a56ab0e8
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.screenshot.field_is_inverted
-  module:
-    - egam_screenshot
-id: screenshot.screenshot.field_is_inverted
-field_name: field_is_inverted
-entity_type: screenshot
-bundle: screenshot
+    - field.storage.media.field_is_modified
+    - media.type.image_screenshot
+id: media.image_screenshot.field_is_modified
+field_name: field_is_modified
+entity_type: media
+bundle: image_screenshot
 label: 'Oeuvre inversée'
 description: ''
 required: false

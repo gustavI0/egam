@@ -5,12 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.screenshot.teaser
     - field.field.screenshot.screenshot.field_artwork
-    - field.field.screenshot.screenshot.field_country
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
-    - field.field.screenshot.screenshot.field_is_cropped
-    - field.field.screenshot.screenshot.field_is_inverted
-    - field.field.screenshot.screenshot.field_is_patchwork
     - field.field.screenshot.screenshot.field_more_info
   module:
     - egam_screenshot
@@ -46,11 +42,7 @@ content:
 hidden:
   created: true
   description: true
-  field_country: true
   field_cover: true
-  field_is_cropped: true
-  field_is_inverted: true
-  field_is_patchwork: true
   field_more_info: true
   langcode: true
   search_api_excerpt: true

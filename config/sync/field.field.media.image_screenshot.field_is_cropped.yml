@@ -1,15 +1,14 @@
-uuid: 4b5aaafa-2dc8-44f9-9a92-7178302f1fde
+uuid: 1d427e7f-48ee-4538-b10f-5f829445ee3b
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.screenshot.field_is_cropped
-  module:
-    - egam_screenshot
-id: screenshot.screenshot.field_is_cropped
+    - field.storage.media.field_is_cropped
+    - media.type.image_screenshot
+id: media.image_screenshot.field_is_cropped
 field_name: field_is_cropped
-entity_type: screenshot
-bundle: screenshot
+entity_type: media
+bundle: image_screenshot
 label: 'Oeuvre recadrée'
 description: ''
 required: false

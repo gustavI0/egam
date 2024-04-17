@@ -1,0 +1,21 @@
+uuid: 49b42337-4779-44da-91df-76b21a778d37
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_is_inverted
+    - media.type.image_screenshot
+id: media.image_screenshot.field_is_inverted
+field_name: field_is_inverted
+entity_type: media
+bundle: image_screenshot
+label: 'Oeuvre inversée'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

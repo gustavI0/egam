@@ -1,12 +1,12 @@
-uuid: 83cf31a4-df8d-4398-b7fa-4e73c1b25e21
+uuid: 776675eb-ff0c-4fe3-8642-01493a6a3ba8
 langcode: fr
 status: true
 dependencies:
   module:
-    - egam_screenshot
-id: screenshot.field_is_patchwork
+    - media
+id: media.field_is_patchwork
 field_name: field_is_patchwork
-entity_type: screenshot
+entity_type: media
 type: boolean
 settings: {  }
 module: core

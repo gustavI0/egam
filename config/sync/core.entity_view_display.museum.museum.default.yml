@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.museum.museum.field_cover
+    - field.field.museum.museum.field_foundation_date
     - field.field.museum.museum.field_location
     - field.field.museum.museum.field_more_info
     - field.field.museum.museum.field_website
@@ -31,6 +32,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_foundation_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_location:
     type: string

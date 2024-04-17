@@ -1,16 +1,15 @@
-uuid: c8d55ac1-f72d-435f-bb54-ff582985aac8
+uuid: 206730d5-39cb-418c-90b0-c4458282352c
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.screenshot.field_country
+    - field.storage.media.field_chapter_country
+    - media.type.image_screenshot
     - taxonomy.vocabulary.country
-  module:
-    - egam_screenshot
-id: screenshot.screenshot.field_country
-field_name: field_country
-entity_type: screenshot
-bundle: screenshot
+id: media.image_screenshot.field_chapter_country
+field_name: field_chapter_country
+entity_type: media
+bundle: image_screenshot
 label: 'Pays de la scène'
 description: ''
 required: false
