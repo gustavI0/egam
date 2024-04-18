@@ -31,10 +31,15 @@ function egam_artwork_theme(): array {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_artwork(array &$variables): void {
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  $variables['view_mode'] = $viewMode = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
+	$artwork = $variables['elements']['#artwork'];
+	if ($viewMode == 'teaser') {
+		$variables['full_title'] = $artwork->getFullTitle();
+	}
 }
 
 /**

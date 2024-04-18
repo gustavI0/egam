@@ -224,11 +224,7 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 	}
 
 	protected function getTitleForGameContext(): string {
-		$artwork = $this->getReferencedArtwork();
-		$title = $artwork->label();
-		$date = $artwork->getDate();
-		$artist = $artwork->getArtist()->label();
-		return $date ? sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) : sprintf('<span><i>%s</i>, %s</span>', $title, $artist);
+		return $this->getReferencedArtwork()->getFullTitle();
 	}
 
 }

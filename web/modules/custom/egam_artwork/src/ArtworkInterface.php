@@ -17,4 +17,6 @@ interface ArtworkInterface extends ContentEntityInterface, EntityOwnerInterface,
 
 	public function getArtist(): ArtistInterface;
 
+	public function getFullTitle(): string;
+
 }
