@@ -1,0 +1,20 @@
+uuid: b22378e3-6da3-4f93-aa8d-769c01e21e1c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_nickname
+  module:
+    - egam_artist
+id: artist.artist.field_nickname
+field_name: field_nickname
+entity_type: artist
+bundle: artist
+label: Surnom
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

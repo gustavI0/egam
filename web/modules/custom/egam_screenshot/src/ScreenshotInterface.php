@@ -17,4 +17,5 @@ interface ScreenshotInterface extends ContentEntityInterface, EntityOwnerInterfa
 
 	public function getReferencedArtwork(): ArtworkInterface;
 
+	public function getContextualizedTitle(ContentEntityInterface $entity): string;
 }

@@ -6,9 +6,8 @@
  */
 
 use Drupal\Core\Render\Element;
-use Drupal\egam_global\Entities;
-use Drupal\egam_global\Handler\RelatedContentHandler;
-use Drupal\taxonomy\Entity\Term;
+use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_game\GameInterface;
 use Drupal\user\UserInterface;
 
 /**
@@ -27,8 +26,8 @@ function egam_screenshot_theme(): array {
  *
  * @param array $variables
  *   An associative array containing:
- *   - elements: An associative array containing the screenshot information and any
- *     fields attached to the entity.
+ *   - elements: An associative array containing the screenshot information and
+ *   any fields attached to the entity.
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_screenshot(array &$variables): void {
@@ -36,23 +35,30 @@ function template_preprocess_screenshot(array &$variables): void {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
-	if ($viewMode != 'full') {
-		return;
-	}
 	/* @var \Drupal\egam_screenshot\ScreenshotInterface $screenshot */
 	$screenshot = $variables['elements']['#screenshot'];
-	$game = $screenshot->getReferencedGame();
-	$variables['game_developer'] = $game->get('field_developer')->view(
-		[
-			'label' => 'hidden'
-		]);
-	$variables['game_date'] = $game->get('field_date')->view(
-		[
-			'label' => 'hidden',
-			'settings' => [
-				'format_type' => 'html_year'
-			]
-		]);
+	if ($viewMode == 'full') {
+		$game = $screenshot->getReferencedGame();
+		$variables['game_developer'] = $game->get('field_developer')->view(['label' => 'hidden']);
+		$variables['game_date'] = $game->get('field_date')->view(
+			[
+				'label' => 'hidden',
+				'settings' => [
+					'format_type' => 'html_year',
+				],
+			]);
+	}
+	if ($viewMode == 'teaser') {
+		$routeParameters = \Drupal::routeMatch()->getParameters()->all();
+		if (empty($routeParameters)) {
+			return;
+		}
+		$contextEntity = reset($routeParameters);
+		if ($contextEntity instanceof GameInterface || $contextEntity instanceof ArtworkInterface) {
+			$variables['context_title'] = $screenshot->getContextualizedTitle($contextEntity);
+			$variables['#cache']['contexts'][] = 'url';
+		}
+	}
 }
 
 /**
@@ -110,13 +116,3 @@ function egam_screenshot_user_predelete(UserInterface $account): void {
     $storage->deleteRevision($revision_id);
   }
 }
-
-///**
-// * Implements hook_preprocess().
-// */
-//function egam_artist_preprocess_screenshot(&$variables, $hook) {
-//	/* @var \Drupal\egam_screenshot\ScreenshotInterface $screenshot */
-//	$screenshot = $variables['elements']['#screenshot'];
-//	$relatedContentHandler = RelatedContentHandler::me();
-//	$variables['related_screenshot'] = $relatedContentHandler->viewRelatedContent($screenshot, Entities::Artwork);
-//}

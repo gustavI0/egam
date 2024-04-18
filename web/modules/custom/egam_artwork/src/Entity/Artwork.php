@@ -7,6 +7,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\egam_artist\Entity\Artist;
+use Drupal\egam_artist\Entity\ArtistInterface;
 use Drupal\egam_artwork\ArtworkInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -31,7 +33,8 @@ use Drupal\user\EntityOwnerTrait;
  *       "add" = "Drupal\egam_artwork\Form\ArtworkForm",
  *       "edit" = "Drupal\egam_artwork\Form\ArtworkForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
- *       "delete-multiple-confirm" = "Drupal\Core\Entity\Form\DeleteMultipleForm",
+ *       "delete-multiple-confirm" =
+ *   "Drupal\Core\Entity\Form\DeleteMultipleForm",
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
@@ -194,5 +197,13 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 
     return $fields;
   }
+
+	public function getDate(): ?string {
+		return $this->get('field_date')->value;
+	}
+
+	public function getArtist(): ArtistInterface {
+		return Artist::load($this->get('field_artist')->target_id);
+	}
 
 }

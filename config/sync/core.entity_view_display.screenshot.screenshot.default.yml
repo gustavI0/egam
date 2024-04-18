@@ -7,9 +7,11 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
+    - image.style.webp
   module:
     - egam_screenshot
     - link
+    - media
     - text
 id: screenshot.screenshot.default
 targetEntityType: screenshot
@@ -33,11 +35,13 @@ content:
     weight: 3
     region: content
   field_cover:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content

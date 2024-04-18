@@ -8,8 +8,10 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
+    - image.style.webp
   module:
     - egam_screenshot
+    - media
 id: screenshot.screenshot.teaser
 targetEntityType: screenshot
 bundle: screenshot
@@ -22,6 +24,17 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_game:
     type: entity_reference_label
@@ -42,7 +55,6 @@ content:
 hidden:
   created: true
   description: true
-  field_cover: true
   field_more_info: true
   langcode: true
   search_api_excerpt: true

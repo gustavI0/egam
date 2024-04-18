@@ -43,15 +43,15 @@
                   </tr>
               {% endif %}
               {% if content.description.0 %}
-                  <div class="item description">
-                      <h2>{{ 'Notes'|t }}</h2>
-                      {{ content.description }}
-                  </div>
+                  <tr class="item description">
+                      <th scope="row">{{ 'Notes'|t }}</th>
+                      <td>{{ content.description }}</td>
+                  </tr>
               {% endif %}
               {% if content.field_more_info.0 %}
-                  <div class="item more_info">
-                      <a href="{{ content.field_more_info.0 }}">{{ 'More info'|t }}</a>
-                  </div>
+                  <tr class="item more_info">
+                      <td colspan="2"><a href="{{ content.field_more_info.0 }}">{{ 'More info'|t }}</a></td>
+                  </tr>
               {% endif %}
           </table>
       </div>

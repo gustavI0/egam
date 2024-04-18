@@ -2,6 +2,7 @@
 
 namespace Drupal\egam_screenshot\Entity;
 
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -11,7 +12,10 @@ use Drupal\egam_artwork\ArtworkInterface;
 use Drupal\egam_artwork\Entity\Artwork;
 use Drupal\egam_game\Entity\Game;
 use Drupal\egam_game\GameInterface;
+use Drupal\egam_global\Entities;
 use Drupal\egam_screenshot\ScreenshotInterface;
+use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**
@@ -35,7 +39,8 @@ use Drupal\user\EntityOwnerTrait;
  *       "add" = "Drupal\egam_screenshot\Form\ScreenshotForm",
  *       "edit" = "Drupal\egam_screenshot\Form\ScreenshotForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
- *       "delete-multiple-confirm" = "Drupal\Core\Entity\Form\DeleteMultipleForm",
+ *       "delete-multiple-confirm" =
+ *   "Drupal\Core\Entity\Form\DeleteMultipleForm",
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
@@ -205,6 +210,25 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
 	public function getReferencedArtwork(): ArtworkInterface {
 		return Artwork::load($this->get('field_artwork')->target_id);
+	}
+
+	public function getContextualizedTitle(ContentEntityInterface $entity): string {
+		return match($entity->bundle()) {
+			Entities::Artwork->value => $this->getTitleForArtworkContext(),
+			Entities::Game->value => $this->getTitleForGameContext()
+		};
+	}
+
+	protected function getTitleForArtworkContext(): string {
+		return $this->getReferencedGame()->label();
+	}
+
+	protected function getTitleForGameContext(): string {
+		$artwork = $this->getReferencedArtwork();
+		$title = $artwork->label();
+		$date = $artwork->getDate();
+		$artist = $artwork->getArtist()->label();
+		return $date ? sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) : sprintf('<span><i>%s</i>, %s</span>', $title, $artist);
 	}
 
 }

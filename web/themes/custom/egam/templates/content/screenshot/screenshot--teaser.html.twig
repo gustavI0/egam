@@ -21,10 +21,10 @@
   {% if content %}
       <div class="screenshot w-96">
           <div>
-              {{ content.field_cover }}
+              {{ content.field_cover.0 }}
           </div>
           <div class="label">
-              <a href="{{ content.label.0['#url'] }}">{{ content.field_game.0['#title'] }}</a>
+              <a href="{{ content.label.0['#url'] }}">{{ context_title|raw }}</a>
           </div>
       </div>
   {% endif %}
