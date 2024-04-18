@@ -7,6 +7,10 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_artwork\Entity\Artwork;
+use Drupal\egam_game\Entity\Game;
+use Drupal\egam_game\GameInterface;
 use Drupal\egam_screenshot\ScreenshotInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -194,5 +198,13 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
     return $fields;
   }
+
+	public function getReferencedGame(): GameInterface {
+		return Game::load($this->get('field_game')->target_id);
+	}
+
+	public function getReferencedArtwork(): ArtworkInterface {
+		return Artwork::load($this->get('field_artwork')->target_id);
+	}
 
 }

@@ -18,14 +18,13 @@
     {{ title_prefix }}
     {{ title_suffix }}
   {% endif %}
-    {{ breakpoint() }}
   {% if content %}
       <div class="screenshot w-96">
           <div>
               {{ content.field_cover }}
           </div>
           <div class="label">
-              <a href="{{ label.0['#url'] }}">{{ content.field_game.0['#title'] }}</a>
+              <a href="{{ content.label.0['#url'] }}">{{ content.field_game.0['#title'] }}</a>
           </div>
       </div>
   {% endif %}

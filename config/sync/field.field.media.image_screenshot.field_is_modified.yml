@@ -9,7 +9,7 @@ id: media.image_screenshot.field_is_modified
 field_name: field_is_modified
 entity_type: media
 bundle: image_screenshot
-label: 'Oeuvre inversée'
+label: 'Oeuvre modifiée'
 description: ''
 required: false
 translatable: false

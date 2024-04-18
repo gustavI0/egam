@@ -10,7 +10,7 @@ id: museum.museum.field_foundation_date
 field_name: field_foundation_date
 entity_type: museum
 bundle: museum
-label: 'Fondé en'
+label: 'Ouvert en'
 description: ''
 required: false
 translatable: false

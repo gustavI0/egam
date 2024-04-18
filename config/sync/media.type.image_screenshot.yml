@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: image_screenshot
 label: 'Image capture'
-description: ''
+description: "Visuel utilisé pour l'entité capture d'écran avec ses propres données (oeuvre inversée, modifiée, patchwork, etc.)"
 source: image
 queue_thumbnail_downloads: false
 new_revision: false

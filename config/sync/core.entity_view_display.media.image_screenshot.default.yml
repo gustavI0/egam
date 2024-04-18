@@ -10,7 +10,7 @@ dependencies:
     - field.field.media.image_screenshot.field_is_modified
     - field.field.media.image_screenshot.field_is_patchwork
     - field.field.media.image_screenshot.field_media_image
-    - image.style.large
+    - image.style.webp
     - media.type.image_screenshot
   module:
     - image
@@ -33,7 +33,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   field_is_cropped:
     type: boolean
@@ -63,7 +63,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_is_patchwork:
     type: boolean
@@ -73,14 +73,14 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_media_image:
     type: image
     label: visually_hidden
     settings:
       image_link: ''
-      image_style: large
+      image_style: webp
       image_loading:
         attribute: lazy
     third_party_settings: {  }
