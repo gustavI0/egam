@@ -36,6 +36,12 @@
                       {{ content.field_full_name }}
                   </div>
               {% endif %}
+              {% if content.field_nickname.0 %}
+                  <div class="item nickname">
+                      <h2>{{ 'Nickname'|t }}</h2>
+                      {{ content.field_nickname }}
+                  </div>
+              {% endif %}
               {% if content.field_nationality.0 %}
                   <div class="item nationality">
                       <h2>{{ 'Nationality'|t }}</h2>
