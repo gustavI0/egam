@@ -126,7 +126,35 @@ display:
         type: none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        field_sorting_name_value:
+          id: field_sorting_name_value
+          table: game__field_sorting_name
+          field: field_sorting_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        label:
+          id: label
+          table: game_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: game
+          entity_field: label
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters: {  }
       style:

@@ -126,7 +126,22 @@ display:
         type: none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        label:
+          id: label
+          table: museum_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: museum
+          entity_field: label
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters: {  }
       style:
