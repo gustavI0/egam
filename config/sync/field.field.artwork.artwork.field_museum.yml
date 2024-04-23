@@ -10,7 +10,7 @@ id: artwork.artwork.field_museum
 field_name: field_museum
 entity_type: artwork
 bundle: artwork
-label: Musée
+label: 'Lieu de conservation'
 description: ''
 required: false
 translatable: false

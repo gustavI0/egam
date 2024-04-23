@@ -206,11 +206,19 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return Artist::load($this->get('field_artist')->target_id);
 	}
 
-	public function getFullTitle(): string {
+	public function getFullTitle(bool $withArtist = TRUE): string {
+		return $this->buildTitle($withArtist);
+	}
+
+	protected function buildTitle(bool $withArtist): string {
 		$title = $this->label();
 		$date = $this->getDate();
 		$artist = $this->getArtist()->label();
-		return $date ? sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) : sprintf('<span><i>%s</i>, %s</span>', $title, $artist);
+		return $withArtist ? $date ?
+			sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) :
+			sprintf('<span><i>%s</i>, %s</span>', $title, $artist) : ($date ?
+			sprintf('<span><i>%s</i>, %s', $title, $date) :
+			sprintf('<span><i>%s</i></span>', $title));
 	}
 
 }

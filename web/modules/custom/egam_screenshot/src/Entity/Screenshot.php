@@ -214,17 +214,9 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
 	public function getContextualizedTitle(ContentEntityInterface $entity): string {
 		return match($entity->bundle()) {
-			Entities::Artwork->value => $this->getTitleForArtworkContext(),
-			Entities::Game->value => $this->getTitleForGameContext()
+			Entities::Artwork->value => $this->getReferencedGame()->label(),
+			Entities::Game->value => $this->getReferencedArtwork()->getFullTitle()
 		};
-	}
-
-	protected function getTitleForArtworkContext(): string {
-		return $this->getReferencedGame()->label();
-	}
-
-	protected function getTitleForGameContext(): string {
-		return $this->getReferencedArtwork()->getFullTitle();
 	}
 
 }
