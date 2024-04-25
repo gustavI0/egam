@@ -42,7 +42,7 @@ class GlobalSettingsForm extends ConfigFormBase {
 
 		$form[self::HOME]['title'] = [
 			'#type' => 'item',
-			'#markup' => $this->t('Homepage')
+			'#markup' => $this->t('Homepage'),
 		];
 
 		$form[self::HOME][self::BACKGROUND_MEDIA] = [
@@ -61,14 +61,21 @@ class GlobalSettingsForm extends ConfigFormBase {
 	 * @inheritDoc
 	 */
 	public function submitForm(array &$form, FormStateInterface $form_state): void {
-		$homeValues = $form_state->getValues();
-
 		$this
 			->config(self::EDITABLE_CONFIG_NAME)
-			->set(self::BACKGROUND_MEDIA, $homeValues[self::BACKGROUND_MEDIA] ?? NULL)
+			->set(self::BACKGROUND_MEDIA, $this->getBackgroundIds($form_state) ?? NULL)
 			->save();
 
 		parent::submitForm($form, $form_state);
+	}
+
+	protected function getBackgroundIds(FormStateInterface $form_state): string {
+		$bgdSelection = $form_state->getUserInput()['background_media']['selection'];
+		$bgdIds = [];
+		foreach ($bgdSelection as $bgd) {
+			$bgdIds[] = $bgd['preview']['target_id'];
+		}
+		return implode(',', $bgdIds);
 	}
 
 

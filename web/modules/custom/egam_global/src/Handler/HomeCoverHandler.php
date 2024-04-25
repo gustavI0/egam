@@ -37,7 +37,7 @@ class HomeCoverHandler {
 		}
 		$randomCoverKey = array_rand($configuredHomeCovers);
 		$media = $this->mediaStorage->load($configuredHomeCovers[$randomCoverKey]);
-		return  $this->getImgSource($media);
+		return  $media ? $this->getImgSource($media) : NULL;
 	}
 
 	protected function getConfiguredHomeCovers(): ?array {
