@@ -1,30 +1,18 @@
 @layer components {
-  @property --offset {
-    syntax: '<length>';
-    inherits: false;
-    initial-value: 0;
+
+  .home-menu a {
+    color: theme(colors.light);
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: .25rem;
+    background-size: 0 .25rem;
+    background-image: linear-gradient(theme(colors.light), theme(colors.light));
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-out;
   }
 
-  .home-content a {
-    text-underline-offset: var(--offset, 0.2em);
-    text-decoration: underline 0.15em;
-    transition: --offset 400ms, text-decoration-color 400ms;
-  }
-
-  .home-content a:hover,
-  .home-content a:focus {
-    --offset: 0.4em;
-    text-decoration-color: theme(colors.border-light);
-  }
-
-  @supports not (background: paint(something)) {
-    .home-content a {
-      transition: text-underline-offset 400ms, text-decoration-color 400ms;
-    }
-
-    .home-content a:hover,
-    .home-content a:focus {
-      text-underline-offset: 0.4em;
-    }
+  .home-menu a:hover {
+    background-size: 100% .25rem;
   }
 }

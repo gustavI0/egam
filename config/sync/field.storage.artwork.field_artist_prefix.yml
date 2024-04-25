@@ -1,0 +1,27 @@
+uuid: af10b45f-d5c9-4f8e-aed2-4515d60f37f5
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+    - options
+id: artwork.field_artist_prefix
+field_name: field_artist_prefix
+entity_type: artwork
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: from
+      label: "D'après"
+    -
+      value: attributed_to
+      label: 'Attribué à'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

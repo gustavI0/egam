@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.artwork.teaser
     - field.field.artwork.artwork.field_alternative_title
     - field.field.artwork.artwork.field_artist
+    - field.field.artwork.artwork.field_artist_prefix
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
     - field.field.artwork.artwork.field_dimensions
@@ -64,6 +65,7 @@ hidden:
   created: true
   description: true
   field_alternative_title: true
+  field_artist_prefix: true
   field_date: true
   field_dimensions: true
   field_medium: true

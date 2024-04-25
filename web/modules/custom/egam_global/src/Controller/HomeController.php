@@ -25,6 +25,7 @@ class HomeController extends ControllerBase {
 			'#cover_src' => $this->homeCoverHandler->getRandomCover() ?? NULL,
 			'#title' => \Drupal::config('system.site')->get('name'),
 			'#home_menu' => $this->buildHomeMenuFr(),
+			'#cache' => ['max-age' => 0]
 		];
 	}
 
@@ -33,12 +34,17 @@ class HomeController extends ControllerBase {
 		$selectedEntities = [Entities::Artist, Entities::Museum, Entities::Game];
 		$countAndPath = [];
 		foreach ($selectedEntities as $entity) {
-			$countAndPath[$entity->value] = $entity->count() . ' ' . $this->getEntityLink($entity);
+			$countAndPath[$entity->value] = sprintf('<span class="count">%s %s</span>', $entity->count(), $this->getEntityLink($entity));
 		}
-		return '<p>' . Entities::Artwork->count()  . ' œuvres </p>
-            <p>de ' . $countAndPath[Entities::Artist->value] . '</p>
-            <p>conservées dans ' . $countAndPath[Entities::Museum->value] . '</p>
-            <p>ont été référencées dans ' . $countAndPath[Entities::Game->value] . '</p>';
+		return '<div class="wrapper">
+						<div class="artworks col2">' . Entities::Artwork->count() . ' œuvres</div>
+            <div class="artists col1">de</div>
+            <div class="artists col2">' . $countAndPath[Entities::Artist->value] . '</div>
+            <div class="musea col1">conservées dans</div>
+            <div class="musea col2">' . $countAndPath[Entities::Museum->value] . '</div>
+            <div class="games col1">ont été référencées dans</div>
+            <div class="games col2">' . $countAndPath[Entities::Game->value] . '</div>
+            </div>';
 	}
 
 	protected function getEntityLink(Entities $entity): GeneratedLink {

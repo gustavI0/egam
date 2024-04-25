@@ -1,0 +1,21 @@
+uuid: dac59336-3070-42f7-9fde-346d8a34f8b6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_artist_prefix
+  module:
+    - egam_artwork
+    - options
+id: artwork.artwork.field_artist_prefix
+field_name: field_artist_prefix
+entity_type: artwork
+bundle: artwork
+label: 'Préfixe artiste'
+description: "Préfixe affiché avant le nom de l'artiste"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

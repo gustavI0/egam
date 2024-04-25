@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.artwork.artwork.field_alternative_title
     - field.field.artwork.artwork.field_artist
+    - field.field.artwork.artwork.field_artist_prefix
     - field.field.artwork.artwork.field_cover
     - field.field.artwork.artwork.field_date
     - field.field.artwork.artwork.field_dimensions
@@ -27,7 +28,7 @@ mode: default
 content:
   description:
     type: text_textarea
-    weight: 11
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -51,6 +52,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_artist_prefix:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_cover:
     type: media_library_widget
     weight: 3
@@ -60,7 +67,7 @@ content:
     third_party_settings: {  }
   field_date:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -68,7 +75,7 @@ content:
     third_party_settings: {  }
   field_dimensions:
     type: string_textfield
-    weight: 8
+    weight: 9
     region: content
     settings:
       size: 60
@@ -76,7 +83,7 @@ content:
     third_party_settings: {  }
   field_medium:
     type: string_textfield
-    weight: 9
+    weight: 10
     region: content
     settings:
       size: 60
@@ -92,7 +99,7 @@ content:
     third_party_settings: {  }
   field_museum:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -110,14 +117,14 @@ content:
     third_party_settings: {  }
   field_sorting_year:
     type: number
-    weight: 6
+    weight: 7
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_subject:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -135,13 +142,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: false
