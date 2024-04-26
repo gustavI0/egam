@@ -74,9 +74,9 @@
           </div>
       </div>
       {% if related_artworks is not empty %}
-          <div class="related-content">
-              <div class="artworks">
-                  <h2>{{ 'Oeuvres par cet artiste'|t }}</h2>
+          <div class="container">
+              <h2>{{ 'Oeuvres par cet artiste :'|t }}</h2>
+              <div class="related-content artworks grid grid-cols-3 gap-4">
                   {{ related_artworks }}
               </div>
           </div>

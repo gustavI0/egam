@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\egam_artwork\ArtworkInterface;
 use Drupal\egam_artwork\Entity\Artwork;
 use Drupal\egam_game\Entity\Game;
@@ -81,6 +83,7 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
   use EntityChangedTrait;
   use EntityOwnerTrait;
+	use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
@@ -212,11 +215,15 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 		return Artwork::load($this->get('field_artwork')->target_id);
 	}
 
-	public function getContextualizedTitle(ContentEntityInterface $entity): string {
+	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string {
 		return match($entity->bundle()) {
 			Entities::Artwork->value => $this->getReferencedGame()->label(),
-			Entities::Game->value => $this->getReferencedArtwork()->getFullTitle()
+			Entities::Game->value => $this->getTitleForGameContext()
 		};
+	}
+
+	protected function getTitleForGameContext(): TranslatableMarkup|string {
+		return $this->get('field_artwork')->count() > 1 ? $this->t('Multiple artworks') : $this->getReferencedArtwork()->getFullTitle();
 	}
 
 }

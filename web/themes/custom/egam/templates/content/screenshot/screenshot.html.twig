@@ -64,10 +64,13 @@
           </div>
       </div>
       {% if content.field_artwork.0 %}
-          <div class="related-content artwork">
+          <div class="container">
               <h2>{{ 'Oeuvre(s) présente(s) dans cette image :'|t }}</h2>
-              {{ content.field_artwork }}
+              <div class="related-content artwork grid grid-cols-3 gap-4">
+                  {{ content.field_artwork }}
+              </div>
           </div>
+
       {% endif %}
   {% endif %}
 </article>

@@ -4,6 +4,7 @@ namespace Drupal\egam_screenshot;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\egam_artwork\ArtworkInterface;
 use Drupal\egam_game\GameInterface;
 use Drupal\user\EntityOwnerInterface;
@@ -17,5 +18,5 @@ interface ScreenshotInterface extends ContentEntityInterface, EntityOwnerInterfa
 
 	public function getReferencedArtwork(): ArtworkInterface;
 
-	public function getContextualizedTitle(ContentEntityInterface $entity): string;
+	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string;
 }

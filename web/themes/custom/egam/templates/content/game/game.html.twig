@@ -55,9 +55,12 @@
               </div>
           {% endif %}
       </div>
-      {% if related_artworks is not empty %}
+      {% if related_screenshot is not empty %}
       <div class="container">
-          {{ related_artworks }}
+          <h2>{{ 'Captures d\'écran des œuvres présentes dans le jeu :'|t }}</h2>
+          <div class="related-content screenshot grid grid-cols-3 gap-4">
+            {{ related_screenshot }}
+          </div>
       </div>
       {% endif %}
   {% endif %}
