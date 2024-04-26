@@ -48,12 +48,12 @@
                       <td>{{ content.description }}</td>
                   </tr>
               {% endif %}
-              {% if content.field_more_info.0 %}
-                  <tr class="item more_info">
-                      <td colspan="2"><a href="{{ content.field_more_info.0 }}">{{ 'More info'|t }}</a></td>
-                  </tr>
-              {% endif %}
           </table>
+          {% if content.field_more_info.0 %}
+              <div class="item more_info">
+                  {{ content.field_more_info }}
+              </div>
+          {% endif %}
       </div>
       {% if related_artworks is not empty %}
       <div class="container">

@@ -74,8 +74,8 @@ content:
     label: hidden
     settings:
       trim_length: 80
-      url_only: true
-      url_plain: true
+      url_only: false
+      url_plain: false
       rel: '0'
       target: '0'
     third_party_settings: {  }

@@ -18,7 +18,7 @@
     {{ title_prefix }}
     {{ title_suffix }}
   {% endif %}
-    {{ breakpoint() }}
+
   {% if content %}
       <div class="container flex content artwork mb-5">
           <div class="cover basis-1/2">
@@ -77,7 +77,7 @@
               {% endif %}
               {% if content.field_more_info.0 %}
                   <div class="item more_info">
-                      <a href="{{ content.field_more_info.0 }}">{{ 'More info'|t }}</a>
+                      {{ content.field_more_info }}
                   </div>
               {% endif %}
           </div>
