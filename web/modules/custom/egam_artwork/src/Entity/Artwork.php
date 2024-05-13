@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\GeneratedLink;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\egam_artist\Entity\Artist;
@@ -218,13 +219,13 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return $this->buildTitle($withArtist);
 	}
 
-	public function getFullArtist(bool $asLink = FALSE): string {
+	public function getFullArtist(bool $asLink = FALSE): string|GeneratedLink {
 		$prefix = $this->getArtistPrefix();
 		$artist = $this->getArtist();
 		return $prefix ? $asLink ?
-			sprintf('<div class="flex">%s%s</div>', $artist->toLink()->toString(), '<span class="prefix ml-1">' . $this->buildArtistPrefix($prefix) . '</span>') :
+			sprintf('%s %s', $artist->toLink()->toString(), $this->buildArtistPrefix($prefix)) :
 			sprintf('%s %s', $artist->label(), $this->buildArtistPrefix($prefix)) : ($asLink ?
-			sprintf('<a href="/%s">%s</a></div>', $artist->toLink()->toString(), $artist->label()) :
+			$artist->toLink()->toString() :
 			$this->getArtist()->label());
 	}
 
@@ -251,9 +252,11 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 			sprintf('<span><i>%s</i></span>', $title));
 	}
 
-	public function getFullLocationAsLink(): string {
+	public function getFullLocationAsLink(): string|GeneratedLink {
 		$museum = $this->getMuseum();
-		return sprintf('<div class="flex">%s%s</div>', $museum->toLink()->toString(), '<span>, ' . $museum->getLocation() . '</span>');
+		return $museum->getLocation() ?
+			sprintf('%s, %s', $museum->toLink()->toString(), $museum->getLocation()) :
+			$museum->toLink()->toString();
 	}
 
 }
