@@ -13,7 +13,7 @@
     font-size: 14rem;
   }
 
-  .home-content .title {
-    @apply sm:text-3xl;
-  }
+  /*.home-content .title {*/
+  /*  @apply sm:text-3xl;*/
+  /*}*/
 }

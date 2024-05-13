@@ -689,12 +689,11 @@ nav#block-egam-homepage {
   font-size: 14rem;
 }
 
-@media (min-width: 480px) {
-  .home-content .title {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-}
+/*.home-content .title {*/
+
+/*  @apply sm:text-3xl;*/
+
+/*}*/
 
 .views-view-responsive-grid__item {
   width: 20rem;
