@@ -15,7 +15,7 @@ class ContextManager {
 
 	public function getContext(): ?ContentEntityInterface {
 		$routeParameters = $this->routeMatch->getParameters()->all();
-		if (empty($routeParameters)) {
+		if (empty($routeParameters) || isset($routeParameters['view_id'])) {
 			return NULL;
 		}
 		return reset($routeParameters);

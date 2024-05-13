@@ -7,12 +7,12 @@ dependencies:
 id: developer_term_page
 label: 'Page terme développeur'
 type: 'canonical_entities:taxonomy_term'
-pattern: '/developpeur/[term:name]'
+pattern: '/developer/[term:name]'
 selection_criteria:
-  4ecbeec8-56fe-4553-bd90-f865d84010d0:
+  f7aa7280-99b5-466d-8f08-d543f9ec7837:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: 4ecbeec8-56fe-4553-bd90-f865d84010d0
+    uuid: f7aa7280-99b5-466d-8f08-d543f9ec7837
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

@@ -7,7 +7,7 @@ dependencies:
 id: artwork_page
 label: 'Page oeuvre'
 type: 'canonical_entities:artwork'
-pattern: '/oeuvre/[artwork:label]'
+pattern: '/artwork/[artwork:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0

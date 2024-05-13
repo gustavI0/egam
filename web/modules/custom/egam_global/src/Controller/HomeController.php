@@ -25,26 +25,38 @@ class HomeController extends ControllerBase {
 			'#cover_src' => $this->homeCoverHandler->getRandomCover() ?? NULL,
 			'#title' => \Drupal::config('system.site')->get('name'),
 			'#home_menu' => $this->buildHomeMenuFr(),
-			'#cache' => ['max-age' => 0]
+			'#cache' => ['max-age' => 0],
 		];
 	}
 
 	protected function buildHomeMenuFr(): string {
 		/* @var \Drupal\egam_global\Entities[] $selectedEntities */
-		$selectedEntities = [Entities::Artist, Entities::Museum, Entities::Game];
+		$selectedEntities = [Entities::Artwork, Entities::Artist, Entities::Museum, Entities::Game];
 		$countAndPath = [];
 		foreach ($selectedEntities as $entity) {
 			$countAndPath[$entity->value] = sprintf('<span class="count">%s %s</span>', $entity->count(), $this->getEntityLink($entity));
 		}
-		return '<div class="wrapper">
-						<div class="artworks col2">' . Entities::Artwork->count() . ' œuvres</div>
-            <div class="artists col1">de</div>
-            <div class="artists col2">' . $countAndPath[Entities::Artist->value] . '</div>
-            <div class="musea col1">conservées dans</div>
-            <div class="musea col2">' . $countAndPath[Entities::Museum->value] . '</div>
-            <div class="games col1">ont été référencées dans</div>
-            <div class="games col2">' . $countAndPath[Entities::Game->value] . '</div>
-            </div>';
+		$homeMenu = '<div class="wrapper">';
+		$homeMenu .= $this->buildMenuEntry(Entities::Artwork);
+		$homeMenu .= '<div class="artists col1">de</div>' . $this->buildMenuEntry(Entities::Artist);
+		$homeMenu .= '<div class="musea col1">conservées dans</div>' . $this->buildMenuEntry(Entities::Museum);
+		$homeMenu .= '<div class="games col1">ont été référencées dans</div>' . $this->buildMenuEntry(Entities::Game);
+		$homeMenu .= '</div>';
+
+		return $homeMenu;
+	}
+
+	protected function buildMenuEntry(Entities $entity): string {
+		return $this->buildCountColumn($entity) . $this->buildLinkColumn($entity);
+
+	}
+
+	protected function buildCountColumn(Entities $entity): string {
+		return '<div class="' . $entity->getPlural() . ' col2">' . $entity->count() . '</div>';
+	}
+
+	protected function buildLinkColumn(Entities $entity): string {
+		return '<div class="' . $entity->getPlural() . ' col3">' . $this->getEntityLink($entity) . '</div>';
 	}
 
 	protected function getEntityLink(Entities $entity): GeneratedLink {

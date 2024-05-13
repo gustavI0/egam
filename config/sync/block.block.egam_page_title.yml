@@ -1,6 +1,6 @@
 uuid: 0d1fe153-f4d9-4908-8be1-73e946b3bc34
 langcode: fr
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -23,4 +23,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "<front>\r\n/artiste/*\r\n/jeu/*\r\n/oeuvre/*"
+    pages: "<front>\r\n/artiste/*\r\n/jeu/*\r\n/oeuvre/*\r\n/musee/*"

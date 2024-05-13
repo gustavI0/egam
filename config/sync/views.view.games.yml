@@ -163,7 +163,7 @@ display:
           uses_fields: false
           columns: 3
           cell_min_width: 200
-          grid_gutter: 20
+          grid_gutter: 100
           alignment: horizontal
       row:
         type: 'entity:game'

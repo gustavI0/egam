@@ -17,6 +17,12 @@ settings:
     -
       value: attributed_to
       label: 'Attribué à'
+    -
+      value: entourage_of
+      label: 'Entourage de'
+    -
+      value: follower_of
+      label: 'Suiveur de'
   allowed_values_function: ''
 module: options
 locked: false

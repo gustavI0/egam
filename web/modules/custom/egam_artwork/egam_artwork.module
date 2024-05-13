@@ -39,6 +39,10 @@ function template_preprocess_artwork(array &$variables): void {
   }
 	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
 	$artwork = $variables['elements']['#artwork'];
+	if ($viewMode == 'full') {
+		$variables['full_artist'] = $artwork->getFullArtist(TRUE);
+		$variables['full_location_link'] = $artwork->getFullLocationAsLink();
+	}
 	if ($viewMode == 'teaser') {
 		$contextManager = ContextManager::me();
 		$contextEntity = $contextManager->getContext();

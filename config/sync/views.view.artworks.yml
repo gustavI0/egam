@@ -1,18 +1,18 @@
-uuid: 6717e87e-fce2-47a0-957e-63fad59e4f7d
+uuid: bc5a0ec3-5eac-44ff-a96c-38805ba3ab3c
 langcode: fr
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.artist.teaser
+    - core.entity_view_mode.artwork.teaser
   module:
-    - egam_artist
+    - egam_artwork
     - views_infinite_scroll
-id: artists
-label: Artistes
+id: artworks
+label: Oeuvres
 module: views
 description: ''
 tag: ''
-base_table: artist
+base_table: artwork_field_data
 base_field: id
 display:
   default:
@@ -21,11 +21,11 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Artistes
+      title: Oeuvres
       fields:
         label:
           id: label
-          table: artist
+          table: artwork_field_data
           field: label
           relationship: none
           group_type: group
@@ -33,71 +33,7 @@ display:
           entity_type: null
           entity_field: label
           plugin_id: field
-          label: Nom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        operations:
-          id: operations
-          table: artist
-          field: operations
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: artist
-          plugin_id: entity_operations
-          label: "Liens d'actions"
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -138,7 +74,19 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          destination: false
+          click_sort_column: value
+          type: string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: infinite_scroll
         options:
@@ -158,7 +106,7 @@ display:
             offset: false
             offset_label: Décalage
           views_infinite_scroll:
-            button_text: "Voir plus d'artistes"
+            button_text: 'Afficher plus'
             automatically_load_content: true
             initially_load_all_pages: false
       exposed_form:
@@ -175,13 +123,13 @@ display:
         type: none
         options: {  }
       cache:
-        type: none
+        type: tag
         options: {  }
       empty: {  }
       sorts:
         field_sorting_name_value:
           id: field_sorting_name_value
-          table: artist__field_sorting_name
+          table: artwork__field_sorting_name
           field: field_sorting_name_value
           relationship: none
           group_type: group
@@ -194,12 +142,12 @@ display:
           exposed: false
         label:
           id: label
-          table: artist
+          table: artwork_field_data
           field: label
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: artist
+          entity_type: artwork
           entity_field: label
           plugin_id: standard
           order: ASC
@@ -218,7 +166,7 @@ display:
           grid_gutter: 100
           alignment: horizontal
       row:
-        type: 'entity:artist'
+        type: 'entity:artwork'
         options:
           relationship: none
           view_mode: teaser
@@ -242,26 +190,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
-    position: 2
-    display_options:
-      pager:
-        type: some
-        options:
-          offset: 0
-          items_per_page: 5
-      defaults:
-        pager: false
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-      tags: {  }
   grid:
     id: grid
     display_title: Page
@@ -269,16 +197,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: artistes
-      menu:
-        type: none
-        title: Artistes
-        description: ''
-        weight: 0
-        expanded: false
-        menu_name: main
-        parent: ''
-        context: '0'
+      path: oeuvres
     cache_metadata:
       max-age: -1
       contexts:

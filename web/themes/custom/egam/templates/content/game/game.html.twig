@@ -14,54 +14,64 @@
  */
 #}
 <article{{ attributes }}>
-  {% if view_mode != 'full' %}
-    {{ title_prefix }}
-    {{ title_suffix }}
-  {% endif %}
-  {% if content %}
-      <div class="container flex content game">
-          <div class="cover basis-1/2">
-              {{ content.field_cover }}
-          </div>
-          <table class="details basis-1/2 pl-4">
-              {% if content.field_date.0 %}
-                  <tr class="item date">
-                      <th scope="row">{{ 'Date'|t }}</th>
-                      <td>{{ content.field_date }}</td>
-                  </tr>
-              {% endif %}
-              {% if content.field_developer.0 %}
-                  <tr class="item developer">
-                      <th scope="row">{{ 'Développeur'|t }}</th>
-                      <td>{{ content.field_developer }}</td>
-                  </tr>
-              {% endif %}
-              {% if content.field_editor.0 %}
-                  <tr class="item editor">
-                      <th scope="row">{{ 'Éditeur'|t }}</th>
-                      <td>{{ content.field_editor }}</td>
-                  </tr>
-              {% endif %}
-              {% if content.description.0 %}
-                  <tr class="item description">
-                      <th scope="row">{{ 'Notes'|t }}</th>
-                      <td>{{ content.description }}</td>
-                  </tr>
-              {% endif %}
-          </table>
-          {% if content.field_more_info.0 %}
-              <div class="item more_info">
-                  {{ content.field_more_info }}
-              </div>
-          {% endif %}
-      </div>
-      {% if related_screenshot is not empty %}
-      <div class="container">
-          <h2>{{ 'Captures d\'écran des œuvres présentes dans le jeu :'|t }}</h2>
-          <div class="related-content screenshot grid grid-cols-3 gap-4">
-            {{ related_screenshot }}
-          </div>
-      </div>
-      {% endif %}
-  {% endif %}
+    {% if view_mode != 'full' %}
+        {{ title_prefix }}
+        {{ title_suffix }}
+    {% endif %}
+    {% if content %}
+        <div class="container flex content game">
+            <div class="cover basis-1/2">
+                {{ content.field_cover }}
+            </div>
+            <div class="details basis-1/2">
+                <div class="title">
+                    {% if content.label %}
+                        <div class="item name">
+                            <h1>{{ content.label }}</h1>
+                        </div>
+                    {% endif %}
+                </div>
+                <table class="infos">
+                    {% if content.field_date.0 %}
+                        <tr class="item date">
+                            <th scope="row">{{ 'Date'|t }}</th>
+                            <td>{{ content.field_date }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if content.field_developer.0 %}
+                        <tr class="item developer">
+                            <th scope="row">{{ 'Développeur'|t }}</th>
+                            <td>{{ content.field_developer }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if content.field_editor.0 %}
+                        <tr class="item editor">
+                            <th scope="row">{{ 'Éditeur'|t }}</th>
+                            <td>{{ content.field_editor }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if content.description.0 %}
+                        <tr class="item description">
+                            <th scope="row">{{ 'Notes'|t }}</th>
+                            <td>{{ content.description }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if content.field_more_info.0 %}
+                        <tr class="item more_info">
+                            <th scope="row">{{ content.field_more_info }}</th>
+                        </tr>
+                    {% endif %}
+                </table>
+
+            </div>
+        </div>
+        {% if related_screenshot is not empty %}
+            <div class="container related-content">
+                <h2>{{ 'Captures d\'écran des œuvres présentes dans le jeu :'|t }}</h2>
+                <div class="items screenshot grid grid-cols-3 gap-4">
+                    {{ related_screenshot }}
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
 </article>

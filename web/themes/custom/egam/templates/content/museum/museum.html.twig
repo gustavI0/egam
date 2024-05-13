@@ -20,39 +20,48 @@
   {% endif %}
   {% if content %}
       <div class="container flex content museum">
-          <div class="cover basis-1/2 p-4">
+          <div class="cover basis-1/2">
               {{ content.field_cover }}
           </div>
-          <div class="details basis-1/2 p-4">
+          <div class="details basis-1/2">
+              <div class="title">
+                  {% if content.label %}
+                      <div class="item name">
+                          <h1>{{ content.label }}</h1>
+                      </div>
+                  {% endif %}
+              </div>
+              <table class="infos">
               {% if content.field_location.0 %}
-                  <div class="item location">
-                      <h2>{{ 'Location'|t }}</h2>
-                      {{ content.field_location }}
-                  </div>
+                  <tr class="item location">
+                      <th scope="row">{{ 'Location'|t }}</th>
+                      <td>{{ content.field_location }}</td>
+                  </tr>
               {% endif %}
               {% if content.field_website.0 %}
-                  <div class="item website">
-                      <h2>{{ 'Website'|t }}</h2>
-                      {{ content.field_website }}
-                  </div>
+                  <tr class="item website">
+                      <th scope="row">{{ 'Website'|t }}</th>
+                      <td>{{ content.field_website }}</td>
+                  </tr>
               {% endif %}
               {% if content.description.0 %}
-                  <div class="item description">
-                      <h2>{{ 'Notes'|t }}</h2>
-                      {{ content.description }}
-                  </div>
+                  <tr class="item description">
+                      <th scope="row">{{ 'Notes'|t }}</th>
+                      <td>{{ content.description }}</td>
+                  </tr>
               {% endif %}
               {% if content.field_more_info.0 %}
-                  <div class="item more_info">
-                      {{ content.field_more_info }}
-                  </div>
+                  <tr class="item more_info">
+                      <th scope="row">{{ content.field_more_info }}</th>
+                  </tr>
               {% endif %}
+              </table>
           </div>
       </div>
       {% if related_artworks is not empty %}
-      <div class="container">
+      <div class="container related-content">
           <h2>{{ 'Oeuvres présentes dans ce musée :'|t }}</h2>
-          <div class="related-content artworks grid grid-cols-3 gap-4">
+          <div class="items artwork grid grid-cols-3 gap-4">
               {{ related_artworks }}
           </div>
       </div>

@@ -12,7 +12,7 @@ field_name: field_artist_prefix
 entity_type: artwork
 bundle: artwork
 label: 'Préfixe artiste'
-description: "Préfixe affiché avant le nom de l'artiste"
+description: "Préfixe affiché après le nom de l'artiste entre parenthèses"
 required: false
 translatable: false
 default_value: {  }

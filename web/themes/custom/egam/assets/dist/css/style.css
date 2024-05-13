@@ -455,7 +455,7 @@ h1 {
   line-height: 2rem;
 }
 
-h2 {
+h2, th {
   font-family: Bebas Regular, ui-sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -606,6 +606,15 @@ a:hover {
   }
 }
 
+#block-egam-onglets > ul {
+  display: flex;
+  padding-top: 0.5rem;
+}
+
+#block-egam-onglets li {
+  margin-right: 0.5rem;
+}
+
 .home-menu a {
   color: rgb(250 250 249);
   text-decoration: none;
@@ -663,6 +672,11 @@ nav#block-egam-homepage {
 
 .home-menu .wrapper .col2 {
   grid-column: 2;
+  text-align: right;
+}
+
+.home-menu .wrapper .col3 {
+  grid-column: 3;
 }
 
 .home-content {
@@ -702,14 +716,6 @@ nav#block-egam-homepage {
 
 .views-view-responsive-grid {
   grid-template-columns: repeat(3, auto);
-}
-
-#block-egam-onglets > ul {
-  display: flex;
-}
-
-#block-egam-onglets li {
-  margin-right: 0.5rem;
 }
 
 .banner {
@@ -784,6 +790,36 @@ nav#block-egam-homepage {
      object-fit: contain;
 }
 
+.content .cover,
+.content .details {
+  padding: 2rem;
+}
+
+.content .title h1 {
+  font-family: Bebas Regular, ui-sans-serif;
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+
+.related-content h2 {
+  font-size: 2rem;
+  line-height: 3;
+}
+
+.related-content .items {
+  padding: 1rem 2rem;
+}
+
+.content table th {
+  text-align: right;
+  padding: 1rem;
+}
+
+.views-view-responsive-grid {
+  padding-top: 2rem;
+  justify-content: center;
+}
+
 .visible {
   visibility: visible;
 }
@@ -805,8 +841,8 @@ nav#block-egam-homepage {
   margin-bottom: 1.25rem;
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
+.ml-1 {
+  margin-left: 0.25rem;
 }
 
 .block {
@@ -908,10 +944,6 @@ nav#block-egam-homepage {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
 }
 
 .pt-6 {

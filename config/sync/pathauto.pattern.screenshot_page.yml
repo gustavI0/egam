@@ -7,7 +7,7 @@ dependencies:
 id: screenshot_page
 label: 'Page capture'
 type: 'canonical_entities:screenshot'
-pattern: '/capture/[screenshot:id]'
+pattern: '/screenshot/[screenshot:id]-[screenshot:field_game:entity:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0

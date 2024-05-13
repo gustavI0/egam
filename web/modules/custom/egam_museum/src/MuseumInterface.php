@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Drupal\egam_museum;
 
@@ -10,5 +10,7 @@ use Drupal\user\EntityOwnerInterface;
  * Provides an interface defining a museum entity type.
  */
 interface MuseumInterface extends ContentEntityInterface, EntityOwnerInterface, EntityChangedInterface {
+
+	public function getLocation(): ?string;
 
 }

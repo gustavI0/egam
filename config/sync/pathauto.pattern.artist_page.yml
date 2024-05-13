@@ -7,7 +7,7 @@ dependencies:
 id: artist_page
 label: 'Page artiste'
 type: 'canonical_entities:artist'
-pattern: '/artiste/[artist:label]'
+pattern: '/artist/[artist:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0

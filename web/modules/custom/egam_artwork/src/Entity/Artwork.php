@@ -7,9 +7,13 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Drupal\egam_artist\Entity\Artist;
 use Drupal\egam_artist\Entity\ArtistInterface;
 use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_museum\Entity\Museum;
+use Drupal\egam_museum\MuseumInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**
@@ -206,19 +210,50 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return Artist::load($this->get('field_artist')->target_id);
 	}
 
+	public function getMuseum(): MuseumInterface {
+		return Museum::load($this->get('field_museum')->target_id);
+	}
+
 	public function getFullTitle(bool $withArtist = TRUE): string {
 		return $this->buildTitle($withArtist);
+	}
+
+	public function getFullArtist(bool $asLink = FALSE): string {
+		$prefix = $this->getArtistPrefix();
+		$artist = $this->getArtist();
+		return $prefix ? $asLink ?
+			sprintf('<div class="flex">%s%s</div>', $artist->toLink()->toString(), '<span class="prefix ml-1">' . $this->buildArtistPrefix($prefix) . '</span>') :
+			sprintf('%s %s', $artist->label(), $this->buildArtistPrefix($prefix)) : ($asLink ?
+			sprintf('<a href="/%s">%s</a></div>', $artist->toLink()->toString(), $artist->label()) :
+			$this->getArtist()->label());
+	}
+
+	public function getArtistPrefix(): ?string {
+		$prefixValue = $this->get('field_artist_prefix')->value;
+		if (!$prefixValue) {
+			return NULL;
+		}
+		return $this->get('field_artist_prefix')->getFieldDefinition()->getSettings()['allowed_values'][$prefixValue];
+	}
+
+	protected function buildArtistPrefix(string $prefix): string {
+		return sprintf('(%s)', mb_strtolower($prefix));
 	}
 
 	protected function buildTitle(bool $withArtist): string {
 		$title = $this->label();
 		$date = $this->getDate();
-		$artist = $this->getArtist()->label();
+		$artist = $this->getFullArtist();
 		return $withArtist ? $date ?
 			sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) :
 			sprintf('<span><i>%s</i>, %s</span>', $title, $artist) : ($date ?
 			sprintf('<span><i>%s</i>, %s', $title, $date) :
 			sprintf('<span><i>%s</i></span>', $title));
+	}
+
+	public function getFullLocationAsLink(): string {
+		$museum = $this->getMuseum();
+		return sprintf('<div class="flex">%s%s</div>', $museum->toLink()->toString(), '<span>, ' . $museum->getLocation() . '</span>');
 	}
 
 }

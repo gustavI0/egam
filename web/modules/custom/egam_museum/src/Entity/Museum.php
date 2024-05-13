@@ -195,4 +195,8 @@ final class Museum extends RevisionableContentEntityBase implements MuseumInterf
     return $fields;
   }
 
+	public function getLocation(): ?string {
+		return $this->get('field_location')->value;
+	}
+
 }

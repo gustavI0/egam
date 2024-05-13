@@ -20,63 +20,67 @@
   {% endif %}
   {% if content %}
       <div class="container flex content artist">
-          <div class="cover basis-1/2 p-4">
+          <div class="cover basis-1/2">
               {{ content.field_cover }}
               {{ content.field_cover_caption }}
           </div>
-          <div class="details basis-1/2 p-4">
-              {% if content.label %}
-                  <div class="item title name">
-                      <h1>{{ content.label }}</h1>
-                  </div>
-              {% endif %}
-              {% if content.field_full_name.0 %}
-                  <div class="item full_name">
-                      <h2>{{ 'Full name'|t }}</h2>
-                      {{ content.field_full_name }}
-                  </div>
-              {% endif %}
-              {% if content.field_nickname.0 %}
-                  <div class="item nickname">
-                      <h2>{{ 'Nickname'|t }}</h2>
-                      {{ content.field_nickname }}
-                  </div>
-              {% endif %}
-              {% if content.field_nationality.0 %}
-                  <div class="item nationality">
-                      <h2>{{ 'Nationality'|t }}</h2>
-                      {{ content.field_nationality }}
-                  </div>
-              {% endif %}
-              {% if content.field_birth_year.0 %}
-                  <div class="item birth_year">
-                      <h2>{{ 'Birth year'|t }}</h2>
-                      {{ content.field_birth_year }}
-                  </div>
-              {% endif %}
-              {% if content.field_death_year.0 %}
-                  <div class="item death_year">
-                      <h2>{{ 'Death year'|t }}</h2>
-                      {{ content.field_death_year }}
-                  </div>
-              {% endif %}
-              {% if content.description.0 %}
-                  <div class="item description">
-                      <h2>{{ 'Notes'|t }}</h2>
-                      {{ content.description }}
-                  </div>
-              {% endif %}
-              {% if content.field_more_info.0 %}
-                  <div class="item more_info">
-                      {{ content.field_more_info }}
-                  </div>
-              {% endif %}
+          <div class="details basis-1/2">
+              <div class="title">
+                  {% if content.label %}
+                      <div class="item name">
+                          <h1>{{ content.label }}</h1>
+                      </div>
+                  {% endif %}
+              </div>
+              <table class="infos">
+                  {% if content.field_full_name.0 %}
+                      <tr class="item full_name">
+                          <th scope="row">{{ 'Full name'|t }}</th>
+                          <td>{{ content.field_full_name }}</td>
+                      </tr>
+                  {% endif %}
+                  {% if content.field_nickname.0 %}
+                      <tr class="item nickname">
+                          <th scope="row">{{ 'Nickname'|t }}</th>
+                          {{ content.field_nickname }}
+                      </tr>
+                  {% endif %}
+                  {% if content.field_nationality.0 %}
+                      <tr class="item nationality">
+                          <th scope="row">{{ 'Nationality'|t }}</th>
+                          <td>{{ content.field_nationality }}</td>
+                      </tr>
+                  {% endif %}
+                  {% if content.field_birth_year.0 %}
+                      <tr class="item birth_year">
+                          <th scope="row">{{ 'Birth year'|t }}</th>
+                          <td>{{ content.field_birth_year }}</td>
+                      </tr>
+                  {% endif %}
+                  {% if content.field_death_year.0 %}
+                      <tr class="item death_year">
+                          <th scope="row">{{ 'Death year'|t }}</th>
+                          <td>{{ content.field_death_year }}</td>
+                      </tr>
+                  {% endif %}
+                  {% if content.description.0 %}
+                      <tr class="item description">
+                          <th scope="row">{{ 'Notes'|t }}</th>
+                          <td>{{ content.description }}</td>
+                      </tr>
+                  {% endif %}
+                  {% if content.field_more_info.0 %}
+                      <tr class="item more_info">
+                          <th scope="row">{{ content.field_more_info }}</th>
+                      </tr>
+                  {% endif %}
+              </table>
           </div>
       </div>
       {% if related_artworks is not empty %}
-          <div class="container">
+          <div class="container related-content">
               <h2>{{ 'Oeuvres par cet artiste :'|t }}</h2>
-              <div class="related-content artworks grid grid-cols-3 gap-4">
+              <div class="items artwork grid grid-cols-3 gap-4">
                   {{ related_artworks }}
               </div>
           </div>

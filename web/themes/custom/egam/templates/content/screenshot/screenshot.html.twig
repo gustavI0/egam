@@ -22,51 +22,50 @@
       {% set date = content.field_game.0.entity %}
       {% set dev = content.field_game.entity.field_developer.value %}
       <div class="container flex content screenshot">
-          <div class="cover basis-1/2 p-4">
+          <div class="cover basis-1/2">
               {{ content.field_cover }}
           </div>
-          <div class="details basis-1/2 p-4">
-
+          <table class="details basis-1/2">
               {% if content.field_game.0 %}
-                  <div class="item game">
-                      <h2>{{ 'Game'|t }}</h2>
-                      {{ content.field_game }}
-                  </div>
+                  <tr class="item game">
+                      <th scope="row">{{ 'Game'|t }}</th>
+                      <td>{{ content.field_game }}</td>
+                  </tr>
               {% endif %}
 
               {% if game_date %}
-                  <div class="item date">
-                      <h2>{{ 'Date'|t }}</h2>
-                      {{ game_date }}
-                  </div>
+                  <tr class="item date">
+                      <th scope="row">{{ 'Date'|t }}</th>
+                      <td>{{ game_date }}</td>
+                  </tr>
               {% endif %}
 
               {% if game_developer %}
-                  <div class="item developer">
-                      <h2>{{ 'Developer'|t }}</h2>
-                      {{ game_developer }}
-                  </div>
+                  <tr class="item developer">
+                      <th scope="row">{{ 'Developer'|t }}</th>
+                      <td>{{ game_developer }}</td>
+                  </tr>
               {% endif %}
 
               {% if content.description.0 %}
-                  <div class="item description">
-                      <h2>{{ 'Notes'|t }}</h2>
-                      {{ content.description }}
-                  </div>
+                  <tr class="item description">
+                      <th scope="row">{{ 'Notes'|t }}</th>
+                      <td>{{ content.description }}</td>
+                  </tr>
               {% endif %}
 
               {% if content.field_more_info.0 %}
-                  <div class="item more_info">
-                      {{ content.field_more_info }}
-                  </div>
+                  <tr class="item more_info">
+                      <td>{{ content.field_more_info }}</td>
+                  </tr>
               {% endif %}
 
-          </div>
+          </table>
       </div>
       {% if content.field_artwork.0 %}
-          <div class="container">
+          <div class="container related-content">
               <h2>{{ 'Oeuvre(s) présente(s) dans cette image :'|t }}</h2>
-              <div class="related-content artwork grid grid-cols-3 gap-4">
+              <div class="items artwork grid grid-cols-3 gap-4">
                   {{ content.field_artwork }}
               </div>
           </div>

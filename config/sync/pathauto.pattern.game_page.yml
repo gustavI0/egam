@@ -7,7 +7,7 @@ dependencies:
 id: game_page
 label: 'Page jeu'
 type: 'canonical_entities:game'
-pattern: '/jeu/[game:label]'
+pattern: '/game/[game:label]'
 selection_criteria: {  }
 selection_logic: and
 weight: 0
