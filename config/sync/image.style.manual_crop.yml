@@ -1,0 +1,7 @@
+uuid: 43b6c4d2-5a31-42ed-8581-4744fa6fda05
+langcode: fr
+status: true
+dependencies: {  }
+name: manual_crop
+label: 'Manual crop'
+effects: {  }

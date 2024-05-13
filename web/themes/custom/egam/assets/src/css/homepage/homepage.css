@@ -12,4 +12,8 @@
     line-height: 1;
     font-size: 14rem;
   }
+
+  .home-content .title {
+    @apply sm:text-3xl;
+  }
 }

@@ -25,6 +25,7 @@
         "drupal/focal_point": "^2.1",
         "drupal/gin": "^3.0@rc",
         "drupal/gin_toolbar": "^1.0@rc",
+        "drupal/image_widget_crop": "^2.4",
         "drupal/media_library_form_element": "^2.0",
         "drupal/pathauto": "^1.11",
         "drupal/search_api": "^1.29",
