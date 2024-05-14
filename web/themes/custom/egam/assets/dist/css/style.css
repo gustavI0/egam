@@ -638,10 +638,6 @@ nav#block-egam-homepage {
   padding: 2rem 4rem;
 }
 
-.home-menu {
-  position: absolute;
-}
-
 .home-menu .wrapper {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -1093,16 +1089,6 @@ nav#block-egam-homepage {
   }
 }
 
-@media (min-width: 768px) {
-  .md\:text-\[14rem\] {
-    font-size: 14rem;
-  }
-
-  .md\:leading-none {
-    line-height: 1;
-  }
-}
-
 @media (min-width: 976px) {
   .lg\:inline-block {
     display: inline-block;
@@ -1126,6 +1112,14 @@ nav#block-egam-homepage {
 
   .lg\:text-5xl {
     font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-\[14rem\] {
+    font-size: 14rem;
+  }
+
+  .lg\:leading-none {
     line-height: 1;
   }
 }
