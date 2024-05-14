@@ -5,15 +5,4 @@
   .home-content {
     color: theme(colors.light);
   }
-
-  .home-content .title {
-    position: absolute;
-    word-spacing: 100vw;
-    line-height: 1;
-    font-size: 14rem;
-  }
-
-  /*.home-content .title {*/
-  /*  @apply sm:text-3xl;*/
-  /*}*/
 }
