@@ -1,0 +1,63 @@
+uuid: 5212e546-50da-4ea3-a679-07e67ad86c5e
+langcode: fr
+status: true
+dependencies: {  }
+id: screenshots
+label: Screenshots
+description: ''
+breakpoint: false
+swiper_options:
+  autoplay:
+    enabled: false
+    delay: 4000
+    disableOnInteraction: true
+    pauseOnMouseEnter: false
+    reverseDirection: false
+    stopOnLastSlide: false
+    waitForTransition: true
+  navigation:
+    enabled: true
+    hideOnClick: true
+  pagination:
+    enabled: true
+    type: bullets
+    dynamicBullets: false
+    clickable: false
+  scrollbar:
+    enabled: false
+    draggable: false
+    dragSize: auto
+    hide: true
+    snapOnRelease: false
+  breakpoints:
+    -
+      weight: '0'
+  lazy:
+    enabled: true
+    checkInView: false
+    loadOnTransitionStart: false
+    loadPrevNext: false
+    loadPrevNextAmount: 1
+    scrollingElement: window
+  source: local_minified
+  breakpointsBase: window
+  autoHeight: true
+  width: null
+  height: null
+  observer: 0
+  updateOnWindowResize: true
+  resizeObserver: true
+  direction: horizontal
+  effect: fade
+  loop: 0
+  rewind: 0
+  centeredSlides: 0
+  speed: 300
+  slidesPerView: 1
+  spaceBetween: '0'
+  slidesPerGroup: 1
+  loopedSlides: 1
+  noSwipingSelector: '.no-swipe, button, input'
+  mousewheel: 0
+  grabCursor: 0
+  cssMode: 0

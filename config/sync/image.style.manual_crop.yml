@@ -1,7 +1,24 @@
 uuid: 43b6c4d2-5a31-42ed-8581-4744fa6fda05
 langcode: fr
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - crop
 name: manual_crop
 label: 'Manual crop'
-effects: {  }
+effects:
+  df32aed5-1aae-4514-9c3b-f53da780fa22:
+    uuid: df32aed5-1aae-4514-9c3b-f53da780fa22
+    id: crop_crop
+    weight: -9
+    data:
+      crop_type: ''
+      automatic_crop_provider: null
+  174a9495-c37f-4430-8f98-73b3c311503d:
+    uuid: 174a9495-c37f-4430-8f98-73b3c311503d
+    id: image_crop
+    weight: -10
+    data:
+      width: 400
+      height: 400
+      anchor: center-center

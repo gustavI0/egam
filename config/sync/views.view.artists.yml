@@ -213,7 +213,7 @@ display:
         type: grid_responsive
         options:
           uses_fields: false
-          columns: 4
+          columns: 3
           cell_min_width: 100
           grid_gutter: 100
           alignment: horizontal
@@ -241,26 +241,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-      tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
-    position: 2
-    display_options:
-      pager:
-        type: some
-        options:
-          offset: 0
-          items_per_page: 5
-      defaults:
-        pager: false
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
       tags: {  }
   grid:
     id: grid

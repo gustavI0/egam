@@ -30,6 +30,7 @@
         "drupal/pathauto": "^1.11",
         "drupal/search_api": "^1.29",
         "drupal/stable": "^2.0",
+        "drupal/swiper_formatter": "^2.0@beta",
         "drupal/views_infinite_scroll": "^2.0",
         "symfony/dotenv": "^6.3"
     },

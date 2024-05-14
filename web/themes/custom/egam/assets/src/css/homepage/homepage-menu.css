@@ -7,10 +7,6 @@
     padding: 2rem 4rem;
   }
 
-  .home-menu {
-    position: absolute;
-  }
-
   .home-menu .wrapper {
     display: grid;
     grid-template-columns: auto auto auto;

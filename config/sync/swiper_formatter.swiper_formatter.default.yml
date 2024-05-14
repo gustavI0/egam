@@ -1,0 +1,65 @@
+uuid: 73ff5471-0fa1-42ee-b33c-42a9d33430b5
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QF6mRaOJPCXcibEXgLpI6NbJtTApc9dBJk32FDsFWgU
+id: default
+label: 'Par défaut'
+description: 'This default template is mostly for demonstration purpose, feel free to edit it or create (as many) new ones.'
+breakpoint: false
+swiper_options:
+  autoplay:
+    enabled: false
+    delay: 4000
+    disableOnInteraction: true
+    pauseOnMouseEnter: false
+    reverseDirection: false
+    stopOnLastSlide: false
+    waitForTransition: true
+  navigation:
+    enabled: true
+    hideOnClick: false
+  pagination:
+    enabled: true
+    type: bullets
+    dynamicBullets: false
+    clickable: false
+  scrollbar:
+    enabled: false
+    draggable: false
+    dragSize: auto
+    hide: true
+    snapOnRelease: false
+  breakpoints:
+    -
+      weight: '0'
+  lazy:
+    enabled: true
+    checkInView: false
+    loadOnTransitionStart: false
+    loadPrevNext: false
+    loadPrevNextAmount: 1
+    scrollingElement: window
+  source: remote
+  breakpointsBase: window
+  autoHeight: true
+  width: null
+  height: null
+  observer: 0
+  updateOnWindowResize: true
+  resizeObserver: true
+  direction: horizontal
+  effect: fade
+  loop: 0
+  rewind: 0
+  centeredSlides: 0
+  speed: 300
+  slidesPerView: 1
+  spaceBetween: '0'
+  slidesPerGroup: 1
+  loopedSlides: 1
+  noSwipingSelector: '.no-swipe, button, input'
+  mousewheel: 0
+  grabCursor: 0
+  cssMode: 0
