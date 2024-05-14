@@ -3,11 +3,6 @@
     @apply text-lg
   }
 
-  .content .cover,
-  .content .details {
-    padding: 2rem;
-  }
-
   .content .title h1 {
     font-family: Bebas Regular, ui-sans-serif;
     font-size: 3.5rem;
