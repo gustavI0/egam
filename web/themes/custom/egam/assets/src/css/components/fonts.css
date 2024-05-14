@@ -1,19 +1,25 @@
-.content .cover,
-.content .details {
-  padding: 2rem;
-}
+@layer components {
+  .label {
+    @apply text-lg
+  }
 
-.content .title h1 {
-  font-family: Bebas Regular, ui-sans-serif;
-  font-size: 3.5rem;
-  line-height: 4rem;
-}
+  .content .cover,
+  .content .details {
+    padding: 2rem;
+  }
 
-.related-content h2 {
-  font-size: 2rem;
-  line-height: 3;
-}
+  .content .title h1 {
+    font-family: Bebas Regular, ui-sans-serif;
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
 
-.related-content .items {
-  padding: 1rem 2rem;
+  .related-content h2 {
+    font-size: 2rem;
+    line-height: 3;
+  }
+
+  .related-content .items {
+    padding: 1rem 2rem;
+  }
 }

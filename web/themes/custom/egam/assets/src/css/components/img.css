@@ -1,0 +1,5 @@
+@layer components {
+  .cover-teaser img {
+    @apply w-80 h-80 object-cover object-center;
+  }
+}

@@ -26,25 +26,11 @@
 }
 
 @layer components {
-  .views-view-responsive-grid__item {
-    @apply w-80;
-  }
 
-  .cover-teaser img {
-    @apply w-80 h-80 object-cover object-center;
-  }
+
 
   .related-content .content {
     @apply w-60;
-  }
-
-  .label {
-    @apply text-lg
-  }
-
-   /* Liste 3 colonnes bord à bord à revoir */
-  .views-view-responsive-grid {
-    grid-template-columns: repeat(3, auto);
   }
 
 
