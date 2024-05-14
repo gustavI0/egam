@@ -27,8 +27,6 @@
 
 @layer components {
 
-
-
   .related-content .content {
     @apply w-60;
   }

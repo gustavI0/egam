@@ -21,7 +21,7 @@
   {% if content %}
       {% set date = content.field_game.0.entity %}
       {% set dev = content.field_game.entity.field_developer.value %}
-      <div class="container flex content screenshot">
+      <div class="container flex flex-wrap content screenshot">
           <div class="cover basis-1/2">
               {{ content.field_cover }}
           </div>
@@ -57,7 +57,7 @@
 
                   {% if content.field_more_info.0 %}
                       <tr class="item more_info">
-                          <td>{{ content.field_more_info }}</td>
+                          <th scope="row">{{ content.field_more_info }}</th>
                       </tr>
                   {% endif %}
               </table>
