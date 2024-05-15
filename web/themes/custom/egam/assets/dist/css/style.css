@@ -475,6 +475,11 @@ a:hover {
   text-decoration-line: none;
 }
 
+#block-egam-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
