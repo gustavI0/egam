@@ -789,8 +789,13 @@ nav#block-egam-homepage {
 }
 
 .content table th {
-  text-align: right;
+  text-align: left;
   padding: 1rem;
+  margin-top: 1rem;
+}
+
+.content table tr {
+  border-top: 1px solid black;
 }
 
 .views-view-responsive-grid {
