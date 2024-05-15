@@ -148,8 +148,8 @@ display:
         type: grid_responsive
         options:
           uses_fields: false
-          columns: 4
-          cell_min_width: 300
+          columns: 3
+          cell_min_width: 200
           grid_gutter: 100
           alignment: horizontal
       row:
