@@ -7,11 +7,9 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
-    - swiper_formatter.swiper_formatter.screenshots
   module:
     - egam_screenshot
     - link
-    - swiper_formatter
     - text
 id: screenshot.screenshot.default
 targetEntityType: screenshot
@@ -35,13 +33,10 @@ content:
     weight: 3
     region: content
   field_cover:
-    type: swiper_formatter_entity
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: default
-      template: screenshots
-      caption: ''
-      custom_link: null
+      view_mode: swiper
       link: false
     third_party_settings: {  }
     weight: 0

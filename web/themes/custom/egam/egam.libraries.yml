@@ -1,14 +1,15 @@
 global-styling:
   version: VERSION
   js:
-    assets/dist/js/global.js: {}
+    assets/dist/js/global.js: { }
+    assets/dist/js/swiper.js: { }
   css:
     theme:
       assets/dist/css/style.css: { }
 
-alpine-js:
+swiper:
   js:
-    https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js: {
-      type: external,
-      minified: true
-    }
+    /libraries/swiper/swiper-bundle.min.js: { minified: true }
+  css:
+    component:
+      /libraries/swiper/swiper-bundle.min.css: { minified: true }

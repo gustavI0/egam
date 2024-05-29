@@ -1,0 +1,11 @@
+uuid: 7c5bab97-c31e-4928-9017-60ae2c7be102
+langcode: fr
+status: true
+dependencies:
+  module:
+    - media
+id: media.swiper
+label: Swiper
+description: ''
+targetEntityType: media
+cache: true
