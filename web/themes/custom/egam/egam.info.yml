@@ -6,9 +6,6 @@ core_version_requirement: ^10
 base theme: stable9
 version: VERSION
 
-#libraries:
-#  - egam/bootstrap_cdn
-#  - egam/global-styling
 libraries:
   - egam/global-styling
   - egam/alpine-js

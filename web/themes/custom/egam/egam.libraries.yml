@@ -6,6 +6,9 @@ global-styling:
   css:
     theme:
       assets/dist/css/style.css: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
 
 swiper:
   js:
