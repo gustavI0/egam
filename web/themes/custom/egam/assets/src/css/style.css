@@ -24,12 +24,3 @@
   font-family: "Bebas Regular";
   src: url("../../dist/fonts/BebasNeue_Regular.ttf");
 }
-
-@layer components {
-
-  .related-content .content {
-    @apply w-60;
-  }
-
-
-}

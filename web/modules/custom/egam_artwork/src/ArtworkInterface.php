@@ -19,7 +19,7 @@ interface ArtworkInterface extends ContentEntityInterface, EntityOwnerInterface,
 
 	public function getArtist(): ArtistInterface;
 
-	public function getFullTitle(bool $withArtist): string;
+	public function getFullTitle(bool $withArtist, bool $asLink): string|Link;
 
 	public function getFullArtist(bool $asLink): string|GeneratedLink;
 

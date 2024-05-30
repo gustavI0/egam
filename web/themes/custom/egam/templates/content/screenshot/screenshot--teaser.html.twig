@@ -13,19 +13,17 @@
  * @see template_preprocess_museum()
  */
 #}
-<article{{ attributes }}>
-  {% if view_mode != 'full' %}
-    {{ title_prefix }}
-    {{ title_suffix }}
-  {% endif %}
-  {% if content %}
-      <div class="screenshot w-96">
-          <div>
-              {{ content.field_cover.0 }}
-          </div>
-          <div class="label">
-              <a href="{{ content.label.0['#url'] }}">{{ context_title|raw }}</a>
-          </div>
-      </div>
-  {% endif %}
+<article{{ attributes.addClass('screenshot', 'w-60', view_mode) }}>
+    {% if view_mode != 'full' %}
+        {{ title_prefix }}
+        {{ title_suffix }}
+    {% endif %}
+    {% if content %}
+        <div class="cover">
+            {{ content.field_cover.0 }}
+        </div>
+        <div class="label">
+            <a href="{{ content.label.0['#url'] }}">{{ context_title|raw }}</a>
+        </div>
+    {% endif %}
 </article>

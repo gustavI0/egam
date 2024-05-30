@@ -13,19 +13,17 @@
  * @see template_preprocess_game()
  */
 #}
-<article{{ attributes }}>
+<article{{ attributes.addClass('game', view_mode) }}>
     {% if view_mode != 'full' %}
         {{ title_prefix }}
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-    <div class="content game">
-        <div class="cover-teaser">
+        <div class="cover">
             {{ content.field_cover }}
         </div>
         <div class="label">
             {{ content.label }}
         </div>
-    </div>
     {% endif %}
 </article>

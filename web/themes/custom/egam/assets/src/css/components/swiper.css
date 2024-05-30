@@ -72,6 +72,10 @@
   height: 100%;
   opacity: 0.4;
 }
+.thumb-swiper .swiper-slide:hover {
+  cursor: pointer;
+}
+
 
 .thumb-swiper .swiper-slide-thumb-active {
   opacity: 1;

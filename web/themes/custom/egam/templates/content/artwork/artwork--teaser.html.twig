@@ -13,19 +13,17 @@
  * @see template_preprocess_artwork()
  */
 #}
-<article{{ attributes }}>
-  {% if view_mode != 'full' %}
-    {{ title_prefix }}
-    {{ title_suffix }}
-  {% endif %}
-  {% if content %}
-      <div class="content artwork">
-          <div class="cover-teaser">
-              {{ content.field_cover }}
-          </div>
-          <div class="label">
-              {{ full_title|raw }}
-          </div>
-      </div>
-  {% endif %}
+<article{{ attributes.addClass('artwork', view_mode) }}>
+    {% if view_mode != 'full' %}
+        {{ title_prefix }}
+        {{ title_suffix }}
+    {% endif %}
+    {% if content %}
+        <div class="cover">
+            {{ content.field_cover }}
+        </div>
+        <div class="label">
+            {{ full_title|raw }}
+        </div>
+    {% endif %}
 </article>

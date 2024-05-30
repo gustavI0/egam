@@ -1,0 +1,10 @@
+@layer components {
+
+  .related-content .items {
+    @apply flex flex-wrap justify-between lg:grid lg:gap-8 lg:justify-start lg:grid-cols-4;
+  }
+
+  .related-content article {
+    @apply w-40 lg:w-60;
+  }
+}

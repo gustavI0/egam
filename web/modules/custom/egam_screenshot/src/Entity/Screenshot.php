@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\GeneratedLink;
+use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\egam_artwork\ArtworkInterface;
@@ -215,14 +217,14 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 		return Artwork::load($this->get('field_artwork')->target_id);
 	}
 
-	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string {
+	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link {
 		return match($entity->bundle()) {
 			Entities::Artwork->value => $this->getReferencedGame()->label(),
 			Entities::Game->value => $this->getTitleForGameContext()
 		};
 	}
 
-	protected function getTitleForGameContext(): TranslatableMarkup|string {
+	protected function getTitleForGameContext(): TranslatableMarkup|string|Link {
 		return $this->get('field_artwork')->count() > 1 ? $this->t('Multiple artworks') : $this->getReferencedArtwork()->getFullTitle();
 	}
 

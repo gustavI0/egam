@@ -47,7 +47,7 @@
     {% if is_front %}
         {{ page.primary_menu }}
     {% else %}
-        <header role="banner" class="w-9/12 border-b-2 mx-auto">
+        <header role="banner" class="w-11/12 lg:w-9/12 border-b-2 mx-auto">
             <div class="banner">
             {{ page.header }}
             {{ page.primary_menu }}
@@ -58,8 +58,8 @@
 {#        {{ page.highlighted }}#}
     {% endif %}
 
-    <main role="main" class="{{ is_front ? '' : 'w-9/12' }} mx-auto">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <main role="main" class="{{ is_front ? '' : 'w-11/12 lg:w-9/12' }} mx-auto">
+        <a id="main-content" tabindex="-1"></a>
         <div class="layout-content mx-auto">
             {{ page.content }}
         </div>

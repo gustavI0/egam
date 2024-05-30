@@ -472,7 +472,6 @@ a {
 
 a:hover {
   --tw-text-opacity: 0.95;
-  text-decoration-line: none;
 }
 
 #block-egam-content .container {
@@ -619,33 +618,127 @@ a:hover {
   margin-right: 0.5rem;
 }
 
-.cover-teaser img {
-  height: 20rem;
-  width: 20rem;
+.banner {
+  max-width: 976px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 976px) {
+  .banner {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner {
+    max-width: 1440px;
+  }
+}
+
+.teaser .cover img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
 
-.label {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.views-view-responsive-grid .cover img {
+  height: 20rem;
+  width: 20rem;
+}
+
+.related-content .teaser .cover img {
+  height: 15rem;
+  width: 15rem;
 }
 
 .content .title h1 {
   font-family: Bebas Regular, ui-sans-serif;
-  font-size: 3.5rem;
-  line-height: 4rem;
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .related-content h2 {
-  font-size: 2rem;
-  line-height: 3;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.teaser .label {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .related-content .items {
-  padding: 1rem 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.related-content .items .label {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.content table {
+  margin-top: 1rem;
+}
+
+.content table th {
+  margin-top: 1rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+.content table tr {
+  border-top-width: 1px;
+  border-style: solid;
+}
+
+.content table a {
+  border-bottom-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(16 185 129 / var(--tw-border-opacity));
+}
+
+.content table a:hover {
+  border-width: 0px;
+  --tw-text-opacity: 0.95;
+}
+
+.content.screenshot table tr.item:nth-child(1) {
+  border-top-width: 0px;
+}
+
+.related-content .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (min-width: 976px) {
+  .related-content .items {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+}
+
+.related-content article {
+  width: 10rem;
+}
+
+@media (min-width: 976px) {
+  .related-content article {
+    width: 15rem;
+  }
 }
 
 .home-menu a {
@@ -712,31 +805,6 @@ nav#block-egam-homepage {
   color: rgb(250 250 249);
 }
 
-.related-content .content {
-  width: 15rem;
-}
-
-.banner {
-  max-width: 976px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media (min-width: 976px) {
-  .banner {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .banner {
-    max-width: 1440px;
-  }
-}
-
 .corners-big {
   --b: 2px;
   /* thickness of the border */
@@ -786,16 +854,6 @@ nav#block-egam-homepage {
   max-height: 37.5rem;
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-.content table th {
-  text-align: left;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.content table tr {
-  border-top: 1px solid black;
 }
 
 .views-view-responsive-grid {
@@ -881,6 +939,10 @@ nav#block-egam-homepage {
   opacity: 0.4;
 }
 
+.thumb-swiper .swiper-slide:hover {
+  cursor: pointer;
+}
+
 .thumb-swiper .swiper-slide-thumb-active {
   opacity: 1;
 }
@@ -955,12 +1017,16 @@ nav#block-egam-homepage {
   height: 100vh;
 }
 
-.w-9\/12 {
-  width: 75%;
+.w-11\/12 {
+  width: 91.666667%;
 }
 
-.w-96 {
-  width: 24rem;
+.w-60 {
+  width: 15rem;
+}
+
+.w-9\/12 {
+  width: 75%;
 }
 
 .w-full {
@@ -979,10 +1045,6 @@ nav#block-egam-homepage {
   flex-basis: 50%;
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -997,10 +1059,6 @@ nav#block-egam-homepage {
 
 .justify-center {
   justify-content: center;
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .rounded-md {
@@ -1182,6 +1240,10 @@ nav#block-egam-homepage {
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:w-9\/12 {
+    width: 75%;
   }
 
   .lg\:w-auto {

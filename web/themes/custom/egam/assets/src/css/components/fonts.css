@@ -1,20 +1,22 @@
 @layer components {
-  .label {
-    @apply text-lg
-  }
 
   .content .title h1 {
-    font-family: Bebas Regular, ui-sans-serif;
-    font-size: 3.5rem;
-    line-height: 4rem;
+    @apply text-6xl font-title;
   }
 
   .related-content h2 {
-    font-size: 2rem;
-    line-height: 3;
+    @apply text-4xl;
+  }
+
+  .teaser .label {
+    @apply text-lg mt-2;
   }
 
   .related-content .items {
-    padding: 1rem 2rem;
+    @apply py-4 px-8;
+  }
+
+  .related-content .items .label {
+    @apply text-base;
   }
 }

@@ -2,6 +2,7 @@
 
 namespace Drupal\egam_artwork\Entity;
 
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -9,6 +10,7 @@ use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\GeneratedLink;
 use Drupal\Core\Link;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\egam_artist\Entity\Artist;
 use Drupal\egam_artist\Entity\ArtistInterface;
@@ -215,8 +217,8 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return Museum::load($this->get('field_museum')->target_id);
 	}
 
-	public function getFullTitle(bool $withArtist = TRUE): string {
-		return $this->buildTitle($withArtist);
+	public function getFullTitle(bool $withArtist = TRUE, bool $asLink = TRUE): string|Link {
+		return $asLink ? $this->toLink($this->buildTitle($withArtist)) : $this->buildTitle($withArtist);
 	}
 
 	public function getFullArtist(bool $asLink = FALSE): string|GeneratedLink {
@@ -241,15 +243,16 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return sprintf('(%s)', mb_strtolower($prefix));
 	}
 
-	protected function buildTitle(bool $withArtist): string {
-		$title = $this->label();
+	protected function buildTitle(bool $withArtist): MarkupInterface|string {
+		$title = sprintf('<i>%s</i>', $this->label());
 		$date = $this->getDate();
 		$artist = $this->getFullArtist();
-		return $withArtist ? $date ?
-			sprintf('<span><i>%s</i>, %s, %s', $title, $artist, $date) :
-			sprintf('<span><i>%s</i>, %s</span>', $title, $artist) : ($date ?
-			sprintf('<span><i>%s</i>, %s', $title, $date) :
-			sprintf('<span><i>%s</i></span>', $title));
+		$fullTitle =  $withArtist ? $date ?
+			sprintf('%s, %s, %s', $title, $artist, $date) :
+			sprintf('%s, %s', $title, $artist) : ($date ?
+			sprintf('%s, %s', $title, $date) :
+			sprintf('%s', $title));
+		return Markup::create($fullTitle);
 	}
 
 	public function getFullLocationAsLink(): string|GeneratedLink {
