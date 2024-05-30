@@ -10,14 +10,11 @@ Drupal.behaviors.swiper = {
     });
 
     const mainSwiper = new Swiper('.main-swiper', {
-      // loop: true,
+      effect: "fade",
       spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
       },
       thumbs: {
         swiper: thumbSwiper,

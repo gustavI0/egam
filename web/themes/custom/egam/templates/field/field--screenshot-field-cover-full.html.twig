@@ -5,7 +5,6 @@
             <div{{ item.attributes.addClass('swiper-slide') }}>{{ item.content }}</div>
         {% endfor %}
         </div>
-        <!-- Add Navigation -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
@@ -14,7 +13,6 @@
         <div class="swiper-wrapper">
             {% for item in items %}
                 {% set img_src = file_url(item.content['#media'].field_media_image.0.entity.uri.value) %}
-                {{ breakpoint() }}
                 <div{{ item.attributes.addClass('swiper-slide') }}>
                     <img src="{{ img_src }}" alt="{{ item.content['#media'].field_media_image.0.alt }}">
                 </div>
