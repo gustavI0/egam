@@ -843,7 +843,10 @@ a:hover {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-content: flex-start;
     gap: 2rem;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 

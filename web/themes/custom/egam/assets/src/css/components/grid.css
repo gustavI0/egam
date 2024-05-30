@@ -1,7 +1,7 @@
 @layer components {
 
   .related-content .items {
-    @apply flex flex-wrap p-0 justify-between lg:grid lg:gap-8 lg:justify-start lg:grid-cols-4 lg:p-4;
+    @apply flex flex-wrap p-0 justify-between lg:grid lg:gap-8 lg:justify-start lg:grid-cols-4 lg:py-4 lg:px-8;
   }
 
   .related-content article {
