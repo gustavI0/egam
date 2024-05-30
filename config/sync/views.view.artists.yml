@@ -214,8 +214,8 @@ display:
         options:
           uses_fields: false
           columns: 3
-          cell_min_width: 100
-          grid_gutter: 100
+          cell_min_width: 150
+          grid_gutter: 24
           alignment: horizontal
       row:
         type: 'entity:artist'

@@ -1,4 +1,15 @@
-.views-view-responsive-grid {
-  padding-top: 2rem;
-  justify-content: center;
+@layer components {
+
+  .views-view-responsive-grid {
+    @apply pt-8 justify-center;
+  }
+
+  .views-view-responsive-grid__item-inner {
+    @apply flex justify-center;
+  }
+
+  .views-view-responsive-grid article {
+    @apply w-40 lg:w-80;
+  }
+
 }

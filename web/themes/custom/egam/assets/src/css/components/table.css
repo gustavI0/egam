@@ -3,6 +3,10 @@
     @apply mt-4;
   }
 
+  .content.screenshot table {
+    @apply mt-0;
+  }
+
   .content table th {
     @apply text-left p-4 mt-4;
   }

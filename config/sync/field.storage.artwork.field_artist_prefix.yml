@@ -23,6 +23,9 @@ settings:
     -
       value: follower_of
       label: 'Suiveur de'
+    -
+      value: workshop_of
+      label: 'Atelier de'
   allowed_values_function: ''
 module: options
 locked: false

@@ -13,6 +13,7 @@ Drupal.behaviors.swiper = {
       effect: "fade",
       spaceBetween: 10,
       navigation: {
+        hideOnClick: true,
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },

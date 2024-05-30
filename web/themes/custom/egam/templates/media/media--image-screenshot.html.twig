@@ -1,0 +1,9 @@
+<div class="media">
+    {{ content.field_media_image }}
+</div>
+{% if content.field_chapter.0 %}
+<div class="chapter flex">
+    <h2>{{ 'Chapitre / mission / zone'|t }}</h2>
+    {{ content.field_chapter }}
+</div>
+{% endif %}

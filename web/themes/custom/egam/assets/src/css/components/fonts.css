@@ -1,7 +1,7 @@
 @layer components {
 
   .content .title h1 {
-    @apply text-6xl font-title;
+    @apply mt-4 text-6xl font-title lg:mt-0;
   }
 
   .related-content h2 {
@@ -9,7 +9,7 @@
   }
 
   .teaser .label {
-    @apply text-lg mt-2;
+    @apply text-base lg:text-lg mt-2;
   }
 
   .related-content .items {

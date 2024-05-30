@@ -1,0 +1,10 @@
+@layer components {
+
+  .cover .chapter {
+    @apply mt-2;
+  }
+
+  .cover .chapter > div {
+    @apply ml-4;
+  }
+}
