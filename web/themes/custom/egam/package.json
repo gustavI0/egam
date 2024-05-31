@@ -8,6 +8,7 @@
     "build:prod": "npx tailwindcss build -i assets/src/css/styles.css -o assets/dist/css/styles.css --minify"
   },
   "dependencies": {
+    "photoswipe": "^5.4.4",
     "swiper": "^11.0.6"
   }
 }

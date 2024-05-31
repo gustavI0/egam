@@ -23,11 +23,16 @@
   }
 
   .thumb-swiper {
-    height: 20%;
     box-sizing: border-box;
     padding: 1rem 0;
-    overflow: scroll;
+    overflow: auto;
     max-width: 33.5rem;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .thumb-swiper::-webkit-scrollbar {
+    display: none; /* Chrome */
   }
 
   .thumb-swiper .swiper-slide {
@@ -48,6 +53,11 @@
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 2rem;
   }
 }
 

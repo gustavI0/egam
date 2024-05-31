@@ -47,15 +47,28 @@
     {% if is_front %}
         {{ page.primary_menu }}
     {% else %}
-        <header role="banner" class="w-11/12 lg:w-9/12 border-b-2 mx-auto">
+        <header role="banner" class="w-11/12 lg:w-9/12 border-b-2 py-4 mx-auto"
+                x-data="{ open: false }"
+                x-init="open=window.innerWidth > 768">
             <div class="banner">
-            {{ page.header }}
-            {{ page.primary_menu }}
+                {{ page.header }}
+
+                <button class="absolute top-10 right-4 lg:hidden text-gray-900 text-opacity-80 font-semibold transition duration-500 ease-in-out hover:text-opacity-85"
+                        @click="open = ! open">
+                    Menu
+                </button>
+
+                <div class="w-full lg:w-auto lg:flex lg:items-center"
+                     x-show="open"
+                     x-transition.duration.200ms
+                     @click.outside="open = false">
+                    {{ page.primary_menu }}
+                </div>
             </div>
         </header>
         {{ page.help }}
-{#        {{ page.breadcrumb }}#}
-{#        {{ page.highlighted }}#}
+        {#        {{ page.breadcrumb }} #}
+        {#        {{ page.highlighted }} #}
     {% endif %}
 
     <main role="main" class="{{ is_front ? '' : 'w-11/12 lg:w-9/12' }} mx-auto">

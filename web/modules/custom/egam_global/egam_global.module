@@ -10,7 +10,7 @@ use Drupal\egam_global\Entities;
 function egam_global_theme($existing, $type, $theme, $path) {
 	return [
 		HomeController::TEMPLATE => [
-			'variables'  => [
+			'variables' => [
 				'cover_src' => NULL,
 				'title' => NULL,
 				'home_menu' => NULL,
@@ -27,6 +27,14 @@ function egam_global_theme_suggestions_alter(array &$suggestions, array &$variab
 		$suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
 	}
 	if ($hook == 'field') {
-		$suggestions[] = $hook . '__' . $variables['element']['#bundle'] . '_' . $variables['element']['#field_name'] . '_'. $variables['element']['#view_mode'];
+		$suggestions[] = $hook . '__' . $variables['element']['#bundle'] . '_' . $variables['element']['#field_name'] . '_' . $variables['element']['#view_mode'];
 	}
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function egam_global_page_attachments(array &$attachments) {
+	$attachments['#attached']['library'][] = 'egam/swiper';
+	$attachments['#attached']['library'][] = 'egam/alpine-js';
 }

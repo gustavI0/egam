@@ -13,7 +13,6 @@ Drupal.behaviors.swiper = {
       effect: "fade",
       spaceBetween: 10,
       navigation: {
-        hideOnClick: true,
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
@@ -21,5 +20,12 @@ Drupal.behaviors.swiper = {
         swiper: thumbSwiper,
       },
     });
+
+    // const lightbox = new PhotoSwipeLightbox({
+    //   gallery: '.main-swiper',
+    //   children: 'a',
+    //   pswpModule: () => import('photoswipe')
+    // });
+    // lightbox.init();
   }
 };
