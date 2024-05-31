@@ -1,0 +1,19 @@
+@layer components {
+  #header {
+    @apply fixed z-10 bg-body w-full border-b-2 py-8 mx-auto transition-all;
+  }
+
+  .banner {
+    @apply lg:flex lg:flex-wrap items-center justify-between max-w-[1200px] mx-auto;
+  }
+}
+
+/*#header {*/
+/*  transition: padding 0.5s;*/
+/*  -webkit-transition: padding 0.5s;*/
+/*  -moz-transition: padding 0.5s;*/
+/*}*/
+
+#header.small {
+  padding: 1rem 0;
+}

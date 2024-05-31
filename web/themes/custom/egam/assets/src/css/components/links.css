@@ -30,3 +30,7 @@
     background-size: 0 .125rem;
   }
 }
+
+#block-egam-main-menu a.is-active {
+  background-image: linear-gradient(orangered, orangered);
+}

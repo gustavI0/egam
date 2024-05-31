@@ -47,7 +47,7 @@
     {% if is_front %}
         {{ page.primary_menu }}
     {% else %}
-        <header role="banner" class="w-11/12 lg:w-9/12 border-b-2 py-4 mx-auto"
+        <header id="header" role="banner"
                 x-data="{ open: false }"
                 x-init="open=window.innerWidth > 768">
             <div class="banner">
@@ -61,7 +61,6 @@
                 <div class="w-full lg:w-auto lg:flex lg:items-center"
                      x-show="open"
                      x-transition.duration.200ms
-                     @click.outside="open = false">
                     {{ page.primary_menu }}
                 </div>
             </div>
