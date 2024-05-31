@@ -841,6 +841,21 @@ a:hover {
   }
 }
 
+.container.related-content {
+  width: 100vw;
+  max-width: 100vw !important;
+  margin-left: calc((-100vw + 100%) / 2) !important;
+  margin-right: calc((-100vw + 100%) / 2) !important;
+  background-color: white;
+  padding-top: 1rem;
+  border-top: 1px solid;
+}
+
+.related-content h2 {
+  max-width: 1200px;
+  margin: auto;
+}
+
 .related-content .items {
   display: flex;
   flex-wrap: wrap;
@@ -859,6 +874,11 @@ a:hover {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+.related-content .items {
+  max-width: 1200px;
+  margin: auto;
 }
 
 .related-content article {
