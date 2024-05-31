@@ -65,6 +65,10 @@ module:
   user: 0
   views_infinite_scroll: 0
   views_ui: 0
+  webform: 0
+  webform_attachment: 0
+  webform_image_select: 0
+  webform_ui: 0
   pathauto: 1
   content_translation: 10
   views: 10

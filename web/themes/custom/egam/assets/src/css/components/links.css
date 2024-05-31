@@ -1,7 +1,8 @@
 @layer components {
   .home-menu a,
   #block-egam-main-menu a,
-  .content table a {
+  .content table a,
+  .about-page a {
     text-decoration: none;
     display: inline-block;
     padding-bottom: .25rem;
@@ -17,13 +18,15 @@
   }
 
   #block-egam-main-menu a,
-  .content table a {
+  .content table a,
+  .about-page a {
     padding-bottom: .125rem;
     background-size: 100% .125rem;
   }
 
   #block-egam-main-menu a:hover,
-  .content table a:hover {
+  .content table a:hover,
+  .about-page a:hover {
     background-size: 0 .125rem;
   }
 }

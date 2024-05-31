@@ -1,0 +1,13 @@
+uuid: b792e24f-7de0-44d9-aa37-cd9512a4d5dc
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform_image_select
+_core:
+  default_config_hash: fxTwfuzcXHy13ns1ZV5g5sSFuwYIH9WwGqb96JpqNvk
+id: kittens
+label: 'Chatons trop mignons'
+category: Animaux
+images: "kitten_1:\r\n  text: 'Chat Mignon 1'\r\n  src: 'http://placekitten.com/220/200'\r\nkitten_2:\r\n  text: 'Chat Mignon 2'\r\n  src: 'http://placekitten.com/180/200'\r\nkitten_3:\r\n  text: 'Chat Mignon 3'\r\n  src: 'http://placekitten.com/130/200'\r\nkitten_4:\r\n  text: 'Chat Mignon 4'\r\n  src: 'http://placekitten.com/270/200'\n"

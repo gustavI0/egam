@@ -32,6 +32,7 @@
         "drupal/stable": "^2.0",
         "drupal/swiper_formatter": "^2.0@beta",
         "drupal/views_infinite_scroll": "^2.0",
+        "drupal/webform": "^6.2",
         "symfony/dotenv": "^6.3"
     },
     "conflict": {

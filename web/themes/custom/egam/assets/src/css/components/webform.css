@@ -1,0 +1,49 @@
+
+.webform-submission-contact-form {
+  width: 75%;
+  margin: auto;
+  padding: 3rem;
+}
+
+.webform-submission-contact-form .form-item {
+  padding: 1rem;
+}
+
+.webform-submission-contact-form .form-item label {
+  display: inline-block;
+  width: 5rem;
+}
+
+.webform-submission-contact-form .form-item-message {
+  display: flex;
+}
+
+.webform-submission-contact-form .form-item-message label {
+  margin-right: .25rem;
+}
+
+
+.webform-submission-contact-form .form-item input,
+.webform-submission-contact-form .form-item textarea {
+  padding: .25rem;
+  border: 1px solid;
+}
+
+.webform-submission-contact-form #edit-actions {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.webform-submission-contact-form #edit-actions-submit {
+  padding: 1rem;
+  border: 1px solid;
+}
+
+.webform-submission-contact-form #edit-actions-submit:hover {
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  transition: all 200ms ease-in-out;
+}
+
