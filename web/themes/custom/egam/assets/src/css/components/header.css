@@ -8,12 +8,6 @@
   }
 }
 
-/*#header {*/
-/*  transition: padding 0.5s;*/
-/*  -webkit-transition: padding 0.5s;*/
-/*  -moz-transition: padding 0.5s;*/
-/*}*/
-
 #header.small {
   padding: 1rem 0;
 }
