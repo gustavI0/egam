@@ -1,5 +1,17 @@
 @layer components {
 
+  .views-view-responsive-grid {
+    @apply pt-8 justify-center;
+  }
+
+  .views-view-responsive-grid__item-inner {
+    @apply flex justify-center;
+  }
+
+  .views-view-responsive-grid article {
+    @apply w-40 lg:w-80;
+  }
+
   .related-content .items {
     @apply flex flex-wrap p-0 justify-between lg:grid lg:gap-8 lg:justify-start lg:grid-cols-4 lg:py-4 lg:px-8;
   }
@@ -7,4 +19,22 @@
   .related-content article {
     @apply w-40 lg:w-60;
   }
+
+  .views-view-responsive-grid .cover,
+  .related-content .cover {
+    overflow: hidden;
+    background-color: black;
+  }
+
+  .views-view-responsive-grid .cover a img,
+  .related-content .cover a img {
+    transition: all 1s;
+  }
+
+  .views-view-responsive-grid .cover a img:hover,
+  .related-content .cover a img:hover {
+    transform: scale(1.2);
+    opacity: .75;
+  }
+
 }

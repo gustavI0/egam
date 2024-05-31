@@ -28,9 +28,10 @@
   .content table a:hover,
   .about-page a:hover {
     background-size: 0 .125rem;
+    color: coral
   }
 }
 
 #block-egam-main-menu a.is-active {
-  background-image: linear-gradient(orangered, orangered);
+  background-image: linear-gradient(coral, coral);
 }
