@@ -40,7 +40,8 @@ function template_preprocess_screenshot(array &$variables): void {
 	$screenshot = $variables['elements']['#screenshot'];
 	if ($viewMode == 'full') {
 		$game = $screenshot->getReferencedGame();
-		$variables['game_developer'] = $game->get('field_developer')->view(['label' => 'hidden']);
+		$variables['game_developer'] = $game->get('field_developer')->view(['label' => 'hidden']); // @todo: à modifier pour enlever le lien
+		$variables['game_editor'] = $game->get('field_editor')->view(['label' => 'hidden']); // @todo: à modifier pour enlever le lien
 		$variables['game_date'] = $game->get('field_date')->view(
 			[
 				'label' => 'hidden',

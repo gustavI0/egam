@@ -48,6 +48,13 @@
                       </tr>
                   {% endif %}
 
+                  {% if game_editor %}
+                      <tr class="item editor">
+                          <th scope="row">{{ 'Editor'|t }}</th>
+                          <td>{{ game_editor }}</td>
+                      </tr>
+                  {% endif %}
+
                   {% if content.description.0 %}
                       <tr class="item description">
                           <th scope="row">{{ 'Notes'|t }}</th>

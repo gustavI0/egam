@@ -40,7 +40,6 @@
   .views-view-responsive-grid .cover,
   .related-content .cover {
     overflow: hidden;
-    background-color: black;
   }
 
   .views-view-responsive-grid .cover a img,
@@ -50,8 +49,8 @@
 
   .views-view-responsive-grid .cover a img:hover,
   .related-content .cover a img:hover {
-    transform: scale(1.2);
-    opacity: .75;
+    transform: scale(1.1);
+    opacity: .85;
   }
 
 }
