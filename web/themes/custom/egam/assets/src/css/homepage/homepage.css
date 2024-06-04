@@ -1,8 +1,52 @@
-@import 'homepage-links.css';
 @import 'homepage-menu.css';
 
 @layer components {
   .home-content {
     color: theme(colors.light);
   }
+
+  nav#block-egam-homepage {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    color: theme(colors.light);
+    padding: 2rem 4rem;
+  }
+
+  .home-menu .wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: .5rem;
+  }
+
+  .home-menu .wrapper .artworks {
+    grid-row: 1;
+  }
+
+  .home-menu .wrapper .artists {
+    grid-row: 2;
+  }
+
+  .home-menu .wrapper .musea {
+    grid-row: 3;
+  }
+
+  .home-menu .wrapper .games {
+    grid-row: 4;
+  }
+
+  .home-menu .wrapper .col1 {
+    grid-column: 1;
+    text-align: right;
+  }
+
+  .home-menu .wrapper .col2 {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .home-menu .wrapper .col3 {
+    grid-column: 3;
+  }
+
 }

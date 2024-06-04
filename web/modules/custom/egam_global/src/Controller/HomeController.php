@@ -30,19 +30,12 @@ class HomeController extends ControllerBase {
 	}
 
 	protected function buildHomeMenuFr(): string {
-		/* @var \Drupal\egam_global\Entities[] $selectedEntities */
-		$selectedEntities = [Entities::Artwork, Entities::Artist, Entities::Museum, Entities::Game];
-		$countAndPath = [];
-		foreach ($selectedEntities as $entity) {
-			$countAndPath[$entity->value] = sprintf('<span class="count">%s %s</span>', $entity->count(), $this->getEntityLink($entity));
-		}
 		$homeMenu = '<div class="wrapper">';
 		$homeMenu .= $this->buildMenuEntry(Entities::Artwork);
 		$homeMenu .= '<div class="artists col1">de</div>' . $this->buildMenuEntry(Entities::Artist);
 		$homeMenu .= '<div class="musea col1">conservées dans</div>' . $this->buildMenuEntry(Entities::Museum);
 		$homeMenu .= '<div class="games col1">ont été référencées dans</div>' . $this->buildMenuEntry(Entities::Game);
 		$homeMenu .= '</div>';
-
 		return $homeMenu;
 	}
 
@@ -61,6 +54,10 @@ class HomeController extends ControllerBase {
 
 	protected function getEntityLink(Entities $entity): GeneratedLink {
 		return Link::fromTextAndUrl($entity->count() > 1 ? $this->t($entity->getPlural()) : $this->t($entity->value), Url::fromRoute($entity->getCollectionRoute()))->toString();
+	}
+
+	protected function getCacheMaxAge(): int {
+		return 0;
 	}
 
 }

@@ -8,7 +8,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\Core\GeneratedLink;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -18,8 +17,6 @@ use Drupal\egam_game\Entity\Game;
 use Drupal\egam_game\GameInterface;
 use Drupal\egam_global\Entities;
 use Drupal\egam_screenshot\ScreenshotInterface;
-use Drupal\media\Entity\Media;
-use Drupal\media\MediaInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**

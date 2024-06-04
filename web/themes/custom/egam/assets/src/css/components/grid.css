@@ -18,7 +18,7 @@
     margin-left: calc((-100vw + 100%) / 2) !important;
     margin-right: calc((-100vw + 100%) / 2) !important;
     background-color: white;
-    padding-top: 1rem;
+    padding: 1rem;
     border-top: 1px solid;
   }
 

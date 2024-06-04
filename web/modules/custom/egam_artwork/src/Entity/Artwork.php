@@ -244,13 +244,13 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 	}
 
 	protected function buildTitle(bool $withArtist): MarkupInterface|string {
-		$title = sprintf('<i>%s</i>', $this->label());
+		$title = sprintf('<div class="title"><i>%s</i></div>', $this->label());
 		$date = $this->getDate();
 		$artist = $this->getFullArtist();
 		$fullTitle =  $withArtist ? $date ?
-			sprintf('%s, %s, %s', $title, $artist, $date) :
-			sprintf('%s, %s', $title, $artist) : ($date ?
-			sprintf('%s, %s', $title, $date) :
+			sprintf('%s<div class="date">%s</div><div class="artist">%s</div>', $title, $date, $artist) :
+			sprintf('%s%s', $title, $artist) : ($date ?
+			sprintf('%s%s', $title, $date) :
 			sprintf('%s', $title));
 		return Markup::create($fullTitle);
 	}
