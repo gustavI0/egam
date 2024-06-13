@@ -35,7 +35,7 @@ content:
     region: content
   field_foundation_date:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

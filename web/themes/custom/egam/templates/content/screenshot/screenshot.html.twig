@@ -44,14 +44,16 @@
                   {% if game_developer %}
                       <tr class="item developer">
                           <th scope="row">{{ 'Developer'|t }}</th>
-                          <td>{{ game_developer }}</td>
+                          {# Currently no link - [0]['#title'] to remove when taxonomy page is live #}
+                          <td>{{ game_developer[0]['#title'] }}</td>
                       </tr>
                   {% endif %}
 
                   {% if game_editor %}
                       <tr class="item editor">
                           <th scope="row">{{ 'Editor'|t }}</th>
-                          <td>{{ game_editor }}</td>
+                          {# Currently no link - [0]['#title'] to remove when taxonomy page is live #}
+                          <td>{{ game_editor[0]['#title'] }}</td>
                       </tr>
                   {% endif %}
 

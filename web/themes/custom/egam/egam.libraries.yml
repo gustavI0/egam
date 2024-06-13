@@ -2,7 +2,6 @@ global-styling:
   version: VERSION
   js:
     assets/dist/js/global.js: { }
-    assets/dist/js/swiper.js: { }
   css:
     theme:
       assets/dist/css/style.css: { }
@@ -10,12 +9,43 @@ global-styling:
     - core/jquery
     - core/drupal
 
-swiper:
+swiper.local:
   js:
     /libraries/swiper/swiper-bundle.min.js: { minified: true }
   css:
     component:
       /libraries/swiper/swiper-bundle.min.css: { minified: true }
+
+swiper.init:
+  js:
+    assets/dist/js/swiper.js: { }
+  dependencies:
+    - egam/swiper.local
+    - core/jquery
+    - core/drupal
+
+photoswipe.local:
+  version: VERSION
+  license:
+    name: MIT
+    url: https://github.com/dimsemenov/PhotoSwipe/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    node_modules/photoswipe/dist/umd/photoswipe.umd.min.js: { minified: true }
+    node_modules/photoswipe/dist/umd/photoswipe-lightbox.umd.min.js: { minified: true }
+  css:
+    component:
+      node_modules/photoswipe/dist/photoswipe.css: { }
+
+photoswipe.init:
+  js:
+    assets/dist/js/photoswipe.js: { }
+  dependencies:
+    - egam/photoswipe.local
+    - core/drupal
+    - core/once
+    - core/drupalSettings
+
 
 alpine-js:
   js:

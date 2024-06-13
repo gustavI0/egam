@@ -35,6 +35,7 @@ function egam_global_theme_suggestions_alter(array &$suggestions, array &$variab
  * Implements hook_page_attachments().
  */
 function egam_global_page_attachments(array &$attachments) {
-	$attachments['#attached']['library'][] = 'egam/swiper';
+	$attachments['#attached']['library'][] = 'egam/swiper.init';
+	$attachments['#attached']['library'][] = 'egam/photoswipe.init';
 	$attachments['#attached']['library'][] = 'egam/alpine-js';
 }

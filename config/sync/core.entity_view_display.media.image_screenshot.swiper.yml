@@ -32,7 +32,7 @@ content:
     type: image
     label: visually_hidden
     settings:
-      image_link: ''
+      image_link: file
       image_style: webp
       image_loading:
         attribute: lazy
