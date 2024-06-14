@@ -10,10 +10,10 @@ dependencies:
     - field.field.media.image_screenshot.field_is_modified
     - field.field.media.image_screenshot.field_is_patchwork
     - field.field.media.image_screenshot.field_media_image
-    - image.style.webp
     - media.type.image_screenshot
+    - responsive_image.styles.wide
   module:
-    - image
+    - responsive_image
 id: media.image_screenshot.default
 targetEntityType: media
 bundle: image_screenshot
@@ -76,11 +76,11 @@ content:
     weight: 5
     region: content
   field_media_image:
-    type: image
+    type: responsive_image
     label: visually_hidden
     settings:
-      image_link: ''
-      image_style: webp
+      responsive_image_style: wide
+      image_link: file
       image_loading:
         attribute: lazy
     third_party_settings: {  }
