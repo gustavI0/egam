@@ -12,8 +12,11 @@
   Drupal.behaviors.photoswipe = {
     attach: function (context, settings) {
         const lightbox = new PhotoSwipeLightbox({
-        gallery: '.main-swiper',
+        gallery: '.cover.lightbox',
         children: 'a',
+        initialZoomLevel: .75,
+        secondaryZoomLevel: 1,
+
         pswpModule: PhotoSwipe,
         ...settings?.photoswipe?.options || {}
       });

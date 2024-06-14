@@ -16,7 +16,7 @@
         watchSlidesProgress: true,
       });
 
-      const mainSwiper = new Swiper('.main-swiper', {
+      new Swiper('.main-swiper', {
         effect: 'fade',
         spaceBetween: 10,
         navigation: {
@@ -27,13 +27,6 @@
           swiper: thumbSwiper,
         },
       });
-
-      // const lightbox = new PhotoSwipeLightbox({
-      //   gallery: '.main-swiper',
-      //   children: 'a',
-      //   pswpModule: () => import('photoswipe')
-      // });
-      // lightbox.init();
     },
   };
 })(Drupal);
