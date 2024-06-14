@@ -1,0 +1,11 @@
+uuid: 2d07c91c-5fde-4926-b641-3327e81cae76
+langcode: fr
+status: true
+dependencies:
+  module:
+    - media
+id: media.linked
+label: Linked
+description: ''
+targetEntityType: media
+cache: true

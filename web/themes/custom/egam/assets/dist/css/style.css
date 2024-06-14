@@ -479,6 +479,19 @@ a:hover {
   margin: auto;
 }
 
+footer > div {
+  display: flex;
+  justify-content: center;
+}
+
+#block-footer-menu > ul {
+  display: flex;
+}
+
+#block-footer-menu ul li {
+  margin: 0 1rem;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

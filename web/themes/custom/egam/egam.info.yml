@@ -16,4 +16,4 @@ regions:
   help: 'Help'
   breadcrumb: Breadcrumb
   content: Content
-  footer_first: 'Footer'
+  footer: 'Footer'

@@ -1,1 +1,11 @@
 <?php
+
+/**
+ * Implements hook_preprocess().
+ */
+function egam_preprocess_responsive_image_formatter(&$variables) {
+	/* @var \Drupal\image\Plugin\Field\FieldType\ImageItem $image */
+	$image = $variables['item'];
+	$variables['image_width'] = $image->get('width')->getValue();
+	$variables['image_height'] = $image->get('height')->getValue();
+}

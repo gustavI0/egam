@@ -45,7 +45,9 @@
 #}
 <div class="layout-container">
     {% if is_front %}
-        {{ page.primary_menu }}
+        <header>
+            {{ page.primary_menu }}
+        </header>
     {% else %}
         <header id="header" role="banner"
                 x-data="{ open: false }"
@@ -61,26 +63,25 @@
                 <div class="w-full lg:w-auto lg:flex lg:items-center"
                      x-show="open"
                      x-transition.duration.200ms
-                    {{ page.primary_menu }}
-                </div>
+                {{ page.primary_menu }}
             </div>
         </header>
-        {{ page.help }}
         {#        {{ page.breadcrumb }} #}
         {#        {{ page.highlighted }} #}
+
     {% endif %}
 
-    <main role="main" class="{{ is_front ? '' : 'w-11/12 lg:w-9/12 pt-40 ' }}mx-auto">
+    <main role="main"
+          class="{{ is_front ? '' : 'w-11/12 lg:w-9/12 pt-40 ' }}mx-auto">
         <a id="main-content" tabindex="-1"></a>
         <div class="layout-content">
+            {{ page.help }}
             {{ page.content }}
         </div>
     </main>
 
-    {% if page.footer %}
-        <footer role="contentinfo">
-            {{ page.footer }}
-        </footer>
-    {% endif %}
+    <footer role="contentinfo">
+        {{ page.footer }}
+    </footer>
 
 </div>{# /.layout-container #}
