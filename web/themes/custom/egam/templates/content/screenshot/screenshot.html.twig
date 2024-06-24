@@ -24,6 +24,12 @@
       <div class="container flex flex-wrap content screenshot">
           <div class="cover lightbox lg:basis-1/2 lg:p-8">
               {{ content.field_cover }}
+              {% if content.description.0 %}
+                  <div class="item description">
+                      <h2>{{ 'Notes'|t }}</h2>
+                      <div>{{ content.description }}</div>
+                  </div>
+              {% endif %}
           </div>
           <div class="details lg:basis-1/2 lg:p-8">
               <table class="infos">
@@ -57,13 +63,6 @@
                       </tr>
                   {% endif %}
 
-                  {% if content.description.0 %}
-                      <tr class="item description">
-                          <th scope="row">{{ 'Notes'|t }}</th>
-                          <td class="pt-2">{{ content.description }}</td>
-                      </tr>
-                  {% endif %}
-
                   {% if content.field_more_info.0 %}
                       <tr class="item more_info">
                           <th scope="row">{{ content.field_more_info }}</th>
@@ -74,7 +73,7 @@
       </div>
       {% if content.field_artwork.0 %}
           <div class="container related-content">
-              <h2>{{ 'Oeuvre(s) présente(s) dans cette image :'|t }}</h2>
+              <h2>{{ 'Œuvre présente dans cette image :'|t }}</h2>
               <div class="items artworks">
                   {{ content.field_artwork }}
               </div>

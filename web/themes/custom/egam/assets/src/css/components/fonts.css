@@ -1,6 +1,7 @@
 @layer components {
 
-  .content .title h1 {
+  .content .title h1,
+  article h1 {
     @apply mt-4 text-6xl font-title lg:mt-0;
   }
 

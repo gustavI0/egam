@@ -5,6 +5,8 @@ egam_global.home:
     _title: 'Every Game a Museum'
   requirements:
     _access: 'TRUE'
+  options:
+    no_cache: TRUE
 
 egam_global.settings:
   path: /admin/config/egam

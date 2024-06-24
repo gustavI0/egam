@@ -25,7 +25,6 @@ class HomeController extends ControllerBase {
 			'#cover_src' => $this->homeCoverHandler->getRandomCover() ?? NULL,
 			'#title' => \Drupal::config('system.site')->get('name'),
 			'#home_menu' => $this->buildHomeMenuFr(),
-			'#cache' => ['max-age' => 0],
 		];
 	}
 
@@ -54,10 +53,6 @@ class HomeController extends ControllerBase {
 
 	protected function getEntityLink(Entities $entity): GeneratedLink {
 		return Link::fromTextAndUrl($entity->count() > 1 ? $this->t($entity->getPlural()) : $this->t($entity->value), Url::fromRoute($entity->getCollectionRoute()))->toString();
-	}
-
-	protected function getCacheMaxAge(): int {
-		return 0;
 	}
 
 }
