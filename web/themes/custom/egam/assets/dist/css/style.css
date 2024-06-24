@@ -703,18 +703,30 @@ footer > div {
   }
 }
 
-.content .title h1,
-  article h1 {
+.about-page .visuals img {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+article .content .title h1,
+  .views-element-container header h1,
+  .about-page h1 {
   margin-top: 1rem;
+  padding-left: 0px;
   font-family: Bebas Regular, ui-sans-serif;
   font-size: 3.75rem;
   line-height: 1;
 }
 
 @media (min-width: 976px) {
-  .content .title h1,
-  article h1 {
+  article .content .title h1,
+  .views-element-container header h1,
+  .about-page h1 {
     margin-top: 0px;
+  }
+
+  .about-page h1 {
+    padding-left: 2.5rem;
   }
 }
 
@@ -1102,7 +1114,7 @@ nav#block-egam-homepage {
 
 .webform-submission-contact-form #edit-actions {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -1428,12 +1440,18 @@ nav#block-egam-homepage {
     align-items: center;
   }
 
-  .lg\:p-0 {
-    padding: 0px;
-  }
-
   .lg\:p-8 {
     padding: 2rem;
+  }
+
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .lg\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .lg\:pt-0 {
