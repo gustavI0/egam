@@ -10,7 +10,7 @@
     right: 0;
     z-index: 1;
     color: theme(colors.light);
-    padding: 2rem 4rem;
+    @apply p-4 lg:px-16;
   }
 
   .home-menu .wrapper {

@@ -985,7 +985,14 @@ nav#block-egam-homepage {
   right: 0;
   z-index: 1;
   color: rgb(250 250 249);
-  padding: 2rem 4rem;
+  padding: 1rem;
+}
+
+@media (min-width: 976px) {
+  nav#block-egam-homepage {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
 
 .home-menu .wrapper {
@@ -1150,16 +1157,12 @@ nav#block-egam-homepage {
   right: 1rem;
 }
 
-.right-8 {
-  right: 2rem;
-}
-
-.top-0 {
-  top: 0px;
-}
-
 .top-10 {
   top: 2.5rem;
+}
+
+.top-8 {
+  top: 2rem;
 }
 
 .m-auto {
@@ -1410,6 +1413,10 @@ nav#block-egam-homepage {
 @media (min-width: 976px) {
   .lg\:right-20 {
     right: 5rem;
+  }
+
+  .lg\:top-0 {
+    top: 0px;
   }
 
   .lg\:inline-block {
