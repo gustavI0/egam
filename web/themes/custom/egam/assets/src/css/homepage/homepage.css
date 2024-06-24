@@ -10,7 +10,7 @@
     right: 0;
     z-index: 1;
     color: theme(colors.light);
-    @apply p-4 lg:px-16;
+    @apply p-8 lg:px-16;
   }
 
   .home-menu .wrapper {
