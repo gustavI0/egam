@@ -675,6 +675,17 @@ footer > div {
   }
 }
 
+.content .cover img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (min-width: 976px) {
+  .content .cover img {
+    max-height: 30rem;
+  }
+}
+
 .teaser .cover img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -878,6 +889,10 @@ article .content .title h1,
   .views-view-responsive-grid article {
     width: 20rem;
   }
+}
+
+.cover .description {
+  padding: 2rem 0 0 0;
 }
 
 .container.related-content {
@@ -1425,6 +1440,10 @@ nav#block-egam-homepage {
 }
 
 @media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
   .md\:hidden {
     display: none;
   }

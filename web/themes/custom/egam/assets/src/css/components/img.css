@@ -4,6 +4,10 @@
     @apply mt-4 lg:mt-0;
   }
 
+  .content .cover img {
+    @apply lg:max-h-[30rem] object-contain;
+  }
+
   .teaser .cover img {
     @apply object-cover object-center;
   }

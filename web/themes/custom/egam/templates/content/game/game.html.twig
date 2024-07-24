@@ -21,10 +21,17 @@
     {% if content %}
         <div class="container flex flex-wrap content game">
             <div class="cover lg:w-2/4 lg:p-8">
+                <div class="title md:hidden">
+                    {% if content.label %}
+                        <div class="item name">
+                            <h1>{{ content.label }}</h1>
+                        </div>
+                    {% endif %}
+                </div>
                 {{ content.field_cover }}
             </div>
             <div class="details lg:w-2/4 lg:p-8">
-                <div class="title">
+                <div class="title sm:hidden md:block">
                     {% if content.label %}
                         <div class="item name">
                             <h1>{{ content.label }}</h1>

@@ -216,7 +216,7 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link {
 		return match($entity->bundle()) {
-			Entities::Artwork->value => $this->getReferencedGame()->label(),
+			Entities::Artwork->value => $this->getReferencedGame()->getFullTitle(),
 			Entities::Game->value => $this->getTitleForGameContext()
 		};
 	}

@@ -12,6 +12,10 @@
     @apply w-40 lg:w-80;
   }
 
+  .cover .description {
+    padding: 2rem 0 0 0;
+  }
+
   .container.related-content {
     width: 100vw;
     max-width: 100vw !important;

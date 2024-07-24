@@ -2,4 +2,6 @@ _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: fr
 mode: simple
-ignored_config_entities: {  }
+ignored_config_entities:
+  - egam.global.settings
+  - system.site

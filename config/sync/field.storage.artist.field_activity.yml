@@ -1,0 +1,21 @@
+uuid: 454286f2-b05b-4af6-bbaf-5e79e7ab26e8
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.field_activity
+field_name: field_activity
+entity_type: artist
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

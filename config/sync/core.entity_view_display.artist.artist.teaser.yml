@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.artist.teaser
+    - field.field.artist.artist.field_activity
     - field.field.artist.artist.field_birth_year
     - field.field.artist.artist.field_cover
     - field.field.artist.artist.field_cover_caption
@@ -46,6 +47,7 @@ content:
 hidden:
   created: true
   description: true
+  field_activity: true
   field_birth_year: true
   field_cover_caption: true
   field_death_year: true
