@@ -12,7 +12,7 @@
  */
 #}
 {% if url %}
-  {{ link(image, url, create_attribute({'data-pswp-width': 1920, 'data-pswp-height': 1080})) }}
+  {{ link(image, url, create_attribute({'data-pswp-width': image['#width'], 'data-pswp-height': image['#height']})) }}
 {% else %}
   {{ image }}
 {% endif %}

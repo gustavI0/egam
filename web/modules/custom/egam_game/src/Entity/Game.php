@@ -2,12 +2,19 @@
 
 namespace Drupal\egam_game\Entity;
 
+use Drupal\Component\Render\MarkupInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Link;
+use Drupal\Core\Render\Markup;
 use Drupal\egam_game\GameInterface;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\user\EntityOwnerTrait;
 
 /**
@@ -31,7 +38,8 @@ use Drupal\user\EntityOwnerTrait;
  *       "add" = "Drupal\egam_game\Form\GameForm",
  *       "edit" = "Drupal\egam_game\Form\GameForm",
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
- *       "delete-multiple-confirm" = "Drupal\Core\Entity\Form\DeleteMultipleForm",
+ *       "delete-multiple-confirm" =
+ *   "Drupal\Core\Entity\Form\DeleteMultipleForm",
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
@@ -194,5 +202,32 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
 
     return $fields;
   }
+
+	public function getDeveloper(): EntityInterface|EntityBase|Term|null {
+		return Term::load($this->get('field_developer')->target_id);
+	}
+
+	public function getEditor(): EntityInterface|EntityBase|Term|null {
+		return Term::load($this->get('field_developer')->target_id);
+	}
+
+	public function getDate(string $format = NULL): ?string {
+		$date = $this->get('field_date')->value;
+		return $format ? DrupalDateTime::createFromFormat('Y-m-d', $date)->format($format) : $date;
+	}
+
+	public function getFullTitle(): Link {
+		return $this->toLink($this->buildTitle());
+	}
+
+	protected function buildTitle(): MarkupInterface|string {
+		$title = sprintf('<div class="title"><i>%s</i></div>', $this->label());
+		$date = $this->getDate('Y');
+		$developer = $this->getDeveloper()->label();
+		$titleString = $date ?
+			sprintf('%s<div class="date">%s</div><div class="developer">%s</div>', $title, $date, $developer) :
+			$title;
+		return Markup::create($titleString);
+	}
 
 }

@@ -8,6 +8,7 @@
 use Drupal\Core\Render\Element;
 use Drupal\egam_global\Entities;
 use Drupal\egam_global\Handler\RelatedContentHandler;
+use Drupal\egam_global\Service\ContextManager;
 use Drupal\user\UserInterface;
 
 /**
@@ -31,10 +32,23 @@ function egam_game_theme(): array {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_game(array &$variables): void {
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  $variables['view_mode'] = $viewMode = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+	/* @var \Drupal\egam_game\Entity\Game $game */
+	$game = $variables['elements']['#game'];
+	if ($viewMode == 'teaser') {
+		$variables['full_title'] = $game->getFullTitle();
+		$variables['#cache']['contexts'][] = 'url';
+	}
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function egam_screenshot_page_attachments(array &$attachments) {
+	$attachments['#attached']['library'][] = 'egam/screenshot';
 }
 
 /**

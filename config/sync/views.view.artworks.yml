@@ -191,7 +191,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h1>Oeuvres</h1>'
+            value: '<h1>[view:title]</h1>'
             format: full_html
           tokenize: false
       footer: {  }

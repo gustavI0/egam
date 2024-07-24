@@ -31,6 +31,10 @@ class RelatedContentHandler {
 		return $relatedEntity->loadMultiple($relatedContentIds);
 	}
 
+	protected function sortRelatedContent() {
+
+	}
+
 	protected function getRelatedContentIds(EntityInterface $entity, Entities $relatedEntity): ?array {
 		return $this->isFromScreenshots($entity, $relatedEntity) ?
 			$this->getRelatedContentIdsFromScreenshots($entity, $relatedEntity) :
@@ -63,6 +67,7 @@ class RelatedContentHandler {
 		return \Drupal::entityQuery($relatedEntity->value)
 			->accessCheck(FALSE)
 			->condition('field_' . $entity->bundle(), $entity->id())
+			->sort('label')
 			->execute();
 	}
 

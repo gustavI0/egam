@@ -6,16 +6,13 @@
     @apply mt-4 text-6xl font-title pl-0 lg:mt-0;
   }
 
+  .views-element-container header h1,
   .about-page h1 {
     @apply lg:pl-10;
   }
 
-  .views-element-container header h1 {
-    @apply lg:pl-9;
-  }
-
   .related-content h2 {
-    @apply text-4xl;
+    @apply lg:pl-8 text-4xl;
   }
 
   .teaser .label {
