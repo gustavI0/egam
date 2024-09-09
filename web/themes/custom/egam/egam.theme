@@ -6,6 +6,15 @@
 function egam_preprocess_responsive_image_formatter(&$variables) {
 	/* @var \Drupal\image\Plugin\Field\FieldType\ImageItem $image */
 	$image = $variables['item'];
-	$variables['image_width'] = $image->get('width')->getValue();
-	$variables['image_height'] = $image->get('height')->getValue();
+	$width = $image->get('width')->getValue();
+	$height = $image->get('height')->getValue();
+
+	if ($height > 1080) {
+		$ratio = $width / $height;
+		$height = 1080;
+		$width = $width * $ratio;
+	}
+
+	$variables['image_width'] = $width;
+	$variables['image_height'] = $height;
 }
