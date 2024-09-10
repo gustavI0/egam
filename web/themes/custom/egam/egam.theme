@@ -8,13 +8,17 @@ function egam_preprocess_responsive_image_formatter(&$variables) {
 	$image = $variables['item'];
 	$width = $image->get('width')->getValue();
 	$height = $image->get('height')->getValue();
-
-	if ($height > 1080) {
-		$ratio = $width / $height;
-		$height = 1080;
-		$width = $width * $ratio;
+	$maxHeight = 1080;
+	if ($height > $maxHeight) {
+		$ratio = $maxHeight / $height;
+		$height = $maxHeight;
+		$width = round($width * $ratio);
 	}
 
 	$variables['image_width'] = $width;
 	$variables['image_height'] = $height;
+
+	if (isset($variables['url']) && str_contains($variables['url'], '/index.php')) {
+		$variables['url'] = str_replace('/index.php', '', $variables['url']);
+	}
 }

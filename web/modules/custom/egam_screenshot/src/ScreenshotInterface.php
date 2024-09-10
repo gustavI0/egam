@@ -4,7 +4,6 @@ namespace Drupal\egam_screenshot;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
-use Drupal\Core\GeneratedLink;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\egam_artwork\ArtworkInterface;
@@ -21,4 +20,6 @@ interface ScreenshotInterface extends ContentEntityInterface, EntityOwnerInterfa
 	public function getReferencedArtwork(): ArtworkInterface;
 
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link;
+
+	public function hasMultipleRelatedArtworks(): bool;
 }

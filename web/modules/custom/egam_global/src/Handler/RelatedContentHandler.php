@@ -22,7 +22,10 @@ class RelatedContentHandler {
 
 	public function viewRelatedContent(EntityInterface $entity, Entities $relatedEntity): ?array {
 		$relatedContent = $this->getRelatedContent($entity, $relatedEntity);
-		return $relatedContent ? $this->entityTypeManager->getViewBuilder($this->getEntityBundle($relatedContent))->viewMultiple($relatedContent, self::VIEW_MODE) : NULL;
+		$currentEntityBundle = $this->getEntityBundle($relatedContent);
+		return $relatedContent ?
+			$this->entityTypeManager->getViewBuilder($currentEntityBundle)->viewMultiple($relatedContent, self::VIEW_MODE) :
+			NULL;
 	}
 
 	protected function getRelatedContent(EntityInterface $entity, Entities $relatedEntity): ?array {
@@ -31,23 +34,19 @@ class RelatedContentHandler {
 		return $relatedEntity->loadMultiple($relatedContentIds);
 	}
 
-	protected function sortRelatedContent() {
-
-	}
-
 	protected function getRelatedContentIds(EntityInterface $entity, Entities $relatedEntity): ?array {
-		return $this->isFromScreenshots($entity, $relatedEntity) ?
+		return $this->showRelatedEntitiesScreenshots($entity, $relatedEntity) ?
 			$this->getRelatedContentIdsFromScreenshots($entity, $relatedEntity) :
 			$this->getDefaultRelatedContentIds($entity, $relatedEntity);
 	}
 
-	protected function isFromScreenshots(EntityInterface $entity, Entities $relatedEntity): bool {
+	protected function showRelatedEntitiesScreenshots(EntityInterface $entity, Entities $relatedEntity): bool {
 		return ($entity instanceof ArtworkInterface && $relatedEntity == Entities::Game) || ($entity instanceof GameInterface && $relatedEntity == Entities::Artwork);
 	}
 
 	protected function getEntityBundle(array $relatedContent): ?string {
-		$firstValue = reset($relatedContent);
-		return $firstValue instanceof EntityInterface ? $firstValue->bundle() : NULL;
+		$entity = reset($relatedContent);
+		return $entity instanceof EntityInterface ? $entity->bundle() : NULL;
 	}
 
 	protected function getRelatedContentIdsFromScreenshots(EntityInterface $entity, Entities $relatedEntity): ?array {

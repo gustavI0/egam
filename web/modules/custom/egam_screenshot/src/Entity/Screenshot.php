@@ -84,6 +84,10 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
   use EntityOwnerTrait;
 	use StringTranslationTrait;
 
+	const FIELD_ARTWORK = 'field_artwork';
+
+	const FIELD_GAME = 'field_game';
+
   /**
    * {@inheritdoc}
    */
@@ -207,11 +211,11 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
   }
 
 	public function getReferencedGame(): GameInterface {
-		return Game::load($this->get('field_game')->target_id);
+		return Game::load($this->get(self::FIELD_GAME)->target_id);
 	}
 
 	public function getReferencedArtwork(): ArtworkInterface {
-		return Artwork::load($this->get('field_artwork')->target_id);
+		return Artwork::load($this->get(self::FIELD_ARTWORK)->target_id);
 	}
 
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link {
@@ -221,8 +225,12 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 		};
 	}
 
+	public function hasMultipleRelatedArtworks(): bool {
+		return $this->get(self::FIELD_ARTWORK)->count() > 1;
+	}
+
 	protected function getTitleForGameContext(): TranslatableMarkup|string|Link {
-		return $this->get('field_artwork')->count() > 1 ? $this->t('Multiple artworks') : $this->getReferencedArtwork()->getFullTitle();
+		return $this->hasMultipleRelatedArtworks() ? $this->t('Multiple artworks') : $this->getReferencedArtwork()->getFullTitle();
 	}
 
 }

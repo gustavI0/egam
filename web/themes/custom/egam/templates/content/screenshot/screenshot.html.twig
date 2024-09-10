@@ -22,7 +22,7 @@
       {% set date = content.field_game.0.entity %}
       {% set dev = content.field_game.entity.field_developer.value %}
       <div class="container flex flex-wrap content screenshot">
-          <div class="cover lightbox lg:w-2/4 lg:p-8">
+          <div class="cover lightbox w-full lg:w-2/4 lg:p-8">
               {{ content.field_cover }}
               {% if content.description.0 %}
                   <div class="item description">
@@ -68,17 +68,19 @@
                           <th scope="row">{{ content.field_more_info }}</th>
                       </tr>
                   {% endif %}
+                      <tr class="item swiper-container main-swiper">
+                          <th scope="row" class="swiper-slide"></th>
+                      </tr>
               </table>
           </div>
       </div>
       {% if content.field_artwork.0 %}
           <div class="container related-content">
-              <h2>{{ 'Œuvre présente dans cette image :'|t }}</h2>
+              <h2>{{ multiple_related_artworks ? 'Œuvres présentes dans cette image :'|t : 'Œuvre présente dans cette image :'|t }}</h2>
               <div class="items artworks">
                   {{ content.field_artwork }}
               </div>
           </div>
-
       {% endif %}
   {% endif %}
 </article>

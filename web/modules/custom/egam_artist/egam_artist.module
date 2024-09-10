@@ -101,4 +101,5 @@ function egam_artist_preprocess_artist(&$variables, $hook) {
 	$artist = $variables['elements']['#artist'];
 	$relatedContentHandler = RelatedContentHandler::me();
 	$variables['related_artworks'] = $relatedContentHandler->viewRelatedContent($artist, Entities::Artwork);
+//	$variables['multiple_related_content'] = $relatedContentHandler->;
 }

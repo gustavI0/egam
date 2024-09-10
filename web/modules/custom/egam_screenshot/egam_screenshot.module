@@ -49,6 +49,7 @@ function template_preprocess_screenshot(array &$variables): void {
 					'format_type' => 'html_year',
 				],
 			]);
+		$variables['multiple_related_artworks'] = $screenshot->hasMultipleRelatedArtworks();
 	}
 	if ($viewMode == 'teaser') {
 		$contextManager = ContextManager::me();
