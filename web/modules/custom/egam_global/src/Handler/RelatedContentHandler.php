@@ -60,7 +60,7 @@ class RelatedContentHandler {
 		return match ($entity->bundle()) {
 			Entities::Game->value => 'field_artwork.entity:artwork.field_sorting_name',
 			Entities::Artwork->value => 'field_game.entity:game.field_sorting_name',
-			Entities::Screenshot->value, Entities::Artist->value, Entities::Museum->value  => 'label'
+			Entities::Screenshot->value, Entities::Artist->value, Entities::Museum->value  => 'field_sorting_name'
 		};
 	}
 
