@@ -8,4 +8,7 @@ id: front
 label: "Page d'accueil"
 tags:
   canonical_url: '[site:url]'
+  image_src: 'https://everygameamuseum.com/sites/default/files/public/2024-04/Burial%20at%20Sea%20OK.jpg'
+  robots: 'index, follow, max-image-preview:large'
   shortlink: '[site:url]'
+  title: '[site:name]'

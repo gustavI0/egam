@@ -94,7 +94,7 @@
       </div>
       {% if related_games is not empty %}
       <div class="container related-content">
-          <h2>{{ 'Cette œuvre apparait dans les jeux suivants :'|t }}</h2>
+          <h2>{{ multiple_content ? 'Cette œuvre apparait dans les jeux suivants :'|t : 'Cette œuvre apparait dans le jeu suivant :'|t }}</h2>
           <div class="items games">
               {{ related_games }}
           </div>

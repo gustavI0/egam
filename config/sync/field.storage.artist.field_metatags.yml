@@ -1,0 +1,19 @@
+uuid: b643fe61-53a3-4381-a09f-b30634677888
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - metatag
+id: artist.field_metatags
+field_name: field_metatags
+entity_type: artist
+type: metatag
+settings: {  }
+module: metatag
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

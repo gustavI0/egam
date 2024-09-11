@@ -72,11 +72,11 @@
 
             </div>
         </div>
-        {% if related_screenshot is not empty %}
+        {% if related_artworks is not empty %}
             <div class="container related-content">
-                <h2>{{ 'Œuvres citées dans le jeu :'|t }}</h2>
+                <h2>{{ multiple_content ? 'Œuvres citées dans le jeu :'|t : 'Œuvre citée dans le jeu :'|t }}</h2>
                 <div class="items screenshots">
-                    {{ related_screenshot }}
+                    {{ related_artworks }}
                 </div>
             </div>
         {% endif %}

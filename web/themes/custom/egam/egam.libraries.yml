@@ -49,6 +49,9 @@ photoswipe.init:
 screenshot:
   js:
     assets/dist/js/screenshot.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
 
 alpine-js:
   js:

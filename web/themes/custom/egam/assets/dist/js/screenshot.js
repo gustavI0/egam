@@ -3,42 +3,51 @@
  * Screenshot caption
  *
  */
-(function (Drupal) {
-
-  'use strict';
+(function (Drupal, once) {
 
   Drupal.behaviors.screenshot = {
-    attach: function (context, settings) {
-      const hasCaption = !! document.querySelector('.chapter');
-      if (!hasCaption) {
-        return;
-      }
-      const hasMultipleScreenshots = !! document.querySelector('.swiper-container');
-      const activeCaption = hasMultipleScreenshots ? document.querySelector('.swiper-slide-activer .chapter') : document.querySelector('.chapter');
-      console.log('scr ' + hasMultipleScreenshots)
-      console.log('caption ' + hasCaption)
-      console.log(activeCaption)
-
-      function moveCaptionToTable() {
-        const caption = document.querySelector('.chapter');
-        const table = document.querySelector('table .developer');
-        document.body.insertBefore(createRow(caption), table)
-        console.log(caption);
-      }
-
-      function createRow(el) {
-        const newRow = document.createElement('tr');
-        const newRowHead = document.createElement('th');
-        const newRowHeadContent = document.createTextNode(el.children[0]);
-        newRowHead.appendChild(newRowHeadContent)
-        const newCell = document.createElement('td');
-        const newCellContent = document.createTextNode(el.children[1]);
-        newCellContent.appendChild(newCellContent);
-        newRow.appendChild(newRowHead);
-        newRow.appendChild(newCell);
-        return newRow;
-      }
+    attach: function (context) {
+      init(context);
+      update();
     }
   };
 
-})(Drupal);
+  function init(context) {
+    once('screenshot', 'html', context).forEach(() => moveCaptionToTable());
+  }
+
+  function update() {
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(e => e.addEventListener('click', () => {
+      document.querySelector('table tr.chapter').style.display = 'none';
+      moveCaptionToTable();
+    }));
+  }
+
+  function moveCaptionToTable() {
+    document.querySelectorAll('.chapter').forEach(e => e.style.display = 'none');
+    const caption = document.querySelector('.swiper-slide-active .chapter');
+    if (!caption) {
+      return;
+    }
+    const rowBelow = document.querySelector('table tr.date');
+    const newRow = createRow(caption);
+    rowBelow.parentNode.insertBefore(newRow, rowBelow);
+  }
+
+  function createRow(el) {
+    const newRow = document.createElement('tr');
+    newRow.classList.add('item', 'chapter');
+    const newRowHead = document.createElement('th');
+    newRowHead.setAttribute('scope', 'row');
+    const newRowHeadContent = document.createTextNode(el.children[0].firstChild.textContent);
+    newRowHead.appendChild(newRowHeadContent);
+    const newRowCell = document.createElement('td');
+    const newRowCellContent = document.createTextNode(el.children[1].firstChild.textContent);
+    newRowCell.appendChild(newRowCellContent);
+    newRow.appendChild(newRowHead);
+    newRow.appendChild(newRowCell);
+    return newRow;
+  }
+
+})(Drupal, once);

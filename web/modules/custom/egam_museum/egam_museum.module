@@ -95,10 +95,15 @@ function egam_museum_user_predelete(UserInterface $account): void {
 
 /**
  * Implements hook_preprocess().
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
  */
 function egam_museum_preprocess_museum(&$variables, $hook) {
-	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
-	$museum = $variables['elements']['#museum'];
-	$relatedContentHandler = RelatedContentHandler::me();
-	$variables['related_artworks'] = $relatedContentHandler->viewRelatedContent($museum, Entities::Artwork);
+	if ($variables['view_mode'] == 'full') {
+		/* @var \Drupal\egam_museum\MuseumInterface $museum */
+		$museum = $variables['elements']['#museum'];
+		$relatedContentHandler = RelatedContentHandler::me();
+		$variables['related_artworks'] = $relatedContentHandler->viewContent($museum, Entities::Artwork);
+		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+	}
 }

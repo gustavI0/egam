@@ -1,0 +1,21 @@
+uuid: 8d08894d-6a23-4f73-9bee-d40a9074f2ea
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_metatags
+  module:
+    - egam_artist
+    - metatag
+id: artist.artist.field_metatags
+field_name: field_metatags
+entity_type: artist
+bundle: artist
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

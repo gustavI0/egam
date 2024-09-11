@@ -110,9 +110,12 @@ function egam_artwork_user_predelete(UserInterface $account): void {
 /**
  * Implements hook_preprocess().
  */
-function egam_artwork_preprocess_artwork(&$variables, $hook) {
-	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
-	$artwork = $variables['elements']['#artwork'];
-	$relatedContentHandler = RelatedContentHandler::me();
-  $variables['related_games'] = $relatedContentHandler->viewRelatedContent($artwork, Entities::Screenshot);
+function egam_artwork_preprocess_artwork(&$variables) {
+	if ($variables['view_mode'] == 'full') {
+		/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
+		$artwork = $variables['elements']['#artwork'];
+		$relatedContentHandler = RelatedContentHandler::me();
+		$variables['related_games'] = $relatedContentHandler->viewContent($artwork, Entities::Screenshot);
+		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+	}
 }

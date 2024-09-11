@@ -11,6 +11,7 @@ dependencies:
     - field.field.artist.artist.field_death_year
     - field.field.artist.artist.field_full_name
     - field.field.artist.artist.field_gender
+    - field.field.artist.artist.field_metatags
     - field.field.artist.artist.field_more_info
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_nickname
@@ -53,6 +54,7 @@ hidden:
   field_death_year: true
   field_full_name: true
   field_gender: true
+  field_metatags: true
   field_more_info: true
   field_nationality: true
   field_nickname: true

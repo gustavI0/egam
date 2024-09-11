@@ -10,6 +10,7 @@ dependencies:
     - field.field.artist.artist.field_death_year
     - field.field.artist.artist.field_full_name
     - field.field.artist.artist.field_gender
+    - field.field.artist.artist.field_metatags
     - field.field.artist.artist.field_more_info
     - field.field.artist.artist.field_nationality
     - field.field.artist.artist.field_nickname
@@ -18,6 +19,7 @@ dependencies:
   module:
     - egam_artist
     - link
+    - metatag
     - options
     - text
 id: artist.artist.default
@@ -86,6 +88,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 9
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
     region: content
   field_more_info:
     type: link

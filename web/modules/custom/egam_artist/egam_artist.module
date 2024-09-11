@@ -97,9 +97,11 @@ function egam_artist_user_predelete(UserInterface $account): void {
  * Implements hook_preprocess().
  */
 function egam_artist_preprocess_artist(&$variables, $hook) {
-	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
-	$artist = $variables['elements']['#artist'];
-	$relatedContentHandler = RelatedContentHandler::me();
-	$variables['related_artworks'] = $relatedContentHandler->viewRelatedContent($artist, Entities::Artwork);
-//	$variables['multiple_related_content'] = $relatedContentHandler->;
+	if ($variables['view_mode'] == 'full') {
+		/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
+		$artist = $variables['elements']['#artist'];
+		$relatedContentHandler = RelatedContentHandler::me();
+		$variables['related_artworks'] = $relatedContentHandler->viewContent($artist, Entities::Artwork);
+		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+	}
 }

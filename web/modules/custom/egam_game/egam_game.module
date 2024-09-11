@@ -111,9 +111,12 @@ function egam_game_user_predelete(UserInterface $account): void {
 /**
  * Implements hook_preprocess().
  */
-function egam_game_preprocess_game(&$variables, $hook) {
-	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
-	$game = $variables['elements']['#game'];
-	$relatedContentHandler = RelatedContentHandler::me();
-	$variables['related_screenshot'] = $relatedContentHandler->viewRelatedContent($game, Entities::Screenshot);
+function egam_game_preprocess_game(&$variables) {
+	if ($variables['view_mode'] == 'full') {
+		/* @var \Drupal\egam_game\GameInterface $game */
+		$game = $variables['elements']['#game'];
+		$relatedContentHandler = RelatedContentHandler::me();
+		$variables['related_artworks'] = $relatedContentHandler->viewContent($game, Entities::Screenshot);
+		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+	}
 }

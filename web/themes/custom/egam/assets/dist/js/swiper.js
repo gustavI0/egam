@@ -6,7 +6,7 @@
 (function (Drupal) {
 
   Drupal.behaviors.swiper = {
-    attach: function (context, settings) {
+    attach: function () {
 
       const thumbSwiper = new Swiper('.thumb-swiper', {
         spaceBetween: 10,
