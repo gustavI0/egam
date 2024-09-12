@@ -1,0 +1,14 @@
+uuid: ddf2088c-0ae0-4dbf-a3e9-cf18587ba228
+langcode: fr
+status: true
+dependencies: {  }
+id: artist__artist
+label: 'Artiste: Artiste'
+tags:
+  og_image: '[artist:field_cover:entity:field_media_image:entity:url]'
+  title: '[artist:label] | [site:name]'
+  twitter_cards_creator: '@VGPaintings'
+  twitter_cards_image: '[artist:field_cover:entity:field_media_image:entity:url]'
+  twitter_cards_site: '@VGPaintings'
+  twitter_cards_title: '[artist:label] | [site:name]'
+  twitter_cards_type: summary

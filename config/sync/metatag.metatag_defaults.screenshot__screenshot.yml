@@ -1,0 +1,12 @@
+uuid: 94d6ed07-1192-43b2-845d-a0c47048e25c
+langcode: fr
+status: true
+dependencies: {  }
+id: screenshot__screenshot
+label: "Capture d'écran: Capture d'écran"
+tags:
+  og_image: '[screenshot:field_cover:entity:field_media_image:entity:url]'
+  twitter_cards_creator: '@VGPaintings'
+  twitter_cards_image: '[screenshot:field_cover:entity:field_media_image:entity:url]'
+  twitter_cards_site: '@VGPaintings'
+  twitter_cards_type: summary

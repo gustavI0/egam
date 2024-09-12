@@ -1,0 +1,14 @@
+uuid: 090fbddc-2f5d-46cb-b1bf-4791c78c55fd
+langcode: fr
+status: true
+dependencies: {  }
+id: museum__museum
+label: 'Musée: Musée'
+tags:
+  og_image: '[museum:field_cover:entity:field_media_image:entity:url]'
+  title: '[museum:label] | [site:name]'
+  twitter_cards_creator: '@VGPaintings'
+  twitter_cards_image: '[museum:field_cover:entity:field_media_image:entity:url]'
+  twitter_cards_site: '@VGPaintings'
+  twitter_cards_title: '[museum:label] | [site:name]'
+  twitter_cards_type: summary
