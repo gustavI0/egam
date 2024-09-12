@@ -29,6 +29,7 @@
         "drupal/media_library_form_element": "^2.0",
         "drupal/metatag": "^2.0",
         "drupal/pathauto": "^1.11",
+        "drupal/redirect": "^1.10",
         "drupal/search_api": "^1.29",
         "drupal/stable": "^2.0",
         "drupal/swiper_formatter": "^2.0@beta",

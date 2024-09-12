@@ -11,7 +11,7 @@
  */
 #}
 {% if url %}
-  <a href="{{ url }}" data-pswp-width="{{ image_width }}" data-pswp-height="{{ image_height }}">{{ responsive_image }}</a>
+  <a href="{{ url }}" data-pswp-width="{{ width }}" data-pswp-height="{{ height }}">{{ responsive_image }}</a>
 {% else %}
   {{ responsive_image }}
 {% endif %}
