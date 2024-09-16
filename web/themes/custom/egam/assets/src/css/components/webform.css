@@ -22,6 +22,12 @@
   margin-right: .25rem;
 }
 
+.webform-confirmation {
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+
 
 .webform-submission-contact-form .form-item input,
 .webform-submission-contact-form .form-item textarea {

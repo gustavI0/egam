@@ -479,6 +479,12 @@ a:hover {
   margin: auto;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 footer > div {
   display: flex;
   justify-content: center;
@@ -1136,6 +1142,11 @@ nav#block-egam-homepage {
 
 .webform-submission-contact-form .form-item-message label {
   margin-right: .25rem;
+}
+
+.webform-confirmation {
+  border: 1px solid black;
+  padding: 2rem;
 }
 
 .webform-submission-contact-form .form-item input,
