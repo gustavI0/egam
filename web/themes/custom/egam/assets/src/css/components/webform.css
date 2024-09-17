@@ -1,55 +1,39 @@
-
 .webform-submission-contact-form {
-  width: 75%;
-  margin: auto;
-  padding: 3rem;
+  @apply lg:w-3/4 lg:m-auto lg:p-12;
 }
 
 .webform-submission-contact-form .form-item {
-  padding: 1rem;
+  @apply flex justify-start flex-wrap md:justify-center lg:flex-nowrap p-4;
 }
 
 .webform-submission-contact-form .form-item label {
-  display: inline-block;
-  width: 5rem;
+  @apply flex items-center w-20 md:mx-2;
 }
 
-.webform-submission-contact-form .form-item-message {
-  display: flex;
+.webform-submission-contact-form .form-item .form-item-message label {
+  @apply items-baseline;
 }
-
-.webform-submission-contact-form .form-item-message label {
-  margin-right: .25rem;
-}
-
-.webform-confirmation {
-  border: 1px solid black;
-  padding: 2rem;
-}
-
 
 
 .webform-submission-contact-form .form-item input,
 .webform-submission-contact-form .form-item textarea {
-  padding: .25rem;
-  border: 1px solid;
+  @apply p-1 border w-80 lg:w-96;
 }
 
 .webform-submission-contact-form #edit-actions {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
+  @apply flex justify-center p-4;
 }
 
 .webform-submission-contact-form #edit-actions-submit {
-  padding: 1rem;
-  border: 1px solid;
+  @apply p-4 border;
 }
 
 .webform-submission-contact-form #edit-actions-submit:hover {
-  cursor: pointer;
-  background: #000;
-  color: #fff;
-  transition: all 200ms ease-in-out;
+  @apply cursor-pointer bg-dark text-light transition-all duration-200 ease-in-out;
 }
+
+.webform-confirmation {
+  @apply border p-8;
+}
+
 

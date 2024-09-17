@@ -1,6 +1,6 @@
 @layer base {
   body {
-    @apply font-body bg-body;
+    @apply font-body bg-body h-screen;
   }
 
   h1 {
@@ -20,14 +20,11 @@
     margin: auto;
   }
 
-  footer {
-    position: absolute;
-    width: 100%;
-  }
-
   footer > div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   #block-footer-menu > ul {
