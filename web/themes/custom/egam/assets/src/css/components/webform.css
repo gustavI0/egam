@@ -26,7 +26,7 @@
 }
 
 .webform-submission-contact-form .form-item label.webform-file-button {
-  @apply p-4 border justify-center w-36 m-0;
+  @apply p-4 border justify-center w-40 m-0;
 }
 
 .webform-submission-contact-form #edit-actions {
