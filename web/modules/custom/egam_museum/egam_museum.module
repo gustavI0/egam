@@ -104,6 +104,8 @@ function egam_museum_preprocess_museum(&$variables, $hook) {
 		$museum = $variables['elements']['#museum'];
 		$relatedContentHandler = RelatedContentHandler::me();
 		$variables['related_artworks'] = $relatedContentHandler->viewContent($museum, Entities::Artwork);
-		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+		if (!empty($variables['related_artworks'])) {
+			$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+		}
 	}
 }

@@ -116,6 +116,8 @@ function egam_artwork_preprocess_artwork(&$variables) {
 		$artwork = $variables['elements']['#artwork'];
 		$relatedContentHandler = RelatedContentHandler::me();
 		$variables['related_games'] = $relatedContentHandler->viewContent($artwork, Entities::Screenshot);
-		$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+		if (!empty($variables['related_games'])) {
+			$variables['multiple_content'] = $relatedContentHandler->hasMultipleRelatedContent;
+		}
 	}
 }
