@@ -28,10 +28,11 @@ class RelatedContentHandler {
 	 */
 	public function viewContent(EntityInterface $entity, Entities $relatedEntity): ?array {
 		$relatedContent = $this->getContent($entity, $relatedEntity);
+		if (empty($relatedContent)) {
+			return null;
+		}
 		$this->hasMultipleRelatedContent = count($relatedContent) > 1;
-		return $relatedContent ?
-			$this->entityTypeManager->getViewBuilder($this->getContentEntityBundle($relatedContent))->viewMultiple($relatedContent, self::TEASER_VIEW_MODE) :
-			NULL;
+		return $this->entityTypeManager->getViewBuilder($this->getContentEntityBundle($relatedContent))->viewMultiple($relatedContent, self::TEASER_VIEW_MODE);
 	}
 
 	protected function getContent(EntityInterface $entity, Entities $relatedEntity): ?array {

@@ -7,17 +7,26 @@
 }
 
 .webform-submission-contact-form .form-item label {
-  @apply flex items-center w-20 md:mx-2;
+  @apply flex items-center justify-end w-32 md:mx-2;
 }
 
-.webform-submission-contact-form .form-item .form-item-message label {
+.webform-submission-contact-form .form-item.form-item-message label {
   @apply items-baseline;
 }
 
-
 .webform-submission-contact-form .form-item input,
 .webform-submission-contact-form .form-item textarea {
-  @apply p-1 border w-80 lg:w-96;
+  @apply p-1 border;
+}
+
+.webform-submission-contact-form .form-item input,
+.webform-submission-contact-form .form-item textarea,
+.webform-submission-contact-form .form-item #edit-attachment {
+  @apply w-80 lg:w-96;
+}
+
+.webform-submission-contact-form .form-item label.webform-file-button {
+  @apply p-4 border justify-center w-36 m-0;
 }
 
 .webform-submission-contact-form #edit-actions {
@@ -28,6 +37,7 @@
   @apply p-4 border;
 }
 
+.webform-submission-contact-form .form-item label.webform-file-button:hover,
 .webform-submission-contact-form #edit-actions-submit:hover {
   @apply cursor-pointer bg-dark text-light transition-all duration-200 ease-in-out;
 }

@@ -1148,8 +1148,9 @@ nav#block-egam-homepage {
 
 .webform-submission-contact-form .form-item label {
   display: flex;
-  width: 5rem;
+  width: 8rem;
   align-items: center;
+  justify-content: flex-end;
 }
 
 @media (min-width: 768px) {
@@ -1159,22 +1160,36 @@ nav#block-egam-homepage {
   }
 }
 
-.webform-submission-contact-form .form-item .form-item-message label {
+.webform-submission-contact-form .form-item.form-item-message label {
   align-items: baseline;
 }
 
 .webform-submission-contact-form .form-item input,
 .webform-submission-contact-form .form-item textarea {
-  width: 20rem;
   border-width: 1px;
   padding: 0.25rem;
 }
 
+.webform-submission-contact-form .form-item input,
+.webform-submission-contact-form .form-item textarea,
+.webform-submission-contact-form .form-item #edit-attachment {
+  width: 20rem;
+}
+
 @media (min-width: 976px) {
   .webform-submission-contact-form .form-item input,
-.webform-submission-contact-form .form-item textarea {
+.webform-submission-contact-form .form-item textarea,
+.webform-submission-contact-form .form-item #edit-attachment {
     width: 24rem;
   }
+}
+
+.webform-submission-contact-form .form-item label.webform-file-button {
+  margin: 0px;
+  width: 9rem;
+  justify-content: center;
+  border-width: 1px;
+  padding: 1rem;
 }
 
 .webform-submission-contact-form #edit-actions {
@@ -1188,6 +1203,7 @@ nav#block-egam-homepage {
   padding: 1rem;
 }
 
+.webform-submission-contact-form .form-item label.webform-file-button:hover,
 .webform-submission-contact-form #edit-actions-submit:hover {
   cursor: pointer;
   --tw-bg-opacity: 1;
