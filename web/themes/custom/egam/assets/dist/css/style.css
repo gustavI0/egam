@@ -1150,13 +1150,13 @@ nav#block-egam-homepage {
   display: flex;
   width: 8rem;
   align-items: center;
-  justify-content: flex-end;
 }
 
 @media (min-width: 768px) {
   .webform-submission-contact-form .form-item label {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    justify-content: flex-end;
   }
 }
 

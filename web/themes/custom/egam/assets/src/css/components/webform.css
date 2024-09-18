@@ -7,7 +7,7 @@
 }
 
 .webform-submission-contact-form .form-item label {
-  @apply flex items-center justify-end w-32 md:mx-2;
+  @apply flex items-center md:justify-end w-32 md:mx-2;
 }
 
 .webform-submission-contact-form .form-item.form-item-message label {
