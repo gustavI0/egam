@@ -55,7 +55,7 @@ class HomeCoverHandler {
 		$styledImgUri = $style->buildUri($file->getFileUri());
 		if (!$styledImgUri) return $file->createFileUrl();
 
-		return $this->fileUrlGenerator->generate($styledImgUri)->toString() ?? $file->createFileUrl();
+		return file_exists($styledImgUri) ? $this->fileUrlGenerator->generate($styledImgUri)->toString() : $file->createFileUrl();
 	}
 
 	protected function getConfiguredHomeCovers(): ?array {
