@@ -8,7 +8,13 @@ id: front
 label: "Page d'accueil"
 tags:
   canonical_url: '[site:url]'
+  description: 'Découvrez les peintures qui se cachent dans les univers de jeux vidéo !'
   image_src: 'https://everygameamuseum.com/sites/default/files/public/2024-04/Burial%20at%20Sea%20OK.jpg'
+  og_description: 'Découvrez les peintures qui se cachent dans les univers de jeux vidéo !'
   robots: 'index, follow, max-image-preview:large'
   shortlink: '[site:url]'
   title: '[site:name]'
+  twitter_cards_creator: '@VGPaintings'
+  twitter_cards_description: 'Découvrez les peintures qui se cachent dans les univers de jeux vidéo !'
+  twitter_cards_site: '@VGPaintings'
+  twitter_cards_title: '[site:name]'
