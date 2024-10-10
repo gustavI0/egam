@@ -2,12 +2,12 @@
 
   article .content .title h1,
   .views-element-container header h1,
-  .about-page h1 {
+  .node h1 {
     @apply mt-4 text-6xl font-title pl-0 lg:mt-0;
   }
 
   .views-element-container header h1,
-  .about-page h1 {
+  .node h1 {
     @apply lg:pl-10;
   }
 
@@ -25,5 +25,9 @@
 
   .related-content .items .label {
     @apply text-base;
+  }
+
+  .node ul {
+    @apply list-disc list-inside;
   }
 }

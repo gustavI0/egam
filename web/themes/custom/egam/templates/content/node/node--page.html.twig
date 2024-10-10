@@ -67,14 +67,20 @@
  *
  */
 #}
-<article{{ attributes.addClass('about-page') }}>
+<article{{ attributes.addClass('node') }}>
     <h1{{ title_attributes }}>{{ label }}</h1>
     <div class="container flex flex-wrap content">
-        <div class="presentation lg:w-2/4 lg:py-8 lg:px-4">
-            {{ content.body }}
-        </div>
-        <div class="visuals lg:w-2/4 lg:p-8">
-            {{ content.field_cover }}
-        </div>
+        {% if content.field_cover.0 is not empty %}
+            <div class="presentation lg:w-2/4 lg:py-8 lg:px-4">
+                {{ content.body }}
+            </div>
+            <div class="visuals lg:w-2/4 lg:p-8">
+                {{ content.field_cover }}
+            </div>
+        {% else %}
+            <div class="presentation lg:py-8 lg:px-4">
+                {{ content.body }}
+            </div>
+        {% endif %}
     </div>
 </article>

@@ -2,7 +2,8 @@
   .home-menu a,
   #block-egam-main-menu a,
   .content table a,
-  .about-page a {
+  .node a,
+  .webform-submission-contact-form a {
     text-decoration: none;
     display: inline-block;
     padding-bottom: .25rem;
@@ -19,14 +20,16 @@
 
   #block-egam-main-menu a,
   .content table a,
-  .about-page a {
+  .node a,
+  .webform-submission-contact-form a {
     padding-bottom: .125rem;
     background-size: 100% .125rem;
   }
 
   #block-egam-main-menu a:hover,
   .content table a:hover,
-  .about-page a:hover {
+  .node a:hover,
+  .webform-submission-contact-form a:hover {
     background-size: 0 .125rem;
     color: coral
   }

@@ -20,7 +20,7 @@
     @apply w-40 h-40 lg:w-60 lg:h-60;
   }
 
-  .about-page .visuals img {
+  .node .visuals img {
     @apply my-8;
   }
 }

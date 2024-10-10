@@ -3,7 +3,10 @@
 }
 
 .webform-submission-contact-form .form-item {
-  @apply flex justify-start flex-wrap md:justify-center lg:flex-nowrap p-4;
+  @apply flex justify-start flex-wrap md:justify-center lg:flex-nowrap lg:mr-32 p-4;
+}
+.webform-submission-contact-form #edit-game-queue-message {
+  @apply lg:mr-0;
 }
 
 .webform-submission-contact-form .form-item label {

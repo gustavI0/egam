@@ -721,14 +721,14 @@ footer > div {
   }
 }
 
-.about-page .visuals img {
+.node .visuals img {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 article .content .title h1,
   .views-element-container header h1,
-  .about-page h1 {
+  .node h1 {
   margin-top: 1rem;
   padding-left: 0px;
   font-family: Bebas Regular, ui-sans-serif;
@@ -739,12 +739,12 @@ article .content .title h1,
 @media (min-width: 976px) {
   article .content .title h1,
   .views-element-container header h1,
-  .about-page h1 {
+  .node h1 {
     margin-top: 0px;
   }
 
   .views-element-container header h1,
-  .about-page h1 {
+  .node h1 {
     padding-left: 2.5rem;
   }
 }
@@ -783,6 +783,11 @@ article .content .title h1,
 .related-content .items .label {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.node ul {
+  list-style-position: inside;
+  list-style-type: disc;
 }
 
 .content table {
@@ -976,7 +981,8 @@ article .content .title h1,
 .home-menu a,
   #block-egam-main-menu a,
   .content table a,
-  .about-page a {
+  .node a,
+  .webform-submission-contact-form a {
   text-decoration: none;
   display: inline-block;
   padding-bottom: .25rem;
@@ -993,14 +999,16 @@ article .content .title h1,
 
 #block-egam-main-menu a,
   .content table a,
-  .about-page a {
+  .node a,
+  .webform-submission-contact-form a {
   padding-bottom: .125rem;
   background-size: 100% .125rem;
 }
 
 #block-egam-main-menu a:hover,
   .content table a:hover,
-  .about-page a:hover {
+  .node a:hover,
+  .webform-submission-contact-form a:hover {
   background-size: 0 .125rem;
   color: coral
 }
@@ -1142,7 +1150,12 @@ nav#block-egam-homepage {
 
 @media (min-width: 976px) {
   .webform-submission-contact-form .form-item {
+    margin-right: 8rem;
     flex-wrap: nowrap;
+  }
+
+  .webform-submission-contact-form #edit-game-queue-message {
+    margin-right: 0px;
   }
 }
 
