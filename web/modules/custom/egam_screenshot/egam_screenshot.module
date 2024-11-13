@@ -98,6 +98,7 @@ function egam_screenshot_user_cancel($edit, UserInterface $account, $method): vo
  */
 function egam_screenshot_user_predelete(UserInterface $account): void {
   // Delete screenshots that belong to this account.
+	/** @var \Drupal\Core\Entity\ContentEntityStorageInterface $storage */
   $storage = \Drupal::entityTypeManager()->getStorage('screenshot');
   $screenshot_ids = $storage->getQuery()
     ->condition('uid', $account->id())

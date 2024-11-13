@@ -2,4 +2,4 @@ name: 'EGAM Global'
 type: module
 description: 'Global module for homepage, global settings, etc.'
 package: Custom
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11

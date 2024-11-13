@@ -88,6 +88,7 @@ function egam_game_user_cancel($edit, UserInterface $account, $method): void {
  */
 function egam_game_user_predelete(UserInterface $account): void {
   // Delete games that belong to this account.
+	/** @var \Drupal\Core\Entity\ContentEntityStorageInterface $storage */
   $storage = \Drupal::entityTypeManager()->getStorage('game');
   $game_ids = $storage->getQuery()
     ->condition('uid', $account->id())

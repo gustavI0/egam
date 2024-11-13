@@ -1,5 +1,5 @@
-name: 'Egam museum'
+name: 'EGAM Museum'
 type: module
-description: '@todo Add description.'
-package: '@todo Add package'
-core_version_requirement: ^10
+description: 'Provides a museum entity'
+package: Custom
+core_version_requirement: ^10 || ^11

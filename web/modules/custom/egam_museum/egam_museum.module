@@ -74,6 +74,7 @@ function egam_museum_user_cancel($edit, UserInterface $account, $method): void {
  */
 function egam_museum_user_predelete(UserInterface $account): void {
   // Delete musea that belong to this account.
+	/** @var \Drupal\Core\Entity\ContentEntityStorageInterface $storage */
   $storage = \Drupal::entityTypeManager()->getStorage('museum');
   $museum_ids = $storage->getQuery()
     ->condition('uid', $account->id())
