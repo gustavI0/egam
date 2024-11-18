@@ -27,6 +27,7 @@
         "drupal/gin_toolbar": "^1.0@rc",
         "drupal/honeypot": "2.1.4",
         "drupal/image_widget_crop": "^2.4",
+        "drupal/matomo": "^1.23",
         "drupal/media_library_form_element": "^2.0",
         "drupal/metatag": "^2.0",
         "drupal/pathauto": "^1.11",

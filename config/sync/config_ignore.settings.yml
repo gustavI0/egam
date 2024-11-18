@@ -3,5 +3,6 @@ _core:
 mode: simple
 ignored_config_entities:
   - egam.global.settings
+  - 'matomo.*'
   - system.site
   - 'webform.webform.*'
