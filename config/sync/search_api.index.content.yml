@@ -1,0 +1,92 @@
+uuid: e9465945-7336-4864-8d02-e6dd1219b56b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_full_name
+    - search_api.server.database
+  module:
+    - egam_artist
+    - egam_artwork
+    - egam_game
+    - egam_museum
+    - search_api
+    - egam_screenshot
+id: content
+name: Content
+description: ''
+read_only: false
+field_settings:
+  artist_field_full_name:
+    label: 'Nom complet'
+    datasource_id: 'entity:artist'
+    property_path: field_full_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.artist.field_full_name
+  artist_label:
+    label: Nom
+    datasource_id: 'entity:artist'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - egam_artist
+  artwork_label:
+    label: Titre
+    datasource_id: 'entity:artwork'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - egam_artwork
+  game_label:
+    label: Libellé
+    datasource_id: 'entity:game'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - egam_game
+  museum_label:
+    label: Libellé
+    datasource_id: 'entity:museum'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - egam_museum
+datasource_settings:
+  'entity:artist': {  }
+  'entity:artwork':
+    languages:
+      default: true
+      selected: {  }
+  'entity:game':
+    languages:
+      default: true
+      selected: {  }
+  'entity:museum':
+    languages:
+      default: true
+      selected: {  }
+  'entity:screenshot':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: database
