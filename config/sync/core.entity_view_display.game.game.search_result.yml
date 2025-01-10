@@ -1,0 +1,54 @@
+uuid: 18bb8332-8d9b-4bee-9746-1969bc12c864
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.game.search_result
+    - field.field.game.game.field_cover
+    - field.field.game.game.field_date
+    - field.field.game.game.field_developer
+    - field.field.game.game.field_editor
+    - field.field.game.game.field_genre
+    - field.field.game.game.field_more_info
+    - field.field.game.game.field_sorting_name
+    - image.style.webp
+  module:
+    - egam_game
+    - media
+id: game.game.search_result
+targetEntityType: game
+bundle: game
+mode: search_result
+content:
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  field_date: true
+  field_developer: true
+  field_editor: true
+  field_genre: true
+  field_more_info: true
+  field_sorting_name: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

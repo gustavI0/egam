@@ -2,6 +2,7 @@
 
 namespace Drupal\egam_game;
 
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\Link;
@@ -12,6 +13,6 @@ use Drupal\user\EntityOwnerInterface;
  */
 interface GameInterface extends ContentEntityInterface, EntityOwnerInterface, EntityChangedInterface {
 
-	public function getFullTitle(): Link;
+	public function getFullTitle(bool $asLink): MarkupInterface|Link;
 
 }

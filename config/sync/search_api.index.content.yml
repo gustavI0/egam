@@ -4,19 +4,36 @@ status: true
 dependencies:
   config:
     - field.storage.artist.field_full_name
+    - field.storage.artist.field_nickname
+    - field.storage.artwork.field_artist
+    - field.storage.artwork.field_museum
+    - field.storage.game.field_date
+    - field.storage.game.field_developer
+    - field.storage.game.field_editor
+    - field.storage.game.field_genre
+    - field.storage.museum.field_location
+    - field.storage.screenshot.field_artwork
     - search_api.server.database
   module:
     - egam_artist
     - egam_artwork
     - egam_game
     - egam_museum
-    - search_api
     - egam_screenshot
+    - taxonomy
 id: content
 name: Content
 description: ''
 read_only: false
 field_settings:
+  artist_description:
+    label: Notes
+    datasource_id: 'entity:artist'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - egam_artist
   artist_field_full_name:
     label: 'Nom complet'
     datasource_id: 'entity:artist'
@@ -30,33 +47,157 @@ field_settings:
     datasource_id: 'entity:artist'
     property_path: label
     type: text
+    boost: 5.0
     dependencies:
       module:
         - egam_artist
+  artist_nickname:
+    label: Surnom
+    datasource_id: 'entity:artist'
+    property_path: field_nickname
+    type: string
+    dependencies:
+      config:
+        - field.storage.artist.field_nickname
+  artwork_artist_label:
+    label: 'Artiste » Artiste » Nom'
+    datasource_id: 'entity:artwork'
+    property_path: 'field_artist:entity:label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.artwork.field_artist
+      module:
+        - egam_artist
+  artwork_description:
+    label: Notes
+    datasource_id: 'entity:artwork'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - egam_artwork
   artwork_label:
     label: Titre
     datasource_id: 'entity:artwork'
     property_path: label
     type: text
+    boost: 5.0
     dependencies:
       module:
         - egam_artwork
+  artwork_museum_label:
+    label: 'Lieu de conservation » Musée » Libellé'
+    datasource_id: 'entity:artwork'
+    property_path: 'field_museum:entity:label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.artwork.field_museum
+      module:
+        - egam_museum
+  game_date:
+    label: Date
+    datasource_id: 'entity:game'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.game.field_date
+  game_description:
+    label: Notes
+    datasource_id: 'entity:game'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - egam_game
+  game_developer:
+    label: 'Développeur(s) » Terme de taxonomie » Nom'
+    datasource_id: 'entity:game'
+    property_path: 'field_developer:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.game.field_developer
+      module:
+        - taxonomy
+  game_editor:
+    label: 'Éditeur(s) » Terme de taxonomie » Nom'
+    datasource_id: 'entity:game'
+    property_path: 'field_editor:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.game.field_editor
+      module:
+        - taxonomy
+  game_genre:
+    label: 'Genre » Terme de taxonomie » Nom'
+    datasource_id: 'entity:game'
+    property_path: 'field_genre:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.game.field_genre
+      module:
+        - taxonomy
   game_label:
     label: Libellé
     datasource_id: 'entity:game'
     property_path: label
     type: text
+    boost: 5.0
     dependencies:
       module:
         - egam_game
+  museum_description:
+    label: Notes
+    datasource_id: 'entity:museum'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - egam_museum
   museum_label:
     label: Libellé
     datasource_id: 'entity:museum'
     property_path: label
     type: text
+    boost: 5.0
     dependencies:
       module:
         - egam_museum
+  museum_location:
+    label: Localisation
+    datasource_id: 'entity:museum'
+    property_path: field_location
+    type: text
+    dependencies:
+      config:
+        - field.storage.museum.field_location
+  screenshot_artwork_artist_label:
+    label: 'Oeuvre » Oeuvre » Artiste » Artiste » Nom'
+    datasource_id: 'entity:screenshot'
+    property_path: 'field_artwork:entity:field_artist:entity:label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.artwork.field_artist
+        - field.storage.screenshot.field_artwork
+      module:
+        - egam_artist
+        - egam_artwork
+  screenshot_artwork_label:
+    label: 'Oeuvre » Oeuvre » Titre'
+    datasource_id: 'entity:screenshot'
+    property_path: 'field_artwork:entity:label'
+    type: text
+    dependencies:
+      config:
+        - field.storage.screenshot.field_artwork
+      module:
+        - egam_artwork
 datasource_settings:
   'entity:artist': {  }
   'entity:artwork':
@@ -80,13 +221,122 @@ processor_settings:
   aggregated_field: {  }
   custom_value: {  }
   entity_type: {  }
+  html_filter:
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: true
+    fields:
+      - artist_description
+      - artist_field_full_name
+      - artist_label
+      - artist_nickname
+      - artwork_artist_label
+      - artwork_description
+      - artwork_label
+      - artwork_museum_label
+      - game_description
+      - game_developer
+      - game_editor
+      - game_genre
+      - game_label
+      - museum_description
+      - museum_label
+      - museum_location
+      - screenshot_artwork_artist_label
+      - screenshot_artwork_label
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - artist_description
+      - artist_field_full_name
+      - artist_label
+      - artist_nickname
+      - artwork_artist_label
+      - artwork_description
+      - artwork_label
+      - artwork_museum_label
+      - game_description
+      - game_developer
+      - game_editor
+      - game_genre
+      - game_label
+      - museum_description
+      - museum_label
+      - museum_location
+      - screenshot_artwork_artist_label
+      - screenshot_artwork_label
   language_with_fallback: {  }
   rendered_item: {  }
+  reverse_entity_references: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: true
+    fields:
+      - artist_description
+      - artist_field_full_name
+      - artist_label
+      - artwork_artist_label
+      - artwork_description
+      - artwork_label
+      - artwork_museum_label
+      - game_description
+      - game_developer
+      - game_editor
+      - game_genre
+      - game_label
+      - museum_description
+      - museum_label
+      - museum_location
+      - screenshot_artwork_artist_label
+      - screenshot_artwork_label
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '3'
+  transliteration:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - artist_description
+      - artist_field_full_name
+      - artist_label
+      - artist_nickname
+      - artwork_artist_label
+      - artwork_description
+      - artwork_label
+      - artwork_museum_label
+      - game_description
+      - game_developer
+      - game_editor
+      - game_genre
+      - game_label
+      - museum_description
+      - museum_label
+      - museum_location
+      - screenshot_artwork_artist_label
+      - screenshot_artwork_label
 tracker_settings:
   default:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: true
   track_changes_in_references: true
 server: database

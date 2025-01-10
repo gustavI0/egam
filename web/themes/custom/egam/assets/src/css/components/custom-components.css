@@ -1,6 +1,6 @@
 @import 'admin-tabs.css';
 @import 'header.css';
-@import 'corners.css';
+/*@import 'corners.css';*/
 @import 'img.css';
 @import 'fonts.css';
 @import 'table.css';
@@ -9,3 +9,4 @@
 @import 'media.css';
 @import 'links.css';
 @import 'webform.css';
+@import 'search.css';

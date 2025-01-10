@@ -1,0 +1,80 @@
+uuid: c76e53a7-acff-47c1-9b0c-908943334319
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.artwork.search_result
+    - field.field.artwork.artwork.field_alternative_title
+    - field.field.artwork.artwork.field_artist
+    - field.field.artwork.artwork.field_artist_prefix
+    - field.field.artwork.artwork.field_cover
+    - field.field.artwork.artwork.field_date
+    - field.field.artwork.artwork.field_dimensions
+    - field.field.artwork.artwork.field_medium
+    - field.field.artwork.artwork.field_more_info
+    - field.field.artwork.artwork.field_museum
+    - field.field.artwork.artwork.field_sorting_name
+    - field.field.artwork.artwork.field_sorting_year
+    - field.field.artwork.artwork.field_subject
+    - image.style.webp
+  module:
+    - egam_artwork
+    - media
+id: artwork.artwork.search_result
+targetEntityType: artwork
+bundle: artwork
+mode: search_result
+content:
+  artist:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_artist:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  field_alternative_title: true
+  field_artist_prefix: true
+  field_date: true
+  field_dimensions: true
+  field_medium: true
+  field_more_info: true
+  field_museum: true
+  field_sorting_name: true
+  field_sorting_year: true
+  field_subject: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

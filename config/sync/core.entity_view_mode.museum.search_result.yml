@@ -1,0 +1,11 @@
+uuid: d826e21f-32bc-4a41-afd5-ec3d77738d2b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_museum
+id: museum.search_result
+label: 'Search Result'
+description: ''
+targetEntityType: museum
+cache: true

@@ -1,0 +1,11 @@
+uuid: b6f85cbb-3b67-4663-a30f-64e96a999cfc
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+id: screenshot.search_result
+label: 'Search Result'
+description: ''
+targetEntityType: screenshot
+cache: true

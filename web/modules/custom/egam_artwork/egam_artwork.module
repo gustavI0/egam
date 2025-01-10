@@ -43,7 +43,7 @@ function template_preprocess_artwork(array &$variables): void {
 		$variables['full_artist'] = $artwork->getFullArtist(TRUE);
 		$variables['full_location_link'] = $artwork->getFullLocationAsLink();
 	}
-	if ($viewMode == 'teaser') {
+	if ($viewMode == 'teaser' || $viewMode == 'search_result') {
 		$contextManager = ContextManager::me();
 		$contextEntity = $contextManager->getContext();
 		$variables['full_title'] = $contextEntity instanceof ArtistInterface ? $artwork->getFullTitle(FALSE) : $artwork->getFullTitle();

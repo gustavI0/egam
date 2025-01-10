@@ -22,4 +22,6 @@ interface ScreenshotInterface extends ContentEntityInterface, EntityOwnerInterfa
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link;
 
 	public function hasMultipleRelatedArtworks(): bool;
+
+	public function getSearchResultTitle(): Link;
 }

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present an artwork entity.
+ *
+ * This template is used when viewing a canonical artwork page,
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.label'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_artwork()
+ */
+#}
+<article{{ attributes.addClass('artwork', view_mode) }}>
+    {% if content %}
+        <div class="cover">
+            {{ content.field_cover }}
+        </div>
+        <div class="label">
+            {{ full_title|raw }}
+        </div>
+    {% endif %}
+</article>

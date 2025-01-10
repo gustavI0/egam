@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Link;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\egam_artwork\ArtworkInterface;
@@ -231,6 +232,13 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
 	protected function getTitleForGameContext(): TranslatableMarkup|string|Link {
 		return $this->hasMultipleRelatedArtworks() ? $this->t('Multiple artworks') : $this->getReferencedArtwork()->getFullTitle();
+	}
+
+	public function getSearchResultTitle(): Link {
+		$title = '<i>' . $this->getReferencedArtwork()->label() . '</i> ';
+		$title .= $this->t('dans');
+		$title .= ' <i>' . $this->getReferencedGame()->label() . '</i>';
+		return $this->toLink(Markup::create($title));
 	}
 
 }

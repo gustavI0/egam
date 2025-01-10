@@ -1,0 +1,41 @@
+uuid: e3d9ea77-b3a7-4ce9-b21c-e04d2e5cb5f0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.screenshot.search_result
+    - field.field.screenshot.screenshot.field_artwork
+    - field.field.screenshot.screenshot.field_cover
+    - field.field.screenshot.screenshot.field_game
+    - field.field.screenshot.screenshot.field_more_info
+    - image.style.webp
+  module:
+    - egam_screenshot
+    - media
+id: screenshot.screenshot.search_result
+targetEntityType: screenshot
+bundle: screenshot
+mode: search_result
+content:
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  description: true
+  field_artwork: true
+  field_game: true
+  field_more_info: true
+  label: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

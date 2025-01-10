@@ -1,0 +1,11 @@
+uuid: 4613e4d7-66d5-4559-a164-8d5971102bd3
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_game
+id: game.search_result
+label: 'Search Result'
+description: ''
+targetEntityType: game
+cache: true

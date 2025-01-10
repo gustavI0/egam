@@ -216,7 +216,7 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return Museum::load($this->get('field_museum')->target_id);
 	}
 
-	public function getFullTitle(bool $withArtist = TRUE, bool $asLink = TRUE): string|Link {
+	public function getFullTitle(bool $withArtist = TRUE, bool $asLink = TRUE): MarkupInterface|Link {
 		return $asLink ? $this->toLink($this->buildTitle($withArtist)) : $this->buildTitle($withArtist);
 	}
 
@@ -242,7 +242,7 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 		return sprintf('(%s)', mb_strtolower($prefix));
 	}
 
-	protected function buildTitle(bool $withArtist): MarkupInterface|string {
+	protected function buildTitle(bool $withArtist): MarkupInterface {
 		$title = sprintf('<div class="title"><i>%s</i></div>', $this->label());
 		$date = $this->getDate();
 		$artist = $this->getFullArtist();

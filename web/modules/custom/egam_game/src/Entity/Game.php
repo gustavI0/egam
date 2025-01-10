@@ -81,6 +81,10 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
   use EntityChangedTrait;
   use EntityOwnerTrait;
 
+	const string FIELD_DEVELOPER = 'field_developer';
+	const string FIELD_EDITOR = 'field_editor';
+	const string FIELD_GENRE = 'field_genre';
+
   /**
    * {@inheritdoc}
    */
@@ -204,11 +208,11 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
   }
 
 	public function getDeveloper(): EntityInterface|EntityBase|Term|null {
-		return Term::load($this->get('field_developer')->target_id);
+		return Term::load($this->get(self::FIELD_DEVELOPER)->target_id);
 	}
 
 	public function getEditor(): EntityInterface|EntityBase|Term|null {
-		return Term::load($this->get('field_developer')->target_id);
+		return Term::load($this->get(self::FIELD_EDITOR)->target_id);
 	}
 
 	public function getDate(string $format = NULL): ?string {
@@ -216,11 +220,7 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
 		return $format ? DrupalDateTime::createFromFormat('Y-m-d', $date)->format($format) : $date;
 	}
 
-	public function getFullTitle(): Link {
-		return $this->toLink($this->buildTitle());
-	}
-
-	protected function buildTitle(): MarkupInterface|string {
+	protected function buildFullTitle(): MarkupInterface {
 		$title = sprintf('<div class="title"><i>%s</i></div>', $this->label());
 		$date = $this->getDate('Y');
 		$developer = $this->getDeveloper()->label();
@@ -228,6 +228,10 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
 			sprintf('%s<div class="date">%s</div><div class="developer">%s</div>', $title, $date, $developer) :
 			$title;
 		return Markup::create($titleString);
+	}
+
+	public function getFullTitle(bool $asLink = TRUE): MarkupInterface|Link {
+		return $asLink ? $this->toLink($this->buildFullTitle()) : $this->buildFullTitle();
 	}
 
 }

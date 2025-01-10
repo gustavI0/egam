@@ -1,0 +1,11 @@
+uuid: df89ccbd-d73a-410c-a0b6-6ab46175f3c6
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+id: artist.search_result
+label: 'Search Result'
+description: ''
+targetEntityType: artist
+cache: true

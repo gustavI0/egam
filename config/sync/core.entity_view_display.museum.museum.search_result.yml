@@ -1,0 +1,50 @@
+uuid: 9efd5bca-47e5-48d7-8d5e-5f0dd73f3fed
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.museum.search_result
+    - field.field.museum.museum.field_cover
+    - field.field.museum.museum.field_foundation_date
+    - field.field.museum.museum.field_location
+    - field.field.museum.museum.field_more_info
+    - field.field.museum.museum.field_website
+    - image.style.webp
+  module:
+    - egam_museum
+    - media
+id: museum.museum.search_result
+targetEntityType: museum
+bundle: museum
+mode: search_result
+content:
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  field_foundation_date: true
+  field_location: true
+  field_more_info: true
+  field_website: true
+  langcode: true
+  search_api_excerpt: true
+  status: true
+  uid: true

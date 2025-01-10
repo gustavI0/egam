@@ -13,17 +13,13 @@
  * @see template_preprocess_screenshot()
  */
 #}
-<article{{ attributes.addClass('screenshot', 'w-60', view_mode) }}>
-    {% if view_mode != 'full' %}
-        {{ title_prefix }}
-        {{ title_suffix }}
-    {% endif %}
+<article{{ attributes.addClass('screenshot', view_mode) }}>
     {% if content %}
         <div class="cover">
             {{ content.field_cover.0 }}
         </div>
         <div class="label">
-            <a href="{{ content.label.0['#url'] }}">{{ context_title|raw }}</a>
+            {{ title }}
         </div>
     {% endif %}
 </article>

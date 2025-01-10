@@ -38,7 +38,7 @@ function template_preprocess_game(array &$variables): void {
   }
 	/* @var \Drupal\egam_game\Entity\Game $game */
 	$game = $variables['elements']['#game'];
-	if ($viewMode == 'teaser') {
+	if ($viewMode == 'teaser' || $viewMode == 'search_result') {
 		$variables['full_title'] = $game->getFullTitle();
 		$variables['#cache']['contexts'][] = 'url';
 	}
@@ -47,7 +47,7 @@ function template_preprocess_game(array &$variables): void {
 /**
  * Implements hook_page_attachments().
  */
-function egam_screenshot_page_attachments(array &$attachments) {
+function egam_game_page_attachments(array &$attachments) {
 	$attachments['#attached']['library'][] = 'egam/screenshot';
 }
 

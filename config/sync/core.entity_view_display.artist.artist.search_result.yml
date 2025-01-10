@@ -1,0 +1,65 @@
+uuid: fa8de615-98ef-463e-b202-8929ef10d539
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.artist.search_result
+    - field.field.artist.artist.field_activity
+    - field.field.artist.artist.field_birth_year
+    - field.field.artist.artist.field_cover
+    - field.field.artist.artist.field_cover_caption
+    - field.field.artist.artist.field_death_year
+    - field.field.artist.artist.field_full_name
+    - field.field.artist.artist.field_gender
+    - field.field.artist.artist.field_metatags
+    - field.field.artist.artist.field_more_info
+    - field.field.artist.artist.field_nationality
+    - field.field.artist.artist.field_nickname
+    - field.field.artist.artist.field_quoted_by_gombrich
+    - field.field.artist.artist.field_sorting_name
+    - image.style.webp
+  module:
+    - egam_artist
+    - media
+id: artist.artist.search_result
+targetEntityType: artist
+bundle: artist
+mode: search_result
+content:
+  field_cover:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  description: true
+  field_activity: true
+  field_birth_year: true
+  field_cover_caption: true
+  field_death_year: true
+  field_full_name: true
+  field_gender: true
+  field_metatags: true
+  field_more_info: true
+  field_nationality: true
+  field_nickname: true
+  field_quoted_by_gombrich: true
+  field_sorting_name: true
+  search_api_excerpt: true
+  status: true
+  uid: true

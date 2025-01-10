@@ -2,6 +2,7 @@
 
 use Drupal\egam_global\Controller\HomeController;
 use Drupal\egam_global\Entities;
+use Drupal\views\ViewExecutable;
 
 /**
  * @file
@@ -38,4 +39,11 @@ function egam_global_page_attachments(array &$attachments) {
 	$attachments['#attached']['library'][] = 'egam/swiper.init';
 	$attachments['#attached']['library'][] = 'egam/photoswipe.init';
 	$attachments['#attached']['library'][] = 'egam/alpine-js';
+}
+
+function egam_global_views_pre_execute(ViewExecutable $view) {
+	if ($view->id() == 'search' && empty(\Drupal::request()->query->all())) {
+		$view->result = [];
+		$view->total_rows = 0;
+	}
 }

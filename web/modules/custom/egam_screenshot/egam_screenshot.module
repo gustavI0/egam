@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Markup;
 use Drupal\egam_artwork\ArtworkInterface;
 use Drupal\egam_game\GameInterface;
 use Drupal\egam_global\Service\ContextManager;
@@ -58,6 +59,11 @@ function template_preprocess_screenshot(array &$variables): void {
 			$variables['context_title'] = $screenshot->getContextualizedTitle($contextEntity);
 			$variables['#cache']['contexts'][] = 'url';
 		}
+	}
+	if ($viewMode == 'search_result') {
+		$variables['bundle'] = ucfirst($screenshot->bundle());
+		$variables['title'] = $screenshot->getSearchResultTitle();
+		$variables['#cache']['contexts'][] = 'url.query_args';
 	}
 }
 

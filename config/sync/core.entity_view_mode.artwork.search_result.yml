@@ -1,0 +1,11 @@
+uuid: 4a362ccf-f5b9-45b3-b419-d5e0f9b7cde1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.search_result
+label: 'Search Result'
+description: ''
+targetEntityType: artwork
+cache: true

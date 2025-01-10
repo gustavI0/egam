@@ -2,6 +2,7 @@
 
 namespace Drupal\egam_artwork;
 
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\GeneratedLink;
@@ -19,7 +20,7 @@ interface ArtworkInterface extends ContentEntityInterface, EntityOwnerInterface,
 
 	public function getArtist(): ArtistInterface;
 
-	public function getFullTitle(bool $withArtist, bool $asLink): string|Link;
+	public function getFullTitle(bool $withArtist, bool $asLink): MarkupInterface|Link;
 
 	public function getFullArtist(bool $asLink): string|GeneratedLink;
 

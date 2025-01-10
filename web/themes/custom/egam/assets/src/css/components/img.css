@@ -12,6 +12,10 @@
     @apply object-cover object-center;
   }
 
+  .search_result .cover img {
+    @apply object-contain max-h-40 w-40;
+  }
+
   .views-view-responsive-grid .cover img {
     @apply w-40 h-40 lg:w-80 lg:h-80;
   }

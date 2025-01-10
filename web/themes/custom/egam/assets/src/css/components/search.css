@@ -1,0 +1,29 @@
+.views-element-container {
+  padding-left: 2.5rem;
+}
+
+.views-element-container header {
+  font-family: Bebas Regular, ui-sans-serif;
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.views-element-container form {
+  @apply flex justify-center m-20;
+}
+
+.views-element-container form input {
+  @apply h-16 p-4 mx-4 text-lg border;
+}
+
+.views-element-container form #edit-submit-search:hover {
+  @apply cursor-pointer bg-dark text-light transition-all duration-200 ease-in-out;
+}
+
+article.search_result {
+  @apply flex items-center text-xl m-8 p-4 border h-48;
+}
+
+article.search_result .cover {
+  @apply mr-4;
+}
