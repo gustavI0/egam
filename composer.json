@@ -25,9 +25,7 @@
         "drupal/focal_point": "^2.1",
         "drupal/gin": "^3.0@rc",
         "drupal/gin_toolbar": "^1.0@rc",
-        "drupal/honeypot": "2.1.4",
-        "drupal/image_widget_crop": "^2.4",
-        "drupal/matomo": "^1.23",
+        "drupal/honeypot": "^2.2",
         "drupal/media_library_form_element": "^2.0",
         "drupal/metatag": "^2.0",
         "drupal/pathauto": "^1.11",
@@ -38,7 +36,7 @@
         "drupal/swiper_formatter": "^2.0@beta",
         "drupal/upgrade_status": "^4.3",
         "drupal/views_infinite_scroll": "^2.0",
-        "drupal/webform": "^6.2",
+        "drupal/webform": "^6.3@beta",
         "symfony/dotenv": "^6.3"
     },
     "conflict": {
@@ -116,6 +114,6 @@
     },
     "require-dev": {
         "drupal/twig_xdebug": "^1.3",
-        "drush/drush": "^12.1"
+        "drush/drush": "^13.3"
     }
 }
