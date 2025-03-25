@@ -12,6 +12,7 @@ dependencies:
     - field.field.artwork.artwork.field_medium
     - field.field.artwork.artwork.field_more_info
     - field.field.artwork.artwork.field_museum
+    - field.field.artwork.artwork.field_original_title
     - field.field.artwork.artwork.field_sorting_name
     - field.field.artwork.artwork.field_sorting_year
     - field.field.artwork.artwork.field_subject
@@ -135,6 +136,7 @@ content:
     region: content
 hidden:
   created: true
+  field_original_title: true
   field_sorting_name: true
   field_sorting_year: true
   langcode: true

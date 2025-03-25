@@ -1,0 +1,20 @@
+uuid: 2439bbf7-34be-4863-86d8-08f96216cef9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_original_title
+  module:
+    - egam_artwork
+id: artwork.artwork.field_original_title
+field_name: field_original_title
+entity_type: artwork
+bundle: artwork
+label: 'Titre original'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
