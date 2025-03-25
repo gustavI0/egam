@@ -1,8 +1,3 @@
-version: "3.7"
-
-############### DC-LOCAL version : 1.0.5
-
-
 services:
   db:
     image: wodby/mariadb:$MARIADB_TAG
@@ -66,7 +61,7 @@ services:
     image: wodby/nginx:$NGINX_TAG
     container_name: "${PROJECT_NAME}_nginx"
     networks:
-      - web
+#      - web
       - default
     depends_on:
       - php
@@ -93,7 +88,7 @@ services:
     image: mailhog/mailhog
     container_name: "${PROJECT_NAME}_mailhog"
     networks:
-      - web
+#      - web
       - default
 
   #  redis:
@@ -120,6 +115,6 @@ volumes:
 
 ## For Xdebug profiler
 #  files:
-networks:
-  web:
-    external: true
+#networks:
+#  web:
+#    external: true
