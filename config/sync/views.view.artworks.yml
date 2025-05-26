@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Oeuvres
+      title: Œuvres
       fields:
         label:
           id: label

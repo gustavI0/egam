@@ -21,6 +21,18 @@
         ...settings?.photoswipe?.options || {}
       });
 
+      // Masquer les flèches si un seul élément
+      lightbox.on('afterInit', () => {
+        const numItems = lightbox.pswp.getNumItems();
+        if (numItems <= 1) {
+          const arrowPrev = lightbox.pswp.element.querySelector('.pswp__button--arrow--prev');
+          const arrowNext = lightbox.pswp.element.querySelector('.pswp__button--arrow--next');
+
+          if (arrowPrev) arrowPrev.style.display = 'none';
+          if (arrowNext) arrowNext.style.display = 'none';
+        }
+      });
+
       lightbox.init();
     },
   };

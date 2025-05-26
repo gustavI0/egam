@@ -1,6 +1,6 @@
 @layer components {
   #header {
-    @apply fixed z-10 bg-body w-full border-b-2 py-8 mx-auto transition-all;
+    @apply fixed z-1000 bg-body w-full border-b-2 py-8 mx-auto transition-all;
   }
 
   .banner {

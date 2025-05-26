@@ -981,6 +981,7 @@ article .content .title h1,
 .home-menu a,
   #block-egam-main-menu a,
   .content table a,
+  .item a,
   .node a,
   .webform-submission-contact-form a {
   text-decoration: none;
@@ -999,6 +1000,7 @@ article .content .title h1,
 
 #block-egam-main-menu a,
   .content table a,
+  .item a,
   .node a,
   .webform-submission-contact-form a {
   padding-bottom: .125rem;
@@ -1007,6 +1009,7 @@ article .content .title h1,
 
 #block-egam-main-menu a:hover,
   .content table a:hover,
+  .item a:hover,
   .node a:hover,
   .webform-submission-contact-form a:hover {
   background-size: 0 .125rem;

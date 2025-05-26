@@ -29,7 +29,14 @@
                     {% endif %}
                 </div>
                 {{ content.field_cover }}
+                {% if content.description.0 %}
+                    <div class="item description">
+                        <h2>{{ 'Notes'|t }}</h2>
+                        <div>{{ content.description }}</div>
+                    </div>
+                {% endif %}
             </div>
+
             <div class="details lg:w-2/4 lg:p-8">
                 <div class="title hidden md:block">
                     {% if content.label %}
@@ -55,12 +62,6 @@
                         <tr class="item editor">
                             <th scope="row">{{ 'Éditeur'|t }}</th>
                             <td>{{ content.field_editor }}</td>
-                        </tr>
-                    {% endif %}
-                    {% if content.description.0 %}
-                        <tr class="item description">
-                            <th scope="row">{{ 'Notes'|t }}</th>
-                            <td>{{ content.description }}</td>
                         </tr>
                     {% endif %}
                     {% if content.field_more_info.0 %}

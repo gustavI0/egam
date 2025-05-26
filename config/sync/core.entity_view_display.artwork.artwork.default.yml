@@ -69,7 +69,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: linked
+      view_mode: swiper
       link: false
     third_party_settings: {  }
     weight: 0

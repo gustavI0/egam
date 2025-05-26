@@ -20,3 +20,16 @@ function egam_preprocess(&$variables, $hook) {
 		$variables['height'] = $height;
 	}
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function egam_theme_suggestions_field_alter(array &$suggestions, array &$variables) {
+	if (
+		$variables['element']['#field_name'] == 'field_cover' &&
+		$variables['element']['#view_mode'] == 'full' &&
+		$variables['element']['#is_multiple']
+		) {
+		$suggestions[] = 'field__cover__swiper';
+	}
+}
