@@ -23,7 +23,7 @@
         "drupal/core-project-message": "^11",
         "drupal/core-recommended": "^11",
         "drupal/focal_point": "^2.1",
-        "drupal/gin": "^3.0@rc",
+        "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^1.0@rc",
         "drupal/honeypot": "^2.2",
         "drupal/media_library_form_element": "^2.0",
