@@ -81,7 +81,7 @@
         </div>
     </main>
 
-    <footer role="contentinfo" class="{{ is_content ? 'content' }}">
+    <footer role="contentinfo" class="{{ is_content ? 'content' }}" {{ is_front ? 'style="padding:0"'}}>
         {{ page.footer }}
     </footer>
 

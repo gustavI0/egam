@@ -1,0 +1,27 @@
+@layer components {
+
+  #user-login-form {
+    @apply lg:w-3/4 lg:m-auto lg:p-12;
+  }
+
+  #user-login-form .form-item {
+    @apply flex justify-start flex-wrap md:justify-center lg:flex-nowrap lg:mr-32 p-4;
+  }
+
+  #user-login-form label {
+    @apply flex items-center md:justify-end w-32 md:mx-2;
+  }
+
+  #user-login-form input {
+    @apply p-1 border w-80 lg:w-96;
+  }
+
+  #user-login-form #edit-actions {
+    @apply p-4 border;
+  }
+
+  #user-login-form #edit-actions:hover {
+    @apply cursor-pointer bg-dark text-light transition-all duration-200 ease-in-out;
+  }
+
+}
