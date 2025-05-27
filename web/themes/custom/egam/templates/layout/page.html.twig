@@ -50,9 +50,10 @@
         </header>
     {% else %}
         <header id="header" role="banner"
+                class="fixed z-20 bg-body w-full border-b-2 py-8 mx-auto transition-all"
                 x-data="{ open: false }"
                 x-init="open=window.innerWidth > 768">
-            <div class="banner w-11/12 lg:w-9/12">
+            <div class="lg:flex lg:flex-wrap items-center justify-between max-w-[1200px] mx-auto w-11/12 lg:w-9/12">
                 {{ page.header }}
 
                 <button class="absolute top-10 right-4 lg:hidden text-gray-900 text-opacity-80 font-semibold transition duration-500 ease-in-out hover:text-opacity-85"
@@ -80,7 +81,7 @@
         </div>
     </main>
 
-    <footer role="contentinfo">
+    <footer role="contentinfo" class="{{ is_content ? 'content' }}">
         {{ page.footer }}
     </footer>
 

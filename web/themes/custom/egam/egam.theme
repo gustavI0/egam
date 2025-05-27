@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\egam_global\Entities;
+
 /**
  * Implements hook_preprocess().
  */
@@ -10,6 +13,7 @@ function egam_preprocess(&$variables, $hook) {
 		$width = $image->get('width')->getValue();
 		$height = $image->get('height')->getValue();
 		$maxHeight = 1080;
+
 		if ($height > $maxHeight) {
 			$ratio = $maxHeight / $height;
 			$height = $maxHeight;
@@ -22,14 +26,50 @@ function egam_preprocess(&$variables, $hook) {
 }
 
 /**
+ * Implements hook_preprocess().
+ */
+function egam_preprocess_page(&$variables, $hook) {
+	$routeName = \Drupal::routeMatch()->getRouteName();
+	foreach (Entities::cases() as $contentType) {
+		if ($contentType->getCanonicalRoute() == $routeName) {
+			$variables['is_content'] = true;
+		}
+	}
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function egam_theme_suggestions_field_alter(array &$suggestions, array &$variables) {
 	if (
 		$variables['element']['#field_name'] == 'field_cover' &&
 		$variables['element']['#view_mode'] == 'full' &&
-		$variables['element']['#is_multiple']
+		$variables['element']['#is_multiple'] &&
+		isset($variables['element'][0]['#view_mode']) &&
+		$variables['element'][0]['#view_mode'] == 'swiper'
 		) {
 		$suggestions[] = 'field__cover__swiper';
+	}
+}
+
+function egam_preprocess_menu__main(&$variables, $hook) {
+	$variables['#cache']['contexts'][] = 'url';
+	$routeParameters = \Drupal::routeMatch()->getParameters()->all();
+	if (empty($routeParameters)) {
+		return;
+	}
+
+	$parameter = reset($routeParameters);
+	if (!$parameter instanceof ContentEntityBase || Entities::tryFrom($parameter->getEntityTypeId()) == null) {
+		return;
+	}
+
+	foreach ($variables['items'] as $key => $menuLink) {
+		/* @var \Drupal\Core\Url $url */
+		$url = $menuLink['url'];
+		if ($url->getRouteName() == Entities::from($parameter->getEntityTypeId())->getCollectionRoute()) {
+			$url->setOption('attributes', ['class' => ['is-active']]);
+			$variables['items'][$key]['url'] = $url;
+		}
 	}
 }

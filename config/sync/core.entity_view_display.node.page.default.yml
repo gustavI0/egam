@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_cover
+    - image.style.webp
     - node.type.page
   module:
+    - media
     - text
     - user
 _core:
@@ -24,11 +26,13 @@ content:
     weight: 0
     region: content
   field_cover:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 1
     region: content

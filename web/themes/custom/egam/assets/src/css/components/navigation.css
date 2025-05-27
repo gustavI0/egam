@@ -1,0 +1,6 @@
+@layer components {
+
+  #block-egam-main-menu .item {
+    @apply py-2 pr-2 lg:p-2;
+  }
+}

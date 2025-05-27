@@ -35,7 +35,7 @@
       <ul>
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes.addClass('p-2') }}>
+      <li{{ item.attributes.addClass('item') }}>
         {{ link(item.title, item.url, { 'class':['block lg:inline-block tracking-wide text-gray-900 font-semibold'] }) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}

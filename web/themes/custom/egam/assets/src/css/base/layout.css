@@ -1,0 +1,41 @@
+@layer {
+
+  /* HEADER */
+  header.small {
+    @apply py-4;
+  }
+
+  /*MAIN*/
+  main .content {
+      @apply max-w-[1200px] mx-auto flex flex-wrap;
+  }
+
+  main .content .cover {
+    @apply w-full lg:w-2/4 lg:py-8 lg:pr-8 mt-4 lg:mt-0;
+  }
+
+  main .content .details {
+    @apply w-full lg:w-2/4 lg:py-8 lg:pl-8;
+  }
+
+  /* FOOTER */
+  footer {
+    @apply py-4;
+  }
+
+  footer.content {
+    @apply bg-light;
+  }
+
+  footer > div {
+    @apply flex justify-center items-center h-full;
+  }
+
+  #block-footer-menu > ul {
+    @apply flex;
+  }
+
+  #block-footer-menu ul li {
+    @apply px-4;
+  }
+}

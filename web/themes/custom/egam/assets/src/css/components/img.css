@@ -1,9 +1,5 @@
 @layer components {
 
-  .content .cover {
-    @apply mt-4 lg:mt-0;
-  }
-
   .content .cover img {
     @apply lg:max-h-[30rem] object-contain;
   }

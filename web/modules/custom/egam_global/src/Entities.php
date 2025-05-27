@@ -24,6 +24,10 @@ enum Entities: string {
 		return 'view.' . $this->getPlural() . '.grid';
 	}
 
+	public function getCanonicalRoute(): string {
+		return 'entity.' . $this->value . '.canonical';
+	}
+
 	public function getPlural(): string|TranslatableMarkup {
 		return match ($this) {
 			Entities::Artwork => 'artworks',

@@ -19,8 +19,8 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-        <div class="container flex flex-wrap content museum">
-            <div class="cover w-full lg:w-2/4 lg:p-8">
+        <div class="content museum">
+            <div class="cover">
                 <div class="title md:hidden">
                     {% if content.label %}
                         <div class="item name">
@@ -30,7 +30,7 @@
                 </div>
                 {{ content.field_cover }}
             </div>
-            <div class="details lg:w-2/4 lg:p-8">
+            <div class="details">
                 <div class="title hidden md:block">
                     {% if content.label %}
                         <div class="item name">

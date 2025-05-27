@@ -1,6 +1,6 @@
 @layer components {
   #block-egam-onglets > ul {
-    @apply flex flex-wrap py-4 px-9;
+    @apply flex flex-wrap py-4 px-10;
   }
 
   #block-egam-onglets li {

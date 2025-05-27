@@ -19,8 +19,8 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-        <div class="container flex flex-wrap content game">
-            <div class="cover w-full lg:w-2/4 lg:p-8">
+        <div class="content game">
+            <div class="cover">
                 <div class="title md:hidden">
                     {% if content.label %}
                         <div class="item name">
@@ -37,7 +37,7 @@
                 {% endif %}
             </div>
 
-            <div class="details lg:w-2/4 lg:p-8">
+            <div class="details">
                 <div class="title hidden md:block">
                     {% if content.label %}
                         <div class="item name">

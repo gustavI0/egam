@@ -1,40 +1,36 @@
 @layer components {
   .home-menu a,
   #block-egam-main-menu a,
+  #block-egam-onglets > ul a,
   .content table a,
   .item a,
   .node a,
   .webform-submission-contact-form a {
     text-decoration: none;
-    display: inline-block;
-    padding-bottom: .25rem;
-    background-size: 100% .25rem;
+    background-size: 100% .125rem;
     background-image: linear-gradient(#10b981, #10b981);
     background-position: center bottom;
     background-repeat: no-repeat;
     transition: all 0.2s ease-out;
-  }
-
-  .home-menu a:hover {
-    background-size: 0 .25rem;
-  }
-
-  #block-egam-main-menu a,
-  .content table a,
-  .item a,
-  .node a,
-  .webform-submission-contact-form a {
     padding-bottom: .125rem;
-    background-size: 100% .125rem;
   }
 
   #block-egam-main-menu a:hover,
+  #block-egam-onglets > ul a:hover,
   .content table a:hover,
   .item a:hover,
   .node a:hover,
   .webform-submission-contact-form a:hover {
     background-size: 0 .125rem;
     color: coral
+  }
+
+  .home-menu a {
+    background-size: 100% .25rem;
+  }
+
+  .home-menu a:hover {
+    background-size: 0 .25rem;
   }
 }
 

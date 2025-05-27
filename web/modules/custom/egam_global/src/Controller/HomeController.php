@@ -14,7 +14,7 @@ class HomeController extends ControllerBase {
 
 	use StringTranslationTrait;
 
-	const TEMPLATE = 'home';
+	const string TEMPLATE = 'home';
 
 	public function __construct(protected readonly HomeCoverHandler $homeCoverHandler) {
 	}
@@ -52,7 +52,9 @@ class HomeController extends ControllerBase {
 	}
 
 	protected function getEntityLink(Entities $entity): GeneratedLink {
-		return Link::fromTextAndUrl($entity->count() > 1 ? $this->t($entity->getPlural()) : $this->t($entity->value), Url::fromRoute($entity->getCollectionRoute()))->toString();
+		return Link::fromTextAndUrl($entity->count() > 1 ?
+			$this->t($entity->getPlural()) :
+			$this->t($entity->value), Url::fromRoute($entity->getCollectionRoute()))->toString();
 	}
 
 }
