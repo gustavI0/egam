@@ -13,6 +13,7 @@
     background-repeat: no-repeat;
     transition: all 0.2s ease-out;
     padding-bottom: .125rem;
+    width: fit-content;
   }
 
   #block-egam-main-menu a:hover,

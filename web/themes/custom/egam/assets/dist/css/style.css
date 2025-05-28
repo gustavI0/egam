@@ -1014,6 +1014,8 @@ article .content .title h1,
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
   padding-bottom: .125rem;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #block-egam-main-menu a:hover,
@@ -1039,6 +1041,8 @@ article .content .title h1,
     width: 75%;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 

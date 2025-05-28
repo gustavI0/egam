@@ -1,7 +1,7 @@
 @layer components {
 
   #user-login-form {
-    @apply lg:w-3/4 lg:py-12 lg:px-;
+    @apply lg:w-3/4 lg:py-12 lg:px-10;
   }
 
   #user-login-form label {
