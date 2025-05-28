@@ -1036,18 +1036,38 @@ article .content .title h1,
 
 @media (min-width: 976px) {
   #user-login-form {
-    margin: auto;
     width: 75%;
-    padding: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+#user-login-form label {
+  display: flex;
+}
+
+#user-login-form input {
+  width: 20rem;
+  border-width: 1px;
+  padding: 0.25rem;
+}
+
+@media (min-width: 976px) {
+  #user-login-form input {
+    width: 24rem;
   }
 }
 
 #user-login-form #edit-actions {
+  padding-top: 1rem;
+}
+
+#user-login-form #edit-submit {
   border-width: 1px;
   padding: 1rem;
 }
 
-#user-login-form #edit-actions:hover {
+#user-login-form #edit-submit:hover {
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(3 7 18 / var(--tw-bg-opacity));

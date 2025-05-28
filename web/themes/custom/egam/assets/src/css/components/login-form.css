@@ -1,15 +1,11 @@
 @layer components {
 
   #user-login-form {
-    @apply lg:w-3/4 lg:m-auto lg:p-12;
-  }
-
-  #user-login-form .form-item {
-    @apply flex justify-start flex-wrap md:justify-center lg:flex-nowrap lg:mr-32 p-4;
+    @apply lg:w-3/4 lg:py-12 lg:px-;
   }
 
   #user-login-form label {
-    @apply flex items-center md:justify-end w-32 md:mx-2;
+    @apply flex;
   }
 
   #user-login-form input {
@@ -17,10 +13,14 @@
   }
 
   #user-login-form #edit-actions {
+    @apply pt-4;
+  }
+
+  #user-login-form #edit-submit {
     @apply p-4 border;
   }
 
-  #user-login-form #edit-actions:hover {
+  #user-login-form #edit-submit:hover {
     @apply cursor-pointer bg-dark text-light transition-all duration-200 ease-in-out;
   }
 
