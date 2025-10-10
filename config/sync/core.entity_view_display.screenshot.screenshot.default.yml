@@ -7,6 +7,7 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
+    - field.field.screenshot.screenshot.field_thumbnail
   module:
     - egam_screenshot
     - link
@@ -60,6 +61,15 @@ content:
       target: '0'
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 7
     region: content
   label:
     type: string

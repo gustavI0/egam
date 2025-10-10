@@ -1,0 +1,20 @@
+uuid: ffad8fee-a7b3-44be-a7d1-c837e580eb12
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artist
+    - media
+id: artist.field_thumbnail
+field_name: field_thumbnail
+entity_type: artist
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

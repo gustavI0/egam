@@ -1,0 +1,30 @@
+uuid: 3f4a9a9e-8d97-48fd-a3af-412bc3d68b01
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artist.field_thumbnail
+    - media.type.image
+  module:
+    - egam_artist
+id: artist.artist.field_thumbnail
+field_name: field_thumbnail
+entity_type: artist
+bundle: artist
+label: Vignette
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

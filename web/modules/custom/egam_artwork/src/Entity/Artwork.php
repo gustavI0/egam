@@ -13,9 +13,11 @@ use Drupal\Core\Link;
 use Drupal\Core\Render\Markup;
 use Drupal\egam_artist\Entity\Artist;
 use Drupal\egam_artist\Entity\ArtistInterface;
-use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_artwork\Entity\ArtworkInterface;
 use Drupal\egam_museum\Entity\Museum;
 use Drupal\egam_museum\MuseumInterface;
+use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**
@@ -214,6 +216,11 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 
 	public function getMuseum(): MuseumInterface {
 		return Museum::load($this->get('field_museum')->target_id);
+	}
+
+	public function getThumbnail(): ?MediaInterface {
+		$mid = !$this->get('field_thumbnail')->isEmpty() ? $this->get('field_thumbnail')->target_id : NULL;
+		return $mid ? Media::load($mid) : NULL;
 	}
 
 	public function getFullTitle(bool $withArtist = TRUE, bool $asLink = TRUE): string|Link {

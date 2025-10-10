@@ -8,6 +8,7 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
+    - field.field.screenshot.screenshot.field_thumbnail
     - image.style.webp
   module:
     - egam_screenshot
@@ -56,6 +57,7 @@ hidden:
   created: true
   description: true
   field_more_info: true
+  field_thumbnail: true
   langcode: true
   search_api_excerpt: true
   status: true

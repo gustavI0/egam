@@ -7,6 +7,7 @@ dependencies:
     - field.field.screenshot.screenshot.field_cover
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
+    - field.field.screenshot.screenshot.field_thumbnail
   module:
     - egam_screenshot
     - link
@@ -28,7 +29,7 @@ content:
     third_party_settings: {  }
   field_artwork:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -45,7 +46,7 @@ content:
     third_party_settings: {  }
   field_game:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -61,6 +62,13 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_thumbnail:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   label:
     type: string_textfield
     weight: 0
@@ -71,13 +79,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 10
+    weight: 7
     region: content
     settings:
       display_label: false

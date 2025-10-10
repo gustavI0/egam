@@ -16,6 +16,7 @@ dependencies:
     - field.field.artwork.artwork.field_sorting_name
     - field.field.artwork.artwork.field_sorting_year
     - field.field.artwork.artwork.field_subject
+    - field.field.artwork.artwork.field_thumbnail
   module:
     - egam_artwork
     - link
@@ -133,6 +134,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 9
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 13
     region: content
   label:
     type: string

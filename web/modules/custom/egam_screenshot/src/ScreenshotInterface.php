@@ -6,7 +6,7 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_artwork\Entity\ArtworkInterface;
 use Drupal\egam_game\GameInterface;
 use Drupal\user\EntityOwnerInterface;
 

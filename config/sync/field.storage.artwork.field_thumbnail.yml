@@ -1,0 +1,20 @@
+uuid: 024e9614-98de-4a07-a889-ecd8aeadbc35
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+    - media
+id: artwork.field_thumbnail
+field_name: field_thumbnail
+entity_type: artwork
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

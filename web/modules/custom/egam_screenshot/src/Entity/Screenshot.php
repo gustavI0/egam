@@ -11,12 +11,14 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Link;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_artwork\Entity\ArtworkInterface;
 use Drupal\egam_artwork\Entity\Artwork;
 use Drupal\egam_game\Entity\Game;
 use Drupal\egam_game\GameInterface;
 use Drupal\egam_global\Entities;
 use Drupal\egam_screenshot\ScreenshotInterface;
+use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**
@@ -216,6 +218,11 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 
 	public function getReferencedArtwork(): ArtworkInterface {
 		return Artwork::load($this->get(self::FIELD_ARTWORK)->target_id);
+	}
+
+	public function getThumbnail(): ?MediaInterface {
+		$mid = !$this->get('field_thumbnail')->isEmpty() ? $this->get('field_thumbnail')->target_id : NULL;
+		return $mid ? Media::load($mid) : NULL;
 	}
 
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link {

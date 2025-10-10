@@ -5,7 +5,7 @@ namespace Drupal\egam_global\Handler;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityMalformedException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\egam_artwork\ArtworkInterface;
+use Drupal\egam_artwork\Entity\ArtworkInterface;
 use Drupal\egam_game\GameInterface;
 use Drupal\egam_global\Entities;
 use Drupal\egam_screenshot\ScreenshotInterface;

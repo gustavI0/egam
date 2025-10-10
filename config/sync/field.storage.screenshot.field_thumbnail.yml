@@ -1,0 +1,20 @@
+uuid: 59fa66fa-a044-4ba5-8504-71f31b60ee70
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_screenshot
+    - media
+id: screenshot.field_thumbnail
+field_name: field_thumbnail
+entity_type: screenshot
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

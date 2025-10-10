@@ -35,6 +35,10 @@ function template_preprocess_artist(array &$variables): void {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+	/* @var \Drupal\egam_artist\Entity\ArtistInterface $artist */
+	$artist = $variables['elements']['#artist'];
+	$thumbnail = $artist->getThumbnail();
+	$variables['thumbnail'] = $thumbnail ? \Drupal::entityTypeManager()->getViewBuilder('media')->view($thumbnail) : NULL;
 }
 
 /**

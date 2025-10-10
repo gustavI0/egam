@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Drupal\egam_artwork;
+namespace Drupal\egam_artwork\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;

@@ -1,0 +1,30 @@
+uuid: 2bf8affb-d867-4630-af13-6f79bd7d8476
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.screenshot.field_thumbnail
+    - media.type.image_screenshot
+  module:
+    - egam_screenshot
+id: screenshot.screenshot.field_thumbnail
+field_name: field_thumbnail
+entity_type: screenshot
+bundle: screenshot
+label: Vignette
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image_screenshot: image_screenshot
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

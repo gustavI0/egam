@@ -37,7 +37,7 @@ function template_preprocess_artwork(array &$variables): void {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
-	/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
+	/* @var \Drupal\egam_artwork\Entity\ArtworkInterface $artwork */
 	$artwork = $variables['elements']['#artwork'];
 	if ($viewMode == 'full') {
 		$variables['full_artist'] = $artwork->getFullArtist(TRUE);
@@ -47,6 +47,8 @@ function template_preprocess_artwork(array &$variables): void {
 		$contextManager = ContextManager::me();
 		$contextEntity = $contextManager->getContext();
 		$variables['full_title'] = $contextEntity instanceof ArtistInterface ? $artwork->getFullTitle(FALSE) : $artwork->getFullTitle();
+		$thumbnail = $artwork->getThumbnail();
+		$variables['thumbnail'] = $thumbnail ? \Drupal::entityTypeManager()->getViewBuilder('media')->view($thumbnail) : NULL;
 		$variables['#cache']['contexts'][] = 'url';
 	}
 }
@@ -113,7 +115,7 @@ function egam_artwork_user_predelete(UserInterface $account): void {
  */
 function egam_artwork_preprocess_artwork(&$variables) {
 	if ($variables['view_mode'] == 'full') {
-		/* @var \Drupal\egam_artwork\ArtworkInterface $artwork */
+		/* @var \Drupal\egam_artwork\Entity\ArtworkInterface $artwork */
 		$artwork = $variables['elements']['#artwork'];
 		$relatedContentHandler = RelatedContentHandler::me();
 		$variables['related_games'] = $relatedContentHandler->viewContent($artwork, Entities::Screenshot);

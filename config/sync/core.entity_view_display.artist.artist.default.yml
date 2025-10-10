@@ -16,6 +16,7 @@ dependencies:
     - field.field.artist.artist.field_nickname
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
+    - field.field.artist.artist.field_thumbnail
   module:
     - egam_artist
     - link
@@ -123,6 +124,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 13
     region: content
   label:
     type: string
