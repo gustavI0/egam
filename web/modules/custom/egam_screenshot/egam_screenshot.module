@@ -56,10 +56,7 @@ function template_preprocess_screenshot(array &$variables): void {
 		$contextEntity = $contextManager->getContext();
 		if ($contextEntity instanceof GameInterface || $contextEntity instanceof ArtworkInterface) {
 			$variables['context_title'] = $screenshot->getContextualizedTitle($contextEntity);
-			$variables['#cache']['contexts'][] = 'url';
 		}
-		$thumbnail = $screenshot->getThumbnail();
-		$variables['thumbnail'] = $thumbnail ? \Drupal::entityTypeManager()->getViewBuilder('media')->view($thumbnail) : NULL;
 		$variables['#cache']['contexts'][] = 'url';
 	}
 }

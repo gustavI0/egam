@@ -7,7 +7,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\egam_artist\Entity\ArtistInterface;
 use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
 use Drupal\user\EntityOwnerTrait;
@@ -187,10 +186,5 @@ final class Artist extends RevisionableContentEntityBase implements ArtistInterf
 
     return $fields;
   }
-
-	public function getThumbnail(): ?MediaInterface {
-		$mid = !$this->get('field_thumbnail')->isEmpty() ? $this->get('field_thumbnail')->target_id : NULL;
-		return $mid ? Media::load($mid) : NULL;
-	}
 
 }

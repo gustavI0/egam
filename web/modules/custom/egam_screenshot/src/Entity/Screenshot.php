@@ -220,11 +220,6 @@ final class Screenshot extends RevisionableContentEntityBase implements Screensh
 		return Artwork::load($this->get(self::FIELD_ARTWORK)->target_id);
 	}
 
-	public function getThumbnail(): ?MediaInterface {
-		$mid = !$this->get('field_thumbnail')->isEmpty() ? $this->get('field_thumbnail')->target_id : NULL;
-		return $mid ? Media::load($mid) : NULL;
-	}
-
 	public function getContextualizedTitle(ContentEntityInterface $entity): TranslatableMarkup|string|Link {
 		return match($entity->bundle()) {
 			Entities::Artwork->value => $this->getReferencedGame()->getFullTitle(),

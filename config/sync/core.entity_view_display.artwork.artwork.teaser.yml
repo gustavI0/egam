@@ -42,7 +42,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_cover:
     type: media_thumbnail
@@ -55,13 +55,24 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_thumbnail:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
   label:
     type: string
     label: hidden
     settings:
       link_to_entity: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   created: true
@@ -77,7 +88,6 @@ hidden:
   field_sorting_name: true
   field_sorting_year: true
   field_subject: true
-  field_thumbnail: true
   langcode: true
   search_api_excerpt: true
   status: true

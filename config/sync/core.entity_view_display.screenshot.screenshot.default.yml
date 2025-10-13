@@ -22,7 +22,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_artwork:
     type: entity_reference_entity_view
@@ -60,16 +60,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    weight: 6
-    region: content
-  field_thumbnail:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 7
+    weight: 5
     region: content
   label:
     type: string
@@ -81,6 +72,7 @@ content:
     region: content
 hidden:
   created: true
+  field_thumbnail: true
   langcode: true
   search_api_excerpt: true
   status: true

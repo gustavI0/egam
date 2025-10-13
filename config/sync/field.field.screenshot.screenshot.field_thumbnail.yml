@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.screenshot.field_thumbnail
-    - media.type.image_screenshot
+    - media.type.image
   module:
     - egam_screenshot
 id: screenshot.screenshot.field_thumbnail
@@ -21,10 +21,10 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image_screenshot: image_screenshot
+      image: image
     sort:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: image
 field_type: entity_reference

@@ -20,7 +20,11 @@
     {% endif %}
     {% if content %}
         <div class="cover">
-            {{ content.field_cover.0 }}
+            {% if content.field_thumbnail.0 is not empty %}
+                {{ content.field_thumbnail }}
+            {% else %}
+                {{ content.field_cover }}
+            {% endif %}
         </div>
         <div class="label">
             <a href="{{ content.label.0['#url'] }}">{{ context_title|raw }}</a>

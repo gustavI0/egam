@@ -47,8 +47,6 @@ function template_preprocess_artwork(array &$variables): void {
 		$contextManager = ContextManager::me();
 		$contextEntity = $contextManager->getContext();
 		$variables['full_title'] = $contextEntity instanceof ArtistInterface ? $artwork->getFullTitle(FALSE) : $artwork->getFullTitle();
-		$thumbnail = $artwork->getThumbnail();
-		$variables['thumbnail'] = $thumbnail ? \Drupal::entityTypeManager()->getViewBuilder('media')->view($thumbnail) : NULL;
 		$variables['#cache']['contexts'][] = 'url';
 	}
 }

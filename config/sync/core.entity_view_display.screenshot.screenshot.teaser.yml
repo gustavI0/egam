@@ -24,7 +24,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_cover:
     type: media_thumbnail
@@ -43,7 +43,18 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 3
+    region: content
+  field_thumbnail:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
     region: content
   label:
     type: string
@@ -51,13 +62,12 @@ content:
     settings:
       link_to_entity: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   created: true
   description: true
   field_more_info: true
-  field_thumbnail: true
   langcode: true
   search_api_excerpt: true
   status: true
