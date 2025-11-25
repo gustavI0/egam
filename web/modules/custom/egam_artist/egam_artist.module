@@ -48,7 +48,7 @@ function egam_artist_user_cancel($edit, UserInterface $account, $method): void {
       $artist_ids = $storage->getQuery()
         ->condition('uid', $account->id())
         ->condition('status', 1)
-        ->accessCheck(FALSE)
+        ->accessCheck()
         ->execute();
       foreach ($storage->loadMultiple($artist_ids) as $artist) {
         $artist->set('status', FALSE)->save();
@@ -60,7 +60,7 @@ function egam_artist_user_cancel($edit, UserInterface $account, $method): void {
       $storage = \Drupal::entityTypeManager()->getStorage('artist');
       $artist_ids = $storage->getQuery()
         ->condition('uid', $account->id())
-        ->accessCheck(FALSE)
+        ->accessCheck()
         ->execute();
       foreach ($storage->loadMultiple($artist_ids) as $artist) {
         $artist->setOwnerId(0)->save();
@@ -78,7 +78,7 @@ function egam_artist_user_predelete(UserInterface $account): void {
   $storage = \Drupal::entityTypeManager()->getStorage('artist');
   $artist_ids = $storage->getQuery()
     ->condition('uid', $account->id())
-    ->accessCheck(FALSE)
+    ->accessCheck()
     ->execute();
   $storage->delete(
     $storage->loadMultiple($artist_ids)
@@ -87,7 +87,7 @@ function egam_artist_user_predelete(UserInterface $account): void {
   $artist_ids = $storage->getQuery()
     ->allRevisions()
     ->condition('uid', $account->id())
-    ->accessCheck(FALSE)
+    ->accessCheck()
     ->execute();
   foreach (array_keys($artist_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);

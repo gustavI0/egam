@@ -12,7 +12,7 @@ use Drupal\egam_screenshot\ScreenshotInterface;
 
 class RelatedContentHandler {
 
-	const TEASER_VIEW_MODE = 'teaser';
+	const string TEASER_VIEW_MODE = 'teaser';
 
 	public bool $hasMultipleRelatedContent;
 
@@ -51,8 +51,9 @@ class RelatedContentHandler {
 
 	protected function getContentIds(EntityInterface $entity, Entities $relatedEntity): int|array {
 		return \Drupal::entityQuery($relatedEntity->value)
-			->accessCheck(FALSE)
+			->accessCheck()
 			->condition('field_' . $entity->bundle(), $entity->id())
+			->condition('status', 1)
 			->sort($this->getSortingField($entity))
 			->execute();
 	}

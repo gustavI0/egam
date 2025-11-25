@@ -1,4 +1,9 @@
 @layer base {
+
+  * {
+    @apply border-dark;
+  }
+
   body {
     @apply font-body bg-body h-screen;
   }

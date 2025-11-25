@@ -30,7 +30,7 @@
       {% if node.createdtime %}
         <div class="article-date">
           <time datetime="{{ node.createdtime|date('c') }}">
-            {{ node.createdtime|date('d F Y') }}
+            {{ node.createdtime|format_date('custom', 'd F Y') }}
           </time>
         </div>
       {% endif %}

@@ -62,7 +62,7 @@ function egam_game_user_cancel($edit, UserInterface $account, $method): void {
       $game_ids = $storage->getQuery()
         ->condition('uid', $account->id())
         ->condition('status', 1)
-        ->accessCheck(FALSE)
+        ->accessCheck()
         ->execute();
       foreach ($storage->loadMultiple($game_ids) as $game) {
         $game->set('status', FALSE)->save();
@@ -74,7 +74,7 @@ function egam_game_user_cancel($edit, UserInterface $account, $method): void {
       $storage = \Drupal::entityTypeManager()->getStorage('game');
       $game_ids = $storage->getQuery()
         ->condition('uid', $account->id())
-        ->accessCheck(FALSE)
+        ->accessCheck()
         ->execute();
       foreach ($storage->loadMultiple($game_ids) as $game) {
         $game->setOwnerId(0)->save();
@@ -92,7 +92,7 @@ function egam_game_user_predelete(UserInterface $account): void {
   $storage = \Drupal::entityTypeManager()->getStorage('game');
   $game_ids = $storage->getQuery()
     ->condition('uid', $account->id())
-    ->accessCheck(FALSE)
+    ->accessCheck()
     ->execute();
   $storage->delete(
     $storage->loadMultiple($game_ids)
@@ -101,7 +101,7 @@ function egam_game_user_predelete(UserInterface $account): void {
   $game_ids = $storage->getQuery()
     ->allRevisions()
     ->condition('uid', $account->id())
-    ->accessCheck(FALSE)
+    ->accessCheck()
     ->execute();
   foreach (array_keys($game_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);

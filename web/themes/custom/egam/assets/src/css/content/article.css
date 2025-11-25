@@ -1,7 +1,11 @@
-.article-title {
-  padding: 2rem 0 .5rem 0;
-}
+.article-content {
+  @apply max-w-[1200px] mx-auto;
 
-.article-body {
-  padding: 2rem 0;
+  h1.article-title {
+    padding: 2rem 0 .5rem 0;
+  }
+
+  .article-body {
+    padding: 2rem 0;
+  }
 }
