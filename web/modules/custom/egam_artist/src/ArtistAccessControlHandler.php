@@ -21,7 +21,9 @@ final class artistAccessControlHandler extends EntityAccessControlHandler {
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account): AccessResult {
     return match($operation) {
-      'view' => AccessResult::allowedIfHasPermissions($account, ['view artist', 'administer artist'], 'OR'),
+      'view' => AccessResult::allowedIfHasPermissions($account, ['view artist', 'administer artist'], 'OR')
+        ->andIf(AccessResult::allowedIf($entity->isPublished() || $account->hasPermission('administer artist')))
+        ->addCacheableDependency($entity),
       'update' => AccessResult::allowedIfHasPermissions($account, ['edit artist', 'administer artist'], 'OR'),
       'delete' => AccessResult::allowedIfHasPermissions($account, ['delete artist', 'administer artist'], 'OR'),
       default => AccessResult::neutral(),

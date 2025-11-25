@@ -49,8 +49,8 @@ settings:
   default_confirmation_message: 'Nouvelle soumission ajoutée à [webform:title]'
   default_confirmation_back_label: 'Retour au formulaire'
   default_confirmation_noindex: true
-  default_limit_total_message: 'No more submissions are permitted.'
-  default_limit_user_message: 'No more submissions are permitted.'
+  default_limit_total_message: 'Vous avez dépassé la limite de soumission du formulaire.'
+  default_limit_user_message: 'Vous avez dépassé la limite de soumission du formulaire.'
   default_submission_label: '[webform_submission:submitted-to]: Soumission #[webform_submission:serial]'
   default_submission_log: false
   default_submission_views: {  }

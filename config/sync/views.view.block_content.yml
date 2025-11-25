@@ -315,7 +315,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: "Il n'y a pas de blocs de contenu disponibles."
+          content: "Il n'y a pas de bloc de contenu disponible."
           tokenize: false
         block_content_listing_empty:
           id: block_content_listing_empty

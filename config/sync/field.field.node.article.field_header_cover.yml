@@ -1,0 +1,33 @@
+uuid: 5b4c2606-f85a-4c88-b830-27036eb06312
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_header_cover
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.article
+id: node.article.field_header_cover
+field_name: field_header_cover
+entity_type: node
+bundle: article
+label: 'Visuel entête'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      video: video
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

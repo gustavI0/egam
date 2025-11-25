@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to display an article node in full view mode.
+ *
+ * Available variables:
+ * - node: The node entity.
+ * - content: All node items rendered.
+ * - label: The title of the node.
+ * - date: The node creation date (formatted).
+ */
+#}
+
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, 'node--view-mode-' ~ view_mode|clean_class) }}>
+
+  {% if content.field_header_cover|render %}
+    <div class="article-header aspect-video overflow-hidden">
+      {{ content.field_header_cover }}
+    </div>
+  {% endif %}
+
+  <div class="article-content">
+    <header class="article-header-info">
+      {{ title_prefix }}
+      <h1{{ title_attributes.addClass('article-title') }}>
+        {{ label }}
+      </h1>
+      {{ title_suffix }}
+
+      {% if node.createdtime %}
+        <div class="article-date">
+          <time datetime="{{ node.createdtime|date('c') }}">
+            {{ node.createdtime|date('d F Y') }}
+          </time>
+        </div>
+      {% endif %}
+    </header>
+
+    {% if content.field_body|render %}
+      <div class="article-body">
+        {{ content.field_body }}
+      </div>
+    {% endif %}
+  </div>
+
+</article>

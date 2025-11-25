@@ -3,6 +3,8 @@
 namespace Drupal\egam_artist\Entity;
 
 use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityPublishedInterface;
+use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
@@ -48,6 +50,7 @@ use Drupal\user\EntityOwnerTrait;
  *     "label" = "label",
  *     "uuid" = "uuid",
  *     "owner" = "uid",
+ *     "published" = "status",
  *   },
  *   revision_metadata_keys = {
  *     "revision_user" = "revision_uid",
@@ -65,10 +68,11 @@ use Drupal\user\EntityOwnerTrait;
  *   field_ui_base_route = "entity.artist.settings",
  * )
  */
-final class Artist extends RevisionableContentEntityBase implements ArtistInterface {
+final class Artist extends RevisionableContentEntityBase implements ArtistInterface, EntityPublishedInterface {
 
   use EntityChangedTrait;
   use EntityOwnerTrait;
+  use EntityPublishedTrait;
 
   /**
    * {@inheritdoc}
@@ -88,6 +92,33 @@ final class Artist extends RevisionableContentEntityBase implements ArtistInterf
 
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    // Override status field from EntityPublishedTrait to make it non-translatable
+    // since this entity doesn't have a data_table.
+    $fields['status'] = BaseFieldDefinition::create('boolean')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Published'))
+      ->setDefaultValue(TRUE)
+      ->setSetting('on_label', 'Published')
+      ->setDisplayOptions('form', [
+        'type' => 'boolean_checkbox',
+        'settings' => [
+          'display_label' => FALSE,
+        ],
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'boolean',
+        'label' => 'above',
+        'weight' => 0,
+        'settings' => [
+          'format' => 'custom',
+          'format_custom_false' => 'Unpublished',
+          'format_custom_true' => 'Published',
+        ],
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['label'] = BaseFieldDefinition::create('string')
       ->setRevisionable(TRUE)
       ->setLabel(t('Name'))
@@ -102,29 +133,6 @@ final class Artist extends RevisionableContentEntityBase implements ArtistInterf
         'label' => 'hidden',
         'type' => 'string',
         'weight' => -5,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setRevisionable(TRUE)
-      ->setLabel(t('Status'))
-      ->setDefaultValue(TRUE)
-      ->setSetting('on_label', 'Enabled')
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'settings' => [
-          'display_label' => FALSE,
-        ],
-        'weight' => 0,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
       ])
       ->setDisplayConfigurable('view', TRUE);
 

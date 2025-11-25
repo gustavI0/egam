@@ -21,7 +21,9 @@ final class ScreenshotAccessControlHandler extends EntityAccessControlHandler {
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account): AccessResult {
     return match($operation) {
-      'view' => AccessResult::allowedIfHasPermissions($account, ['view screenshot', 'administer screenshot'], 'OR'),
+      'view' => AccessResult::allowedIfHasPermissions($account, ['view screenshot', 'administer screenshot'], 'OR')
+        ->andIf(AccessResult::allowedIf($entity->isPublished() || $account->hasPermission('administer screenshot')))
+        ->addCacheableDependency($entity),
       'update' => AccessResult::allowedIfHasPermissions($account, ['edit screenshot', 'administer screenshot'], 'OR'),
       'delete' => AccessResult::allowedIfHasPermissions($account, ['delete screenshot', 'administer screenshot'], 'OR'),
       default => AccessResult::neutral(),

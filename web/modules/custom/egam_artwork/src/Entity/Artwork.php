@@ -4,6 +4,8 @@ namespace Drupal\egam_artwork\Entity;
 
 use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
+use Drupal\Core\Entity\EntityPublishedInterface;
+use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
@@ -62,6 +64,7 @@ use Drupal\user\EntityOwnerTrait;
  *     "label" = "label",
  *     "uuid" = "uuid",
  *     "owner" = "uid",
+ *     "published" = "status",
  *   },
  *   revision_metadata_keys = {
  *     "revision_user" = "revision_uid",
@@ -79,10 +82,11 @@ use Drupal\user\EntityOwnerTrait;
  *   field_ui_base_route = "entity.artwork.settings",
  * )
  */
-final class Artwork extends RevisionableContentEntityBase implements ArtworkInterface {
+final class Artwork extends RevisionableContentEntityBase implements ArtworkInterface, EntityPublishedInterface {
 
   use EntityChangedTrait;
   use EntityOwnerTrait;
+  use EntityPublishedTrait;
 
   /**
    * {@inheritdoc}
@@ -102,6 +106,33 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
 
     $fields = parent::baseFieldDefinitions($entity_type);
 
+    // Override status field from EntityPublishedTrait to ensure proper configuration.
+    $fields['status'] = BaseFieldDefinition::create('boolean')
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setLabel(t('Published'))
+      ->setDefaultValue(TRUE)
+      ->setSetting('on_label', 'Published')
+      ->setDisplayOptions('form', [
+        'type' => 'boolean_checkbox',
+        'settings' => [
+          'display_label' => FALSE,
+        ],
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'boolean',
+        'label' => 'above',
+        'weight' => 0,
+        'settings' => [
+          'format' => 'custom',
+          'format_custom_false' => 'Unpublished',
+          'format_custom_true' => 'Published',
+        ],
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['label'] = BaseFieldDefinition::create('string')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
@@ -117,29 +148,6 @@ final class Artwork extends RevisionableContentEntityBase implements ArtworkInte
         'label' => 'hidden',
         'type' => 'string',
         'weight' => -5,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setRevisionable(TRUE)
-      ->setLabel(t('Status'))
-      ->setDefaultValue(TRUE)
-      ->setSetting('on_label', 'Enabled')
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'settings' => [
-          'display_label' => FALSE,
-        ],
-        'weight' => 0,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
       ])
       ->setDisplayConfigurable('view', TRUE);
 

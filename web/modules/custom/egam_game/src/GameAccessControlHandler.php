@@ -21,7 +21,9 @@ final class GameAccessControlHandler extends EntityAccessControlHandler {
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account): AccessResult {
     return match($operation) {
-      'view' => AccessResult::allowedIfHasPermissions($account, ['view game', 'administer game'], 'OR'),
+      'view' => AccessResult::allowedIfHasPermissions($account, ['view game', 'administer game'], 'OR')
+        ->andIf(AccessResult::allowedIf($entity->isPublished() || $account->hasPermission('administer game')))
+        ->addCacheableDependency($entity),
       'update' => AccessResult::allowedIfHasPermissions($account, ['edit game', 'administer game'], 'OR'),
       'delete' => AccessResult::allowedIfHasPermissions($account, ['delete game', 'administer game'], 'OR'),
       default => AccessResult::neutral(),

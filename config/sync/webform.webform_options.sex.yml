@@ -11,6 +11,4 @@ id: sex
 label: Sexe
 category: Démographique
 likert: false
-options: |
-  Male: Male
-  Female: Female
+options: "Mâle : Mâle\r\nFemelle : Femelle\n"

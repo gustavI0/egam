@@ -12,10 +12,10 @@ logo:
 third_party_settings:
   shortcut:
     module_link: true
-preset_accent_color: blue
+preset_accent_color: teal
 preset_focus_color: gin
 enable_darkmode: '1'
-classic_toolbar: horizontal
+classic_toolbar: new
 secondary_toolbar_frontend: true
 high_contrast_mode: false
 accent_color: ''
@@ -23,3 +23,4 @@ focus_color: ''
 layout_density: default
 show_description_toggle: false
 show_user_theme_settings: false
+sticky_action_buttons: true

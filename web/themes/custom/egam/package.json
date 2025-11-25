@@ -3,9 +3,9 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "build": "npx tailwindcss build -i assets/src/css/style.css -o assets/dist/css/style.css",
+    "build": "npx tailwindcss -i assets/src/css/style.css -o assets/dist/css/style.css --minify",
     "watch": "npx tailwindcss -i assets/src/css/style.css -o assets/dist/css/style.css --watch",
-    "build:prod": "npx tailwindcss build -i assets/src/css/styles.css -o assets/dist/css/styles.css --minify"
+    "dev": "npm run watch"
   },
   "dependencies": {
     "photoswipe": "^5.4.4",

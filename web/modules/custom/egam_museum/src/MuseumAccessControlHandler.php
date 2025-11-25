@@ -21,7 +21,9 @@ final class MuseumAccessControlHandler extends EntityAccessControlHandler {
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account): AccessResult {
     return match($operation) {
-      'view' => AccessResult::allowedIfHasPermissions($account, ['view museum', 'administer museum'], 'OR'),
+      'view' => AccessResult::allowedIfHasPermissions($account, ['view museum', 'administer museum'], 'OR')
+        ->andIf(AccessResult::allowedIf($entity->isPublished() || $account->hasPermission('administer museum')))
+        ->addCacheableDependency($entity),
       'update' => AccessResult::allowedIfHasPermissions($account, ['edit museum', 'administer museum'], 'OR'),
       'delete' => AccessResult::allowedIfHasPermissions($account, ['delete museum', 'administer museum'], 'OR'),
       default => AccessResult::neutral(),
