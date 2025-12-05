@@ -1,3 +1,11 @@
+.article-header {
+  @apply w-full h-[30rem];
+
+  img {
+    @apply object-cover;
+  }
+}
+
 .article-content {
   @apply max-w-[1200px] mx-auto;
 

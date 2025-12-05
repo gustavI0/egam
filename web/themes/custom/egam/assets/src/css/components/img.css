@@ -1,7 +1,7 @@
 @layer components {
 
   .content .cover img {
-    @apply lg:max-h-[30rem] object-contain;
+    @apply lg:max-h-[30rem] object-contain object-left;
   }
 
   .teaser .cover img {

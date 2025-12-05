@@ -4,7 +4,7 @@
 @import './components/custom-components.css';
 @import 'tailwindcss/utilities';
 @import './homepage/homepage.css';
-@import './content/article.css';
+@import './content/custom-content.css';
 
 @font-face {
   font-family: "Primetime";

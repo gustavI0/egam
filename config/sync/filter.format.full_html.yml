@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - editor
+    - footnotes
+    - media
 _core:
   default_config_hash: HvAE4vD_4-nvhwLobIN3k5rTE9zq9AQG8UScfnwuKQo
 name: 'HTML complet'
@@ -28,6 +30,25 @@ filters:
     status: true
     weight: 9
     settings: {  }
+  filter_footnotes:
+    id: filter_footnotes
+    provider: footnotes
+    status: true
+    weight: 0
+    settings:
+      footnotes_collapse: false
+      footnotes_css: true
+      footnotes_dialog: false
+      footnotes_footer_disable: false
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: ''
+      filter_html_help: true
+      filter_html_nofollow: false
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
@@ -40,3 +61,16 @@ filters:
     status: true
     weight: 15
     settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes: {  }
+      allowed_media_types:
+        image: image
+        image_screenshot: image_screenshot
+        remote_video: remote_video
+        video: video

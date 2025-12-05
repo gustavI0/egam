@@ -8,6 +8,7 @@ settings:
   default_form_confidential_message: 'This form is confidential. You must <a href="[site:login-url]/logout?destination=[current-page:url:relative]">Log out</a> to submit it.'
   default_form_access_denied_message: 'Please log in to access this form.'
   default_form_required_label: 'Indicates required field'
+  default_form_file_limit_message: "This form's file upload quota of %quota has been exceeded. Please remove some files."
   default_wizard_prev_button_label: '< Previous'
   default_wizard_next_button_label: 'Next >'
   default_wizard_start_label: Start

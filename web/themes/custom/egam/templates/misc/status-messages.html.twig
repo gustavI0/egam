@@ -19,7 +19,7 @@
  *   - class: HTML classes.
  */
 #}
-<div class="w-9/12 p-4 mx-auto bg-stone-400 border-2 border-stone-800 rounded-md" data-drupal-messages>
+<div class="w-full p-4 mx-auto bg-green-200 border-2 border-stone-800 rounded-md my-4" data-drupal-messages>
 {% for type, messages in message_list %}
   <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
     {% if type == 'error' %}

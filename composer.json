@@ -23,6 +23,7 @@
         "drupal/core-project-message": "^11",
         "drupal/core-recommended": "^11",
         "drupal/focal_point": "^2.1",
+        "drupal/footnotes": "^4.0@beta",
         "drupal/gin": "^5.0",
         "drupal/gin_toolbar": "^3.0",
         "drupal/honeypot": "^2.2",

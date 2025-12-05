@@ -2,22 +2,22 @@
 
   .content table {
     @apply mt-4 w-full;
+
+    th {
+      @apply text-left p-4 mt-4 w-40;
+    }
+
+    tr {
+      @apply border-t border-solid;
+    }
   }
 
   .content.screenshot table {
     @apply mt-0;
-  }
 
-  .content table th {
-    @apply text-left p-4 mt-4 w-40;
-  }
-
-  .content table tr {
-    @apply border-t border-solid;
-  }
-
-  .content.screenshot table tr.item:nth-child(1) {
-    @apply border-t-0;
+    tr.item:nth-child(1) {
+      @apply border-t-0;
+    }
   }
 
 }

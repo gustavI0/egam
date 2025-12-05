@@ -1,0 +1,5 @@
+article .content {
+  .item.description {
+    @apply pt-8;
+  }
+}

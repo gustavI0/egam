@@ -22,15 +22,9 @@
       {% set date = content.field_game.0.entity %}
       {% set dev = content.field_game.entity.field_developer.value %}
       <div class="content screenshot">
-          <div class="cover lightbox">
-              {{ content.field_cover }}
-              {% if content.description.0 %}
-                  <div class="item description">
-                      <h2>{{ 'Notes'|t }}</h2>
-                      <div>{{ content.description }}</div>
-                  </div>
-              {% endif %}
-          </div>
+          {{ include('egam:illustration_container', {
+              notes: content.description,
+          }) }}
           <div class="details">
               <table class="infos">
                   {% if content.field_game.0 %}

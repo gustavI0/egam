@@ -1,0 +1,18 @@
+<div class="illustration-container">
+    <div class="cover lightbox">
+        {% if title is not empty %}
+            <div class="title md:hidden">
+                <div class="item name">
+                    <h1>{{ title }}</h1>
+                </div>
+            </div>
+        {% endif %}
+        {{ content.field_cover }}
+    </div>
+    {% if notes.0 %}
+        <div class="item description">
+            <h2>{{ 'Notes'|t }}</h2>
+            <div>{{ notes }}</div>
+        </div>
+    {% endif %}
+</div>

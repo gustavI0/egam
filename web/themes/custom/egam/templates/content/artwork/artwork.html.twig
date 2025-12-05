@@ -21,22 +21,10 @@
 
     {% if content %}
         <div class="content artwork mb-5">
-            <div class="cover lightbox">
-                <div class="title md:hidden">
-                    {% if content.label %}
-                        <div class="item name">
-                            <h1>{{ content.label }}</h1>
-                        </div>
-                    {% endif %}
-                </div>
-                {{ content.field_cover }}
-                {% if content.description.0 %}
-                    <div class="item description">
-                        <h2>{{ 'Notes'|t }}</h2>
-                        <div>{{ content.description }}</div>
-                    </div>
-                {% endif %}
-            </div>
+            {{ include('egam:illustration_container', {
+                title: content.label,
+                notes: content.description,
+            }) }}
             <div class="details">
                 <div class="title hidden md:block">
                     {% if content.label %}

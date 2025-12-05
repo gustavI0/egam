@@ -1,0 +1,8 @@
+name: Illustration Container
+slots:
+  title:
+    title: Title
+    description: Content title
+  notes:
+    title: Notes
+    description: Illustration description

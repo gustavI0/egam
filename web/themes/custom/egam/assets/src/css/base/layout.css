@@ -1,4 +1,7 @@
 @layer {
+  body {
+    @apply overflow-x-hidden;
+  }
 
   /* HEADER */
   header.small {
@@ -10,12 +13,20 @@
     @apply max-w-[1200px] mx-auto flex flex-wrap;
   }
 
-  main .content .cover {
+  main .content .illustration-container {
     @apply w-full lg:w-2/4 lg:py-8 lg:pr-8 mt-4 lg:mt-0;
   }
 
   main .content .details {
     @apply w-full lg:w-2/4 lg:py-8 lg:pl-8;
+  }
+
+  /* CONTENT */
+  .views-element-container,
+  article.node--page,
+  article.contact,
+  article .content {
+    @apply pt-[3.75rem];
   }
 
   /* FOOTER */

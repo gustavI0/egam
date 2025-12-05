@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     './templates/**/*.twig',
+    './components/**/*.twig',
     './assets/src/**/*.js',
     '../../../modules/custom/**/templates/**/*.twig',
   ],

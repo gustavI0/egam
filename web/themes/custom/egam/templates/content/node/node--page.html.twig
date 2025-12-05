@@ -67,7 +67,8 @@
  *
  */
 #}
-<article{{ attributes.addClass('node') }}>
+{{ breakpoint() }}
+<article{{ attributes.addClass('node', 'node--' ~ node.getType()) }}>
     <h1{{ title_attributes }}>{{ label }}</h1>
     <div class="content">
         {% if content.field_cover.0 is not empty %}
