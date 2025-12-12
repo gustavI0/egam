@@ -15,5 +15,35 @@
 
   .article-body {
     padding: 2rem 0;
+    font-size: 1.125rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    a.footnote__citation {
+      background: none;
+      color: #10b981;
+
+      &:hover {
+        color: coral;
+        transition: .2s ease-in-out;
+      }
+    }
+
+    .align-center {
+      img {
+        margin: auto;
+      }
+      figcaption {
+        text-align: center;
+        font-size: 0.8em;
+        color: gray;
+      }
+    }
+
+    .footnotes__item-wrapper {
+      margin: .5rem 0;
+    }
   }
 }
