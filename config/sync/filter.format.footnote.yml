@@ -6,7 +6,7 @@ _core:
   default_config_hash: SYAah-i4HbJnc3ZnKC9NmY4M0UAFYpfobYzxg0eMunM
 name: Footnote
 format: footnote
-weight: 0
+weight: -7
 filters:
   filter_html:
     id: filter_html

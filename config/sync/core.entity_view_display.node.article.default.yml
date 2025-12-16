@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.node.article.field_body
     - field.field.node.article.field_header_cover
+    - image.style.webp
     - node.type.article
   module:
+    - media
     - text
     - user
 id: node.article.default
@@ -22,10 +24,13 @@ content:
     weight: 2
     region: content
   field_header_cover:
-    type: entity_reference_label
+    type: media_thumbnail
     label: hidden
     settings:
-      link: true
+      image_link: ''
+      image_style: webp
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 1
     region: content
