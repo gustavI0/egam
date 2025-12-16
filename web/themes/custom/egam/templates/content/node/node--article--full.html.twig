@@ -10,7 +10,7 @@
  * - date: The node creation date (formatted).
  */
 #}
-
+{{ breakpoint() }}
 <article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, 'node--view-mode-' ~ view_mode|clean_class) }}>
 
   {% if content.field_header_cover|render %}

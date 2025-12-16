@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override to display an article node in teaser view mode.
+ *
+ * Available variables:
+ * - node: The node entity.
+ * - content: All node items rendered.
+ * - label: The title of the node.
+ * - url: Direct URL of the current node.
+ * - date: The node creation date (formatted).
+ */
+#}
+
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, 'node--view-mode-teaser') }}>
+
+  <header class="article-teaser-header">
+    {{ title_prefix }}
+    <h2{{ title_attributes.addClass('article-teaser-title') }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+    {{ title_suffix }}
+
+    {% if node.createdtime %}
+      <div class="article-teaser-date">
+        <time datetime="{{ node.createdtime|date('c') }}">
+          {{ node.createdtime|format_date('custom', 'd F Y') }}
+        </time>
+      </div>
+    {% endif %}
+  </header>
+
+</article>

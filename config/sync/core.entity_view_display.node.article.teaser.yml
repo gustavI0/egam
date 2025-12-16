@@ -1,40 +1,27 @@
-uuid: 508a1733-cd39-4cf8-8599-27d64a1956cd
+uuid: eff83611-093a-4562-8283-4eca3e25626f
 langcode: fr
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.field.node.article.field_body
     - field.field.node.article.field_header_cover
     - node.type.article
   module:
-    - text
     - user
-id: node.article.default
+id: node.article.teaser
 targetEntityType: node
 bundle: article
-mode: default
+mode: teaser
 content:
-  field_body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_header_cover:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_body: true
+  field_header_cover: true
   footnotes_group: true
   langcode: true
   search_api_excerpt: true

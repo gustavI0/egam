@@ -6,6 +6,9 @@ module.exports = {
     './assets/src/**/*.js',
     '../../../modules/custom/**/templates/**/*.twig',
   ],
+  safelist: [
+    'views-row',
+  ],
   theme: {
     container: {
       center: true,

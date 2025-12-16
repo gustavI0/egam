@@ -10,11 +10,25 @@
   .views-element-container header h1,
   .node h1,
   .webform h1 {
-    @apply lg:pl-[2.125rem];
+    @apply lg:pl-[2.5rem];
   }
 
-  .related-content h2 {
+  .related-content h2,
+  .article-teaser-header h2 {
     @apply text-4xl;
+  }
+
+  .node .article-teaser-header a {
+    @apply p-0;
+  }
+
+  .article-teaser-date {
+    @apply pt-2;
+  }
+
+  .article-teaser-date,
+  .article-date {
+    @apply text-gray-500;
   }
 
   .teaser .label {

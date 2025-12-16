@@ -10,7 +10,7 @@
   @apply max-w-[1200px] mx-auto;
 
   h1.article-title {
-    padding: 2rem 0 .5rem 0;
+    padding: 2rem 0 0;
   }
 
   .article-body {
@@ -33,12 +33,10 @@
 
     .align-center {
       img {
-        margin: auto;
+        @apply m-auto;
       }
       figcaption {
-        text-align: center;
-        font-size: 0.8em;
-        color: gray;
+        @apply text-center text-sm text-gray-500;
       }
     }
 
