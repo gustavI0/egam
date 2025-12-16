@@ -13,7 +13,7 @@
   }
 
   .views-row {
-    @apply p-10;
+    @apply pt-10 lg:pl-10;
   }
 
   .container.related-content {

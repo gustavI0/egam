@@ -24,6 +24,8 @@ module.exports = {
         'dark': 'rgb(3 7 18)',
         'light': 'rgb(250 250 249)',
         'body': 'rgb(231 229 228)',
+        'green': 'rgb(16 185 129)',
+        'coral': 'rgb(255 127 80)',
       },
       fontFamily: {
         'branding': ['Primetime', 'ui-sans-serif'],

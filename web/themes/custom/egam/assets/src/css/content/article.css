@@ -10,20 +10,19 @@
   @apply max-w-[1200px] mx-auto;
 
   h1.article-title {
-    padding: 2rem 0 0;
+    @apply pt-8;
   }
 
   .article-body {
-    padding: 2rem 0;
-    font-size: 1.125rem;
+    @apply pt-8 lg:text-lg;
 
     h2 {
-      font-size: 2rem;
+      @apply text-4xl;
     }
 
     a.footnote__citation {
       background: none;
-      color: #10b981;
+      color: theme('colors.green');
 
       &:hover {
         color: coral;
