@@ -2,7 +2,7 @@
   @apply w-full h-[30rem];
 
   img {
-    @apply object-cover;
+    @apply object-cover w-full;
   }
 }
 

@@ -26,7 +26,11 @@
   article.node--page,
   article.contact,
   article .content {
-    @apply pt-[3.75rem] min-h-[82vh];
+    @apply pt-12;
+  }
+
+  .views-element-container {
+    @apply min-h-[82vh];
   }
 
   /* FOOTER */
