@@ -1,0 +1,52 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "=== Déploiement EGAM - $(date) ==="
+
+# Couleurs pour les logs
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Configuration
+PROJECT_DIR="/home/ubuntu/egam"
+BRANCH="${1:-main}"  # Branche à déployer (défaut: main)
+EMAIL="gustavI0@proton.me"
+
+cd "$PROJECT_DIR"
+
+echo -e "${YELLOW}📥 Récupération des dernières modifications (branche: $BRANCH)...${NC}"
+git fetch origin
+git checkout "$BRANCH"
+git pull origin "$BRANCH"
+
+echo -e "${YELLOW}📦 Installation des dépendances Composer...${NC}"
+docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloader
+
+echo -e "${YELLOW}🔧 Mise en mode maintenance...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
+
+echo -e "${YELLOW}🗄️  Mise à jour de la base de données...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush updatedb -y
+
+echo -e "${YELLOW}📝 Import de la configuration...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush config:import -y
+
+echo -e "${YELLOW}🧹 Nettoyage du cache...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush cache:rebuild
+
+echo -e "${YELLOW}🔓 Désactivation du mode maintenance...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 0
+
+echo -e "${GREEN}✅ Déploiement terminé avec succès!${NC}"
+
+# Vérifier l'état du site
+echo -e "${YELLOW}📊 État du site:${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush status
+
+# Notification email
+echo "Déploiement EGAM réussi
+Branche: $BRANCH
+Date: $(date)
+" | mail -s "✅ Déploiement EGAM réussi" "$EMAIL"
