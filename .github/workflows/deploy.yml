@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Permet déclenchement manuel
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -17,13 +17,13 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            cd ${{ secrets.DEPLOY_PATH }}
+            cd ${{ secrets.DEPLOY_PATH }}/drupal-files 
             
             echo "📥 Pulling latest changes..."
             git pull origin main
             
             echo "📦 Installing dependencies..."
-            docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloader
+            docker exec -u www-data egam_drupal composer install --optimize-autoloader
             
             echo "🔧 Enabling maintenance mode..."
             docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
