@@ -162,6 +162,95 @@ Configuration can be safely ignored for certain modules using the `config_ignore
 5. Test changes
 6. Commit code and configuration together
 
+## Deployment & CI/CD
+
+The project uses automated deployment to production via GitHub Actions and manual deployment scripts.
+
+### Automated Deployment (GitHub Actions)
+
+Located in `web/themes/custom/egam/.github/workflows/deploy.yml`
+
+- **Trigger**: Automatically deploys on push to `main` branch, or manually via workflow_dispatch
+- **Target**: Production VPS running Docker containers
+- **Process**:
+  1. SSH into production server
+  2. Pull latest changes from main branch
+  3. Install Composer dependencies (production mode)
+  4. Enable maintenance mode
+  5. Update database schema
+  6. Import configuration
+  7. Rebuild cache
+  8. Disable maintenance mode
+
+**Required GitHub Secrets**:
+- `DEPLOY_HOST`: Production server hostname
+- `DEPLOY_USER`: SSH username
+- `DEPLOY_SSH_KEY`: SSH private key for authentication
+- `DEPLOY_PATH`: Path to project directory (e.g., `/home/ubuntu/egam`)
+
+### Manual Deployment Scripts
+
+Located in `web/themes/custom/egam/`
+
+#### Deploy Script (`deploy.sh`)
+```bash
+# Deploy main branch
+./web/themes/custom/egam/deploy.sh
+
+# Deploy specific branch
+./web/themes/custom/egam/deploy.sh feature-branch
+```
+
+Features:
+- Pulls latest changes from specified branch (default: main)
+- Installs dependencies via Docker (container: `egam_drupal`)
+- Enables maintenance mode during deployment
+- Updates database and imports configuration
+- Sends email notification on completion
+
+#### Rollback Script (`rollback.sh`)
+```bash
+./web/themes/custom/egam/rollback.sh
+```
+
+Emergency rollback to previous commit:
+- Lists last 10 commits
+- Prompts for commit hash to rollback to
+- Performs full deployment process at specified commit
+- Sends email notification
+
+#### Webhook Listener (`webhook-listener.sh`)
+```bash
+./web/themes/custom/egam/webhook-listener.sh
+```
+
+Alternative deployment trigger:
+- Runs as background service
+- Polls `/tmp/deploy-egam.trigger` file every 10 seconds
+- Triggers deployment when file exists
+- Logs output to `~/egam/deploy.log`
+
+### Docker Environment
+
+All deployment scripts assume a Docker-based production environment:
+- **Container name**: `egam_drupal`
+- **User**: `www-data`
+- Commands are executed via: `docker exec -u www-data egam_drupal [command]`
+
+### Deployment Checklist
+
+Before deploying:
+1. Test changes locally
+2. Export configuration: `vendor/bin/drush config:export`
+3. Commit and push to main branch
+4. Monitor GitHub Actions workflow for deployment status
+5. Verify site functionality after deployment
+
+If issues occur:
+1. Use `rollback.sh` to revert to previous working commit
+2. Check `~/egam/deploy.log` for error details
+3. Manually fix issues and redeploy
+
 ## Important Patterns
 
 ### Using the Entities Enum
