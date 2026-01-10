@@ -257,7 +257,7 @@ composer require drupal/[module_name]
 Le projet utilise **GitHub Actions** pour le déploiement automatique :
 - Déclenchement automatique sur push vers `main`
 - Déploiement sur VPS Docker
-- Scripts de déploiement manuel disponibles dans `web/themes/custom/egam/`
+- Scripts de déploiement manuel disponibles à la racine du projet (`deploy.sh`, `rollback.sh`, `webhook-listener.sh`)
 
 Pour plus de détails, consulter `CLAUDE.md` section "Deployment & CI/CD".
 

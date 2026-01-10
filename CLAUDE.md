@@ -168,7 +168,7 @@ The project uses automated deployment to production via GitHub Actions and manua
 
 ### Automated Deployment (GitHub Actions)
 
-Located in `web/themes/custom/egam/.github/workflows/deploy.yml`
+Located in `.github/workflows/deploy.yml`
 
 - **Trigger**: Automatically deploys on push to `main` branch, or manually via workflow_dispatch
 - **Target**: Production VPS running Docker containers
@@ -190,15 +190,15 @@ Located in `web/themes/custom/egam/.github/workflows/deploy.yml`
 
 ### Manual Deployment Scripts
 
-Located in `web/themes/custom/egam/`
+Located in project root directory.
 
 #### Deploy Script (`deploy.sh`)
 ```bash
 # Deploy main branch
-./web/themes/custom/egam/deploy.sh
+./deploy.sh
 
 # Deploy specific branch
-./web/themes/custom/egam/deploy.sh feature-branch
+./deploy.sh feature-branch
 ```
 
 Features:
@@ -210,7 +210,7 @@ Features:
 
 #### Rollback Script (`rollback.sh`)
 ```bash
-./web/themes/custom/egam/rollback.sh
+./rollback.sh
 ```
 
 Emergency rollback to previous commit:
@@ -221,7 +221,7 @@ Emergency rollback to previous commit:
 
 #### Webhook Listener (`webhook-listener.sh`)
 ```bash
-./web/themes/custom/egam/webhook-listener.sh
+./webhook-listener.sh
 ```
 
 Alternative deployment trigger:
