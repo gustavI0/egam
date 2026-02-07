@@ -57,6 +57,23 @@ function template_preprocess_screenshot(array &$variables): void {
 		if ($contextEntity instanceof GameInterface || $contextEntity instanceof ArtworkInterface) {
 			$variables['context_title'] = $screenshot->getContextualizedTitle($contextEntity);
 		}
+
+		// Pass artwork data for multiple artworks hover effect (works in all contexts)
+		if ($screenshot->hasMultipleRelatedArtworks()) {
+			$artworks = [];
+			foreach ($screenshot->get('field_artwork') as $item) {
+				/** @var \Drupal\egam_artwork\Entity\ArtworkInterface $artwork */
+				$artwork = $item->entity;
+				if ($artwork) {
+					$artworks[] = [
+						'title' => $artwork->label(),
+						'artist' => $artwork->getFullArtist(FALSE),
+					];
+				}
+			}
+			$variables['artworks'] = $artworks;
+		}
+
 		$variables['#cache']['contexts'][] = 'url';
 	}
 }

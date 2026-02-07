@@ -1,0 +1,109 @@
+@layer components {
+
+  /* Container for artwork hover effect */
+  .artwork-hover-container {
+    @apply relative;
+  }
+
+  /* Link that covers entire area */
+  .cover-link {
+    @apply block relative;
+    text-decoration: none;
+    z-index: 1;
+  }
+
+  /* Image stays in normal flow */
+  .artwork-hover-container img,
+  .artwork-hover-container picture {
+    @apply block w-full h-auto;
+  }
+
+  /* Overlay that appears on hover */
+  .artwork-overlay {
+    @apply absolute inset-0 flex items-center justify-center pointer-events-none;
+    background: rgba(3, 7, 18, 0.65);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+  }
+
+  /* Transition classes for Alpine.js */
+  .artwork-overlay-enter {
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+
+  .artwork-overlay-enter-start {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .artwork-overlay-enter-end {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .artwork-overlay-leave {
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+  }
+
+  .artwork-overlay-leave-start {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .artwork-overlay-leave-end {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  /* Artwork list - enable pointer events for scrolling */
+  .artwork-list {
+    @apply list-none py-6 px-3 m-0 w-full max-h-full overflow-y-auto;
+    pointer-events: auto;
+  }
+
+  /* Individual artwork item */
+  .artwork-item {
+    @apply py-2 px-3 border-b border-light border-opacity-10;
+    font-family: 'Futura Book', ui-sans-serif;
+  }
+
+  .artwork-item:last-child {
+    @apply border-b-0;
+  }
+
+  /* Artwork title */
+  .artwork-title {
+    @apply block text-light text-sm lg:text-base font-normal mb-1;
+    letter-spacing: 0.01em;
+  }
+
+  /* Artist name */
+  .artwork-artist {
+    @apply block text-light text-xs lg:text-sm opacity-70;
+    letter-spacing: 0.015em;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .artwork-overlay {
+      background: rgba(3, 7, 18, 0.65);
+    }
+
+    .artwork-list {
+      @apply py-4 px-2;
+    }
+
+    .artwork-item {
+      @apply py-2 px-2;
+    }
+
+    .artwork-title {
+      @apply text-xs;
+    }
+
+    .artwork-artist {
+      @apply text-xs;
+    }
+  }
+
+}
