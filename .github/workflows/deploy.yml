@@ -17,8 +17,11 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            cd ${{ secrets.DEPLOY_PATH }}/drupal-files 
-            
+            cd ${{ secrets.DEPLOY_PATH }}/drupal-files
+
+            echo "🔐 Configuring Git safe directory..."
+            git config --global --add safe.directory ${{ secrets.DEPLOY_PATH }}/drupal-files
+
             echo "📥 Pulling latest changes..."
             git pull origin main
             
