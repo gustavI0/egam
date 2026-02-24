@@ -8,6 +8,35 @@ Every Game a Museum is a Drupal 11 site that catalogs artworks found in video ga
 
 Live site: https://everygameamuseum.com
 
+## Local Development Environment
+
+The project uses [DDEV](https://ddev.readthedocs.io/) for local development.
+
+### DDEV Commands
+```bash
+# Start environment
+ddev start
+
+# Stop environment
+ddev stop
+
+# Open site in browser
+ddev launch
+
+# Open Mailpit (email catcher)
+ddev mailpit
+
+# SSH into the web container
+ddev ssh
+
+# Enable/disable Xdebug
+ddev xdebug on
+ddev xdebug off
+
+# Import a database dump
+ddev import-db --file=dump.sql.gz
+```
+
 ## Development Commands
 
 ### Composer
@@ -19,22 +48,22 @@ composer install
 composer update drupal/core-recommended --with-all-dependencies
 ```
 
-### Drush (via vendor/bin)
+### Drush (via DDEV)
 ```bash
 # Clear cache
-vendor/bin/drush cr
+ddev drush cr
 
 # Import configuration
-vendor/bin/drush config:import
+ddev drush config:import
 
 # Export configuration
-vendor/bin/drush config:export
+ddev drush config:export
 
 # Update database after code changes
-vendor/bin/drush updatedb
+ddev drush updatedb
 
 # Rebuild entity caches
-vendor/bin/drush entity:updates
+ddev drush entity:updates
 ```
 
 ### Theme Development
