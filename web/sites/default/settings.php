@@ -2,10 +2,6 @@
 
 // phpcs:ignoreFile
 
-use Symfony\Component\Dotenv\Dotenv;
-
-(new Dotenv())->bootEnv(DRUPAL_ROOT . '/../.env');
-
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -864,16 +860,10 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
-$databases['default']['default'] = [
-	'database' => $_ENV['DB_NAME'],
-	'username' => $_ENV['DB_USER'],
-	'password' => $_ENV['DB_PASSWORD'],
-	'prefix' => '',
-	'host' => $_ENV['DB_HOST'],
-	'port' => $_ENV['DB_PORT'],
-	'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-	'driver' => $_ENV['DB_DRIVER'],
-	'isolation_level' => 'READ COMMITTED',
-	'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-];
 $settings['config_sync_directory'] = $app_root . '/../config/sync';
+
+// Automatically generated include for settings managed by ddev.
+$ddev_settings = __DIR__ . '/settings.ddev.php';
+if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
+  require $ddev_settings;
+}
