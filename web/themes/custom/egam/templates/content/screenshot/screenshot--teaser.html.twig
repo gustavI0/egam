@@ -39,9 +39,12 @@
                 {% endif %}
             {% endif %}
         {% endset %}
+        {% set label_content %}
+            <a href="{{ content.label.0['#url'] }}">{{ context_title|default(screenshot.label)|e }}</a>
+        {% endset %}
         {{ include('egam:entity_teaser', {
             cover: cover_content,
-            label: ('<a href="' ~ content.label.0['#url'] ~ '">' ~ (context_title|default(screenshot.label)|e) ~ '</a>')|raw,
+            label: label_content,
         }) }}
     {% endif %}
 </article>
