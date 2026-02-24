@@ -862,6 +862,22 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 }
 $settings['config_sync_directory'] = $app_root . '/../config/sync';
 
+// Database configuration from environment variables (production/Docker).
+if (getenv('DB_NAME')) {
+  $databases['default']['default'] = [
+    'database' => getenv('DB_NAME'),
+    'username' => getenv('DB_USER'),
+    'password' => getenv('DB_PASSWORD'),
+    'prefix' => '',
+    'host' => getenv('DB_HOST'),
+    'port' => getenv('DB_PORT') ?: '3306',
+    'driver' => getenv('DB_DRIVER') ?: 'mysql',
+    'isolation_level' => 'READ COMMITTED',
+    'namespace' => 'Drupal\Core\Database\Driver\mysql',
+    'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+  ];
+}
+
 // Automatically generated include for settings managed by ddev.
 $ddev_settings = __DIR__ . '/settings.ddev.php';
 if (getenv('IS_DDEV_PROJECT') == 'true' && is_readable($ddev_settings)) {
