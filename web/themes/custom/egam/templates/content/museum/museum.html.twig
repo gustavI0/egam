@@ -53,12 +53,11 @@
             </div>
         </div>
         {% if related_artworks is not empty %}
-            <div class="container related-content">
-                <h2>{{ multiple_content ? 'Œuvres du musée citées dans des jeux vidéo :'|t : 'Œuvre du musée citée dans des jeux vidéo :'|t }}</h2>
-                <div class="items artworks">
-                    {{ related_artworks }}
-                </div>
-            </div>
+            {{ include('@egam/partials/related-content.html.twig', {
+                title: multiple_content ? 'Œuvres du musée citées dans des jeux vidéo :'|t : 'Œuvre du musée citée dans des jeux vidéo :'|t,
+                items: related_artworks,
+                items_class: 'artworks',
+            }) }}
         {% endif %}
     {% endif %}
 </article>

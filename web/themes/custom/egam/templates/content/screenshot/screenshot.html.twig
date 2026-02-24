@@ -59,12 +59,11 @@
           </div>
       </div>
       {% if content.field_artwork.0 %}
-          <div class="container related-content">
-              <h2>{{ multiple_related_artworks ? 'Œuvres présentes dans cette image :'|t : 'Œuvre présente dans cette image :'|t }}</h2>
-              <div class="items artworks">
-                  {{ content.field_artwork }}
-              </div>
-          </div>
+          {{ include('@egam/partials/related-content.html.twig', {
+              title: multiple_related_artworks ? 'Œuvres présentes dans cette image :'|t : 'Œuvre présente dans cette image :'|t,
+              items: content.field_artwork,
+              items_class: 'artworks',
+          }) }}
       {% endif %}
   {% endif %}
 </article>

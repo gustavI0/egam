@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Partial template for the related content section shown below entity detail pages.
+ *
+ * Variables:
+ * - title: Translated heading string
+ * - items: Rendered related entity items
+ * - items_class: CSS class for the items container (e.g. 'games', 'artworks', 'screenshots')
+ */
+#}
+<div class="container related-content">
+    <h2>{{ title }}</h2>
+    <div class="items {{ items_class }}">
+        {{ items }}
+    </div>
+</div>
