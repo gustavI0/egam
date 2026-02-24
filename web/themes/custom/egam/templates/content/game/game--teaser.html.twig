@@ -1,16 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to present a game entity.
- *
- * This template is used when viewing a canonical game page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_game()
+ * Theme implementation to present a game entity in teaser view.
  */
 #}
 <article{{ attributes.addClass('game', view_mode) }}>
@@ -19,11 +10,9 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-        <div class="cover">
-            {{ content.field_cover }}
-        </div>
-        <div class="label">
-            {{ full_title|raw }}
-        </div>
+        {{ include('egam:entity_teaser', {
+            cover: content.field_cover,
+            label: full_title|raw,
+        }) }}
     {% endif %}
 </article>

@@ -1,16 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to present a museum entity.
- *
- * This template is used when viewing a canonical museum page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_museum()
+ * Theme implementation to present a screenshot entity in teaser view.
  */
 #}
 <article{{ attributes.addClass('screenshot', 'w-60', view_mode) }}>
@@ -19,25 +10,26 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-        <div class="cover{% if artworks %} artwork-hover-container{% endif %}"{% if artworks %} x-data="{ showArtworks: false }" @mouseenter="showArtworks = true" @mouseleave="showArtworks = false"{% endif %}>
+        {% set cover_content %}
             {% if artworks %}
-                <a href="{{ content.label.0['#url'] }}" class="cover-link">
-                    {% if content.field_thumbnail.0 is not empty %}
-                        {{ content.field_thumbnail }}
-                    {% else %}
-                        {{ content.field_cover }}
-                    {% endif %}
-                </a>
-
-                <div class="artwork-overlay" x-show="showArtworks" x-transition:enter="artwork-overlay-enter" x-transition:enter-start="artwork-overlay-enter-start" x-transition:enter-end="artwork-overlay-enter-end" x-transition:leave="artwork-overlay-leave" x-transition:leave-start="artwork-overlay-leave-start" x-transition:leave-end="artwork-overlay-leave-end" style="display: none;">
-                    <ul class="artwork-list">
-                        {% for artwork in artworks %}
-                            <li class="artwork-item">
-                                <span class="artwork-title">{{ artwork.title }}</span>
-                                <span class="artwork-artist">{{ artwork.artist }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                <div class="artwork-hover-container" x-data="{ showArtworks: false }" @mouseenter="showArtworks = true" @mouseleave="showArtworks = false">
+                    <a href="{{ content.label.0['#url'] }}" class="cover-link">
+                        {% if content.field_thumbnail.0 is not empty %}
+                            {{ content.field_thumbnail }}
+                        {% else %}
+                            {{ content.field_cover }}
+                        {% endif %}
+                    </a>
+                    <div class="artwork-overlay" x-show="showArtworks" x-transition:enter="artwork-overlay-enter" x-transition:enter-start="artwork-overlay-enter-start" x-transition:enter-end="artwork-overlay-enter-end" x-transition:leave="artwork-overlay-leave" x-transition:leave-start="artwork-overlay-leave-start" x-transition:leave-end="artwork-overlay-leave-end" style="display: none;">
+                        <ul class="artwork-list">
+                            {% for artwork in artworks %}
+                                <li class="artwork-item">
+                                    <span class="artwork-title">{{ artwork.title }}</span>
+                                    <span class="artwork-artist">{{ artwork.artist }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             {% else %}
                 {% if content.field_thumbnail.0 is not empty %}
@@ -46,9 +38,10 @@
                     {{ content.field_cover }}
                 {% endif %}
             {% endif %}
-        </div>
-        <div class="label">
-            <a href="{{ content.label.0['#url'] }}">{{ context_title|default(screenshot.label)|raw }}</a>
-        </div>
+        {% endset %}
+        {{ include('egam:entity_teaser', {
+            cover: cover_content,
+            label: ('<a href="' ~ content.label.0['#url'] ~ '">' ~ (context_title|default(screenshot.label)|e) ~ '</a>')|raw,
+        }) }}
     {% endif %}
 </article>

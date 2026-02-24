@@ -1,16 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to present an artist entity.
- *
- * This template is used when viewing a canonical artist page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_artist()
+ * Theme implementation to present an artist entity in teaser view.
  */
 #}
 <article{{ attributes.addClass('artist', view_mode) }}>
@@ -19,15 +10,16 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
-        <div class="cover">
+        {% set cover_content %}
             {% if content.field_thumbnail.0 is not empty %}
                 {{ content.field_thumbnail }}
             {% else %}
                 {{ content.field_cover }}
             {% endif %}
-        </div>
-        <div class="label">
-            {{ content.label }}
-        </div>
+        {% endset %}
+        {{ include('egam:entity_teaser', {
+            cover: cover_content,
+            label: content.label,
+        }) }}
     {% endif %}
 </article>
