@@ -10,11 +10,13 @@
         {{ content.field_cover }}
     </div>
     {% if notes.0 %}
-        <div class="item description">
-            {% if show_notes_heading is not same as(false) %}
+        {% if show_notes_heading is not same as(false) %}
+            <div class="item description">
                 <h2>{{ 'Notes'|t }}</h2>
-            {% endif %}
-            <div>{{ notes }}</div>
-        </div>
+                <div>{{ notes }}</div>
+            </div>
+        {% else %}
+            <p class="mt-2">{{ notes }}</p>
+        {% endif %}
     {% endif %}
 </div>
