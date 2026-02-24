@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Partial template for the entity detail layout (illustration + info table).
+ * Used by artwork, game, artist, and museum full-page templates.
+ * Not used by screenshot (different structure).
+ *
+ * Variables:
+ * - entity_type: CSS class suffix ('artwork', 'game', 'artist', 'museum')
+ * - label: Rendered label field (for illustration title and .title heading)
+ * - cover: Rendered cover image field
+ * - notes: Rendered notes/description field (optional)
+ * - show_notes_heading: Boolean, whether to show the Notes heading (default: true)
+ * - info_rows: Captured HTML for the <table> rows (use {% set info_rows %}...{% endset %})
+ */
+#}
+<div class="content {{ entity_type }}">
+    {{ include('egam:illustration_container', {
+        cover: cover,
+        title: label,
+        notes: notes|default(null),
+        show_notes_heading: show_notes_heading is defined ? show_notes_heading : true,
+    }) }}
+    <div class="details">
+        <div class="title hidden md:block">
+            {% if label %}
+                <div class="item name">
+                    <h1>{{ label }}</h1>
+                </div>
+            {% endif %}
+        </div>
+        <table class="infos">
+            {{ info_rows|raw }}
+        </table>
+    </div>
+</div>

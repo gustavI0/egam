@@ -2,15 +2,6 @@
 /**
  * @file
  * Default theme implementation to present a museum entity.
- *
- * This template is used when viewing a canonical museum page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_museum()
  */
 #}
 <article{{ attributes }}>
@@ -20,38 +11,30 @@
     {% endif %}
     {% if content %}
         {% import '@egam/macros/info-rows.html.twig' as rows %}
-        <div class="content museum">
-            {{ include('egam:illustration_container', {
-                cover: content.field_cover,
-                title: content.label,
-            }) }}
-            <div class="details">
-                <div class="title hidden md:block">
-                    {% if content.label %}
-                        <div class="item name">
-                            <h1>{{ content.label }}</h1>
-                        </div>
-                    {% endif %}
-                </div>
-                <table class="infos">
-                    {% if content.field_location.0 %}
-                        {{ rows.info_row('Location'|t, content.field_location, 'location') }}
-                    {% endif %}
-                    {% if content.field_foundation_date.0 %}
-                        {{ rows.info_row('Open in'|t, content.field_foundation_date, 'foundation_date') }}
-                    {% endif %}
-                    {% if content.field_website.0 %}
-                        {{ rows.info_row('Website'|t, content.field_website, 'website') }}
-                    {% endif %}
-                    {% if content.description.0 %}
-                        {{ rows.info_row('Notes'|t, content.description, 'description') }}
-                    {% endif %}
-                    {% if content.field_more_info.0 %}
-                        {{ rows.info_row_heading(content.field_more_info) }}
-                    {% endif %}
-                </table>
-            </div>
-        </div>
+        {% set info_rows %}
+            {% if content.field_location.0 %}
+                {{ rows.info_row('Location'|t, content.field_location, 'location') }}
+            {% endif %}
+            {% if content.field_foundation_date.0 %}
+                {{ rows.info_row('Open in'|t, content.field_foundation_date, 'foundation_date') }}
+            {% endif %}
+            {% if content.field_website.0 %}
+                {{ rows.info_row('Website'|t, content.field_website, 'website') }}
+            {% endif %}
+            {% if content.description.0 %}
+                {{ rows.info_row('Notes'|t, content.description, 'description') }}
+            {% endif %}
+            {% if content.field_more_info.0 %}
+                {{ rows.info_row_heading(content.field_more_info) }}
+            {% endif %}
+        {% endset %}
+        {{ include('@egam/partials/entity-detail-layout.html.twig', {
+            entity_type: 'museum',
+            label: content.label,
+            cover: content.field_cover,
+            notes: content.description,
+            info_rows: info_rows,
+        }) }}
         {% if related_artworks is not empty %}
             {{ include('@egam/partials/related-content.html.twig', {
                 title: multiple_content ? 'Œuvres du musée citées dans des jeux vidéo :'|t : 'Œuvre du musée citée dans des jeux vidéo :'|t,

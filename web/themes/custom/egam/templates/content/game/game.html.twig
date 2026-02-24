@@ -2,15 +2,6 @@
 /**
  * @file
  * Default theme implementation to present a game entity.
- *
- * This template is used when viewing a canonical game page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_game()
  */
 #}
 <article{{ attributes }}>
@@ -20,36 +11,27 @@
     {% endif %}
     {% if content %}
         {% import '@egam/macros/info-rows.html.twig' as rows %}
-        <div class="content game">
-            {{ include('egam:illustration_container', {
-                cover: content.field_cover,
-                title: content.label,
-                notes: content.description,
-            }) }}
-            <div class="details">
-                <div class="title hidden md:block">
-                    {% if content.label %}
-                        <div class="item name">
-                            <h1>{{ content.label }}</h1>
-                        </div>
-                    {% endif %}
-                </div>
-                <table class="infos">
-                    {% if content.field_date.0 %}
-                        {{ rows.info_row('Date'|t, content.field_date, 'date') }}
-                    {% endif %}
-                    {% if content.field_developer.0 %}
-                        {{ rows.info_row('Développeur'|t, content.field_developer, 'developer') }}
-                    {% endif %}
-                    {% if content.field_editor.0 %}
-                        {{ rows.info_row('Éditeur'|t, content.field_editor, 'editor') }}
-                    {% endif %}
-                    {% if content.field_more_info.0 %}
-                        {{ rows.info_row_heading(content.field_more_info) }}
-                    {% endif %}
-                </table>
-            </div>
-        </div>
+        {% set info_rows %}
+            {% if content.field_date.0 %}
+                {{ rows.info_row('Date'|t, content.field_date, 'date') }}
+            {% endif %}
+            {% if content.field_developer.0 %}
+                {{ rows.info_row('Développeur'|t, content.field_developer, 'developer') }}
+            {% endif %}
+            {% if content.field_editor.0 %}
+                {{ rows.info_row('Éditeur'|t, content.field_editor, 'editor') }}
+            {% endif %}
+            {% if content.field_more_info.0 %}
+                {{ rows.info_row_heading(content.field_more_info) }}
+            {% endif %}
+        {% endset %}
+        {{ include('@egam/partials/entity-detail-layout.html.twig', {
+            entity_type: 'game',
+            label: content.label,
+            cover: content.field_cover,
+            notes: content.description,
+            info_rows: info_rows,
+        }) }}
         {% if related_artworks is not empty %}
             {{ include('@egam/partials/related-content.html.twig', {
                 title: multiple_content ? 'Œuvres citées dans le jeu :'|t : 'Œuvre citée dans le jeu :'|t,

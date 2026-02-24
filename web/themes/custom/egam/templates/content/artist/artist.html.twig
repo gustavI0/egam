@@ -2,15 +2,6 @@
 /**
  * @file
  * Default theme implementation to present an artist entity.
- *
- * This template is used when viewing a canonical artist page,
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.label'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_artist()
  */
 #}
 <article{{ attributes }}>
@@ -20,49 +11,40 @@
     {% endif %}
     {% if content %}
         {% import '@egam/macros/info-rows.html.twig' as rows %}
-        <div class="content artist">
-            {{ include('egam:illustration_container', {
-                cover: content.field_cover,
-                title: content.label,
-                notes: content.field_cover_caption,
-                show_notes_heading: false,
-            }) }}
-            <div class="details">
-                <div class="title hidden md:block">
-                    {% if content.label %}
-                        <div class="item name">
-                            <h1>{{ content.label }}</h1>
-                        </div>
-                    {% endif %}
-                </div>
-                <table class="infos">
-                    {% if content.field_full_name.0 %}
-                        {{ rows.info_row('Full name'|t, content.field_full_name, 'full_name') }}
-                    {% endif %}
-                    {% if content.field_nickname.0 %}
-                        {{ rows.info_row('Nickname'|t, content.field_nickname, 'nickname') }}
-                    {% endif %}
-                    {% if content.field_nationality.0 %}
-                        {{ rows.info_row('Nationality'|t, content.field_nationality, 'nationality') }}
-                    {% endif %}
-                    {% if content.field_activity.0 %}
-                        {{ rows.info_row('Activity'|t, content.field_activity, 'activity') }}
-                    {% endif %}
-                    {% if content.field_birth_year.0 %}
-                        {{ rows.info_row('Birth year'|t, content.field_birth_year, 'birth_year') }}
-                    {% endif %}
-                    {% if content.field_death_year.0 %}
-                        {{ rows.info_row('Death year'|t, content.field_death_year, 'death_year') }}
-                    {% endif %}
-                    {% if content.description.0 %}
-                        {{ rows.info_row('Notes'|t, content.description, 'description') }}
-                    {% endif %}
-                    {% if content.field_more_info.0 %}
-                        {{ rows.info_row_heading(content.field_more_info) }}
-                    {% endif %}
-                </table>
-            </div>
-        </div>
+        {% set info_rows %}
+            {% if content.field_full_name.0 %}
+                {{ rows.info_row('Full name'|t, content.field_full_name, 'full_name') }}
+            {% endif %}
+            {% if content.field_nickname.0 %}
+                {{ rows.info_row('Nickname'|t, content.field_nickname, 'nickname') }}
+            {% endif %}
+            {% if content.field_nationality.0 %}
+                {{ rows.info_row('Nationality'|t, content.field_nationality, 'nationality') }}
+            {% endif %}
+            {% if content.field_activity.0 %}
+                {{ rows.info_row('Activity'|t, content.field_activity, 'activity') }}
+            {% endif %}
+            {% if content.field_birth_year.0 %}
+                {{ rows.info_row('Birth year'|t, content.field_birth_year, 'birth_year') }}
+            {% endif %}
+            {% if content.field_death_year.0 %}
+                {{ rows.info_row('Death year'|t, content.field_death_year, 'death_year') }}
+            {% endif %}
+            {% if content.description.0 %}
+                {{ rows.info_row('Notes'|t, content.description, 'description') }}
+            {% endif %}
+            {% if content.field_more_info.0 %}
+                {{ rows.info_row_heading(content.field_more_info) }}
+            {% endif %}
+        {% endset %}
+        {{ include('@egam/partials/entity-detail-layout.html.twig', {
+            entity_type: 'artist',
+            label: content.label,
+            cover: content.field_cover,
+            notes: content.field_cover_caption,
+            show_notes_heading: false,
+            info_rows: info_rows,
+        }) }}
         {% if related_artworks is not empty %}
             {{ include('@egam/partials/related-content.html.twig', {
                 title: multiple_content ? 'Œuvres citées dans des jeux vidéo :'|t : 'Œuvre citée dans des jeux vidéo :'|t,
