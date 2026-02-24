@@ -19,6 +19,7 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
+        {% import '@egam/macros/info-rows.html.twig' as rows %}
         <div class="content artist">
             {{ include('egam:illustration_container', {
                 cover: content.field_cover,
@@ -36,52 +37,28 @@
                 </div>
                 <table class="infos">
                     {% if content.field_full_name.0 %}
-                        <tr class="item full_name">
-                            <th scope="row">{{ 'Full name'|t }}</th>
-                            <td>{{ content.field_full_name }}</td>
-                        </tr>
+                        {{ rows.info_row('Full name'|t, content.field_full_name, 'full_name') }}
                     {% endif %}
                     {% if content.field_nickname.0 %}
-                        <tr class="item nickname">
-                            <th scope="row">{{ 'Nickname'|t }}</th>
-                            <td>{{ content.field_nickname }}
-                            <td>
-                        </tr>
+                        {{ rows.info_row('Nickname'|t, content.field_nickname, 'nickname') }}
                     {% endif %}
                     {% if content.field_nationality.0 %}
-                        <tr class="item nationality">
-                            <th scope="row">{{ 'Nationality'|t }}</th>
-                            <td>{{ content.field_nationality }}</td>
-                        </tr>
+                        {{ rows.info_row('Nationality'|t, content.field_nationality, 'nationality') }}
                     {% endif %}
                     {% if content.field_activity.0 %}
-                        <tr class="item activity">
-                            <th scope="row">{{ 'Activity'|t }}</th>
-                            <td>{{ content.field_activity }}</td>
-                        </tr>
+                        {{ rows.info_row('Activity'|t, content.field_activity, 'activity') }}
                     {% endif %}
                     {% if content.field_birth_year.0 %}
-                        <tr class="item birth_year">
-                            <th scope="row">{{ 'Birth year'|t }}</th>
-                            <td>{{ content.field_birth_year }}</td>
-                        </tr>
+                        {{ rows.info_row('Birth year'|t, content.field_birth_year, 'birth_year') }}
                     {% endif %}
                     {% if content.field_death_year.0 %}
-                        <tr class="item death_year">
-                            <th scope="row">{{ 'Death year'|t }}</th>
-                            <td>{{ content.field_death_year }}</td>
-                        </tr>
+                        {{ rows.info_row('Death year'|t, content.field_death_year, 'death_year') }}
                     {% endif %}
                     {% if content.description.0 %}
-                        <tr class="item description">
-                            <th scope="row">{{ 'Notes'|t }}</th>
-                            <td>{{ content.description }}</td>
-                        </tr>
+                        {{ rows.info_row('Notes'|t, content.description, 'description') }}
                     {% endif %}
                     {% if content.field_more_info.0 %}
-                        <tr class="item more_info">
-                            <th scope="row">{{ content.field_more_info }}</th>
-                        </tr>
+                        {{ rows.info_row_heading(content.field_more_info) }}
                     {% endif %}
                 </table>
             </div>

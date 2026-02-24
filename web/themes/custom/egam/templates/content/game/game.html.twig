@@ -19,6 +19,7 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
+        {% import '@egam/macros/info-rows.html.twig' as rows %}
         <div class="content game">
             {{ include('egam:illustration_container', {
                 cover: content.field_cover,
@@ -35,30 +36,18 @@
                 </div>
                 <table class="infos">
                     {% if content.field_date.0 %}
-                        <tr class="item date">
-                            <th scope="row">{{ 'Date'|t }}</th>
-                            <td>{{ content.field_date }}</td>
-                        </tr>
+                        {{ rows.info_row('Date'|t, content.field_date, 'date') }}
                     {% endif %}
                     {% if content.field_developer.0 %}
-                        <tr class="item developer">
-                            <th scope="row">{{ 'Développeur'|t }}</th>
-                            <td>{{ content.field_developer }}</td>
-                        </tr>
+                        {{ rows.info_row('Développeur'|t, content.field_developer, 'developer') }}
                     {% endif %}
                     {% if content.field_editor.0 %}
-                        <tr class="item editor">
-                            <th scope="row">{{ 'Éditeur'|t }}</th>
-                            <td>{{ content.field_editor }}</td>
-                        </tr>
+                        {{ rows.info_row('Éditeur'|t, content.field_editor, 'editor') }}
                     {% endif %}
                     {% if content.field_more_info.0 %}
-                        <tr class="item more_info">
-                            <th scope="row">{{ content.field_more_info }}</th>
-                        </tr>
+                        {{ rows.info_row_heading(content.field_more_info) }}
                     {% endif %}
                 </table>
-
             </div>
         </div>
         {% if related_artworks is not empty %}

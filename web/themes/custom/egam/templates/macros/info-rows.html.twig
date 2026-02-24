@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Twig macros for rendering info table rows in entity detail pages.
+ *
+ * Usage:
+ *   {% import '@egam/macros/info-rows.html.twig' as rows %}
+ *
+ *   {% if content.field_date.0 %}
+ *     {{ rows.info_row('Date'|t, content.field_date, 'date') }}
+ *   {% endif %}
+ */
+#}
+
+{# Standard row: label + Drupal rendered field value #}
+{% macro info_row(label, value, css_class) %}
+<tr class="item {{ css_class }}">
+    <th scope="row">{{ label }}</th>
+    <td>{{ value }}</td>
+</tr>
+{% endmacro %}
+
+{# Raw row: label + pre-rendered HTML value (e.g. full_artist|raw from preprocess) #}
+{% macro info_row_raw(label, value, css_class) %}
+<tr class="item {{ css_class }}">
+    <th scope="row">{{ label }}</th>
+    <td>{{ value|raw }}</td>
+</tr>
+{% endmacro %}
+
+{# Heading-only row: for field_more_info which renders in the th cell spanning both columns #}
+{% macro info_row_heading(content) %}
+<tr class="item more_info">
+    <th scope="row">{{ content }}</th>
+</tr>
+{% endmacro %}

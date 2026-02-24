@@ -19,6 +19,7 @@
     {{ title_suffix }}
   {% endif %}
   {% if content %}
+      {% import '@egam/macros/info-rows.html.twig' as rows %}
       {% set date = content.field_game.0.entity %}
       {% set dev = content.field_game.entity.field_developer.value %}
       <div class="content screenshot">
@@ -29,19 +30,11 @@
           <div class="details">
               <table class="infos">
                   {% if content.field_game.0 %}
-                      <tr class="item game">
-                          <th scope="row">{{ 'Game'|t }}</th>
-                          <td>{{ content.field_game }}</td>
-                      </tr>
+                      {{ rows.info_row('Game'|t, content.field_game, 'game') }}
                   {% endif %}
-
                   {% if game_date %}
-                      <tr class="item date">
-                          <th scope="row">{{ 'Date'|t }}</th>
-                          <td>{{ game_date }}</td>
-                      </tr>
+                      {{ rows.info_row('Date'|t, game_date, 'date') }}
                   {% endif %}
-
                   {% if game_developer %}
                       <tr class="item developer">
                           <th scope="row">{{ 'Developer'|t }}</th>
@@ -49,7 +42,6 @@
                           <td>{{ game_developer[0]['#title'] }}</td>
                       </tr>
                   {% endif %}
-
                   {% if game_editor %}
                       <tr class="item editor">
                           <th scope="row">{{ 'Editor'|t }}</th>
@@ -57,15 +49,12 @@
                           <td>{{ game_editor[0]['#title'] }}</td>
                       </tr>
                   {% endif %}
-
                   {% if content.field_more_info.0 %}
-                      <tr class="item more_info">
-                          <th scope="row">{{ content.field_more_info }}</th>
-                      </tr>
+                      {{ rows.info_row_heading(content.field_more_info) }}
                   {% endif %}
-                      <tr class="item swiper-container main-swiper">
-                          <th scope="row" class="swiper-slide"></th>
-                      </tr>
+                  <tr class="item swiper-container main-swiper">
+                      <th scope="row" class="swiper-slide"></th>
+                  </tr>
               </table>
           </div>
       </div>

@@ -19,6 +19,7 @@
         {{ title_suffix }}
     {% endif %}
     {% if content %}
+        {% import '@egam/macros/info-rows.html.twig' as rows %}
         <div class="content museum">
             {{ include('egam:illustration_container', {
                 cover: content.field_cover,
@@ -34,33 +35,19 @@
                 </div>
                 <table class="infos">
                     {% if content.field_location.0 %}
-                        <tr class="item location">
-                            <th scope="row">{{ 'Location'|t }}</th>
-                            <td>{{ content.field_location }}</td>
-                        </tr>
+                        {{ rows.info_row('Location'|t, content.field_location, 'location') }}
                     {% endif %}
                     {% if content.field_foundation_date.0 %}
-                        <tr class="item foundation_date">
-                            <th scope="row">{{ 'Open in'|t }}</th>
-                            <td>{{ content.field_foundation_date }}</td>
-                        </tr>
+                        {{ rows.info_row('Open in'|t, content.field_foundation_date, 'foundation_date') }}
                     {% endif %}
                     {% if content.field_website.0 %}
-                        <tr class="item website">
-                            <th scope="row">{{ 'Website'|t }}</th>
-                            <td>{{ content.field_website }}</td>
-                        </tr>
+                        {{ rows.info_row('Website'|t, content.field_website, 'website') }}
                     {% endif %}
                     {% if content.description.0 %}
-                        <tr class="item description">
-                            <th scope="row">{{ 'Notes'|t }}</th>
-                            <td>{{ content.description }}</td>
-                        </tr>
+                        {{ rows.info_row('Notes'|t, content.description, 'description') }}
                     {% endif %}
                     {% if content.field_more_info.0 %}
-                        <tr class="item more_info">
-                            <th scope="row">{{ content.field_more_info }}</th>
-                        </tr>
+                        {{ rows.info_row_heading(content.field_more_info) }}
                     {% endif %}
                 </table>
             </div>

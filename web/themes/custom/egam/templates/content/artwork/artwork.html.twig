@@ -20,6 +20,7 @@
     {% endif %}
 
     {% if content %}
+        {% import '@egam/macros/info-rows.html.twig' as rows %}
         <div class="content artwork mb-5">
             {{ include('egam:illustration_container', {
                 cover: content.field_cover,
@@ -36,53 +37,28 @@
                 </div>
                 <table class="infos">
                     {% if content.field_original_title.0 %}
-                        <tr class="item original_title">
-                            <th scope="row">{{ 'Original title'|t }}</th>
-                            <td>{{ content.field_original_title }}</td>
-                        </tr>
+                        {{ rows.info_row('Original title'|t, content.field_original_title, 'original_title') }}
                     {% endif %}
                     {% if content.field_alternative_title.0 %}
-                        <tr class="item alternative_title">
-                            <th scope="row">{{ 'Alternative title'|t }}</th>
-                            <td>{{ content.field_alternative_title }}</td>
-                        </tr>
+                        {{ rows.info_row('Alternative title'|t, content.field_alternative_title, 'alternative_title') }}
                     {% endif %}
                     {% if content.field_artist.0 %}
-                        <tr class="item artist">
-                            <th scope="row">{{ 'Artist'|t }}</th>
-                            <td>
-                                {{ full_artist|raw }}
-                            </td>
-                        </tr>
+                        {{ rows.info_row_raw('Artist'|t, full_artist, 'artist') }}
                     {% endif %}
                     {% if content.field_date.0 %}
-                        <tr class="item date">
-                            <th scope="row">{{ 'Date'|t }}</th>
-                            <td>{{ content.field_date }}</td>
-                        </tr>
+                        {{ rows.info_row('Date'|t, content.field_date, 'date') }}
                     {% endif %}
                     {% if content.field_medium.0 %}
-                        <tr class="item medium">
-                            <th scope="row">{{ 'Technique'|t }}</th>
-                            <td>{{ content.field_medium }}</td>
-                        </tr>
+                        {{ rows.info_row('Technique'|t, content.field_medium, 'medium') }}
                     {% endif %}
                     {% if content.field_dimensions.0 %}
-                        <tr class="item dimensions">
-                            <th scope="row">{{ 'Dimensions'|t }}</th>
-                            <td>{{ content.field_dimensions }}</td>
-                        </tr>
+                        {{ rows.info_row('Dimensions'|t, content.field_dimensions, 'dimensions') }}
                     {% endif %}
                     {% if full_location_link %}
-                        <tr class="item museum">
-                            <th scope="row">{{ 'Conservation location'|t }}</th>
-                            <td>{{ full_location_link|raw }}</td>
-                        </tr>
+                        {{ rows.info_row_raw('Conservation location'|t, full_location_link, 'museum') }}
                     {% endif %}
                     {% if content.field_more_info.0 %}
-                        <tr class="item more_info">
-                            <th scope="row">{{ content.field_more_info }}</th>
-                        </tr>
+                        {{ rows.info_row_heading(content.field_more_info) }}
                     {% endif %}
                 </table>
             </div>
