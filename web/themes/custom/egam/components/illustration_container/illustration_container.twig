@@ -11,7 +11,9 @@
     </div>
     {% if notes.0 %}
         <div class="item description">
-            <h2>{{ 'Notes'|t }}</h2>
+            {% if show_notes_heading is not same as(false) %}
+                <h2>{{ 'Notes'|t }}</h2>
+            {% endif %}
             <div>{{ notes }}</div>
         </div>
     {% endif %}
