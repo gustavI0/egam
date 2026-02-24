@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-PROJECT_DIR="/home/ubuntu/sites/egam"
+PROJECT_DIR="/home/ubuntu/sites/egam/drupal-files"
 BRANCH="${1:-main}"  # Branche à déployer (défaut: main)
 EMAIL="gustavI0@proton.me"
 

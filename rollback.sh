@@ -7,7 +7,7 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-PROJECT_DIR="/home/ubuntu/egam"
+PROJECT_DIR="/home/ubuntu/sites/egam/drupal-files"
 EMAIL="gustavI0@proton.me"
 
 cd "$PROJECT_DIR"
