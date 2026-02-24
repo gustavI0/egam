@@ -1,0 +1,11 @@
+name: Entity Teaser
+slots:
+  cover:
+    title: Cover
+    description: Rendered cover image (with thumbnail fallback if applicable)
+  label:
+    title: Label
+    description: Rendered or raw entity title, optionally wrapped in a link
+  overlay:
+    title: Overlay
+    description: Optional hover overlay content (used by screenshot teaser for artwork list)
