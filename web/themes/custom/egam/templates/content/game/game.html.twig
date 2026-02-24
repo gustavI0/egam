@@ -21,6 +21,7 @@
     {% if content %}
         <div class="content game">
             {{ include('egam:illustration_container', {
+                cover: content.field_cover,
                 title: content.label,
                 notes: content.description,
             }) }}

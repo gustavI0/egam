@@ -1,5 +1,8 @@
 name: Illustration Container
 slots:
+  cover:
+    title: Cover
+    description: Rendered cover image field
   title:
     title: Title
     description: Content title

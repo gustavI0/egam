@@ -22,6 +22,7 @@
     {% if content %}
         <div class="content artwork mb-5">
             {{ include('egam:illustration_container', {
+                cover: content.field_cover,
                 title: content.label,
                 notes: content.description,
             }) }}
