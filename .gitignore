@@ -33,6 +33,9 @@
 # Ignore node modules
 /web/themes/custom/egam/node_modules/
 
+# Ignore git worktrees
+/.worktrees/
+
 # Ignore apache access config
 .htpasswd
 
