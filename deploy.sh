@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-PROJECT_DIR="/home/ubuntu/egam"
+PROJECT_DIR="/home/ubuntu/sites/egam"
 BRANCH="${1:-main}"  # Branche à déployer (défaut: main)
 EMAIL="gustavI0@proton.me"
 
@@ -27,14 +27,8 @@ docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloa
 echo -e "${YELLOW}🔧 Mise en mode maintenance...${NC}"
 docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
 
-echo -e "${YELLOW}🗄️  Mise à jour de la base de données...${NC}"
-docker exec -u www-data egam_drupal vendor/bin/drush updatedb -y
-
-echo -e "${YELLOW}📝 Import de la configuration...${NC}"
-docker exec -u www-data egam_drupal vendor/bin/drush config:import -y
-
-echo -e "${YELLOW}🧹 Nettoyage du cache...${NC}"
-docker exec -u www-data egam_drupal vendor/bin/drush cache:rebuild
+echo -e "${YELLOW}🗄️  Déploiement...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush deploy
 
 echo -e "${YELLOW}🔓 Désactivation du mode maintenance...${NC}"
 docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 0
