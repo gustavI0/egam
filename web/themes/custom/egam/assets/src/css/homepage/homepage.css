@@ -1,5 +1,3 @@
-@import 'homepage-menu.css';
-
 @layer components {
   .home-content {
     color: theme(colors.light);
