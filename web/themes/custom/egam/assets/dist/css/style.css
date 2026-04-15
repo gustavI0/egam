@@ -680,8 +680,8 @@ video {
 .content .cover img {
   -o-object-fit: contain;
      object-fit: contain;
-  -o-object-position: left;
-     object-position: left;
+  -o-object-position: center;
+     object-position: center;
 }
 @media (min-width: 976px) {
 
@@ -1391,9 +1391,6 @@ nav#block-egam-homepage {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
