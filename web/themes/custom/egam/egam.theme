@@ -52,6 +52,18 @@ function egam_theme_suggestions_field_alter(array &$suggestions, array &$variabl
 	}
 }
 
+/**
+ * Implements hook_preprocess_HOOK() for views-exposed-form.
+ *
+ * Attache le JS d'auto-submit débouncé aux vues de liste côté public.
+ */
+function egam_preprocess_views_exposed_form(&$variables) {
+	$listViews = ['artworks', 'artists', 'games', 'musea'];
+	if (in_array($variables['form']['#id'] ?? '', array_map(fn($v) => 'views-exposed-form-' . $v . '-grid', $listViews), true)) {
+		$variables['#attached']['library'][] = 'egam/list-filters';
+	}
+}
+
 function egam_preprocess_menu__main(&$variables, $hook) {
 	$variables['#cache']['contexts'][] = 'url';
 	$routeParameters = \Drupal::routeMatch()->getParameters()->all();

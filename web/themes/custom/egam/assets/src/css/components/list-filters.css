@@ -1,0 +1,53 @@
+@layer components {
+
+  .views-exposed-form.egam-autosubmit {
+    @apply flex flex-wrap gap-3 items-center justify-center pt-6 px-4 max-w-3xl mx-auto;
+  }
+
+  .views-exposed-form.egam-autosubmit .form-item {
+    @apply m-0 flex-1 min-w-[200px];
+  }
+
+  .views-exposed-form.egam-autosubmit label {
+    @apply sr-only;
+  }
+
+  .views-exposed-form.egam-autosubmit .form-actions {
+    @apply hidden;
+  }
+
+  .egam-filter-field {
+    @apply relative block w-full;
+  }
+
+  .egam-filter-field input[type="text"],
+  .egam-filter-field input[type="search"] {
+    @apply w-full bg-light border-b border-dark/30 px-0 py-2 pr-8
+           font-body text-base text-dark placeholder:text-dark/40
+           focus:outline-none focus:border-dark transition-colors;
+    border-radius: 0;
+  }
+
+  .egam-filter-clear {
+    @apply absolute right-0 top-1/2 -translate-y-1/2
+           w-6 h-6 flex items-center justify-center
+           text-dark/50 hover:text-dark text-xl leading-none
+           opacity-0 pointer-events-none transition-opacity;
+  }
+
+  .egam-filter-field.has-value .egam-filter-clear {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  /* État "aucun résultat" */
+  .view-empty {
+    @apply text-center text-dark/60 italic py-12 font-body;
+  }
+
+  /* Léger fade quand la vue est en cours de rechargement AJAX */
+  .views-element-container.ajax-progress-throbber ~ .view-content,
+  .view.ajax-loading .view-content {
+    @apply opacity-50 transition-opacity;
+  }
+
+}

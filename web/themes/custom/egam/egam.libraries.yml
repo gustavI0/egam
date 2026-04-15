@@ -53,6 +53,13 @@ screenshot:
     - core/drupal
     - core/once
 
+list-filters:
+  js:
+    assets/dist/js/list-filters.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
+
 alpine-js:
   js:
     https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js: {

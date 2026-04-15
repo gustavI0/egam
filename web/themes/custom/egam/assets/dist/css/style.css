@@ -1168,6 +1168,15 @@ article .content .title h1,
     line-height: 1rem;
   }
   }
+/* État "aucun résultat" */
+/* Léger fade quand la vue est en cours de rechargement AJAX */
+.views-element-container.ajax-progress-throbber ~ .view-content,
+  .view.ajax-loading .view-content {
+  opacity: 0.5;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .home-content {
     color: rgb(250 250 249);
   }

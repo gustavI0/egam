@@ -106,7 +106,18 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'Aucune œuvre ne correspond à votre recherche.'
+          plugin_id: text_custom
       sorts:
         field_sorting_name_value:
           id: field_sorting_name_value
@@ -138,6 +149,88 @@ display:
           exposed: false
       arguments: {  }
       filters:
+        label:
+          id: label
+          table: artwork_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: artwork
+          entity_field: label
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: label_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: label_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: titre
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: 'Rechercher une œuvre…'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        artist_label:
+          id: artist_label
+          table: artist
+          field: label
+          relationship: field_artist
+          group_type: group
+          admin_label: ''
+          entity_type: artist
+          entity_field: label
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: artist_label_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: artist_label_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: artiste
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: 'Filtrer par artiste…'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         status:
           id: status
           table: artwork_field_data
@@ -199,7 +292,17 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_artist:
+          id: field_artist
+          table: artwork__field_artist
+          field: field_artist
+          relationship: none
+          group_type: group
+          admin_label: Artiste
+          entity_type: artwork
+          plugin_id: standard
+          required: false
       use_ajax: true
       header:
         area:
