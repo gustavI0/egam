@@ -1,0 +1,21 @@
+uuid: b6e8a696-7e03-4a35-ad02-76ffc24706ed
+langcode: fr
+status: true
+dependencies: {  }
+name: egam_webp_1600
+label: 'EGAM WebP 1600'
+effects:
+  35c11587-3561-4782-9de9-817bf7b777cf:
+    uuid: 35c11587-3561-4782-9de9-817bf7b777cf
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  ddfffff3-69a0-4723-b724-845e448587bd:
+    uuid: ddfffff3-69a0-4723-b724-845e448587bd
+    id: image_scale
+    weight: 2
+    data:
+      width: 1600
+      height: null
+      upscale: false

@@ -51,7 +51,7 @@ class HomeCoverHandler {
 		if (!$file) return NULL;
 
 		/* @var \Drupal\image\Entity\ImageStyle $style */
-		$style = $this->imageStyle->load('webp');
+		$style = $this->imageStyle->load('egam_webp_2400');
 		$styledImgUri = $style->buildUri($file->getFileUri());
 		if (!$styledImgUri) return $file->createFileUrl();
 

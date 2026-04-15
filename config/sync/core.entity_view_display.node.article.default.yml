@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.article.field_body
     - field.field.node.article.field_header_cover
-    - image.style.webp
+    - image.style.egam_webp_1600
     - node.type.article
   module:
     - media
@@ -28,7 +28,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: webp
+      image_style: egam_webp_1600
       image_loading:
         attribute: lazy
     third_party_settings: {  }

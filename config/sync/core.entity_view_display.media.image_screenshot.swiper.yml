@@ -11,7 +11,7 @@ dependencies:
     - field.field.media.image_screenshot.field_is_modified
     - field.field.media.image_screenshot.field_is_patchwork
     - field.field.media.image_screenshot.field_media_image
-    - image.style.webp
+    - image.style.egam_webp_1600
     - media.type.image_screenshot
   module:
     - image
@@ -33,7 +33,7 @@ content:
     label: visually_hidden
     settings:
       image_link: file
-      image_style: webp
+      image_style: egam_webp_1600
       image_loading:
         attribute: lazy
     third_party_settings: {  }

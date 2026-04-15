@@ -1,0 +1,21 @@
+uuid: 790b7607-f4c2-4c0f-8d4c-043fc9eefc09
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.egam_webp_400
+    - image.style.egam_webp_800
+id: egam_thumbnail
+label: 'EGAM Vignette (150px)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 150px
+      sizes_image_styles:
+        - egam_webp_400
+        - egam_webp_800
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: egam_webp_400

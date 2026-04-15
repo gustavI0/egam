@@ -11,7 +11,7 @@ dependencies:
     - field.field.media.image_screenshot.field_is_patchwork
     - field.field.media.image_screenshot.field_media_image
     - media.type.image_screenshot
-    - responsive_image.styles.wide
+    - responsive_image.styles.egam_content
   module:
     - responsive_image
 id: media.image_screenshot.default
@@ -79,7 +79,7 @@ content:
     type: responsive_image
     label: visually_hidden
     settings:
-      responsive_image_style: wide
+      responsive_image_style: egam_content
       image_link: file
       image_loading:
         attribute: lazy

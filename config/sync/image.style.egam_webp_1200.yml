@@ -1,0 +1,21 @@
+uuid: 7bf223b5-ea3d-4d85-ac44-3dcda81a0c71
+langcode: fr
+status: true
+dependencies: {  }
+name: egam_webp_1200
+label: 'EGAM WebP 1200'
+effects:
+  b1fe3327-2d8f-48aa-b813-0e57086a5ea9:
+    uuid: b1fe3327-2d8f-48aa-b813-0e57086a5ea9
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  4f5eb1c6-c12f-46fe-ac13-9e04c06f6502:
+    uuid: 4f5eb1c6-c12f-46fe-ac13-9e04c06f6502
+    id: image_scale
+    weight: 2
+    data:
+      width: 1200
+      height: null
+      upscale: false

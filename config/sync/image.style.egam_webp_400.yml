@@ -1,0 +1,21 @@
+uuid: 7d99c111-39dc-47af-9843-22e5b0394dc3
+langcode: fr
+status: true
+dependencies: {  }
+name: egam_webp_400
+label: 'EGAM WebP 400'
+effects:
+  5119913f-22d1-41b1-b38d-76383024f088:
+    uuid: 5119913f-22d1-41b1-b38d-76383024f088
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  2952df99-7d53-4298-99e2-cfdd98d10846:
+    uuid: 2952df99-7d53-4298-99e2-cfdd98d10846
+    id: image_scale
+    weight: 2
+    data:
+      width: 400
+      height: null
+      upscale: false

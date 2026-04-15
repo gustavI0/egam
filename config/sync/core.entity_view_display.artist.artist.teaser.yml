@@ -18,7 +18,7 @@ dependencies:
     - field.field.artist.artist.field_quoted_by_gombrich
     - field.field.artist.artist.field_sorting_name
     - field.field.artist.artist.field_thumbnail
-    - image.style.webp
+    - image.style.egam_webp_800
   module:
     - egam_artist
     - media
@@ -32,7 +32,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: webp
+      image_style: egam_webp_800
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -43,7 +43,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: webp
+      image_style: egam_webp_800
       image_loading:
         attribute: lazy
     third_party_settings: {  }

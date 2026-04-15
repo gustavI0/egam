@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.media.swiper
     - field.field.media.image.field_caption
     - field.field.media.image.field_media_image
-    - image.style.webp
+    - image.style.egam_webp_1600
     - media.type.image
   module:
     - image
@@ -30,7 +30,7 @@ content:
     label: hidden
     settings:
       image_link: file
-      image_style: webp
+      image_style: egam_webp_1600
       image_loading:
         attribute: lazy
     third_party_settings: {  }

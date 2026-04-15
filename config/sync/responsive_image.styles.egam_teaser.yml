@@ -1,0 +1,25 @@
+uuid: ef7f6767-19ef-4ac1-b1ae-eeb7eecff7d3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.egam_webp_400
+    - image.style.egam_webp_800
+    - image.style.egam_webp_1200
+    - image.style.egam_webp_1600
+id: egam_teaser
+label: 'EGAM Teaser (grille)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
+      sizes_image_styles:
+        - egam_webp_400
+        - egam_webp_800
+        - egam_webp_1200
+        - egam_webp_1600
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: egam_webp_800

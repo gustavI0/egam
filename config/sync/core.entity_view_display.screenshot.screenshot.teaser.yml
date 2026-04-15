@@ -9,7 +9,7 @@ dependencies:
     - field.field.screenshot.screenshot.field_game
     - field.field.screenshot.screenshot.field_more_info
     - field.field.screenshot.screenshot.field_thumbnail
-    - image.style.webp
+    - image.style.egam_webp_800
   module:
     - egam_screenshot
     - media
@@ -31,7 +31,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: webp
+      image_style: egam_webp_800
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -50,7 +50,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: webp
+      image_style: egam_webp_800
       image_loading:
         attribute: lazy
     third_party_settings: {  }

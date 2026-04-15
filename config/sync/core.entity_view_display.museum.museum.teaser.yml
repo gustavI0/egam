@@ -9,7 +9,7 @@ dependencies:
     - field.field.museum.museum.field_location
     - field.field.museum.museum.field_more_info
     - field.field.museum.museum.field_website
-    - image.style.webp
+    - image.style.egam_webp_800
   module:
     - egam_museum
     - media
@@ -23,7 +23,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: webp
+      image_style: egam_webp_800
       image_loading:
         attribute: lazy
     third_party_settings: {  }

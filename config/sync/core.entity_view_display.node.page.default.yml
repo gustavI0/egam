@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_cover
-    - image.style.webp
+    - image.style.egam_webp_1600
     - node.type.page
   module:
     - media
@@ -30,7 +30,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_style: webp
+      image_style: egam_webp_1600
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -42,5 +42,6 @@ content:
     weight: 2
     region: content
 hidden:
+  footnotes_group: true
   langcode: true
   search_api_excerpt: true

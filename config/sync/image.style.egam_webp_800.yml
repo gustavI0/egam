@@ -1,0 +1,21 @@
+uuid: 8845e280-2ad8-4979-bb0b-1b0ef5b404f2
+langcode: fr
+status: true
+dependencies: {  }
+name: egam_webp_800
+label: 'EGAM WebP 800'
+effects:
+  4b4c5ebf-83a8-48e7-aed5-e7939ced5e97:
+    uuid: 4b4c5ebf-83a8-48e7-aed5-e7939ced5e97
+    id: image_convert
+    weight: 1
+    data:
+      extension: webp
+  500f57f5-11ad-4f4c-bc5b-5789989c88ea:
+    uuid: 500f57f5-11ad-4f4c-bc5b-5789989c88ea
+    id: image_scale
+    weight: 2
+    data:
+      width: 800
+      height: null
+      upscale: false
