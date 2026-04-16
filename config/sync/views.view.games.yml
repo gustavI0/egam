@@ -114,10 +114,10 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'Aucun jeu ne correspond à votre recherche.'
           plugin_id: text_custom
+          empty: true
+          content: 'Aucun jeu ne correspond à votre recherche.'
+          tokenize: false
       sorts:
         field_sorting_name_value:
           id: field_sorting_name_value

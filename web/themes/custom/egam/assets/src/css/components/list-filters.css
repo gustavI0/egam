@@ -1,53 +1,113 @@
-@layer components {
+/* Filtres exposés — hors @layer pour éviter la purge Tailwind
+   (les classes sont ajoutées dynamiquement par JS). */
 
-  .views-exposed-form.egam-autosubmit {
-    @apply flex flex-wrap gap-3 items-center justify-center pt-6 px-4 max-w-3xl mx-auto;
-  }
+.views-exposed-form.egam-autosubmit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .views-exposed-form.egam-autosubmit .form-item {
-    @apply m-0 flex-1 min-w-[200px];
-  }
+.views-exposed-form.egam-autosubmit .form-item {
+  margin: 0;
+  flex: 1 1 0%;
+  min-width: 200px;
+}
 
-  .views-exposed-form.egam-autosubmit label {
-    @apply sr-only;
-  }
+.views-exposed-form.egam-autosubmit label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
-  .views-exposed-form.egam-autosubmit .form-actions {
-    @apply hidden;
-  }
+.views-exposed-form.egam-autosubmit .form-actions {
+  display: none;
+}
 
-  .egam-filter-field {
-    @apply relative block w-full;
-  }
+.egam-filter-field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
 
-  .egam-filter-field input[type="text"],
-  .egam-filter-field input[type="search"] {
-    @apply w-full bg-light border-b border-dark/30 px-0 py-2 pr-8
-           font-body text-base text-dark placeholder:text-dark/40
-           focus:outline-none focus:border-dark transition-colors;
-    border-radius: 0;
-  }
+.egam-filter-field input[type="text"],
+.egam-filter-field input[type="search"] {
+  width: 100%;
+  background-color: rgb(250 250 249);
+  border: none;
+  border-bottom: 1px solid rgb(3 7 18 / 0.25);
+  border-radius: 0;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  font-family: 'Futura Book', ui-sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(3 7 18);
+  transition: border-color 0.2s ease;
+}
 
-  .egam-filter-clear {
-    @apply absolute right-0 top-1/2 -translate-y-1/2
-           w-6 h-6 flex items-center justify-center
-           text-dark/50 hover:text-dark text-xl leading-none
-           opacity-0 pointer-events-none transition-opacity;
-  }
+.egam-filter-field input[type="text"]::placeholder,
+.egam-filter-field input[type="search"]::placeholder {
+  color: rgb(3 7 18 / 0.4);
+}
 
-  .egam-filter-field.has-value .egam-filter-clear {
-    @apply opacity-100 pointer-events-auto;
-  }
+.egam-filter-field input[type="text"]:focus,
+.egam-filter-field input[type="search"]:focus {
+  outline: none;
+  border-bottom-color: rgb(3 7 18);
+}
 
-  /* État "aucun résultat" */
-  .view-empty {
-    @apply text-center text-dark/60 italic py-12 font-body;
-  }
+.egam-filter-clear {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: rgb(3 7 18 / 0.4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  padding: 0;
+}
 
-  /* Léger fade quand la vue est en cours de rechargement AJAX */
-  .views-element-container.ajax-progress-throbber ~ .view-content,
-  .view.ajax-loading .view-content {
-    @apply opacity-50 transition-opacity;
-  }
+.egam-filter-clear:hover {
+  color: rgb(3 7 18);
+}
 
+.egam-filter-field.has-value .egam-filter-clear {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.view-empty {
+  text-align: center;
+  color: rgb(3 7 18 / 0.5);
+  font-style: italic;
+  padding: 3rem 1rem;
+  font-family: 'Futura Book', ui-sans-serif;
+}
+
+.view .ajax-progress {
+  display: none;
 }

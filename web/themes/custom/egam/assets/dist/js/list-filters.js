@@ -1,14 +1,12 @@
 /**
  * @file
  * Auto-submit débouncé pour les filtres exposés des vues de liste.
- *
- * Déclenche une soumission AJAX ~250ms après la dernière frappe.
- * Ajoute un bouton × pour effacer un champ rempli.
  */
 (function (Drupal, once) {
   'use strict';
 
   var DEBOUNCE_MS = 250;
+  var focusState = null;
 
   function debounce(fn, wait) {
     var t;
@@ -24,7 +22,31 @@
     return form.querySelector('[data-drupal-selector^="edit-submit-"], input[type="submit"]');
   }
 
+  function saveFocus() {
+    var el = document.activeElement;
+    if (el && el.matches('.egam-filter-field input')) {
+      focusState = {
+        name: el.name,
+        start: el.selectionStart,
+        end: el.selectionEnd,
+        formId: el.closest('form').id
+      };
+    }
+  }
+
+  function restoreFocus() {
+    if (!focusState) { return; }
+    var form = document.getElementById(focusState.formId);
+    if (!form) { focusState = null; return; }
+    var input = form.querySelector('input[name="' + focusState.name + '"]');
+    if (!input) { focusState = null; return; }
+    input.focus();
+    try { input.setSelectionRange(focusState.start, focusState.end); } catch (e) {}
+    focusState = null;
+  }
+
   function addClearButton(input, onClear) {
+    if (input.parentNode.classList.contains('egam-filter-field')) { return; }
     var wrap = document.createElement('span');
     wrap.className = 'egam-filter-field';
     input.parentNode.insertBefore(wrap, input);
@@ -52,27 +74,37 @@
   Drupal.behaviors.egamListFilters = {
     attach: function (context) {
       var forms = once('egam-list-filters', '.views-exposed-form', context);
+
       forms.forEach(function (form) {
         var submit = findSubmit(form);
         if (!submit) { return; }
 
-        // Cacher le bouton "Appliquer" sans le supprimer
-        // (il est conservé pour l'accessibilité clavier et le no-JS).
         form.classList.add('egam-autosubmit');
 
-        var trigger = debounce(function () { submit.click(); }, DEBOUNCE_MS);
+        var trigger = debounce(function () {
+          saveFocus();
+          submit.click();
+        }, DEBOUNCE_MS);
 
         var inputs = form.querySelectorAll('input[type="text"], input[type="search"]');
         inputs.forEach(function (input) {
           input.setAttribute('autocomplete', 'off');
           input.addEventListener('input', trigger);
-          // Enter soumet immédiatement (annule le debounce).
           input.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') { e.preventDefault(); submit.click(); }
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              saveFocus();
+              submit.click();
+            }
           });
-          addClearButton(input, function () { submit.click(); });
+          addClearButton(input, function () {
+            saveFocus();
+            submit.click();
+          });
         });
       });
+
+      restoreFocus();
     }
   };
 })(Drupal, once);
