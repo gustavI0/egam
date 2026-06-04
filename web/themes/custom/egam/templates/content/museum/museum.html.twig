@@ -21,9 +21,6 @@
             {% if content.field_website.0 %}
                 {{ rows.info_row('Website'|t, content.field_website, 'website') }}
             {% endif %}
-            {% if content.description.0 %}
-                {{ rows.info_row('Notes'|t, content.description, 'description') }}
-            {% endif %}
             {% if content.field_more_info.0 %}
                 {{ rows.info_row_heading(content.field_more_info) }}
             {% endif %}

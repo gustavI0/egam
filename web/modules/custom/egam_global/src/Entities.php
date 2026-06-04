@@ -17,7 +17,7 @@ enum Entities: string {
 	case Screenshot = 'screenshot';
 
 	public function count(): int|array {
-		return \Drupal::entityQuery($this->value)->accessCheck()->count()->execute();
+		return \Drupal::entityQuery($this->value)->accessCheck()->condition('status', 1)->count()->execute();
 	}
 
 	public function getCollectionRoute(): string {
