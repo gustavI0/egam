@@ -314,7 +314,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: text
-          empty: false
+          empty: true
           content:
             value: '<h1>[view:title]</h1>'
             format: full_html

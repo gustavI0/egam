@@ -102,10 +102,48 @@
 
 .view-empty {
   text-align: center;
-  color: rgb(3 7 18 / 0.5);
-  font-style: italic;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem 5rem;
   font-family: 'Futura Book', ui-sans-serif;
+}
+
+.egam-empty__lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(3 7 18 / 0.4);
+}
+
+.egam-empty__term {
+  margin: 0 0 1.5rem;
+  font-family: 'Bebas Regular', ui-sans-serif;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1;
+  color: rgb(3 7 18);
+  word-break: break-word;
+}
+
+.egam-empty__hint {
+  margin: 0;
+  font-size: 1rem;
+  color: rgb(3 7 18 / 0.55);
+}
+
+.egam-empty__clear {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: rgb(3 7 18);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.egam-empty__clear:hover,
+.egam-empty__clear:focus-visible {
+  color: rgb(3 7 18 / 0.55);
 }
 
 .view .ajax-progress {
