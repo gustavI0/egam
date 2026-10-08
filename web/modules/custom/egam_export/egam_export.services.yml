@@ -1,3 +1,7 @@
 services:
   Drupal\egam_export\Export\FieldValueNormalizer:
     class: Drupal\egam_export\Export\FieldValueNormalizer
+
+  Drupal\egam_export\Export\ExportTableBuilder:
+    class: Drupal\egam_export\Export\ExportTableBuilder
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@Drupal\egam_export\Export\FieldValueNormalizer']
