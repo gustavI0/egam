@@ -1,0 +1,5 @@
+egam_export.page:
+  title: 'Export data'
+  description: 'Download all EGAM content as CSV or XLSX.'
+  route_name: egam_export.page
+  parent: system.admin_config_system

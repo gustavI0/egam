@@ -1,0 +1,25 @@
+egam_export.page:
+  path: '/admin/config/egam/export'
+  defaults:
+    _controller: '\Drupal\egam_export\Controller\ExportController::page'
+    _title: 'Export data'
+  requirements:
+    _permission: 'export egam data'
+
+egam_export.csv:
+  path: '/admin/config/egam/export/csv'
+  defaults:
+    _controller: '\Drupal\egam_export\Controller\ExportController::downloadCsv'
+    _title: 'Export data as CSV'
+  requirements:
+    _permission: 'export egam data'
+    _csrf_token: 'TRUE'
+
+egam_export.xlsx:
+  path: '/admin/config/egam/export/xlsx'
+  defaults:
+    _controller: '\Drupal\egam_export\Controller\ExportController::downloadXlsx'
+    _title: 'Export data as XLSX'
+  requirements:
+    _permission: 'export egam data'
+    _csrf_token: 'TRUE'
