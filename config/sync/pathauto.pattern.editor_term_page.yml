@@ -2,6 +2,8 @@ uuid: a79b1292-d117-4545-9758-9c6dcf53e608
 langcode: fr
 status: true
 dependencies:
+  config:
+    - taxonomy.vocabulary.editor
   module:
     - taxonomy
 id: editor_term_page
@@ -12,7 +14,6 @@ selection_criteria:
   4f6b21cd-a109-48f9-8abb-063d987e7ebc:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: 4f6b21cd-a109-48f9-8abb-063d987e7ebc
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:
