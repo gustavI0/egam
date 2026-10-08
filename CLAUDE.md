@@ -69,6 +69,15 @@ ddev drush updatedb
 ddev drush entity:updates
 ```
 
+### Tests (PHPUnit)
+
+```bash
+# Kernel tests of a module (in-memory SQLite)
+ddev exec 'SIMPLETEST_DB=sqlite://localhost/:memory: vendor/bin/phpunit -c web/core web/modules/custom/egam_artwork/tests/src/Kernel'
+```
+
+Kernel test classes need the `#[RunTestsInSeparateProcesses]` attribute (Drupal 11.3+). Tests that rely on fields load them from the real files in `config/sync`.
+
 ### Theme Development
 
 ```bash
