@@ -22,6 +22,7 @@ module:
   editor: 0
   egam_artist: 0
   egam_artwork: 0
+  egam_export: 0
   egam_game: 0
   egam_global: 0
   egam_museum: 0

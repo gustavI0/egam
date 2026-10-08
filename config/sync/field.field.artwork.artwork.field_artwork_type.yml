@@ -11,7 +11,7 @@ id: artwork.artwork.field_artwork_type
 field_name: field_artwork_type
 entity_type: artwork
 bundle: artwork
-label: 'Type d''œuvre'
+label: "Type d'œuvre"
 description: ''
 required: false
 translatable: false
