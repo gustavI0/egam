@@ -24,11 +24,12 @@ if [ -z "$COMMIT_HASH" ]; then
     exit 1
 fi
 
-echo -e "${YELLOW}🔄 Retour au commit $COMMIT_HASH...${NC}"
-git checkout "$COMMIT_HASH"
-
+# Avant le changement de commit : un index.php différent peut dépendre de fichiers générés par composer install.
 echo -e "${YELLOW}🔧 Mise en mode maintenance...${NC}"
 docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
+
+echo -e "${YELLOW}🔄 Retour au commit $COMMIT_HASH...${NC}"
+git checkout "$COMMIT_HASH"
 
 echo -e "${YELLOW}📦 Réinstallation des dépendances...${NC}"
 docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloader

@@ -203,13 +203,11 @@ Located in `.github/workflows/deploy.yml`
 - **Target**: Production VPS running Docker containers
 - **Process**:
   1. SSH into production server
-  2. Pull latest changes from main branch
-  3. Install Composer dependencies (production mode)
-  4. Enable maintenance mode
-  5. Update database schema
-  6. Import configuration
-  7. Rebuild cache
-  8. Disable maintenance mode
+  2. Enable maintenance mode (before the pull: a new `index.php` can depend on files that `composer install` generates)
+  3. Pull latest changes from main branch
+  4. Install Composer dependencies
+  5. `drush deploy`: update database schema, import configuration, rebuild cache, run deploy hooks
+  6. Disable maintenance mode
 
 **Required GitHub Secrets**:
 - `DEPLOY_HOST`: Production server hostname

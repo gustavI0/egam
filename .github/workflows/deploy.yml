@@ -22,14 +22,15 @@ jobs:
             echo "🔐 Configuring Git safe directory..."
             git config --global --add safe.directory ${{ secrets.DEPLOY_PATH }}/drupal-files
 
+            # Before the pull: a new index.php can need files that composer install generates.
+            echo "🔧 Enabling maintenance mode..."
+            docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
+            
             echo "📥 Pulling latest changes..."
             git pull origin main
             
             echo "📦 Installing dependencies..."
             docker exec -u www-data egam_drupal composer install --optimize-autoloader
-            
-            echo "🔧 Enabling maintenance mode..."
-            docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
             
             echo "🗄️ Deploy..."
             docker exec -u www-data egam_drupal vendor/bin/drush deploy

@@ -16,6 +16,10 @@ EMAIL="gustavI0@proton.me"
 
 cd "$PROJECT_DIR"
 
+# Avant la récupération du code : un nouvel index.php peut dépendre de fichiers générés par composer install.
+echo -e "${YELLOW}🔧 Mise en mode maintenance...${NC}"
+docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
+
 echo -e "${YELLOW}📥 Récupération des dernières modifications (branche: $BRANCH)...${NC}"
 git fetch origin
 git checkout "$BRANCH"
@@ -23,9 +27,6 @@ git pull origin "$BRANCH"
 
 echo -e "${YELLOW}📦 Installation des dépendances Composer...${NC}"
 docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloader
-
-echo -e "${YELLOW}🔧 Mise en mode maintenance...${NC}"
-docker exec -u www-data egam_drupal vendor/bin/drush state:set system.maintenance_mode 1
 
 echo -e "${YELLOW}🗄️  Déploiement...${NC}"
 docker exec -u www-data egam_drupal vendor/bin/drush deploy
