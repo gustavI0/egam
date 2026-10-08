@@ -42,6 +42,7 @@ function template_preprocess_artwork(array &$variables): void {
 	if ($viewMode == 'full') {
 		$variables['full_artist'] = $artwork->getFullArtist(TRUE);
 		$variables['full_location_link'] = $artwork->getFullLocationAsLink();
+		$variables['is_york_project'] = $artwork->hasField('field_york_project') && (bool) $artwork->get('field_york_project')->value;
 	}
 	if ($viewMode == 'teaser') {
 		$contextManager = ContextManager::me();

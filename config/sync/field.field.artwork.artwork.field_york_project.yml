@@ -1,0 +1,22 @@
+uuid: 5adc3a53-f8e5-4bf6-ad73-30a392078ad3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_york_project
+  module:
+    - egam_artwork
+id: artwork.artwork.field_york_project
+field_name: field_york_project
+entity_type: artwork
+bundle: artwork
+label: 'York Project'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Oui
+  off_label: Non
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: 2616ba61-1a5c-4a5f-9673-4727a181de39
+langcode: fr
+status: true
+dependencies:
+  module:
+    - egam_artwork
+id: artwork.field_school
+field_name: field_school
+entity_type: artwork
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

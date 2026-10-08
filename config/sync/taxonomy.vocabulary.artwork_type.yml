@@ -1,0 +1,9 @@
+uuid: 189e8aeb-aa02-45a6-a56c-124a2d0214af
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Type d''œuvre'
+vid: artwork_type
+description: null
+weight: 0
+new_revision: false

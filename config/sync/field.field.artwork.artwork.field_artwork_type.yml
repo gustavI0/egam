@@ -1,0 +1,30 @@
+uuid: 9dc81bc8-7e21-4dcd-b817-f87c8050efe3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.artwork.field_artwork_type
+    - taxonomy.vocabulary.artwork_type
+  module:
+    - egam_artwork
+id: artwork.artwork.field_artwork_type
+field_name: field_artwork_type
+entity_type: artwork
+bundle: artwork
+label: 'Type d''œuvre'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      artwork_type: artwork_type
+    sort:
+      field: _none
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

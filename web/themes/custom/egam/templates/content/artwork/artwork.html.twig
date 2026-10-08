@@ -30,6 +30,15 @@
             {% if content.field_dimensions.0 %}
                 {{ rows.info_row('Dimensions'|t, content.field_dimensions, 'dimensions') }}
             {% endif %}
+            {% if content.field_artwork_type.0 %}
+                {{ rows.info_row('Type d’œuvre'|t, content.field_artwork_type, 'artwork_type') }}
+            {% endif %}
+            {% if content.field_school.0 %}
+                {{ rows.info_row('École'|t, content.field_school, 'school') }}
+            {% endif %}
+            {% if is_york_project %}
+                {{ rows.info_row('York Project'|t, 'Oui'|t, 'york_project') }}
+            {% endif %}
             {% if full_location_link %}
                 {{ rows.info_row_raw('Conservation location'|t, full_location_link, 'museum') }}
             {% endif %}

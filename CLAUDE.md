@@ -6,13 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Every Game a Museum is a Drupal 11 site that catalogs artworks found in video games, along with their artists, museums, and games. The site emphasizes simplicity, accessibility, and lightweight design.
 
-Live site: https://everygameamuseum.com
+Live site: <https://everygameamuseum.com>
 
 ## Local Development Environment
 
 The project uses [DDEV](https://ddev.readthedocs.io/) for local development.
 
 ### DDEV Commands
+
 ```bash
 # Start environment
 ddev start
@@ -40,6 +41,7 @@ ddev import-db --file=dump.sql.gz
 ## Development Commands
 
 ### Composer
+
 ```bash
 # Install dependencies
 composer install
@@ -49,6 +51,7 @@ composer update drupal/core-recommended --with-all-dependencies
 ```
 
 ### Drush (via DDEV)
+
 ```bash
 # Clear cache
 ddev drush cr
@@ -67,6 +70,7 @@ ddev drush entity:updates
 ```
 
 ### Theme Development
+
 ```bash
 cd web/themes/custom/egam
 
@@ -96,6 +100,7 @@ The project uses a custom entity architecture centered around five main content 
 5. **Screenshot** (`egam_screenshot`) - Screenshots from games
 
 All custom entities:
+
 - Extend `RevisionableContentEntityBase`
 - Use `EntityChangedTrait` and `EntityOwnerTrait`
 - Have custom form handlers in `Form/` directories
@@ -117,6 +122,7 @@ The `egam_global` module provides shared functionality across all entity modules
 ### Module Structure
 
 Each entity module follows this pattern:
+
 ```
 web/modules/custom/egam_[entity]/
 ├── config/                    # Config schema and install config
@@ -133,6 +139,7 @@ web/modules/custom/egam_[entity]/
 ### Theme (`egam`)
 
 The custom theme uses:
+
 - **TailwindCSS** for styling (configured in `tailwind.config.js`)
 - **Alpine.js** for minimal JavaScript interactivity
 - **PhotoSwipe** (v5.4.4) for image galleries
@@ -140,12 +147,14 @@ The custom theme uses:
 - **Base theme**: Stable9
 
 Key theme customizations in `web/themes/custom/egam/egam.theme`:
+
 - `egam_preprocess()`: Handles responsive image sizing (max height 1080px)
 - `egam_preprocess_page()`: Adds `is_content` variable for entity canonical pages
 - `egam_theme_suggestions_field_alter()`: Custom field template suggestions for Swiper galleries
 - `egam_preprocess_menu__main()`: Activates menu items based on current entity collection
 
 Template structure:
+
 ```
 web/themes/custom/egam/templates/
 ├── block/         # Block templates
@@ -161,6 +170,7 @@ web/themes/custom/egam/templates/
 ### Configuration Management
 
 Configuration is stored in `config/sync/` and should be exported after making changes:
+
 ```bash
 vendor/bin/drush config:export
 ```
@@ -170,6 +180,7 @@ Configuration can be safely ignored for certain modules using the `config_ignore
 ## Key Drupal Modules
 
 ### Contrib Modules
+
 - **admin_toolbar** (3.4): Enhanced admin toolbar
 - **gin** (5.0) + **gin_toolbar** (3.0): Admin theme
 - **pathauto** (1.11): Automatic URL alias generation
@@ -210,6 +221,7 @@ Located in `.github/workflows/deploy.yml`
   6. Disable maintenance mode
 
 **Required GitHub Secrets**:
+
 - `DEPLOY_HOST`: Production server hostname
 - `DEPLOY_USER`: SSH username
 - `DEPLOY_SSH_KEY`: SSH private key for authentication
@@ -220,6 +232,7 @@ Located in `.github/workflows/deploy.yml`
 Located in project root directory.
 
 #### Deploy Script (`deploy.sh`)
+
 ```bash
 # Deploy main branch
 ./deploy.sh
@@ -229,6 +242,7 @@ Located in project root directory.
 ```
 
 Features:
+
 - Pulls latest changes from specified branch (default: main)
 - Installs dependencies via Docker (container: `egam_drupal`)
 - Enables maintenance mode during deployment
@@ -236,22 +250,26 @@ Features:
 - Sends email notification on completion
 
 #### Rollback Script (`rollback.sh`)
+
 ```bash
 ./rollback.sh
 ```
 
 Emergency rollback to previous commit:
+
 - Lists last 10 commits
 - Prompts for commit hash to rollback to
 - Performs full deployment process at specified commit
 - Sends email notification
 
 #### Webhook Listener (`webhook-listener.sh`)
+
 ```bash
 ./webhook-listener.sh
 ```
 
 Alternative deployment trigger:
+
 - Runs as background service
 - Polls `/tmp/deploy-egam.trigger` file every 10 seconds
 - Triggers deployment when file exists
@@ -260,6 +278,7 @@ Alternative deployment trigger:
 ### Docker Environment
 
 All deployment scripts assume a Docker-based production environment:
+
 - **Container name**: `egam_drupal`
 - **User**: `www-data`
 - Commands are executed via: `docker exec -u www-data egam_drupal [command]`
@@ -267,6 +286,7 @@ All deployment scripts assume a Docker-based production environment:
 ### Deployment Checklist
 
 Before deploying:
+
 1. Test changes locally
 2. Export configuration: `vendor/bin/drush config:export`
 3. Commit and push to main branch
@@ -274,11 +294,36 @@ Before deploying:
 5. Verify site functionality after deployment
 
 If issues occur:
+
 1. Use `rollback.sh` to revert to previous working commit
 2. Check `~/egam/deploy.log` for error details
 3. Manually fix issues and redeploy
 
 ## Important Patterns
+
+### Hooks: use the OOP style
+
+New hooks are written as methods with the `#[Hook]` attribute (Drupal 11.1+), not as procedural `hook_*()` functions in `.module` files:
+
+```php
+// web/modules/custom/egam_artwork/src/Hook/ArtworkTypeHooks.php
+class ArtworkTypeHooks {
+  public function __construct(private readonly EntityTypeManagerInterface $entityTypeManager) {}
+
+  #[Hook('artwork_presave')]
+  public function presave(ArtworkInterface $artwork): void { ... }
+}
+```
+
+- One class per concern in `src/Hook/` (`*Hooks.php`), autowired, so dependencies go in the constructor. Clear the cache after adding one.
+- Existing procedural hooks in `.module` files stay as they are until the file is touched for another reason; move a hook to a class when you modify it.
+- Still procedural, because Drupal requires it: `hook_update_N()` (`.install`), `hook_deploy_NAME()` (`{module}.deploy.php`) and the default `template_preprocess_*()` functions.
+
+### Deploy hooks for content
+
+Taxonomy terms and other content are not carried by `config:export`. Create them in a `hook_deploy_NAME()` in `{module}.deploy.php`, written to be idempotent. `drush deploy` (used by `deploy.sh` and the GitHub workflow) runs it after the configuration import. Locally: `ddev drush deploy:hook`.
+
+Example: `egam_artwork_deploy_create_artwork_types()` creates the artwork types (Peinture, Sculpture, Dessins, Gravure, Objet d'art).
 
 ### Using the Entities Enum
 
@@ -300,6 +345,7 @@ $games = Entities::Game->loadMultiple([1, 2, 3]);
 ### Entity Relationships
 
 Entities reference each other through entity reference fields:
+
 - Artworks reference Artists (creators) and Museums (where originals are housed)
 - Screenshots reference Games and Artworks (which artwork is shown)
 - Games contain references to Artworks found within them
