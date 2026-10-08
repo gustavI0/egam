@@ -159,6 +159,20 @@ La page affiche une courte explication et deux liens de téléchargement. Les li
 
 **Contrainte pratique :** DDEV doit être démarré (Docker) pour lancer les tests.
 
+## Précisions apportées en rédigeant le plan
+
+Constatées en lisant `config/sync` (champs `field.storage.<entité>.*`), sans changer l'esprit de la spec :
+
+- **Références vers des termes de taxonomie** (`field_subject`, `field_genre`, `field_developer`, `field_editor`) : exportées comme les autres références (`Label (#id)` en CSV, label en XLSX), mais **sans lien interne**, car il n'y a pas de feuille cible. Seules les références vers les 5 entités EGAM portent un lien.
+- **Champ `owner`** : le CSV contient le nom d'utilisateur seul, sans `(#id)`.
+- **Champs `metatag`** (`field_metatags`) : exclus, comme les images. Ils n'ont pas de sens dans un tableur.
+- **Champs calculés** (`isComputed()`) : exclus.
+- **En-têtes de colonnes** : noms machine des champs (`field_artist`), stables et sans doublon. Les trois premières colonnes sont toujours `id`, `label`, `status`, les quatre dernières `created`, `changed`, `owner`, `url`.
+- **XLSX** : la colonne `id` est écrite comme un nombre (tri correct dans Excel), les autres cellules comme du texte.
+- **Référence multiple dont la première cible est supprimée** : le lien pointe vers la première cible qui existe encore.
+- **Erreurs** : une classe `ExportException` est levée par les exporteurs ; le contrôleur la journalise (canal `egam_export`) et redirige vers la page d'export avec un message d'erreur.
+- **Menu** : il n'existe pas de menu « EGAM » dans Configuration. L'entrée est rattachée à `system.admin_config_system`, et le chemin reste `/admin/config/egam/export`.
+
 ## Évolutions possibles
 
 - Passer à Batch API ou à une queue si l'export devient trop lourd (dizaines de milliers de lignes ou timeouts). Le service de construction des tables reste inchangé dans ce cas.
