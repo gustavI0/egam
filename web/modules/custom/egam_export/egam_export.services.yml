@@ -1,0 +1,3 @@
+services:
+  Drupal\egam_export\Export\FieldValueNormalizer:
+    class: Drupal\egam_export\Export\FieldValueNormalizer
