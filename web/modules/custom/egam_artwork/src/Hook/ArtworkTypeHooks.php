@@ -44,14 +44,25 @@ class ArtworkTypeHooks {
   }
 
   /**
-   * Empties the painting fields when the artwork is not a painting.
+   * Empties the painting fields when the artwork has a type other than painting.
    *
    * They are hidden in the form, so a stale value would otherwise stay in the
-   * database and in the exports.
+   * database and in the exports. Nothing is cleared for an artwork without a
+   * type (a script may only set these fields), nor while the painting term
+   * cannot be found: the form then shows the fields, so they must be kept.
    */
   #[Hook('artwork_presave')]
   public function presave(ArtworkInterface $artwork): void {
-    if ($this->isPainting($artwork)) {
+    if (!$artwork->hasField(ArtworkTypes::TYPE_FIELD)) {
+      return;
+    }
+    $typeId = $artwork->get(ArtworkTypes::TYPE_FIELD)->target_id;
+    if ($typeId === NULL) {
+      return;
+    }
+    $paintingId = $this->paintingTermId();
+    // Same term id as the form uses, so both always agree on what a painting is.
+    if ($paintingId === NULL || (string) $typeId === (string) $paintingId) {
       return;
     }
     foreach (ArtworkTypes::PAINTING_FIELDS as $field) {
@@ -59,14 +70,6 @@ class ArtworkTypeHooks {
         $artwork->set($field, NULL);
       }
     }
-  }
-
-  private function isPainting(ArtworkInterface $artwork): bool {
-    if (!$artwork->hasField(ArtworkTypes::TYPE_FIELD)) {
-      return FALSE;
-    }
-    $type = $artwork->get(ArtworkTypes::TYPE_FIELD)->entity;
-    return $type !== NULL && $type->label() === ArtworkTypes::PAINTING;
   }
 
   private function paintingTermId(): string|int|null {

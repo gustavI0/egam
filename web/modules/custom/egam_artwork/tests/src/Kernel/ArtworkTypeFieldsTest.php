@@ -162,13 +162,24 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
     $this->assertTrue($artwork->get('field_york_project')->isEmpty());
   }
 
-  public function testNoTypeClearsSchoolAndYorkProject(): void {
+  public function testNoTypeLeavesSchoolAndYorkProjectAlone(): void {
     $this->runDeployHook();
 
     $artwork = $this->artwork(NULL, 'Flemish', TRUE);
 
-    $this->assertTrue($artwork->get('field_school')->isEmpty());
-    $this->assertTrue($artwork->get('field_york_project')->isEmpty());
+    // An artwork without a type may be saved by a script that only sets these.
+    $this->assertSame('Flemish', $artwork->get('field_school')->value);
+    $this->assertSame('1', (string) $artwork->get('field_york_project')->value);
+  }
+
+  public function testNothingIsClearedWhileThePaintingTypeDoesNotExist(): void {
+    // Only "Sculpture" exists, as after the painting term was renamed.
+    Term::create(['vid' => ArtworkTypes::VOCABULARY, 'name' => 'Sculpture'])->save();
+
+    $artwork = $this->artwork('Sculpture', 'Flemish', TRUE);
+
+    $this->assertSame('Flemish', $artwork->get('field_school')->value);
+    $this->assertSame('1', (string) $artwork->get('field_york_project')->value);
   }
 
   public function testChangingAPaintingIntoAnotherTypeClearsTheValues(): void {
