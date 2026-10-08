@@ -8,6 +8,7 @@ use Drupal\egam_artwork\ArtworkTypes;
 use Drupal\egam_artwork\Entity\Artwork;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\taxonomy\Entity\Term;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
@@ -103,6 +104,24 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
     foreach (['field_artwork_type', 'field_school', 'field_york_project'] as $name) {
       $this->assertFalse($definitions[$name]->isRequired(), $name);
     }
+  }
+
+  /**
+   * These fields are for the database and the export, never for visitors.
+   */
+  #[DataProvider('publicViewModeProvider')]
+  public function testFieldsAreNotDisplayedOnTheFront(string $viewMode): void {
+    $source = new FileStorage($this->root . '/../config/sync');
+    $display = $source->read('core.entity_view_display.artwork.artwork.' . $viewMode);
+    $this->assertIsArray($display, "Missing view display $viewMode");
+
+    foreach (['field_artwork_type', 'field_school', 'field_york_project'] as $field) {
+      $this->assertArrayNotHasKey($field, $display['content'], "$field is shown in $viewMode");
+    }
+  }
+
+  public static function publicViewModeProvider(): array {
+    return ['default' => ['default'], 'teaser' => ['teaser']];
   }
 
   public function testDeployHookCreatesTheFiveTypesInOrder(): void {

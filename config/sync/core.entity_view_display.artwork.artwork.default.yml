@@ -69,14 +69,6 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  field_artwork_type:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 13
-    region: content
   field_cover:
     type: entity_reference_entity_view
     label: hidden
@@ -138,14 +130,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_school:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 14
-    region: content
   field_subject:
     type: entity_reference_label
     label: hidden
@@ -164,6 +148,8 @@ content:
     region: content
 hidden:
   created: true
+  field_artwork_type: true
+  field_school: true
   field_sorting_name: true
   field_sorting_year: true
   field_thumbnail: true
