@@ -9,3 +9,7 @@ services:
   Drupal\egam_export\Export\CsvExporter:
     class: Drupal\egam_export\Export\CsvExporter
     arguments: ['@file_system']
+
+  Drupal\egam_export\Export\XlsxExporter:
+    class: Drupal\egam_export\Export\XlsxExporter
+    arguments: ['@file_system']
