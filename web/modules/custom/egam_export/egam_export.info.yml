@@ -1,0 +1,12 @@
+name: 'EGAM Export'
+type: module
+description: 'Admin export of all EGAM entities to CSV and XLSX.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - egam_global:egam_global
+  - egam_artwork:egam_artwork
+  - egam_artist:egam_artist
+  - egam_game:egam_game
+  - egam_museum:egam_museum
+  - egam_screenshot:egam_screenshot

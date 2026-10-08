@@ -1,0 +1,4 @@
+export egam data:
+  title: 'Export EGAM data'
+  description: 'Download all EGAM content, including unpublished content, as CSV or XLSX.'
+  restrict access: true

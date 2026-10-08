@@ -39,6 +39,7 @@
         "drupal/upgrade_status": "^4.3",
         "drupal/views_infinite_scroll": "^2.0",
         "drupal/webform": "^6.3@beta",
+        "phpoffice/phpspreadsheet": "^5.10",
         "symfony/dotenv": "^6.3"
     },
     "conflict": {
