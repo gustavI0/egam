@@ -26,9 +26,25 @@ class FieldValueNormalizerTest extends ExportKernelTestBase {
   }
 
   #[DataProvider('formulaProvider')]
-  public function testFormulaTriggersArePrefixed(string $label): void {
+  public function testFormulaTriggersArePrefixedInCsvOnly(string $label): void {
     $artwork = Artwork::create(['label' => $label]);
-    $this->assertSame("'" . $label, $this->normalizer()->normalize($artwork->get('label'))->text);
+
+    $cell = $this->normalizer()->normalize($artwork->get('label'));
+
+    $this->assertSame("'" . $label, $cell->csv());
+    // The XLSX writer stores text as a string, so it needs no prefix.
+    $this->assertSame($label, $cell->text);
+  }
+
+  public function testReferenceLabelStartingWithAFormulaTriggerIsPrefixedInCsvOnly(): void {
+    $artist = Artist::create(['label' => '=cmd']);
+    $artist->save();
+    $artwork = Artwork::create(['label' => 'a', 'field_artist' => $artist->id()]);
+
+    $cell = $this->normalizer()->normalize($artwork->get('field_artist'));
+
+    $this->assertSame('=cmd', $cell->text);
+    $this->assertSame("'=cmd (#" . $artist->id() . ')', $cell->csv());
   }
 
   public static function formulaProvider(): array {

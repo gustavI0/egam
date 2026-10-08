@@ -86,9 +86,14 @@ class ExportTableBuilderTest extends ExportKernelTestBase {
     $this->assertSame($cell->text, $cell->externalUrl);
   }
 
-  public function testFormulaLikeLabelIsPrefixed(): void {
+  public function testFormulaLikeLabelIsPrefixedInCsvOnly(): void {
     Artwork::create(['label' => '=1+1'])->save();
-    $this->assertSame(["'=1+1"], $this->column($this->build(Entities::Artwork), 'label'));
+
+    $table = $this->build(Entities::Artwork);
+    $cell = $table->rows[0][array_search('label', $table->headers, TRUE)];
+
+    $this->assertSame('=1+1', $cell->text);
+    $this->assertSame("'=1+1", $cell->csv());
   }
 
   public function testRowLookupMatchesTheEntityId(): void {
