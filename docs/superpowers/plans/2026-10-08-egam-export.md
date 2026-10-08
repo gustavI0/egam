@@ -2009,3 +2009,16 @@ Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
 - [ ] **Step 6: Avant de pousser**
 
 Ne pas pousser sans accord : un push sur `main` déclenche le déploiement en production (GitHub Actions). Vérifier d'abord que `git diff origin/main --stat` ne contient que les fichiers de cette feature et les documents de `docs/superpowers/`.
+
+---
+
+## Notes d'exécution
+
+Écarts entre ce plan et ce qui a été réalisé :
+
+- `drupal/core-dev` était déjà installé (mise à jour de sécurité de core préalable) ; seul `phpoffice/phpspreadsheet` (^5.10) a été ajouté dans la tâche 1.
+- L'attribut `#[RunTestsInSeparateProcesses]` doit figurer sur **chaque classe de test concrète** (Drupal 11.3+), pas sur la classe de base.
+- Dans `CsvExporterTest`, la méthode utilitaire `parse()` est renommée `parseCsv()` : elle masquait `KernelTestBase::parse()`.
+- Le test fonctionnel active aussi le module `text` : les modules d'entités EGAM utilisent `text_long` sans déclarer de dépendance à `text` (défaut existant, hors périmètre).
+- Drush a dû passer en 13.8.0 : avec core 11.4, `drush deploy` retournait une erreur dès que l'import de config activait un module.
+- Chaque test (`ExportTable`, `FieldValueNormalizer`, `ExportTableBuilder`, `CsvExporter`, `XlsxExporter`, `ExportController`) a été vu en échec (classe ou service introuvable) avant son implémentation.

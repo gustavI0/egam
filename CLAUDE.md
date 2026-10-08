@@ -128,6 +128,17 @@ The `egam_global` module provides shared functionality across all entity modules
 - **`ContextManager`**: Service for managing context across the site
 - **`ListFilterForm`**: Provides filtering functionality for entity lists
 
+### Export Module (`egam_export`)
+
+Admin-only export of the five entities at `/admin/config/egam/export` (permission `export egam data`, downloads also need the CSRF token carried by the page's links):
+
+- **`ExportTableBuilder`**: reads every entity (published or not) through the `Entities` enum and builds neutral `ExportTable` objects. Fields are discovered at runtime, so a field added in Field UI appears in the export without code changes. Image, file, media and metatag fields are skipped.
+- **`FieldValueNormalizer`**: turns field values into cells and prefixes values starting with `=`, `+`, `-` or `@` (spreadsheet formula injection)
+- **`CsvExporter`**: one CSV per entity, zipped
+- **`XlsxExporter`**: one sheet per entity, with internal links between sheets (PhpSpreadsheet)
+
+Tests: Kernel tests with `SIMPLETEST_DB=sqlite://localhost/:memory:`; the Functional test needs `SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=mysql://db:db@db/db BROWSERTEST_OUTPUT_DIRECTORY=/tmp`, both run through `ddev exec`.
+
 ### Module Structure
 
 Each entity module follows this pattern:
