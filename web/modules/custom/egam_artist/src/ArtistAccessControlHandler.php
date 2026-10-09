@@ -14,7 +14,7 @@ use Drupal\Core\Session\AccountInterface;
  *
  * @see https://www.drupal.org/project/coder/issues/3185082
  */
-final class artistAccessControlHandler extends EntityAccessControlHandler {
+final class ArtistAccessControlHandler extends EntityAccessControlHandler {
 
   /**
    * {@inheritdoc}
