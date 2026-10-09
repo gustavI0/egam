@@ -1,0 +1,14 @@
+name: 'EGAM Dashboard'
+type: module
+description: 'Administration dashboard: shortcuts, catalogue figures, data gaps and latest changes.'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - dashboard:dashboard
+  - egam_global:egam_global
+  - egam_artwork:egam_artwork
+  - egam_artist:egam_artist
+  - egam_game:egam_game
+  - egam_museum:egam_museum
+  - egam_screenshot:egam_screenshot
+  - egam_export:egam_export

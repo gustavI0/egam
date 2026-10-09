@@ -1,0 +1,4 @@
+services:
+  Drupal\egam_dashboard\Dashboard\DashboardStats:
+    class: Drupal\egam_dashboard\Dashboard\DashboardStats
+    arguments: ['@entity_type.manager', '@entity_field.manager']

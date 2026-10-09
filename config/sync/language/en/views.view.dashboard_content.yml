@@ -1,0 +1,104 @@
+label: 'Dashboard content blocks'
+description: 'Lists of content related to the current user, for being used in the dashboard.'
+display:
+  default:
+    display_title: Default
+    display_options:
+      title: 'My recent content'
+      fields:
+        title:
+          label: Title
+          separator: ', '
+        type:
+          label: 'Content type'
+          separator: ', '
+        changed:
+          label: 'Last update'
+          settings:
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: "You haven't authored any content yet."
+      sorts:
+        changed:
+          expose:
+            label: Changed
+      arguments:
+        uid:
+          exception:
+            title: All
+      use_more_text: 'See all content'
+      link_url: /admin/content
+  block_edited_content:
+    display_title: 'Edited content block'
+    display_options:
+      title: 'Content I recently edited'
+      empty:
+        area_text_custom:
+          content: "You haven't edited any content."
+      arguments:
+        revision_uid:
+          exception:
+            title: All
+        uid:
+          exception:
+            title: All
+      display_description: 'Content edited by the current user.'
+      display_comment: 'Block of content by other authors that has been edited by the current user, for being used in the dashboard.'
+      block_description: 'Content edited by the current user'
+      block_category: 'Content Management'
+  block_own_drafts:
+    display_title: 'Drafts block'
+    display_options:
+      title: 'My drafts'
+      empty:
+        area_text_custom:
+          content: 'You have no pending drafts.'
+      display_description: 'Drafts by the current user.'
+      display_comment: "Block of the current user's unpublished content, for being used in the dashboard."
+      block_description: "Current user's drafts"
+      block_category: 'Content Management'
+  block_own_recent_content:
+    display_title: 'Recent content block'
+    display_options:
+      display_description: 'Recent content by the current user.'
+      display_comment: 'Block of published content by the current user, for being used in the dashboard.'
+      block_description: "Current user's content"
+      block_category: 'Content Management'
+  block_site_content:
+    display_title: 'Site content'
+    display_options:
+      title: 'Site Content'
+      fields:
+        node_bulk_form:
+          action_title: Action
+        title:
+          label: Title
+          separator: ', '
+        type:
+          label: 'Content type'
+          separator: ', '
+        changed:
+          label: Updated
+          separator: ', '
+        name:
+          label: Author
+          separator: ', '
+      filters:
+        title:
+          expose:
+            label: Search
+        type:
+          expose:
+            label: 'Content type'
+      block_description: 'Site Content'
+      block_category: 'Content Management'

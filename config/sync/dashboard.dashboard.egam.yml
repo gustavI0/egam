@@ -1,0 +1,90 @@
+uuid: 06e88dcb-7d60-5d2a-9c37-e0d622d7a0bd
+langcode: fr
+status: true
+dependencies:
+  module:
+    - dashboard
+    - egam_dashboard
+id: egam
+label: EGAM
+description: 'Raccourcis, chiffres du catalogue, données à compléter et dernières modifications.'
+layout:
+  -
+    layout_id: layout_onecol
+    layout_settings:
+      label: ''
+      context_mapping: {  }
+    components:
+      c206f891-bf37-5b46-9263-bfc6631b7ebc:
+        uuid: c206f891-bf37-5b46-9263-bfc6631b7ebc
+        region: content
+        configuration:
+          id: egam_dashboard_shortcuts
+          label: 'Raccourcis'
+          label_display: visible
+          provider: egam_dashboard
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: ''
+      context_mapping: {  }
+      column_widths: 50-50
+    components:
+      8baa50cb-18d7-5122-a4e9-aabce9c2d4f9:
+        uuid: 8baa50cb-18d7-5122-a4e9-aabce9c2d4f9
+        region: first
+        configuration:
+          id: egam_dashboard_catalogue
+          label: 'Catalogue'
+          label_display: visible
+          provider: egam_dashboard
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+      cfadd65e-da5e-58ad-b672-66a0abf505ca:
+        uuid: cfadd65e-da5e-58ad-b672-66a0abf505ca
+        region: second
+        configuration:
+          id: egam_dashboard_gaps
+          label: 'Données à compléter'
+          label_display: visible
+          provider: egam_dashboard
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+  -
+    layout_id: layout_twocol_section
+    layout_settings:
+      label: ''
+      context_mapping: {  }
+      column_widths: 50-50
+    components:
+      046f8f90-fa6b-5fcf-8ee7-1f7ff361da59:
+        uuid: 046f8f90-fa6b-5fcf-8ee7-1f7ff361da59
+        region: first
+        configuration:
+          id: egam_dashboard_recent
+          label: 'Dernières modifications'
+          label_display: visible
+          provider: egam_dashboard
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+      dba5553e-91b2-51f8-a34b-1d3e9f8db379:
+        uuid: dba5553e-91b2-51f8-a34b-1d3e9f8db379
+        region: second
+        configuration:
+          id: dashboard_site_status
+          label: 'État du site'
+          label_display: visible
+          provider: dashboard
+          context_mapping: {  }
+        weight: 0
+        additional: {  }
+    third_party_settings: {  }
+weight: 0

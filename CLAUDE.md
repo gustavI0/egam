@@ -139,6 +139,16 @@ Admin-only export of the five entities at `/admin/config/egam/export` (permissio
 
 Tests: Kernel tests with `SIMPLETEST_DB=sqlite://localhost/:memory:`; the Functional test needs `SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=mysql://db:db@db/db BROWSERTEST_OUTPUT_DIRECTORY=/tmp`, both run through `ddev exec`.
 
+### Dashboard Module (`egam_dashboard`)
+
+Admin landing page at `/admin/dashboard`, built on the contrib `drupal/dashboard` module (Layout Builder). The dashboard itself is the config entity `dashboard.dashboard.egam` in `config/sync`; its layout is edited in Structure > Dashboards, then exported.
+
+- **Blocks** (category "EGAM"): `egam_dashboard_shortcuts` (export link first, then add and list links, each hidden when the user lacks access), `egam_dashboard_catalogue` (totals per entity, published vs not), `egam_dashboard_gaps` (artworks without type, artist, museum or cover; games without any screenshot) and `egam_dashboard_recent` (latest changes). They need `access administration pages`.
+- **`DashboardStats`**: the queries behind the blocks. They ignore access (drafts are counted), but the blocks only list names the user may edit. A gap whose field was deleted in Field UI is skipped, not an error.
+- **Login redirect**: the contrib module sends users who hold `view egam dashboard` to the dashboard when they log in with the form (never after a one-time login link or when a `destination` is set). Administrators have the permission implicitly; grant it to other roles in the permissions page.
+
+Tests: Kernel (`SIMPLETEST_DB=sqlite://localhost/:memory:`) and Functional (same variables as the export module).
+
 ### Module Structure
 
 Each entity module follows this pattern:

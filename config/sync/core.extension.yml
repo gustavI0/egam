@@ -16,12 +16,14 @@ module:
   contact: 0
   contextual: 0
   crop: 0
+  dashboard: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
   egam_artist: 0
   egam_artwork: 0
+  egam_dashboard: 0
   egam_export: 0
   egam_game: 0
   egam_global: 0
@@ -38,6 +40,8 @@ module:
   image: 0
   inline_form_errors: 0
   language: 0
+  layout_builder: 0
+  layout_discovery: 0
   link: 0
   locale: 0
   media: 0
