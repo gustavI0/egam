@@ -30,7 +30,7 @@ jobs:
             git pull origin main
             
             echo "📦 Installing dependencies..."
-            docker exec -u www-data egam_drupal composer install --optimize-autoloader
+            docker exec -u www-data egam_drupal composer install --no-dev --optimize-autoloader
             
             echo "🗄️ Deploy..."
             docker exec -u www-data egam_drupal vendor/bin/drush deploy

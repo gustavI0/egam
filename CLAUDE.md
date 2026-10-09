@@ -236,7 +236,7 @@ Located in `.github/workflows/deploy.yml`
   1. SSH into production server
   2. Enable maintenance mode (before the pull: a new `index.php` can depend on files that `composer install` generates)
   3. Pull latest changes from main branch
-  4. Install Composer dependencies
+  4. Install Composer dependencies (`--no-dev`: Drush is a regular requirement, PHPUnit stays out of production)
   5. `drush deploy`: update database schema, import configuration, rebuild cache, run deploy hooks
   6. Disable maintenance mode
 
