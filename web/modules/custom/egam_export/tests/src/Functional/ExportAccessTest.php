@@ -12,7 +12,6 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 class ExportAccessTest extends BrowserTestBase {
 
   protected static $modules = [
-    'text',
     'egam_global', 'egam_artwork', 'egam_artist', 'egam_game',
     'egam_museum', 'egam_screenshot', 'egam_export',
   ];
