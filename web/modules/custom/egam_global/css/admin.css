@@ -1,0 +1,81 @@
+/**
+ * @file
+ * EGAM adjustments to the admin theme (Gin). Colours and spacing come from
+ * Gin's variables, so light and dark mode follow without extra rules.
+ * Loaded on administration pages only (see AdminAssetsHooks).
+ */
+
+/**
+ * Dashboard: EGAM blocks.
+ *
+ * The dashboard module colours every link of a block with Gin's primary
+ * colour, which made the export button's text the same colour as its
+ * background. Selectors below are one class more specific to win over it.
+ */
+
+/* Content gets the side margins the block title already has. */
+.dashboard .layout .block-egam-dashboard > :not(h2) {
+  margin-inline: var(--gin-spacing-m);
+}
+
+.dashboard .layout .block-egam-dashboard {
+  padding-block-end: var(--gin-spacing-m);
+}
+
+.dashboard .layout .block-egam-dashboard > h2 {
+  margin-block-end: var(--gin-spacing-m);
+}
+
+/* The export button keeps Gin's button text colour on its primary background. */
+.dashboard .layout .block-egam-dashboard a.button--primary {
+  display: inline-block;
+  margin-block-end: var(--gin-spacing-m);
+  color: var(--gin-color-button-text);
+}
+
+.dashboard .layout .block-egam-dashboard a.button--primary:hover {
+  text-decoration: none;
+}
+
+/* Shortcut groups: a title, then links as a wrapping row of pills. */
+.dashboard .layout .block-egam-dashboard .egam-pills + .egam-pills {
+  margin-block-start: var(--gin-spacing-m);
+}
+
+.dashboard .layout .block-egam-dashboard .egam-pills h3 {
+  margin-block: 0 var(--gin-spacing-xs);
+  color: var(--gin-color-title);
+  font-size: var(--gin-font-size-m, 1rem);
+}
+
+.dashboard .layout .block-egam-dashboard .egam-pills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gin-spacing-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard .layout .block-egam-dashboard .egam-pills li {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard .layout .block-egam-dashboard .egam-pills a {
+  display: inline-block;
+  padding: var(--gin-spacing-xs) var(--gin-spacing-s);
+  border: 1px solid var(--gin-border-color);
+  border-radius: var(--gin-border-m);
+  background: var(--gin-bg-layer2);
+  color: var(--gin-color-text);
+  text-decoration: none;
+}
+
+.dashboard .layout .block-egam-dashboard .egam-pills a:hover,
+.dashboard .layout .block-egam-dashboard .egam-pills a:focus-visible {
+  border-color: var(--gin-color-primary);
+  background: var(--gin-color-primary-light);
+  color: var(--gin-color-primary-active);
+  text-decoration: none;
+}

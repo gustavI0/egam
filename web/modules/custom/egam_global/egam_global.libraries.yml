@@ -1,0 +1,6 @@
+# Adjustments to the admin theme (Gin), loaded on administration pages only.
+# Add new admin rules to css/admin.css, scoped by a class, rather than a new file.
+admin:
+  css:
+    theme:
+      css/admin.css: {}

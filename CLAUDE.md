@@ -149,6 +149,10 @@ Admin landing page at `/admin/dashboard`, built on the contrib `drupal/dashboard
 
 Tests: Kernel (`SIMPLETEST_DB=sqlite://localhost/:memory:`) and Functional (same variables as the export module).
 
+### Admin theme adjustments
+
+Rules that adapt Gin to the EGAM screens go in `web/modules/custom/egam_global/css/admin.css` (library `egam_global/admin`), scoped by a class or block class, using Gin's `--gin-*` variables so light and dark mode follow. `AdminAssetsHooks` attaches it on administration routes only, never on the front end. The dashboard shortcut groups use the `egam-pills` class.
+
 ### Module Structure
 
 Each entity module follows this pattern:

@@ -52,6 +52,14 @@ class DashboardBlocksTest extends DashboardKernelTestBase {
     $this->assertStringContainsString('/artwork/add', $html);
   }
 
+  public function testShortcutGroupsCarryTheClassTheAdminStylesheetTargets(): void {
+    $this->userWith(['access administration pages', 'administer artwork']);
+
+    $html = $this->html('egam_dashboard_shortcuts');
+
+    $this->assertSame(2, substr_count($html, 'egam-pills'), 'One group for adding, one for managing');
+  }
+
   public function testAddLinksOnlyForEntitiesTheUserMayCreate(): void {
     $this->userWith(['access administration pages', 'create artwork']);
 

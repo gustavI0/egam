@@ -44,12 +44,23 @@ final class ShortcutsBlock extends DashboardBlockBase {
       }
     }
     if ($add) {
-      $build['add'] = ['#theme' => 'item_list', '#items' => $add, '#title' => $this->t('Add content')];
+      $build['add'] = $this->pills($this->t('Add content'), $add);
     }
     if ($lists) {
-      $build['lists'] = ['#theme' => 'item_list', '#items' => $lists, '#title' => $this->t('Manage content')];
+      $build['lists'] = $this->pills($this->t('Manage content'), $lists);
     }
     return $build;
+  }
+
+  /**
+   * A titled group of links, styled as pills by the admin stylesheet.
+   */
+  private function pills(TranslatableMarkup $title, array $links): array {
+    return [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['egam-pills']],
+      'list' => ['#theme' => 'item_list', '#items' => $links, '#title' => $title],
+    ];
   }
 
 }
