@@ -20,7 +20,7 @@ layout:
         region: content
         configuration:
           id: egam_dashboard_shortcuts
-          label: 'Raccourcis'
+          label: Raccourcis
           label_display: visible
           provider: egam_dashboard
           context_mapping: {  }
@@ -39,7 +39,7 @@ layout:
         region: first
         configuration:
           id: egam_dashboard_catalogue
-          label: 'Catalogue'
+          label: Catalogue
           label_display: visible
           provider: egam_dashboard
           context_mapping: {  }
