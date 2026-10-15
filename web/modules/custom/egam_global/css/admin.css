@@ -6,24 +6,57 @@
  */
 
 /**
- * Dashboard: EGAM blocks.
+ * Dashboard: EGAM blocks and the site status block.
  *
  * The dashboard module colours every link of a block with Gin's primary
  * colour, which made the export button's text the same colour as its
  * background. Selectors below are one class more specific to win over it.
  */
 
-/* Content gets the side margins the block title already has. */
-.dashboard .layout .block-egam-dashboard > :not(h2) {
-  margin-inline: var(--gin-spacing-m);
+/* Content lines up with the text of the block title (title margin + padding). */
+.dashboard {
+  --egam-dash-inset: calc(var(--space-s, 0.5rem) + var(--space-l, 1.5rem));
 }
 
-.dashboard .layout .block-egam-dashboard {
+.dashboard .layout :is(.block-egam-dashboard, .block-dashboard-site-status) {
   padding-block-end: var(--gin-spacing-m);
 }
 
-.dashboard .layout .block-egam-dashboard > h2 {
+.dashboard .layout :is(.block-egam-dashboard, .block-dashboard-site-status) > :not(h2) {
+  margin-inline: var(--egam-dash-inset);
+}
+
+.dashboard .layout :is(.block-egam-dashboard, .block-dashboard-site-status) > h2 {
   margin-block-end: var(--gin-spacing-m);
+}
+
+/* Gin wraps tables and the status report in a layer wrapper that has its own
+   inner padding: align its box with the block title and keep it inside the
+   block (a full-width box with side margins would overflow). */
+.dashboard .layout :is(.block-egam-dashboard, .block-dashboard-site-status) > .gin-layer-wrapper {
+  box-sizing: border-box;
+  inline-size: auto;
+  max-inline-size: calc(100% - 2 * var(--space-s, 0.5rem));
+  margin-inline: var(--space-s, 0.5rem);
+}
+
+/* Site status: the block title already says it, drop the repeated heading
+   (kept for screen readers). */
+.dashboard .layout .block-dashboard-site-status .system-status-general-info__header {
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  block-size: 1px;
+  white-space: nowrap;
+}
+
+.dashboard .layout .block-dashboard-site-status .system-status-report {
+  margin-block-end: var(--gin-spacing-m);
+}
+
+.dashboard .layout .block-dashboard-site-status > a {
+  display: inline-block;
 }
 
 /* The export button keeps Gin's button text colour on its primary background. */
@@ -57,9 +90,11 @@
   list-style: none;
 }
 
+/* Claro's item list draws a bullet on every li: none on pills. */
 .dashboard .layout .block-egam-dashboard .egam-pills li {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .dashboard .layout .block-egam-dashboard .egam-pills a {
