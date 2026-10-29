@@ -10,7 +10,7 @@ id: artwork.artwork.field_york_project
 field_name: field_york_project
 entity_type: artwork
 bundle: artwork
-label: 'York Project'
+label: 'Yorck Project'
 description: ''
 required: false
 translatable: false

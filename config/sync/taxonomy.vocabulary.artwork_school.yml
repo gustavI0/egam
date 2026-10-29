@@ -1,0 +1,9 @@
+uuid: 5b0f7c1e-3d52-4c0a-9a57-8e1d6f2b4a93
+langcode: fr
+status: true
+dependencies: {  }
+name: École
+vid: artwork_school
+description: null
+weight: 0
+new_revision: false

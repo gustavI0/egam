@@ -127,12 +127,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_school:
-    type: string_textfield
+    type: options_select
     weight: 14
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_sorting_name:
     type: string_textfield

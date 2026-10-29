@@ -27,6 +27,7 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
 
   private const CONFIG = [
     'taxonomy.vocabulary.artwork_type',
+    'taxonomy.vocabulary.artwork_school',
     'field.storage.artwork.field_artwork_type',
     'field.storage.artwork.field_school',
     'field.storage.artwork.field_york_project',
@@ -75,11 +76,17 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
     return reset($terms);
   }
 
+  private function school(string $name): Term {
+    $term = Term::create(['vid' => 'artwork_school', 'name' => $name]);
+    $term->save();
+    return $term;
+  }
+
   private function artwork(?string $type, ?string $school, ?bool $york): Artwork {
     $artwork = Artwork::create([
       'label' => 'Test',
       'field_artwork_type' => $type === NULL ? NULL : $this->type($type)->id(),
-      'field_school' => $school,
+      'field_school' => $school === NULL ? NULL : $this->school($school)->id(),
       'field_york_project' => $york,
     ]);
     $artwork->save();
@@ -96,10 +103,14 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
     $this->assertSame(1, $type->getFieldStorageDefinition()->getCardinality());
     $this->assertSame('Type d\'œuvre', (string) $type->getLabel());
 
-    $this->assertSame('string', $definitions['field_school']->getType());
+    $school = $definitions['field_school'];
+    $this->assertSame('entity_reference', $school->getType());
+    $this->assertSame('taxonomy_term', $school->getSetting('target_type'));
+    $this->assertSame(['artwork_school' => 'artwork_school'], $school->getSetting('handler_settings')['target_bundles']);
+    $this->assertSame(1, $school->getFieldStorageDefinition()->getCardinality());
     $this->assertSame('École', (string) $definitions['field_school']->getLabel());
     $this->assertSame('boolean', $definitions['field_york_project']->getType());
-    $this->assertSame('York Project', (string) $definitions['field_york_project']->getLabel());
+    $this->assertSame('Yorck Project', (string) $definitions['field_york_project']->getLabel());
 
     foreach (['field_artwork_type', 'field_school', 'field_york_project'] as $name) {
       $this->assertFalse($definitions[$name]->isRequired(), $name);
@@ -149,7 +160,7 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
 
     $artwork = $this->artwork('Peinture', 'Flemish', TRUE);
 
-    $this->assertSame('Flemish', $artwork->get('field_school')->value);
+    $this->assertSame('Flemish', $artwork->get('field_school')->entity->label());
     $this->assertSame('1', (string) $artwork->get('field_york_project')->value);
   }
 
@@ -168,7 +179,7 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
     $artwork = $this->artwork(NULL, 'Flemish', TRUE);
 
     // An artwork without a type may be saved by a script that only sets these.
-    $this->assertSame('Flemish', $artwork->get('field_school')->value);
+    $this->assertSame('Flemish', $artwork->get('field_school')->entity->label());
     $this->assertSame('1', (string) $artwork->get('field_york_project')->value);
   }
 
@@ -178,7 +189,7 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
 
     $artwork = $this->artwork('Sculpture', 'Flemish', TRUE);
 
-    $this->assertSame('Flemish', $artwork->get('field_school')->value);
+    $this->assertSame('Flemish', $artwork->get('field_school')->entity->label());
     $this->assertSame('1', (string) $artwork->get('field_york_project')->value);
   }
 
@@ -202,7 +213,7 @@ class ArtworkTypeFieldsTest extends KernelTestBase {
       'status' => TRUE,
     ]);
     $display->setComponent('field_artwork_type', ['type' => 'options_select', 'weight' => 1]);
-    $display->setComponent('field_school', ['type' => 'string_textfield', 'weight' => 2]);
+    $display->setComponent('field_school', ['type' => 'options_select', 'weight' => 2]);
     $display->setComponent('field_york_project', ['type' => 'boolean_checkbox', 'weight' => 3]);
     $display->save();
 

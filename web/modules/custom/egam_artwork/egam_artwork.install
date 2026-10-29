@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Update hooks of the artwork module.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Drops the text version of the school field.
+ *
+ * Drupal cannot change a field from text to term reference once it exists, so
+ * the configuration import recreates it as a reference to the "École"
+ * vocabulary. Values typed so far are lost and must be picked again.
+ */
+function egam_artwork_update_11001(): string {
+  $storage = FieldStorageConfig::loadByName('artwork', 'field_school');
+  if (!$storage || $storage->getType() !== 'string') {
+    return 'The school field is not a text field, nothing to do.';
+  }
+  $storage->delete();
+  return 'Deleted the text school field, the configuration import recreates it as a term reference.';
+}

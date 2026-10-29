@@ -10,7 +10,7 @@ use Drupal\egam_artwork\Entity\ArtworkInterface;
 use Drupal\egam_artwork\Form\ArtworkForm;
 
 /**
- * Keeps the painting-only fields (school, York Project) tied to the painting type.
+ * Keeps the painting-only fields (school, Yorck Project) tied to the painting type.
  */
 class ArtworkTypeHooks {
 
