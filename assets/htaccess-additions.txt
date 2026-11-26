@@ -1,0 +1,6 @@
+
+# EGAM: block the Drupal installer (SA-CORE-2026-019).
+# install.php is only needed to create a new site, never in production.
+<Files "install.php">
+  Require all denied
+</Files>

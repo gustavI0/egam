@@ -66,6 +66,11 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/.htaccess": {
+                    "append": "assets/htaccess-additions.txt"
+                }
             }
         },
         "installer-paths": {
@@ -121,5 +126,13 @@
     },
     "require-dev": {
         "drupal/core-dev": "^11.4"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "rm -f web/core/install.php"
+        ],
+        "post-update-cmd": [
+            "rm -f web/core/install.php"
+        ]
     }
 }
